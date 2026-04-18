@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Text Case Converter Online — UPPER, lower, Title, camelCase | Logrith</title>
+  <meta name="description" content="Convert text between UPPERCASE, lowercase, Title Case, camelCase, PascalCase, snake_case, kebab-case and more. Free online case converter.">
+  <link rel="canonical" href="https://logrith.in/en/tools/case-converter.html">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    .case-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:10px; margin-bottom:16px; }
+    .case-btn { padding:10px 12px; background:var(--gray-50); border:1.5px solid var(--gray-200); border-radius:var(--radius); font-size:.84rem; font-weight:600; font-family:var(--font-display); color:var(--gray-700); cursor:pointer; transition:var(--transition); text-align:center; }
+    .case-btn:hover { border-color:var(--primary); background:var(--gray-100); color:var(--primary); }
+    .case-btn.active { background:var(--primary); color:white; border-color:var(--primary); }
+    .case-btn small { display:block; font-weight:400; font-size:.72rem; opacity:.8; margin-top:2px; }
+  </style>
+</head>
+<body>
+<div id="navbar"></div>
+
+<div class="tool-hero"><div class="tool-hero-inner">
+  <div class="tool-breadcrumb"><a href="/en/index.html">Home</a> › <a href="/en/index.html#text-tools">Text Tools</a> › Case Converter</div>
+  <h1>Aa Free Text Case Converter</h1>
+  <p>Convert text to UPPERCASE, lowercase, Title Case, camelCase, PascalCase, snake_case, kebab-case, and more — instantly in your browser.</p>
+  <div class="tool-tags"><span class="tool-tag">✅ Free</span><span class="tool-tag">⚡ Instant</span><span class="tool-tag">8+ Case Types</span><span class="tool-tag">📋 Copy Output</span></div>
+</div></div>
+
+<div class="tool-workspace" style="max-width:920px;">
+  <div class="tool-card">
+    <h2>Input Text</h2>
+    <textarea class="tool-textarea" id="input-text" rows="6" placeholder="Type or paste your text here..."></textarea>
+    <div class="stats-row mt-8">
+      <span class="stat-chip" id="wc-stat">0 words</span>
+      <span class="stat-chip" id="cc-stat">0 chars</span>
+    </div>
+  </div>
+
+  <div class="tool-card">
+    <h2>Choose Case Format</h2>
+    <div class="case-grid">
+      <button class="case-btn" data-case="upper">UPPER CASE<small>HELLO WORLD</small></button>
+      <button class="case-btn" data-case="lower">lower case<small>hello world</small></button>
+      <button class="case-btn" data-case="title">Title Case<small>Hello World</small></button>
+      <button class="case-btn" data-case="sentence">Sentence case<small>Hello world</small></button>
+      <button class="case-btn" data-case="camel">camelCase<small>helloWorld</small></button>
+      <button class="case-btn" data-case="pascal">PascalCase<small>HelloWorld</small></button>
+      <button class="case-btn" data-case="snake">snake_case<small>hello_world</small></button>
+      <button class="case-btn" data-case="kebab">kebab-case<small>hello-world</small></button>
+      <button class="case-btn" data-case="constant">CONSTANT_CASE<small>HELLO_WORLD</small></button>
+      <button class="case-btn" data-case="dot">dot.case<small>hello.world</small></button>
+      <button class="case-btn" data-case="alternate">aLtErNaTe<small>hElLo WoRlD</small></button>
+      <button class="case-btn" data-case="inverse">iNVERSE<small>Reverse case</small></button>
+    </div>
+
+    <div class="control-group" style="position:relative;">
+      <label>Output</label>
+      <textarea class="tool-textarea" id="output-text" rows="6" readonly placeholder="Converted text will appear here..."></textarea>
+      <button class="copy-btn" id="copy-btn">📋 Copy</button>
+    </div>
+    <div class="btn-group mt-12">
+      <button class="btn btn-secondary" id="clear-btn">✕ Clear All</button>
+      <button class="btn btn-secondary" id="swap-btn">⇅ Swap Input/Output</button>
+    </div>
+  </div>
+</div>
+
+<div class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item"><div class="faq-q">What is camelCase?</div><div class="faq-a">camelCase is a naming convention where the first word is lowercase and each subsequent word starts with an uppercase letter, with no spaces (e.g., helloWorld, myVariableName). It's widely used in JavaScript and many programming languages.</div></div>
+  <div class="faq-item"><div class="faq-q">What is the difference between PascalCase and camelCase?</div><div class="faq-a">PascalCase (also called UpperCamelCase) starts with an uppercase letter — every word is capitalized (e.g., HelloWorld). camelCase starts with a lowercase letter (e.g., helloWorld). PascalCase is common for class names and components.</div></div>
+  <div class="faq-item"><div class="faq-q">When should I use snake_case vs kebab-case?</div><div class="faq-a">snake_case uses underscores and is common in Python variable names, database column names. kebab-case uses hyphens and is common in CSS class names, HTML attributes, and URL slugs.</div></div>
+  <div class="faq-item"><div class="faq-q">What is Sentence case?</div><div class="faq-a">Sentence case capitalizes only the first letter of the first word, with the rest in lowercase — just like a regular sentence. It's used in article titles, UI labels, and general writing.</div></div>
+</div>
+
+<div id="footer"></div>
+
+<script src="/assets/js/main.js"></script>
+<script src="/en/load-components.js"></script>
+<script>
+const inputText = document.getElementById('input-text');
+const outputText = document.getElementById('output-text');
+
+function toWords(str) { return str.trim().replace(/([a-z])([A-Z])/g,'$1 $2').replace(/[_\-\.]+/g,' ').split(/\s+/).filter(Boolean); }
+
+const converters = {
+  upper: s => s.toUpperCase(),
+  lower: s => s.toLowerCase(),
+  title: s => s.toLowerCase().replace(/\b\w/g, c=>c.toUpperCase()),
+  sentence: s => s.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g, c=>c.toUpperCase()),
+  camel: s => { const w=toWords(s); return w[0].toLowerCase() + w.slice(1).map(w=>w[0].toUpperCase()+w.slice(1).toLowerCase()).join(''); },
+  pascal: s => toWords(s).map(w=>w[0].toUpperCase()+w.slice(1).toLowerCase()).join(''),
+  snake: s => toWords(s).map(w=>w.toLowerCase()).join('_'),
+  kebab: s => toWords(s).map(w=>w.toLowerCase()).join('-'),
+  constant: s => toWords(s).map(w=>w.toUpperCase()).join('_'),
+  dot: s => toWords(s).map(w=>w.toLowerCase()).join('.'),
+  alternate: s => s.split('').map((c,i)=>i%2===0?c.toLowerCase():c.toUpperCase()).join(''),
+  inverse: s => s.split('').map(c=>c===c.toUpperCase()?c.toLowerCase():c.toUpperCase()).join(''),
+};
+
+inputText.addEventListener('input', () => {
+  const v = inputText.value;
+  const words = v.trim() ? v.trim().split(/\s+/).length : 0;
+  document.getElementById('wc-stat').textContent = words + ' words';
+  document.getElementById('cc-stat').textContent = v.length + ' chars';
+  // Re-apply active case
+  const active = document.querySelector('.case-btn.active');
+  if (active) outputText.value = converters[active.dataset.case](v);
+});
+
+document.querySelectorAll('.case-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.case-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    outputText.value = converters[btn.dataset.case](inputText.value);
+  });
+});
+
+document.getElementById('copy-btn').addEventListener('click', function() { if(outputText.value) copyText(outputText.value, this); });
+document.getElementById('clear-btn').addEventListener('click', () => { inputText.value=''; outputText.value=''; document.querySelectorAll('.case-btn').forEach(b=>b.classList.remove('active')); document.getElementById('wc-stat').textContent='0 words'; document.getElementById('cc-stat').textContent='0 chars'; });
+document.getElementById('swap-btn').addEventListener('click', () => { const t=inputText.value; inputText.value=outputText.value; outputText.value=t; });
+</script>
+</body></html>

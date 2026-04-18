@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Image Compressor Online — Reduce JPG, PNG, WEBP Size | Logrith</title>
+  <meta name="description" content="Compress images online for free. Reduce JPG, PNG, WEBP file size without losing quality. Up to 80% compression. No upload, 100% browser-based.">
+  <link rel="canonical" href="https://logrith.in/en/tools/image-compressor.html">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<div id="navbar"></div>
+
+<div class="tool-hero"><div class="tool-hero-inner">
+  <div class="tool-breadcrumb"><a href="/en/index.html">Home</a> › <a href="/en/index.html#image-tools">Image Tools</a> › Image Compressor</div>
+  <h1>📦 Free Image Compressor Online</h1>
+  <p>Reduce JPG, PNG, and WEBP file sizes by up to 80% without visible quality loss. All processing happens in your browser — private &amp; instant.</p>
+  <div class="tool-tags"><span class="tool-tag">✅ Free</span><span class="tool-tag">🔒 Private</span><span class="tool-tag">⚡ Instant</span><span class="tool-tag">📊 Up to 80% reduction</span></div>
+</div></div>
+
+<div class="tool-workspace">
+  <div class="tool-card">
+    <h2>Upload Image(s)</h2>
+    <div class="upload-zone" id="upload-zone">
+      <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp" multiple>
+      <div class="upload-icon">📦</div>
+      <h3>Drop images here or click to browse</h3>
+      <p>Supports JPG, PNG, WEBP — up to 10 images</p>
+      <span class="upload-limit">Max 20MB per file</span>
+    </div>
+    <div id="file-list" class="mt-12"></div>
+  </div>
+
+  <div class="tool-card" id="settings-card" style="display:none;">
+    <h2>Compression Settings</h2>
+    <div class="controls-grid">
+      <div class="control-group">
+        <label>Quality: <span class="range-value" id="quality-val">75%</span></label>
+        <input type="range" id="quality-slider" min="5" max="95" value="75">
+      </div>
+      <div class="control-group">
+        <label>Output Format</label>
+        <select id="out-format">
+          <option value="same">Same as original</option>
+          <option value="image/jpeg">Force JPG</option>
+          <option value="image/webp">Force WEBP</option>
+          <option value="image/png">Force PNG</option>
+        </select>
+      </div>
+    </div>
+    <div class="mt-16 btn-group">
+      <button class="btn btn-primary btn-lg" id="compress-btn">📦 Compress Images</button>
+      <button class="btn btn-secondary" id="reset-btn">✕ Reset</button>
+    </div>
+    <div class="progress-bar mt-12" id="progress"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="status-msg" id="status-msg"></div>
+  </div>
+
+  <div class="tool-card" id="output-card" style="display:none;">
+    <h2>Compressed Results</h2>
+    <div id="results-list"></div>
+    <div class="btn-group mt-16">
+      <button class="btn btn-success" id="download-all-btn">⬇️ Download All</button>
+      <button class="btn btn-secondary" id="compress-more-btn">+ Compress More</button>
+    </div>
+  </div>
+</div>
+
+<div class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item"><div class="faq-q">How much can I reduce image file size?</div><div class="faq-a">Typical compression at 75% quality reduces JPG/WEBP files by 40–80% with minimal visible quality difference. PNG compression is lossless and depends on image complexity.</div></div>
+  <div class="faq-item"><div class="faq-q">Will compressing reduce image quality?</div><div class="faq-a">At 70–80% quality, the difference is barely visible to the human eye. For web use, 75–80% is the sweet spot between size and quality. Use the quality slider to find your balance.</div></div>
+  <div class="faq-item"><div class="faq-q">Can I compress multiple images at once?</div><div class="faq-a">Yes! Upload up to 10 images at once. All will be compressed with the same settings and available to download individually or all at once.</div></div>
+  <div class="faq-item"><div class="faq-q">Is WEBP better than JPG for compression?</div><div class="faq-a">Yes. WEBP typically produces 25–34% smaller files than JPG at the same quality. It's the recommended format for modern websites.</div></div>
+</div>
+
+<div class="article-section">
+  <h2>Why Compress Images for Your Website?</h2>
+  <p>Large images are one of the biggest reasons websites load slowly. Studies show that 53% of mobile users abandon sites that take over 3 seconds to load. Compressing images can dramatically improve page load speed, SEO rankings, and user experience.</p>
+  <p>Logrith's image compressor uses the HTML5 Canvas API to re-encode your images at the specified quality level — all in your browser. No third-party servers, no privacy concerns, no file size limits beyond what your device can handle.</p>
+</div>
+
+<div id="footer"></div>
+
+<script src="/assets/js/main.js"></script>
+<script src="/en/load-components.js"></script>
+
+<script>
+const fileInput = document.getElementById('file-input');
+const uploadZone = document.getElementById('upload-zone');
+const settingsCard = document.getElementById('settings-card');
+const outputCard = document.getElementById('output-card');
+const qualitySlider = document.getElementById('quality-slider');
+const qualityVal = document.getElementById('quality-val');
+const statusMsg = document.getElementById('status-msg');
+const progress = document.getElementById('progress');
+const progressFill = document.getElementById('progress-fill');
+const fileList = document.getElementById('file-list');
+const resultsList = document.getElementById('results-list');
+
+let files = [], compressedBlobs = [];
+
+qualitySlider.addEventListener('input', () => { qualityVal.textContent = qualitySlider.value + '%'; });
+
+function handleFiles(f) {
+  const arr = Array.from(f).slice(0, 10);
+  files = arr.filter(file => {
+    if (!['image/jpeg','image/png','image/webp'].includes(file.type)) { showStatus(statusMsg,'error','Only JPG, PNG, WEBP supported.'); return false; }
+    if (file.size > 20*1024*1024) { showStatus(statusMsg,'error',`${file.name}: max 20MB.`); return false; }
+    return true;
+  });
+  if (!files.length) return;
+  fileList.innerHTML = files.map(f => `<span class="stat-chip">📄 <strong>${f.name}</strong> — ${formatSize(f.size)}</span>`).join('');
+  settingsCard.style.display = 'block';
+  outputCard.style.display = 'none';
+}
+fileInput.addEventListener('change', e => handleFiles(e.target.files));
+initDragDrop(uploadZone, handleFiles);
+
+document.getElementById('compress-btn').addEventListener('click', async () => {
+  if (!files.length) return;
+  document.getElementById('compress-btn').disabled = true;
+  progress.classList.add('active');
+  compressedBlobs = [];
+  resultsList.innerHTML = '';
+
+  for (let i = 0; i < files.length; i++) {
+    progressFill.style.width = ((i + 1) / files.length * 100) + '%';
+    try {
+      const blob = await compressImage(files[i]);
+      compressedBlobs.push({ blob, orig: files[i] });
+      const saving = Math.round((1 - blob.size / files[i].size) * 100);
+      const ext = blob.type.split('/')[1];
+      resultsList.innerHTML += `
+        <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--gray-200);">
+          <div style="flex:1;font-size:.88rem;"><strong>${files[i].name}</strong><br>
+            <span class="text-muted">${formatSize(files[i].size)} → ${formatSize(blob.size)} </span>
+            <span style="color:var(--success);font-weight:600;">↓ ${saving}% saved</span>
+          </div>
+          <button class="btn btn-sm btn-success" onclick="downloadBlob(compressedBlobs[${i}].blob, '${files[i].name.replace(/\.[^.]+$/,'')}_compressed.${ext}')">⬇️ Download</button>
+        </div>`;
+    } catch(e) {
+      resultsList.innerHTML += `<div style="padding:12px 0;color:var(--error);">✗ ${files[i].name}: ${e.message}</div>`;
+    }
+  }
+  outputCard.style.display = 'block';
+  showStatus(statusMsg, 'success', `${files.length} image(s) compressed!`);
+  progress.classList.remove('active');
+  document.getElementById('compress-btn').disabled = false;
+});
+
+function compressImage(file) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = img.naturalWidth; canvas.height = img.naturalHeight;
+      const ctx = canvas.getContext('2d');
+      const outFormat = document.getElementById('out-format').value;
+      const mime = outFormat === 'same' ? (file.type === 'image/png' ? 'image/png' : 'image/jpeg') : outFormat;
+      if (mime === 'image/jpeg') { ctx.fillStyle='#fff'; ctx.fillRect(0,0,canvas.width,canvas.height); }
+      ctx.drawImage(img, 0, 0);
+      URL.revokeObjectURL(url);
+      const q = parseInt(qualitySlider.value) / 100;
+      canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error('Failed')), mime, q);
+    };
+    img.onerror = () => reject(new Error('Load error'));
+    img.src = url;
+  });
+}
+
+document.getElementById('download-all-btn').addEventListener('click', () => {
+  compressedBlobs.forEach(({ blob, orig }) => {
+    const ext = blob.type.split('/')[1];
+    downloadBlob(blob, orig.name.replace(/\.[^.]+$/, '') + '_compressed.' + ext);
+  });
+});
+document.getElementById('reset-btn').addEventListener('click', () => { files=[]; fileList.innerHTML=''; settingsCard.style.display='none'; outputCard.style.display='none'; fileInput.value=''; });
+document.getElementById('compress-more-btn').addEventListener('click', () => { outputCard.style.display='none'; fileInput.click(); });
+</script>
+</body></html>

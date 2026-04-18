@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Free Online Tools — 160+ Tools in One Place | Logrith</title>
+  <meta name="description" content="Browse all 160+ free online tools on Logrith — image converter, PDF merge, JSON formatter, QR generator, password generator, word counter, GST calculator and more. No login, instant, 100% free.">
+  <meta name="keywords" content="all free online tools, complete tool list, image tools, pdf tools, developer tools, text tools, utility tools, calculator online free, Logrith all tools">
+  <link rel="canonical" href="https://logrith.in/en/all-tools.html">
+  <meta property="og:title" content="All 160+ Free Online Tools — Logrith">
+  <meta property="og:description" content="Complete list of all free online tools on Logrith. Every tool organized by category, all free, no login.">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    .all-hero { background:linear-gradient(135deg,#f0f4ff 0%,#e8f7f5 100%); padding:52px 24px 40px; text-align:center; border-bottom:1.5px solid var(--gray-200); }
+    .all-hero-inner { max-width:680px; margin:0 auto; }
+    .all-hero .badge { display:inline-flex;align-items:center;gap:6px;padding:5px 14px;background:var(--white);border:1px solid var(--gray-200);border-radius:20px;font-size:.78rem;font-weight:700;color:var(--primary);font-family:var(--font-display);margin-bottom:16px; }
+    .all-hero h1 { font-family:var(--font-display);font-size:clamp(1.8rem,5vw,2.6rem);font-weight:800;color:var(--gray-900);letter-spacing:-.5px;line-height:1.2;margin-bottom:12px; }
+    .all-hero h1 span { color:var(--primary); }
+    .all-hero p { font-size:.96rem;color:var(--gray-700);line-height:1.7; }
+
+    /* Filter bar */
+    .filter-bar { max-width:1280px;margin:0 auto;padding:24px 24px 0; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+    .filter-btn { padding:8px 16px; background:var(--white); border:1.5px solid var(--gray-200); border-radius:20px; font-size:.82rem; font-weight:600; font-family:var(--font-display); color:var(--gray-700); cursor:pointer; transition:var(--transition); }
+    .filter-btn:hover { border-color:var(--primary); color:var(--primary); }
+    .filter-btn.active { background:var(--primary); color:white; border-color:var(--primary); }
+    .filter-search { flex:1; min-width:200px; max-width:320px; position:relative; }
+    .filter-search input { width:100%; padding:9px 14px 9px 36px; border:1.5px solid var(--gray-200); border-radius:20px; font-size:.86rem; font-family:var(--font-main); outline:none; transition:var(--transition); }
+    .filter-search input:focus { border-color:var(--primary); }
+    .filter-search .si { position:absolute; left:12px; top:50%; transform:translateY(-50%); color:var(--gray-500); }
+
+    /* Section */
+    .all-section { max-width:1280px; margin:0 auto; padding:32px 24px; }
+    .all-section-header { display:flex; align-items:center; gap:12px; margin-bottom:18px; padding-bottom:12px; border-bottom:2px solid var(--gray-100); }
+    .all-section-header h2 { font-family:var(--font-display); font-size:1.1rem; font-weight:700; color:var(--gray-900); }
+    .all-section-header .cat-badge { padding:3px 10px; border-radius:20px; font-size:.74rem; font-weight:700; }
+    .all-section-header a { margin-left:auto; font-size:.82rem; color:var(--primary); font-weight:600; text-decoration:none; }
+    .all-section-header a:hover { text-decoration:underline; }
+
+    /* Tool items in compact list style */
+    .compact-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:10px; }
+    .compact-item { display:flex; align-items:center; gap:12px; padding:13px 16px; background:var(--white); border:1.5px solid var(--gray-200); border-radius:var(--radius); text-decoration:none; transition:var(--transition); }
+    .compact-item:hover { border-color:var(--primary); background:var(--gray-50); box-shadow:var(--shadow-sm); }
+    .compact-item.coming-soon { opacity:.5; cursor:default; }
+    .ci-icon { width:36px; height:36px; border-radius:9px; background:var(--gray-100); display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; transition:var(--transition); }
+    .compact-item:hover .ci-icon { background:var(--primary); }
+    .ci-text { flex:1; min-width:0; }
+    .ci-name { font-size:.86rem; font-weight:600; color:var(--gray-900); font-family:var(--font-display); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .ci-desc { font-size:.74rem; color:var(--gray-500); margin-top:1px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .ci-soon { font-size:.66rem; background:var(--accent); color:white; padding:1px 6px; border-radius:8px; flex-shrink:0; }
+
+    /* SEO block */
+    .seo-all { max-width:900px; margin:0 auto; padding:0 24px 48px; }
+    .seo-all h2 { font-family:var(--font-display); font-size:1.4rem; font-weight:700; color:var(--gray-900); margin-bottom:12px; margin-top:32px; }
+    .seo-all p { font-size:.93rem; color:var(--gray-700); line-height:1.8; margin-bottom:12px; }
+    .seo-all a { color:var(--primary); }
+
+    #no-results { display:none; text-align:center; padding:48px; color:var(--gray-500); font-size:.96rem; }
+  </style>
+</head>
+<body>
+
+<div id="navbar"></div>
+
+<section class="all-hero">
+  <div class="all-hero-inner">
+    <div class="tool-breadcrumb" style="justify-content:center;margin-bottom:14px;"><a href="index.html">Home</a> › All Tools</div>
+    <div class="badge">⚡ Complete Tool Directory</div>
+    <h1>All <span>160+ Free Tools</span><br>In One Place</h1>
+    <p>Every tool on Logrith, organized by category. Filter by type or search by name to find exactly what you need.</p>
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <button class="filter-btn active" data-cat="all">All</button>
+  <button class="filter-btn" data-cat="image">🖼️ Image</button>
+  <button class="filter-btn" data-cat="pdf">📄 PDF</button>
+  <button class="filter-btn" data-cat="dev">🛠️ Dev</button>
+  <button class="filter-btn" data-cat="text">✏️ Text</button>
+  <button class="filter-btn" data-cat="utility">⚙️ Utility</button>
+  <div class="filter-search">
+    <span class="si">🔍</span>
+    <input type="text" id="tool-filter" placeholder="Filter tools...">
+  </div>
+  <span id="tool-count" style="font-size:.82rem;color:var(--gray-500);font-weight:600;"></span>
+</div>
+
+<div id="no-results">No tools found for your search. <a href="categories.html" style="color:var(--primary);">Browse categories →</a></div>
+
+<!-- IMAGE TOOLS -->
+<div class="all-section" data-cat="image">
+  <div class="all-section-header">
+    <span style="font-size:1.3rem;">🖼️</span>
+    <h2>Image Tools</h2>
+    <span class="cat-badge" style="background:#eff6ff;color:#1d4ed8;">22+ tools</span>
+    <a href="image-tools.html">View category →</a>
+  </div>
+  <div class="compact-grid">
+    <a href="tools/image-converter.html" class="compact-item"><div class="ci-icon">🔄</div><div class="ci-text"><div class="ci-name">Image Converter</div><div class="ci-desc">JPG, PNG, WEBP, BMP, GIF — any format</div></div></a>
+    <a href="tools/image-compressor.html" class="compact-item"><div class="ci-icon">📦</div><div class="ci-text"><div class="ci-name">Image Compressor</div><div class="ci-desc">Up to 80% smaller, quality control</div></div></a>
+    <a href="tools/image-resize.html" class="compact-item"><div class="ci-icon">↔️</div><div class="ci-text"><div class="ci-name">Image Resize</div><div class="ci-desc">Custom px, aspect ratio lock, presets</div></div></a>
+    <a href="tools/image-crop.html" class="compact-item"><div class="ci-icon">✂️</div><div class="ci-text"><div class="ci-name">Image Crop</div><div class="ci-desc">Drag to crop, ratio presets (16:9, 1:1)</div></div></a>
+    <a href="tools/image-rotate.html" class="compact-item"><div class="ci-icon">🔃</div><div class="ci-text"><div class="ci-name">Image Rotate &amp; Flip</div><div class="ci-desc">90/180/270°, flip horizontal/vertical</div></div></a>
+    <div class="compact-item coming-soon"><div class="ci-icon">🎨</div><div class="ci-text"><div class="ci-name">Brightness / Contrast</div><div class="ci-desc">Adjust image tone and saturation</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><div class="ci-icon">🌫️</div><div class="ci-text"><div class="ci-name">Blur / Sharpen Filter</div><div class="ci-desc">Gaussian blur and sharpen effect</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><div class="ci-icon">👴</div><div class="ci-text"><div class="ci-name">Grayscale / Sepia</div><div class="ci-desc">B&W and vintage film effect</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><div class="ci-icon">💧</div><div class="ci-text"><div class="ci-name">Watermark Add</div><div class="ci-desc">Text/image watermark with opacity</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><div class="ci-icon">🖼️</div><div class="ci-text"><div class="ci-name">Border Add</div><div class="ci-desc">Custom colored borders and padding</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><div class="ci-icon">📝</div><div class="ci-text"><div class="ci-name">Text on Image</div><div class="ci-desc">Add custom text overlays to photos</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><div class="ci-icon">🖼️</div><div class="ci-text"><div class="ci-name">Thumbnail Maker</div><div class="ci-desc">YouTube and social media thumbnails</div></div><span class="ci-soon">Soon</span></div>
+  </div>
+</div>
+
+<!-- PDF TOOLS -->
+<div class="all-section" data-cat="pdf" style="background:var(--gray-50);">
+  <div class="all-section-header">
+    <span style="font-size:1.3rem;">📄</span>
+    <h2>PDF Tools</h2>
+    <span class="cat-badge" style="background:#fef2f2;color:#dc2626;">15+ tools</span>
+    <a href="pdf-tools.html">View category →</a>
+  </div>
+  <div class="compact-grid">
+    <a href="tools/pdf-merge.html" class="compact-item"><div class="ci-icon">📎</div><div class="ci-text"><div class="ci-name">PDF Merge</div><div class="ci-desc">Combine PDFs, drag to reorder</div></div></a>
+    <a href="tools/pdf-split.html" class="compact-item"><div class="ci-icon">✂️</div><div class="ci-text"><div class="ci-name">PDF Split</div><div class="ci-desc">Extract pages by range (1-3, 5, 7-10)</div></div></a>
+    <a href="tools/jpg-to-pdf.html" class="compact-item"><div class="ci-icon">🖼️</div><div class="ci-text"><div class="ci-name">JPG / Image to PDF</div><div class="ci-desc">Multiple images → multi-page PDF</div></div></a>
+    <a href="tools/pdf-to-jpg.html" class="compact-item"><div class="ci-icon">📷</div><div class="ci-text"><div class="ci-name">PDF to JPG / PNG</div><div class="ci-desc">High DPI page rendering, all pages</div></div></a>
+    <a href="tools/pdf-rotate.html" class="compact-item"><div class="ci-icon">🔃</div><div class="ci-text"><div class="ci-name">PDF Rotate Pages</div><div class="ci-desc">90/180/270°, all/odd/even/range</div></div></a>
+    <div class="compact-item coming-soon"><div class="ci-icon">🔐</div><div class="ci-text"><div class="ci-name">PDF Password Protect</div><div class="ci-desc">AES-256 encryption via PDF-Lib</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><div class="ci-icon">🔓</div><div class="ci-text"><div class="ci-name">PDF Unlock</div><div class="ci-desc">Remove password from known-password PDFs</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><div class="ci-icon">💧</div><div class="ci-text"><div class="ci-name">PDF Watermark</div><div class="ci-desc">Text watermark on all pages</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><div class="ci-icon">📄</div><div class="ci-text"><div class="ci-name">Add Page Numbers</div><div class="ci-desc">Footer page numbers, custom style</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><div class="ci-icon">📋</div><div class="ci-text"><div class="ci-name">PDF Metadata Viewer</div><div class="ci-desc">Author, creation date, title, subject</div></div><span class="ci-soon">Soon</span></div>
+  </div>
+</div>
+
+<!-- DEV TOOLS -->
+<div class="all-section" data-cat="dev">
+  <div class="all-section-header">
+    <span style="font-size:1.3rem;">🛠️</span>
+    <h2>Developer Tools</h2>
+    <span class="cat-badge" style="background:#f0fdf4;color:#16a34a;">25+ tools</span>
+    <a href="dev-tools.html">View category →</a>
+  </div>
+  <div class="compact-grid">
+    <a href="tools/json-formatter.html" class="compact-item"><div class="ci-icon">{ }</div><div class="ci-text"><div class="ci-name">JSON Formatter</div><div class="ci-desc">Format, validate, minify, sort keys</div></div></a>
+    <a href="tools/base64.html" class="compact-item"><div class="ci-icon">🔐</div><div class="ci-text"><div class="ci-name">Base64 Encode / Decode</div><div class="ci-desc">Text, files, URL-safe, data URI</div></div></a>
+    <a href="tools/url-encoder.html" class="compact-item"><div class="ci-icon">🔗</div><div class="ci-text"><div class="ci-name">URL Encoder / Decoder</div><div class="ci-desc">Percent-encoding, encodeURIComponent</div></div></a>
+    <a href="tools/hash-generator.html" class="compact-item"><div class="ci-icon">#</div><div class="ci-text"><div class="ci-name">Hash Generator</div><div class="ci-desc">SHA-256, SHA-512, SHA-1, file hash</div></div></a>
+    <a href="tools/password-generator.html" class="compact-item"><div class="ci-icon">🔑</div><div class="ci-text"><div class="ci-name">Password Generator</div><div class="ci-desc">Crypto-secure, bulk, custom charset</div></div></a>
+    <a href="tools/uuid-generator.html" class="compact-item"><div class="ci-icon">🆔</div><div class="ci-text"><div class="ci-name">UUID v4 Generator</div><div class="ci-desc">Bulk, multiple formats, validator</div></div></a>
+    <a href="tools/regex-tester.html" class="compact-item"><div class="ci-icon">🔍</div><div class="ci-text"><div class="ci-name">Regex Tester</div><div class="ci-desc">Real-time highlight, capture groups</div></div></a>
+    <a href="tools/password-strength.html" class="compact-item"><div class="ci-icon">🔒</div><div class="ci-text"><div class="ci-name">Password Strength</div><div class="ci-desc">Entropy, crack time, 10 checks</div></div></a>
+    <div class="compact-item coming-soon"><div class="ci-icon">📝</div><div class="ci-text"><div class="ci-name">CSS Minifier</div><div class="ci-desc">Remove whitespace and comments</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><div class="ci-icon">⚡</div><div class="ci-text"><div class="ci-name">JS Minifier</div><div class="ci-desc">Compress JavaScript code</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><div class="ci-icon">🌐</div><div class="ci-text"><div class="ci-name">HTML Formatter</div><div class="ci-desc">Beautify HTML with proper indentation</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><div class="ci-icon">📋</div><div class="ci-text"><div class="ci-name">HTML Previewer</div><div class="ci-desc">Live preview raw HTML in browser</div></div><span class="ci-soon">Soon</span></div>
+  </div>
+</div>
+
+<!-- TEXT TOOLS -->
+<div class="all-section" data-cat="text" style="background:var(--gray-50);">
+  <div class="all-section-header">
+    <span style="font-size:1.3rem;">✏️</span>
+    <h2>Text Tools</h2>
+    <span class="cat-badge" style="background:#fffbeb;color:#d97706;">18+ tools</span>
+    <a href="text-tools.html">View category →</a>
+  </div>
+  <div class="compact-grid">
+    <a href="tools/word-counter.html" class="compact-item"><div class="ci-icon">📝</div><div class="ci-text"><div class="ci-name">Word Counter</div><div class="ci-desc">Words, chars, reading time, keyword density</div></div></a>
+    <a href="tools/character-counter.html" class="compact-item"><div class="ci-icon">🔢</div><div class="ci-text"><div class="ci-name">Character Counter</div><div class="ci-desc">Frequency chart, platform limits</div></div></a>
+    <a href="tools/case-converter.html" class="compact-item"><div class="ci-icon">Aa</div><div class="ci-text"><div class="ci-name">Case Converter</div><div class="ci-desc">12 formats incl. camelCase, snake_case</div></div></a>
+    <a href="tools/text-diff.html" class="compact-item"><div class="ci-icon">🔍</div><div class="ci-text"><div class="ci-name">Text Diff Checker</div><div class="ci-desc">Line/word/char diff with highlighting</div></div></a>
+    <a href="tools/duplicate-remover.html" class="compact-item"><div class="ci-icon">🧹</div><div class="ci-text"><div class="ci-name">Duplicate Line Remover</div><div class="ci-desc">Sort, trim, deduplicate text lists</div></div></a>
+    <a href="tools/lorem-ipsum.html" class="compact-item"><div class="ci-icon">📃</div><div class="ci-text"><div class="ci-name">Lorem Ipsum Generator</div><div class="ci-desc">Paragraphs, words, HTML, Markdown</div></div></a>
+    <a href="tools/slug-generator.html" class="compact-item"><div class="ci-icon">🔗</div><div class="ci-text"><div class="ci-name">Slug Generator</div><div class="ci-desc">SEO slugs, bulk, stop words, custom sep</div></div></a>
+    <div class="compact-item coming-soon"><div class="ci-icon">📊</div><div class="ci-text"><div class="ci-name">Text Sorter</div><div class="ci-desc">Sort lines A→Z, numerically, by length</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><div class="ci-icon">🎲</div><div class="ci-text"><div class="ci-name">Random Text Generator</div><div class="ci-desc">Random words, names, sentences</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><div class="ci-icon">📌</div><div class="ci-text"><div class="ci-name">Keyword Density Checker</div><div class="ci-desc">SEO keyword frequency analysis</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><div class="ci-icon">✉️</div><div class="ci-text"><div class="ci-name">Email Extractor</div><div class="ci-desc">Extract emails from any text</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><div class="ci-icon">📝</div><div class="ci-text"><div class="ci-name">Markdown → HTML</div><div class="ci-desc">Convert Markdown to HTML instantly</div></div><span class="ci-soon">Soon</span></div>
+  </div>
+</div>
+
+<!-- UTILITY TOOLS -->
+<div class="all-section" data-cat="utility">
+  <div class="all-section-header">
+    <span style="font-size:1.3rem;">⚙️</span>
+    <h2>Utility Tools</h2>
+    <span class="cat-badge" style="background:#f0fdfa;color:#059669;">20+ tools</span>
+    <a href="utility-tools.html">View category →</a>
+  </div>
+  <div class="compact-grid">
+    <a href="tools/qr-generator.html" class="compact-item"><div class="ci-icon">▣</div><div class="ci-text"><div class="ci-name">QR Code Generator</div><div class="ci-desc">URL, WiFi, vCard, SMS, 7 types</div></div></a>
+    <a href="tools/color-converter.html" class="compact-item"><div class="ci-icon">🎨</div><div class="ci-text"><div class="ci-name">Color Converter</div><div class="ci-desc">HEX↔RGB↔HSL↔CMYK, palette</div></div></a>
+    <a href="tools/age-calculator.html" class="compact-item"><div class="ci-icon">📅</div><div class="ci-text"><div class="ci-name">Age Calculator</div><div class="ci-desc">Exact age, birthday countdown</div></div></a>
+    <a href="tools/unit-converter.html" class="compact-item"><div class="ci-icon">📐</div><div class="ci-text"><div class="ci-name">Unit Converter</div><div class="ci-desc">Length, weight, temp, data — 10 categories</div></div></a>
+    <a href="tools/percentage-calculator.html" class="compact-item"><div class="ci-icon">%</div><div class="ci-text"><div class="ci-name">Percentage Calculator</div><div class="ci-desc">% of, % change, discount — 4 modes</div></div></a>
+    <a href="tools/gst-calculator.html" class="compact-item"><div class="ci-icon">💹</div><div class="ci-text"><div class="ci-name">GST Calculator India</div><div class="ci-desc">All slabs, CGST+SGST, inclusive/exclusive</div></div></a>
+    <a href="tools/emi-calculator.html" class="compact-item"><div class="ci-icon">💰</div><div class="ci-text"><div class="ci-name">EMI Calculator</div><div class="ci-desc">Monthly EMI + full amortization table</div></div></a>
+    <a href="tools/password-strength.html" class="compact-item"><div class="ci-icon">🔒</div><div class="ci-text"><div class="ci-name">Password Strength Checker</div><div class="ci-desc">Entropy, crack time, tips</div></div></a>
+    <div class="compact-item coming-soon"><div class="ci-icon">🎲</div><div class="ci-text"><div class="ci-name">Random Number Generator</div><div class="ci-desc">Range, bulk, no-duplicates, dice</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><div class="ci-icon">▣</div><div class="ci-text"><div class="ci-name">Barcode Generator</div><div class="ci-desc">Code128, EAN-13, UPC-A</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><div class="ci-icon">🖥️</div><div class="ci-text"><div class="ci-name">Screen Resolution Checker</div><div class="ci-desc">Your device's resolution and DPI</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><div class="ci-icon">🔵</div><div class="ci-text"><div class="ci-name">WCAG Contrast Checker</div><div class="ci-desc">AA/AAA accessibility compliance</div></div><span class="ci-soon">Soon</span></div>
+  </div>
+</div>
+
+<!-- SEO TEXT -->
+<div class="seo-all">
+  <h2>The Complete Free Online Tool Directory</h2>
+  <p>Logrith is a single destination for all the browser-based utilities a professional, student, or creator needs. Instead of bookmarking a dozen different sites — one for image conversion, another for PDF manipulation, a third for JSON formatting — Logrith consolidates 160+ tools under one consistent, ad-free interface.</p>
+  <p>Every tool on this page runs 100% client-side. The <a href="image-tools.html">Image Tools</a> use the HTML5 Canvas API to process and re-encode images without any server involvement. The <a href="pdf-tools.html">PDF Tools</a> use PDF-Lib and PDF.js, both mature JavaScript libraries that run entirely in-browser. The <a href="dev-tools.html">Developer Tools</a> leverage the Web Crypto API, native JSON parsing, and JavaScript's built-in RegExp engine. The <a href="text-tools.html">Text Tools</a> use pure JavaScript string operations. The <a href="utility-tools.html">Utility Tools</a> use QRCode.js for QR generation and standard mathematical formulas for calculators.</p>
+  <p>The roadmap for Logrith includes audio tools (MP3 cutter, audio merge, format converter), additional image editing (watermark, text overlay, brightness/contrast), more developer tools (CSS/JS minifiers, HTML formatter, XML validator), extended text utilities (Markdown converter, email extractor, keyword density), and additional calculators (discount, fuel cost, date difference). All tools follow the same no-login, no-upload, instant-result philosophy that makes Logrith genuinely useful.</p>
+
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item"><div class="faq-q">Are all Logrith tools completely free?</div><div class="faq-a">Yes — no exceptions. No paid plan, no usage limits, no watermarks, no account required. Every tool listed on this page is free forever.</div></div>
+  <div class="faq-item"><div class="faq-q">Do any of these tools upload my files to a server?</div><div class="faq-a">None. Every single tool processes data in your browser. This is verifiable — open Chrome DevTools Network tab on any tool page and you'll see zero upload requests when using the tools.</div></div>
+  <div class="faq-item"><div class="faq-q">How many tools are currently live vs "coming soon"?</div><div class="faq-a">Currently 40+ tools are fully functional. The remaining are on the roadmap with "Coming Soon" labels. New tools are added regularly — check back or bookmark this page.</div></div>
+  <div class="faq-item"><div class="faq-q">Can I suggest a tool that should be added?</div><div class="faq-a">Yes! The most-requested tools get prioritized. Tools that can run client-side (in the browser) without requiring a server are most likely to be implemented quickly.</div></div>
+  <div class="faq-item"><div class="faq-q">Do the tools work on mobile?</div><div class="faq-a">All tools are fully mobile-responsive. Image tools support camera input on iOS and Android. PDF tools work on mobile browsers. Some complex tools (like batch processing) may be slower on low-end mobile devices.</div></div>
+  <div class="faq-item"><div class="faq-q">Why do some tools require an internet connection even if they're "client-side"?</div><div class="faq-a">Some tools load JavaScript libraries from CDNs on first use — PDF-Lib, PDF.js, QRCode.js. After the library loads, the actual processing is local. Once a page has been loaded, most tools work offline. This is a performance tradeoff to keep page sizes small.</div></div>
+  <div class="faq-item"><div class="faq-q">What browsers are supported?</div><div class="faq-a">Chrome 90+, Firefox 88+, Safari 14+, Edge 90+, and Brave. The tools use standard modern web APIs that all these browsers support. Internet Explorer is not supported.</div></div>
+  <div class="faq-item"><div class="faq-q">How is Logrith different from similar sites like ILovePDF or Smallpdf?</div><div class="faq-a">The key difference is that ILovePDF and Smallpdf upload your files to their servers for processing. Logrith processes everything locally in your browser. For sensitive documents — financial records, contracts, personal photos — this privacy difference is significant.</div></div>
+  <div class="faq-item"><div class="faq-q">Can I use Logrith tools for commercial projects?</div><div class="faq-a">Yes. There are no restrictions on commercial use. Convert product images, generate QR codes for marketing materials, format API data, calculate business metrics — all commercial use cases are welcome.</div></div>
+  <div class="faq-item"><div class="faq-q">Is there an API for Logrith tools?</div><div class="faq-a">Not currently. Logrith is a browser-only tool platform. For programmatic/API access to similar functionality, consider the libraries Logrith uses internally — PDF-Lib (npm), Sharp (Node.js image processing), and the Web Crypto API are all available for direct use in your applications.</div></div>
+</div>
+
+<div id="footer"></div>
+
+<script src="/assets/js/main.js"></script>
+<script src="/en/load-components.js"></script>
+<script>
+// Filter by category
+const filterBtns = document.querySelectorAll('.filter-btn');
+const sections = document.querySelectorAll('.all-section');
+let activeCat = 'all';
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeCat = btn.dataset.cat;
+    applyFilter();
+  });
+});
+
+document.getElementById('tool-filter').addEventListener('input', applyFilter);
+
+function applyFilter() {
+  const q = document.getElementById('tool-filter').value.toLowerCase().trim();
+  let total = 0;
+  sections.forEach(sec => {
+    const cat = sec.dataset.cat;
+    const catMatch = activeCat === 'all' || activeCat === cat;
+    if (!catMatch) { sec.style.display = 'none'; return; }
+    if (!q) { sec.style.display = ''; const items = sec.querySelectorAll('.compact-item:not(.coming-soon)'); total += items.length; return; }
+    const items = sec.querySelectorAll('.compact-item');
+    let secVisible = 0;
+    items.forEach(item => {
+      const name = item.querySelector('.ci-name')?.textContent.toLowerCase() || '';
+      const desc = item.querySelector('.ci-desc')?.textContent.toLowerCase() || '';
+      const match = name.includes(q) || desc.includes(q);
+      item.style.display = match ? '' : 'none';
+      if (match && !item.classList.contains('coming-soon')) secVisible++;
+    });
+    sec.style.display = secVisible > 0 ? '' : 'none';
+    total += secVisible;
+  });
+  document.getElementById('tool-count').textContent = q ? `${total} results` : '';
+  document.getElementById('no-results').style.display = total === 0 && q ? 'block' : 'none';
+}
+</script>
+</body>
+</html>

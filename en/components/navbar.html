@@ -1,0 +1,109 @@
+<!-- TOPBAR -->
+<!-- NAVBAR -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/en/index.html" class="nav-logo">
+      <div class="logo-icon"><img src="/assets/img/logo.png" alt="logo"></div>
+      <span class="logo-text">Logrith</span>
+    </a>
+
+    <ul class="nav-links">
+      <li class="dropdown">
+        <a href="#">🖼️ Image Tools ▾</a>
+        <div class="dropdown-menu">
+          <a href="/en/tools/image-converter.html"><span class="dm-icon">🔄</span> Image Converter</a>
+          <a href="/en/tools/image-compressor.html"><span class="dm-icon">📦</span> Image Compressor</a>
+          <a href="/en/tools/image-resize.html"><span class="dm-icon">↔️</span> Image Resize</a>
+          <a href="/en/tools/image-crop.html"><span class="dm-icon">✂️</span> Image Crop</a>
+          <a href="/en/tools/image-rotate.html"><span class="dm-icon">🔃</span> Image Rotate &amp; Flip</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="#">📄 PDF Tools ▾</a>
+        <div class="dropdown-menu">
+          <a href="/en/tools/pdf-merge.html"><span class="dm-icon">📎</span> PDF Merge</a>
+          <a href="/en/tools/pdf-split.html"><span class="dm-icon">✂️</span> PDF Split</a>
+          <a href="/en/tools/jpg-to-pdf.html"><span class="dm-icon">🖼️</span> JPG → PDF</a>
+          <a href="/en/tools/pdf-to-jpg.html"><span class="dm-icon">📄</span> PDF → JPG</a>
+          <a href="/en/tools/pdf-rotate.html"><span class="dm-icon">🔃</span> PDF Rotate</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="#">🛠️ Dev Tools ▾</a>
+        <div class="dropdown-menu">
+          <a href="/en/tools/json-formatter.html"><span class="dm-icon">{ }</span> JSON Formatter</a>
+          <a href="/en/tools/base64.html"><span class="dm-icon">🔐</span> Base64 Encode/Decode</a>
+          <a href="/en/tools/url-encoder.html"><span class="dm-icon">🔗</span> URL Encoder</a>
+          <a href="/en/tools/password-generator.html"><span class="dm-icon">🔑</span> Password Generator</a>
+          <a href="/en/tools/hash-generator.html"><span class="dm-icon">#</span> Hash Generator</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="#">✏️ Text Tools ▾</a>
+        <div class="dropdown-menu">
+          <a href="/en/tools/word-counter.html"><span class="dm-icon">📝</span> Word Counter</a>
+          <a href="/en/tools/case-converter.html"><span class="dm-icon">Aa</span> Case Converter</a>
+          <a href="/en/tools/character-counter.html"><span class="dm-icon">🔢</span> Character Counter</a>
+          <a href="/en/tools/lorem-ipsum.html"><span class="dm-icon">📃</span> Lorem Ipsum</a>
+          <a href="/en/tools/text-diff.html"><span class="dm-icon">🔍</span> Text Diff</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="#">⚙️ Utilities ▾</a>
+        <div class="dropdown-menu">
+          <a href="/en/tools/qr-generator.html"><span class="dm-icon">▣</span> QR Generator</a>
+          <a href="/en/tools/color-converter.html"><span class="dm-icon">🎨</span> Color Converter</a>
+          <a href="/en/tools/age-calculator.html"><span class="dm-icon">📅</span> Age Calculator</a>
+          <a href="/en/tools/unit-converter.html"><span class="dm-icon">📐</span> Unit Converter</a>
+          <a href="/en/tools/percentage-calculator.html"><span class="dm-icon">%</span> Percentage Calc</a>
+        </div>
+      </li>
+      <li><a href="/en/categories/all-tools.html">All Tools</a></li>
+    </ul>
+
+    <div class="nav-search">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="nav-search-input" placeholder="Search tools..." autocomplete="off">
+      <div id="search-results"></div>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobile-nav">
+  <div class="mobile-nav-header">
+    <a href="/en/index.html" class="nav-logo">
+      <div class="logo-icon"><img src="assets/logo.png" alt="logo"></div>
+      <span class="logo-text">Logrith</span>
+    </a>
+    <button class="mobile-nav-close" id="mobile-close">✕</button>
+  </div>
+  <ul class="mobile-nav-links">
+    <li><a href="/en/index.html">🏠 Home</a></li>
+    <li><a href="/en/tools/image-converter.html">🔄 Image Converter</a></li>
+    <li><a href="/en/tools/image-compressor.html">📦 Image Compressor</a></li>
+    <li><a href="/en/tools/image-resize.html">↔️ Image Resize</a></li>
+    <li><a href="/en/tools/image-crop.html">✂️ Image Crop</a></li>
+    <li><a href="/en/tools/image-rotate.html">🔃 Image Rotate &amp; Flip</a></li>
+    <li><a href="/en/tools/pdf-merge.html">📎 PDF Merge</a></li>
+    <li><a href="/en/tools/pdf-split.html">✂️ PDF Split</a></li>
+    <li><a href="/en/tools/jpg-to-pdf.html">🖼️ JPG → PDF</a></li>
+    <li><a href="/en/tools/pdf-to-jpg.html">📄 PDF → JPG</a></li>
+    <li><a href="/en/tools/pdf-rotate.html">🔃 PDF Rotate</a></li>
+    <li><a href="/en/tools/json-formatter.html">{ } JSON Formatter</a></li>
+    <li><a href="/en/tools/base64.html">🔐 Base64 Encode/Decode</a></li>
+    <li><a href="/en/tools/url-encoder.html">🔗 URL Encoder</a></li>
+    <li><a href="/en/tools/password-generator.html">🔑 Password Generator</a></li>
+    <li><a href="/en/tools/word-counter.html">📝 Word Counter</a></li>
+    <li><a href="/en/tools/case-converter.html">Aa Case Converter</a></li>
+    <li><a href="/en/tools/qr-generator.html">▣ QR Generator</a></li>
+    <li><a href="/en/tools/color-converter.html">🎨 Color Converter</a></li>
+    <li><a href="/en/tools/age-calculator.html">📅 Age Calculator</a></li>
+    <li><a href="/en/tools/unit-converter.html">📐 Unit Converter</a></li>
+    <li><a href="/en/categories/all-tools.html">⚡ All Tools</a></li>
+  </ul>
+</div>

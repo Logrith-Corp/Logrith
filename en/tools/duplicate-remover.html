@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Duplicate Line Remover Online | Logrith</title>
+  <meta name="description" content="Remove duplicate lines from text online free. Sort, trim, and deduplicate text lines instantly. No login required.">
+  <link rel="canonical" href="https://logrith.in/en/tools/duplicate-remover.html">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+  <div id="navbar"></div>
+  
+<div class="tool-hero"><div class="tool-hero-inner">
+  <div class="tool-breadcrumb"><a href="/en/index.html">Home</a> › <a href="/en/index.html#text-tools">Text Tools</a> › Duplicate Line Remover</div>
+  <h1>🧹 Free Duplicate Line Remover</h1>
+  <p>Remove duplicate lines from any text. Sort lines, trim whitespace, ignore case, and more. Instant, free, no login.</p>
+  <div class="tool-tags"><span class="tool-tag">✅ Free</span><span class="tool-tag">⚡ Instant</span><span class="tool-tag">📊 Sort Lines</span><span class="tool-tag">🧹 Clean Duplicates</span></div>
+</div></div>
+<div class="tool-workspace" style="max-width:920px;">
+  <div class="tool-card">
+    <h2>Options</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:16px;">
+      <label style="display:flex;align-items:center;gap:8px;font-size:.88rem;cursor:pointer;"><input type="checkbox" id="trim-ws" checked style="accent-color:var(--primary);width:16px;height:16px;"> Trim whitespace</label>
+      <label style="display:flex;align-items:center;gap:8px;font-size:.88rem;cursor:pointer;"><input type="checkbox" id="ignore-case" style="accent-color:var(--primary);width:16px;height:16px;"> Ignore case</label>
+      <label style="display:flex;align-items:center;gap:8px;font-size:.88rem;cursor:pointer;"><input type="checkbox" id="remove-empty" checked style="accent-color:var(--primary);width:16px;height:16px;"> Remove empty lines</label>
+      <label style="display:flex;align-items:center;gap:8px;font-size:.88rem;cursor:pointer;"><input type="checkbox" id="sort-lines" style="accent-color:var(--primary);width:16px;height:16px;"> Sort A→Z</label>
+      <label style="display:flex;align-items:center;gap:8px;font-size:.88rem;cursor:pointer;"><input type="checkbox" id="sort-desc" style="accent-color:var(--primary);width:16px;height:16px;"> Sort Z→A</label>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div><label style="font-size:.84rem;font-weight:600;color:var(--gray-700);display:block;margin-bottom:6px;">Input Text</label>
+        <textarea class="tool-textarea" id="input-text" rows="12" placeholder="Paste lines here..."></textarea></div>
+      <div><label style="font-size:.84rem;font-weight:600;color:var(--gray-700);display:block;margin-bottom:6px;">Output (duplicates removed)</label>
+        <div style="position:relative;"><textarea class="tool-textarea" id="output-text" rows="12" readonly placeholder="Result will appear here..."></textarea><button class="copy-btn" id="copy-btn">📋 Copy</button></div></div>
+    </div>
+    <div class="stats-row mt-12" id="stats-row"></div>
+    <div class="btn-group mt-12">
+      <button class="btn btn-primary" id="process-btn">🧹 Remove Duplicates</button>
+      <button class="btn btn-secondary" id="clear-btn">✕ Clear</button>
+    </div>
+    <div class="status-msg" id="status-msg"></div>
+  </div>
+</div>
+<div class="faq-section"><h2>Frequently Asked Questions</h2>
+<div class="faq-item"><div class="faq-q">How do I remove duplicate lines?</div><div class="faq-a">Paste your text in the input box and click Remove Duplicates. The tool keeps only the first occurrence of each line and removes all subsequent duplicates.</div></div>
+<div class="faq-item"><div class="faq-q">Can I sort lines alphabetically while removing duplicates?</div><div class="faq-a">Yes! Check "Sort A→Z" or "Sort Z→A" before clicking Remove Duplicates. The output will be both deduplicated and sorted.</div></div>
+</div>
+<div id="footer"></div>
+<script src="/assets/js/main.js"></script>
+<script src="/en/load-components.js"></script>
+<script>
+document.getElementById('process-btn').addEventListener('click', () => {
+  let text = document.getElementById('input-text').value;
+  let lines = text.split('\n');
+  const trim = document.getElementById('trim-ws').checked;
+  const ignCase = document.getElementById('ignore-case').checked;
+  const remEmpty = document.getElementById('remove-empty').checked;
+  const sortAsc = document.getElementById('sort-lines').checked;
+  const sortDesc = document.getElementById('sort-desc').checked;
+  const orig = lines.length;
+  if (trim) lines = lines.map(l=>l.trim());
+  if (remEmpty) lines = lines.filter(l=>l.length>0);
+  const seen = new Set();
+  lines = lines.filter(l=>{ const key=ignCase?l.toLowerCase():l; if(seen.has(key)) return false; seen.add(key); return true; });
+  if (sortAsc) lines.sort((a,b)=>a.localeCompare(b));
+  else if (sortDesc) lines.sort((a,b)=>b.localeCompare(a));
+  const out = lines.join('\n');
+  document.getElementById('output-text').value = out;
+  const removed = orig - lines.length;
+  document.getElementById('stats-row').innerHTML = `<span class="stat-chip">Original: <strong>${orig}</strong> lines</span><span class="stat-chip">Output: <strong>${lines.length}</strong> lines</span><span class="stat-chip">Removed: <strong>${removed}</strong> duplicates</span>`;
+  showStatus(document.getElementById('status-msg'),'success',`Removed ${removed} duplicate line(s)!`);
+});
+document.getElementById('copy-btn').addEventListener('click',function(){const v=document.getElementById('output-text').value;if(v)copyText(v,this);});
+document.getElementById('clear-btn').addEventListener('click',()=>{document.getElementById('input-text').value='';document.getElementById('output-text').value='';document.getElementById('stats-row').innerHTML='';document.getElementById('status-msg').style.display='none';});
+document.getElementById('input-text').addEventListener('input',()=>document.getElementById('process-btn').click());
+</script>
+</body></html>

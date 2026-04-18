@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Age Calculator Online — Exact Age in Years, Months, Days | Logrith</title>
+  <meta name="description" content="Calculate your exact age in years, months, days, hours and minutes. Find days until next birthday. Free online age calculator.">
+  <link rel="canonical" href="https://logrith.in/en/tools/age-calculator.html">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    .age-result-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:14px; }
+    .age-box { background:var(--white); border:1.5px solid var(--gray-200); border-radius:var(--radius); padding:18px 14px; text-align:center; }
+    .age-box .ab-num { font-family:var(--font-display); font-size:1.8rem; font-weight:800; color:var(--primary); display:block; }
+    .age-box .ab-lbl { font-size:.76rem; color:var(--gray-500); margin-top:4px; display:block; }
+    .timeline-bar { height:8px; background:var(--gray-200); border-radius:4px; overflow:hidden; margin-top:8px; }
+    .timeline-fill { height:100%; background:linear-gradient(90deg,var(--primary),var(--accent)); border-radius:4px; transition:width .5s; }
+  </style>
+</head>
+<body>
+<div id="navbar"></div>
+
+<div class="tool-hero"><div class="tool-hero-inner">
+  <div class="tool-breadcrumb"><a href="/en/index.html">Home</a> › <a href="/en/index.html#utility-tools">Utility Tools</a> › Age Calculator</div>
+  <h1>📅 Free Age Calculator Online</h1>
+  <p>Calculate your exact age in years, months, days, hours, minutes and seconds. Also find out how many days until your next birthday.</p>
+  <div class="tool-tags"><span class="tool-tag">✅ Free</span><span class="tool-tag">⚡ Instant</span><span class="tool-tag">🎂 Birthday Countdown</span><span class="tool-tag">⏱️ In Seconds Too</span></div>
+</div></div>
+
+<div class="tool-workspace" style="max-width:760px;">
+  <div class="tool-card">
+    <h2>Enter Date of Birth</h2>
+    <div class="controls-grid">
+      <div class="control-group">
+        <label>Date of Birth</label>
+        <input type="date" id="dob" style="padding:10px 14px;border:1.5px solid var(--gray-200);border-radius:8px;font-size:.96rem;font-family:var(--font-main);outline:none;width:100%;">
+      </div>
+      <div class="control-group">
+        <label>Calculate Age As Of</label>
+        <input type="date" id="calc-date" style="padding:10px 14px;border:1.5px solid var(--gray-200);border-radius:8px;font-size:.96rem;font-family:var(--font-main);outline:none;width:100%;">
+      </div>
+    </div>
+    <div class="btn-group mt-16">
+      <button class="btn btn-primary btn-lg" id="calc-btn">📅 Calculate Age</button>
+      <button class="btn btn-secondary" id="reset-btn">✕ Reset</button>
+    </div>
+    <div class="status-msg" id="status-msg"></div>
+  </div>
+
+  <div class="tool-card" id="result-card" style="display:none;">
+    <h2>Age Results</h2>
+    <div class="age-result-grid" id="age-grid"></div>
+
+    <div style="margin-top:20px;padding:16px;background:var(--gray-50);border-radius:var(--radius);">
+      <div id="age-summary" style="font-size:.96rem;color:var(--gray-700);line-height:1.8;"></div>
+    </div>
+
+    <div style="margin-top:16px;">
+      <div style="display:flex;justify-content:space-between;font-size:.84rem;margin-bottom:6px;"><span style="color:var(--gray-500);">Year progress</span><span id="year-pct" style="color:var(--primary);font-weight:600;"></span></div>
+      <div class="timeline-bar"><div class="timeline-fill" id="year-fill"></div></div>
+    </div>
+
+    <div id="birthday-section" style="margin-top:16px;padding:14px;background:linear-gradient(135deg,#fff7ed,#fef3c7);border:1px solid #fde68a;border-radius:var(--radius);"></div>
+  </div>
+</div>
+
+<div class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item"><div class="faq-q">How is age calculated exactly?</div><div class="faq-a">Age is calculated by finding the difference between your date of birth and today's date (or a specified date). The tool accounts for leap years and varying month lengths to give you the precise number of years, months, and days.</div></div>
+  <div class="faq-item"><div class="faq-q">Can I calculate age for a past or future date?</div><div class="faq-a">Yes! Use the "Calculate Age As Of" field to set any date — past or future. This lets you find someone's age on a specific historical date or calculate future age.</div></div>
+  <div class="faq-item"><div class="faq-q">Why does age differ by timezone?</div><div class="faq-a">This calculator uses your device's local timezone. If your birth time is near midnight at a timezone boundary, the exact day count might differ by 1 from calculations done in a different timezone.</div></div>
+</div>
+
+<div id="footer"></div>
+
+<script src="/assets/js/main.js"></script>
+<script src="/en/load-components.js"></script>
+<script>
+// Set today as default calc date
+const today = new Date();
+const pad = n => String(n).padStart(2,'0');
+const todayStr = `${today.getFullYear()}-${pad(today.getMonth()+1)}-${pad(today.getDate())}`;
+document.getElementById('calc-date').value = todayStr;
+
+document.getElementById('calc-btn').addEventListener('click', () => {
+  const dobVal = document.getElementById('dob').value;
+  const calcVal = document.getElementById('calc-date').value;
+  if (!dobVal) { showStatus(document.getElementById('status-msg'), 'error', 'Please enter your date of birth.'); return; }
+
+  const dob = new Date(dobVal);
+  const calc = new Date(calcVal || todayStr);
+
+  if (dob > calc) { showStatus(document.getElementById('status-msg'), 'error', 'Date of birth cannot be in the future.'); return; }
+
+  let years = calc.getFullYear() - dob.getFullYear();
+  let months = calc.getMonth() - dob.getMonth();
+  let days = calc.getDate() - dob.getDate();
+
+  if (days < 0) { months--; const prevMonth = new Date(calc.getFullYear(), calc.getMonth(), 0); days += prevMonth.getDate(); }
+  if (months < 0) { years--; months += 12; }
+
+  const totalDays = Math.floor((calc - dob) / 86400000);
+  const totalHours = totalDays * 24;
+  const totalMinutes = totalHours * 60;
+  const totalWeeks = Math.floor(totalDays / 7);
+  const totalMonths = years * 12 + months;
+
+  document.getElementById('age-grid').innerHTML = `
+    <div class="age-box"><span class="ab-num">${years}</span><span class="ab-lbl">Years</span></div>
+    <div class="age-box"><span class="ab-num">${months}</span><span class="ab-lbl">Months</span></div>
+    <div class="age-box"><span class="ab-num">${days}</span><span class="ab-lbl">Days</span></div>
+    <div class="age-box"><span class="ab-num">${totalWeeks.toLocaleString()}</span><span class="ab-lbl">Total Weeks</span></div>
+    <div class="age-box"><span class="ab-num">${totalDays.toLocaleString()}</span><span class="ab-lbl">Total Days</span></div>
+    <div class="age-box"><span class="ab-num">${totalMonths.toLocaleString()}</span><span class="ab-lbl">Total Months</span></div>`;
+
+  const DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  document.getElementById('age-summary').innerHTML = `
+    <strong>Born on:</strong> ${DAYS[dob.getDay()]}, ${MONTHS[dob.getMonth()]} ${dob.getDate()}, ${dob.getFullYear()}<br>
+    <strong>Exact age:</strong> ${years} years, ${months} months, ${days} days<br>
+    <strong>Total hours lived:</strong> ${totalHours.toLocaleString()}<br>
+    <strong>Total minutes lived:</strong> ${totalMinutes.toLocaleString()}`;
+
+  // Year progress
+  const startOfYear = new Date(calc.getFullYear(), 0, 1);
+  const endOfYear = new Date(calc.getFullYear() + 1, 0, 1);
+  const yearPct = Math.round((calc - startOfYear) / (endOfYear - startOfYear) * 100);
+  document.getElementById('year-pct').textContent = yearPct + '%';
+  document.getElementById('year-fill').style.width = yearPct + '%';
+
+  // Birthday countdown
+  let nextBday = new Date(calc.getFullYear(), dob.getMonth(), dob.getDate());
+  if (nextBday <= calc) nextBday.setFullYear(calc.getFullYear() + 1);
+  const daysUntil = Math.ceil((nextBday - calc) / 86400000);
+  const nextAge = years + 1;
+  document.getElementById('birthday-section').innerHTML = daysUntil === 0
+    ? `<strong>🎂 Happy Birthday!</strong> You're turning ${nextAge} today!`
+    : `<strong>🎂 Next Birthday:</strong> ${MONTHS[dob.getMonth()]} ${dob.getDate()}, ${nextBday.getFullYear()} — in <strong>${daysUntil} days</strong> (turning ${nextAge})`;
+
+  document.getElementById('result-card').style.display = 'block';
+  showStatus(document.getElementById('status-msg'), 'success', 'Age calculated!');
+});
+
+document.getElementById('reset-btn').addEventListener('click', () => { document.getElementById('dob').value=''; document.getElementById('result-card').style.display='none'; document.getElementById('status-msg').style.display='none'; });
+</script>
+
+</body></html>

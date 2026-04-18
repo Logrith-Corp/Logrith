@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free GST Calculator Online — Calculate GST Inclusive & Exclusive | Logrith</title>
+  <meta name="description" content="Calculate GST online free. Find GST inclusive and exclusive prices, GST amount for 5%, 12%, 18%, 28% slabs. Instant India GST calculator.">
+  <link rel="canonical" href="https://logrith.in/en/tools/gst-calculator.html">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    .gst-result-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .gst-box { background:var(--gray-50); border:1.5px solid var(--gray-200); border-radius:var(--radius); padding:16px; }
+    .gst-box .gb-label { font-size:.78rem; font-weight:600; color:var(--gray-500); text-transform:uppercase; letter-spacing:.04em; display:block; margin-bottom:6px; }
+    .gst-box .gb-value { font-family:var(--font-display); font-size:1.6rem; font-weight:800; color:var(--primary); }
+    .gst-box.highlight { background:linear-gradient(135deg,#eff6ff,#dbeafe); border-color:var(--primary); }
+    .gst-box.highlight .gb-value { color:var(--primary-dark); }
+    .slab-grid { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
+    .slab-btn { padding:8px 16px; background:var(--gray-50); border:1.5px solid var(--gray-200); border-radius:8px; font-size:.86rem; font-weight:600; font-family:var(--font-display); color:var(--gray-700); cursor:pointer; transition:var(--transition); }
+    .slab-btn:hover, .slab-btn.active { background:var(--primary); color:white; border-color:var(--primary); }
+  </style>
+</head>
+<body>
+<div id="navbar"></div>
+
+<div class="tool-hero"><div class="tool-hero-inner">
+  <div class="tool-breadcrumb"><a href="/en/index.html">Home</a> › <a href="/en/index.html#utility-tools">Utility Tools</a> › GST Calculator</div>
+  <h1>💹 Free GST Calculator Online</h1>
+  <p>Calculate GST inclusive and exclusive prices instantly. Supports all Indian GST slabs — 5%, 12%, 18%, 28%. Find CGST, SGST and IGST breakdowns.</p>
+  <div class="tool-tags"><span class="tool-tag">✅ Free</span><span class="tool-tag">🇮🇳 India GST Slabs</span><span class="tool-tag">⚡ Instant</span><span class="tool-tag">📊 CGST + SGST</span></div>
+</div></div>
+
+<div class="tool-workspace" style="max-width:760px;">
+  <div class="tool-card">
+    <h2>GST Calculator</h2>
+    
+    <!-- GST Slabs -->
+    <label style="font-size:.84rem;font-weight:500;color:var(--gray-700);display:block;margin-bottom:8px;">Quick GST Slabs</label>
+    <div class="slab-grid">
+      <button class="slab-btn" data-gst="0">0% (Exempt)</button>
+      <button class="slab-btn" data-gst="5">5% Slab</button>
+      <button class="slab-btn" data-gst="12">12% Slab</button>
+      <button class="slab-btn active" data-gst="18">18% Slab</button>
+      <button class="slab-btn" data-gst="28">28% Slab</button>
+    </div>
+
+    <div class="controls-grid">
+      <div class="control-group">
+        <label>Amount (₹)</label>
+        <input type="number" id="amount" value="1000" min="0" step="0.01" placeholder="Enter amount">
+      </div>
+      <div class="control-group">
+        <label>GST Rate (%)</label>
+        <input type="number" id="gst-rate" value="18" min="0" max="100" step="0.01" placeholder="e.g. 18">
+      </div>
+      <div class="control-group">
+        <label>Amount Type</label>
+        <select id="amount-type">
+          <option value="exclusive">Exclusive (Add GST to amount)</option>
+          <option value="inclusive">Inclusive (Amount includes GST)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="btn-group mt-16">
+      <button class="btn btn-primary btn-lg" id="calc-btn">💹 Calculate GST</button>
+      <button class="btn btn-secondary" id="reset-btn">✕ Reset</button>
+    </div>
+  </div>
+
+  <div class="tool-card" id="result-card" style="display:none;">
+    <h2>GST Breakdown</h2>
+    <div class="gst-result-grid" id="gst-grid"></div>
+
+    <div style="margin-top:20px;overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:.88rem;">
+        <thead><tr><th style="text-align:left;padding:10px 14px;background:var(--gray-50);color:var(--gray-500);font-weight:600;border-bottom:1.5px solid var(--gray-200);">Component</th><th style="text-align:right;padding:10px 14px;background:var(--gray-50);color:var(--gray-500);font-weight:600;border-bottom:1.5px solid var(--gray-200);">Rate</th><th style="text-align:right;padding:10px 14px;background:var(--gray-50);color:var(--gray-500);font-weight:600;border-bottom:1.5px solid var(--gray-200);">Amount (₹)</th></tr></thead>
+        <tbody id="gst-table-body"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item"><div class="faq-q">What is GST Exclusive vs GST Inclusive?</div><div class="faq-a">GST Exclusive means GST is added on top of the base price. If a product costs ₹1000 with 18% GST exclusive, total = ₹1180. GST Inclusive means the price already includes GST. If price is ₹1180 inclusive at 18%, the base = ₹1000 and GST = ₹180.</div></div>
+  <div class="faq-item"><div class="faq-q">What is CGST, SGST and IGST?</div><div class="faq-a">For intra-state (within same state) transactions: GST is split equally into CGST (Central GST) and SGST (State GST). For inter-state transactions: IGST (Integrated GST) applies, which equals the full GST rate. E.g., 18% GST intra-state = 9% CGST + 9% SGST.</div></div>
+  <div class="faq-item"><div class="faq-q">Which GST slab applies to which goods?</div><div class="faq-a">0%: Essential items (milk, eggs, fresh vegetables). 5%: Packaged food, economy hotels. 12%: Processed food, medicines, business hotels. 18%: Most services, electronics, restaurants. 28%: Luxury items, automobiles, tobacco.</div></div>
+  <div class="faq-item"><div class="faq-q">How to calculate GST amount from total price?</div><div class="faq-a">If the total price is inclusive of GST: GST Amount = Total Price × GST Rate / (100 + GST Rate). E.g., Total = ₹1180, GST 18%: GST = 1180 × 18/118 = ₹180. Base price = ₹1000.</div></div>
+</div>
+
+<div class="article-section">
+  <h2>About GST in India</h2>
+  <p>Goods and Services Tax (GST) is a comprehensive indirect tax levied on the supply of goods and services in India, implemented from July 1, 2017. It replaced a complex system of multiple central and state taxes, simplifying the taxation structure significantly.</p>
+  <p>GST has four main rate slabs: 5% for essential items, 12% for standard goods, 18% for most services and manufactured goods, and 28% for luxury and sin goods. Certain essential items like fresh food are exempt at 0%.</p>
+</div>
+
+<div id="footer"></div>
+
+
+<script src="/assets/js/main.js"></script>
+<script src="/en/load-components.js"></script>
+<script>
+document.querySelectorAll('.slab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.slab-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('gst-rate').value = btn.dataset.gst;
+  });
+});
+
+document.getElementById('gst-rate').addEventListener('input', () => {
+  const rate = parseFloat(document.getElementById('gst-rate').value);
+  document.querySelectorAll('.slab-btn').forEach(b=>{
+    b.classList.toggle('active', parseFloat(b.dataset.gst) === rate);
+  });
+});
+
+document.getElementById('calc-btn').addEventListener('click', () => {
+  const amount = parseFloat(document.getElementById('amount').value);
+  const rate = parseFloat(document.getElementById('gst-rate').value);
+  const type = document.getElementById('amount-type').value;
+  
+  if (isNaN(amount) || isNaN(rate)) {
+    alert('Please enter valid amount and GST rate.');
+    return;
+  }
+
+  let base, gstAmount, total;
+  if (type === 'exclusive') {
+    base = amount;
+    gstAmount = base * rate / 100;
+    total = base + gstAmount;
+  } else {
+    total = amount;
+    base = total * 100 / (100 + rate);
+    gstAmount = total - base;
+  }
+
+  const cgst = gstAmount / 2;
+  const sgst = gstAmount / 2;
+  const igst = gstAmount;
+
+  const fmt = n => '₹' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+  document.getElementById('gst-grid').innerHTML = `
+    <div class="gst-box"><span class="gb-label">Base Price (Ex-GST)</span><span class="gb-value">${fmt(base)}</span></div>
+    <div class="gst-box"><span class="gb-label">GST Amount (${rate}%)</span><span class="gb-value" style="color:var(--accent);">${fmt(gstAmount)}</span></div>
+    <div class="gst-box highlight"><span class="gb-label">Total Price (Inc-GST)</span><span class="gb-value">${fmt(total)}</span></div>
+    <div class="gst-box"><span class="gb-label">You Save / Pay Extra</span><span class="gb-value" style="color:var(--success);">${fmt(gstAmount)}</span></div>`;
+
+  document.getElementById('gst-table-body').innerHTML = `
+    <tr><td style="padding:10px 14px;border-bottom:1px solid var(--gray-100);">Base Price</td><td style="text-align:right;padding:10px 14px;border-bottom:1px solid var(--gray-100);">—</td><td style="text-align:right;padding:10px 14px;border-bottom:1px solid var(--gray-100);font-weight:600;">${fmt(base)}</td></tr>
+    <tr><td style="padding:10px 14px;border-bottom:1px solid var(--gray-100);">CGST (Intra-state)</td><td style="text-align:right;padding:10px 14px;border-bottom:1px solid var(--gray-100);">${rate/2}%</td><td style="text-align:right;padding:10px 14px;border-bottom:1px solid var(--gray-100);font-weight:600;">${fmt(cgst)}</td></tr>
+    <tr><td style="padding:10px 14px;border-bottom:1px solid var(--gray-100);">SGST (Intra-state)</td><td style="text-align:right;padding:10px 14px;border-bottom:1px solid var(--gray-100);">${rate/2}%</td><td style="text-align:right;padding:10px 14px;border-bottom:1px solid var(--gray-100);font-weight:600;">${fmt(sgst)}</td></tr>
+    <tr><td style="padding:10px 14px;border-bottom:1px solid var(--gray-100);">IGST (Inter-state)</td><td style="text-align:right;padding:10px 14px;border-bottom:1px solid var(--gray-100);">${rate}%</td><td style="text-align:right;padding:10px 14px;border-bottom:1px solid var(--gray-100);font-weight:600;">${fmt(igst)}</td></tr>
+    <tr style="background:var(--gray-50);"><td style="padding:10px 14px;font-weight:700;">Total Amount</td><td style="text-align:right;padding:10px 14px;font-weight:700;">${rate}%</td><td style="text-align:right;padding:10px 14px;font-weight:700;color:var(--primary);">${fmt(total)}</td></tr>`;
+
+  document.getElementById('result-card').style.display = 'block';
+});
+
+document.getElementById('reset-btn').addEventListener('click', () => {
+  document.getElementById('amount').value = '1000';
+  document.getElementById('gst-rate').value = '18';
+  document.getElementById('result-card').style.display = 'none';
+  document.querySelectorAll('.slab-btn').forEach(b=>b.classList.toggle('active', b.dataset.gst==='18'));
+});
+</script>
+</body></html>

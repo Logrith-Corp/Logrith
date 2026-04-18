@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Color Converter Online — HEX to RGB, HSL, CMYK | Logrith</title>
+  <meta name="description" content="Convert colors between HEX, RGB, HSL, HSV and CMYK formats online for free. Includes color picker and palette generator.">
+  <link rel="canonical" href="https://logrith.in/en/tools/color-converter.html">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    .color-swatch { width:100%; height:140px; border-radius:var(--radius); border:1.5px solid var(--gray-200); transition:background .2s; margin-bottom:16px; display:flex; align-items:flex-end; padding:12px; }
+    .color-info-badge { background:rgba(255,255,255,0.9); padding:6px 12px; border-radius:20px; font-size:.78rem; font-weight:600; }
+    .color-input-row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
+    .color-field { display:flex; flex-direction:column; gap:4px; }
+    .color-field label { font-size:.78rem; font-weight:600; color:var(--gray-500); text-transform:uppercase; letter-spacing:.04em; }
+    .color-field input[type="text"], .color-field input[type="number"] { padding:10px 12px; border:1.5px solid var(--gray-200); border-radius:8px; font-family:'Courier New',monospace; font-size:.9rem; font-weight:600; color:var(--gray-900); background:var(--white); outline:none; transition:var(--transition); }
+    .color-field input:focus { border-color:var(--primary); }
+    .palette-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(56px,1fr)); gap:8px; }
+    .palette-chip { height:52px; border-radius:8px; cursor:pointer; transition:transform .15s; border:2px solid transparent; }
+    .palette-chip:hover { transform:scale(1.08); border-color:var(--gray-300); }
+    .named-colors-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(90px,1fr)); gap:8px; }
+    .named-color { display:flex; flex-direction:column; align-items:center; gap:4px; cursor:pointer; }
+    .named-color .nc-swatch { width:100%; height:36px; border-radius:6px; border:1px solid var(--gray-200); }
+    .named-color span { font-size:.72rem; color:var(--gray-500); text-align:center; }
+  </style>
+</head>
+<body>
+<div id="navbar"></div>
+
+<div class="tool-hero"><div class="tool-hero-inner">
+  <div class="tool-breadcrumb"><a href="/en/index.html">Home</a> › <a href="/en/index.html#utility-tools">Utility Tools</a> › Color Converter</div>
+  <h1>🎨 Free Color Converter Online</h1>
+  <p>Convert colors between HEX, RGB, HSL, HSV, and CMYK formats. Includes a color picker, tints/shades generator, and named color palette.</p>
+  <div class="tool-tags"><span class="tool-tag">✅ Free</span><span class="tool-tag">🎨 HEX/RGB/HSL/CMYK</span><span class="tool-tag">🖌️ Tints & Shades</span><span class="tool-tag">⚡ Instant</span></div>
+</div></div>
+
+<div class="tool-workspace" style="max-width:900px;">
+  <div class="tool-card">
+    <h2>Color Picker &amp; Converter</h2>
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
+      <input type="color" id="color-picker" value="#0057FF" style="width:60px;height:60px;border:none;cursor:pointer;border-radius:12px;padding:0;">
+      <div style="flex:1;">
+        <div class="color-swatch" id="color-swatch" style="background:#0057FF;"><span class="color-info-badge" id="swatch-label">#0057FF</span></div>
+      </div>
+    </div>
+
+    <!-- HEX -->
+    <div class="color-field" style="margin-bottom:16px;">
+      <label>HEX</label>
+      <input type="text" id="hex-input" value="#0057FF" placeholder="#RRGGBB" maxlength="7">
+    </div>
+
+    <!-- RGB -->
+    <div style="margin-bottom:16px;">
+      <label style="font-size:.78rem;font-weight:600;color:var(--gray-500);text-transform:uppercase;letter-spacing:.04em;display:block;margin-bottom:8px;">RGB</label>
+      <div class="color-input-row">
+        <div class="color-field"><label>R (0–255)</label><input type="number" id="r-input" min="0" max="255" value="0"></div>
+        <div class="color-field"><label>G (0–255)</label><input type="number" id="g-input" min="0" max="255" value="87"></div>
+        <div class="color-field"><label>B (0–255)</label><input type="number" id="b-input" min="0" max="255" value="255"></div>
+      </div>
+    </div>
+
+    <!-- HSL -->
+    <div style="margin-bottom:16px;">
+      <label style="font-size:.78rem;font-weight:600;color:var(--gray-500);text-transform:uppercase;letter-spacing:.04em;display:block;margin-bottom:8px;">HSL</label>
+      <div class="color-input-row">
+        <div class="color-field"><label>H (0–360)</label><input type="number" id="h-input" min="0" max="360" value="220"></div>
+        <div class="color-field"><label>S (0–100%)</label><input type="number" id="s-input" min="0" max="100" value="100"></div>
+        <div class="color-field"><label>L (0–100%)</label><input type="number" id="l-input" min="0" max="100" value="50"></div>
+      </div>
+    </div>
+
+    <!-- CMYK -->
+    <div>
+      <label style="font-size:.78rem;font-weight:600;color:var(--gray-500);text-transform:uppercase;letter-spacing:.04em;display:block;margin-bottom:8px;">CMYK (read-only)</label>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;">
+        <div class="color-field"><label>C %</label><input type="number" id="c-out" readonly style="background:var(--gray-50);"></div>
+        <div class="color-field"><label>M %</label><input type="number" id="m-out" readonly style="background:var(--gray-50);"></div>
+        <div class="color-field"><label>Y %</label><input type="number" id="y-out" readonly style="background:var(--gray-50);"></div>
+        <div class="color-field"><label>K %</label><input type="number" id="k-out" readonly style="background:var(--gray-50);"></div>
+      </div>
+    </div>
+
+    <div class="btn-group mt-16">
+      <button class="btn btn-secondary" id="copy-hex">📋 Copy HEX</button>
+      <button class="btn btn-secondary" id="copy-rgb">📋 Copy RGB</button>
+      <button class="btn btn-secondary" id="copy-hsl">📋 Copy HSL</button>
+      <button class="btn btn-secondary" id="copy-css">📋 Copy CSS Vars</button>
+    </div>
+  </div>
+
+  <!-- Tints & Shades -->
+  <div class="tool-card">
+    <h2>Tints &amp; Shades Palette</h2>
+    <div class="palette-grid" id="tints-grid"></div>
+    <p class="text-sm text-muted mt-8">Click any swatch to set it as the active color.</p>
+  </div>
+
+  <!-- Named Colors -->
+  <div class="tool-card">
+    <h2>Common Named Colors</h2>
+    <div class="named-colors-grid" id="named-grid"></div>
+  </div>
+</div>
+
+<div class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item"><div class="faq-q">What is the difference between HEX and RGB colors?</div><div class="faq-a">Both represent the same color. RGB uses three decimal values (0–255) for Red, Green, Blue. HEX is simply RGB values written in hexadecimal notation (#RRGGBB). For example, rgb(255,0,0) = #FF0000 (red).</div></div>
+  <div class="faq-item"><div class="faq-q">What is HSL color format?</div><div class="faq-a">HSL stands for Hue, Saturation, Lightness. Hue is the color type (0–360°), Saturation is color intensity (0–100%), and Lightness is the brightness (0% = black, 100% = white, 50% = pure color). HSL is more intuitive for design work.</div></div>
+  <div class="faq-item"><div class="faq-q">What is CMYK and when is it used?</div><div class="faq-a">CMYK (Cyan, Magenta, Yellow, Key/Black) is a subtractive color model used in physical printing. Unlike RGB (additive, for screens), CMYK represents how ink mixes on paper. Use CMYK values when sending designs to print.</div></div>
+</div>
+
+<div id="footer"></div>
+
+<script src="/assets/js/main.js"></script>
+<script src="/en/load-components.js"></script>
+<script>
+let r=0, g=87, b=255;
+
+function hexToRgb(hex) {
+  hex = hex.replace('#','');
+  if (hex.length===3) hex=hex.split('').map(c=>c+c).join('');
+  return { r:parseInt(hex.slice(0,2),16), g:parseInt(hex.slice(2,4),16), b:parseInt(hex.slice(4,6),16) };
+}
+function rgbToHex(r,g,b) { return '#'+[r,g,b].map(v=>v.toString(16).padStart(2,'0')).join('').toUpperCase(); }
+function rgbToHsl(r,g,b) {
+  r/=255; g/=255; b/=255;
+  const max=Math.max(r,g,b), min=Math.min(r,g,b);
+  let h,s,l=(max+min)/2;
+  if (max===min){h=s=0;}else{
+    const d=max-min; s=l>0.5?d/(2-max-min):d/(max+min);
+    switch(max){case r:h=((g-b)/d+(g<b?6:0))/6;break;case g:h=((b-r)/d+2)/6;break;case b:h=((r-g)/d+4)/6;break;}
+  }
+  return {h:Math.round(h*360),s:Math.round(s*100),l:Math.round(l*100)};
+}
+function hslToRgb(h,s,l) {
+  s/=100; l/=100;
+  const c=(1-Math.abs(2*l-1))*s, x=c*(1-Math.abs((h/60)%2-1)), m=l-c/2;
+  let r=0,g=0,b=0;
+  if(h<60){r=c;g=x;}else if(h<120){r=x;g=c;}else if(h<180){g=c;b=x;}else if(h<240){g=x;b=c;}else if(h<300){r=x;b=c;}else{r=c;b=x;}
+  return {r:Math.round((r+m)*255),g:Math.round((g+m)*255),b:Math.round((b+m)*255)};
+}
+function rgbToCmyk(r,g,b) {
+  r/=255; g/=255; b/=255;
+  const k=1-Math.max(r,g,b);
+  if(k===1) return {c:0,m:0,y:0,k:100};
+  return {c:Math.round((1-r-k)/(1-k)*100),m:Math.round((1-g-k)/(1-k)*100),y:Math.round((1-b-k)/(1-k)*100),k:Math.round(k*100)};
+}
+
+function updateAll(from) {
+  const hex = rgbToHex(r,g,b);
+  const hsl = rgbToHsl(r,g,b);
+  const cmyk = rgbToCmyk(r,g,b);
+  if (from!=='hex') document.getElementById('hex-input').value = hex;
+  if (from!=='rgb') { document.getElementById('r-input').value=r; document.getElementById('g-input').value=g; document.getElementById('b-input').value=b; }
+  if (from!=='hsl') { document.getElementById('h-input').value=hsl.h; document.getElementById('s-input').value=hsl.s; document.getElementById('l-input').value=hsl.l; }
+  document.getElementById('c-out').value=cmyk.c; document.getElementById('m-out').value=cmyk.m; document.getElementById('y-out').value=cmyk.y; document.getElementById('k-out').value=cmyk.k;
+  document.getElementById('color-picker').value = hex.length===7?hex:'#000000';
+  document.getElementById('color-swatch').style.background = hex;
+  document.getElementById('swatch-label').textContent = hex;
+  // contrast for label
+  const lum = (0.299*r+0.587*g+0.114*b)/255;
+  document.getElementById('swatch-label').style.color = lum > 0.5 ? '#000' : '#fff';
+  generateTints(r,g,b);
+}
+
+document.getElementById('hex-input').addEventListener('input', e => {
+  const hex=e.target.value.trim(); if(hex.length<7) return;
+  const c=hexToRgb(hex); if(isNaN(c.r)) return;
+  r=c.r; g=c.g; b=c.b; updateAll('hex');
+});
+document.getElementById('color-picker').addEventListener('input', e => {
+  const c=hexToRgb(e.target.value); r=c.r; g=c.g; b=c.b; updateAll('picker');
+});
+['r','g','b'].forEach(ch => {
+  document.getElementById(ch+'-input').addEventListener('input', () => {
+    r=parseInt(document.getElementById('r-input').value)||0;
+    g=parseInt(document.getElementById('g-input').value)||0;
+    b=parseInt(document.getElementById('b-input').value)||0;
+    r=Math.min(255,Math.max(0,r)); g=Math.min(255,Math.max(0,g)); b=Math.min(255,Math.max(0,b));
+    updateAll('rgb');
+  });
+});
+['h','s','l'].forEach(ch => {
+  document.getElementById(ch+'-input').addEventListener('input', () => {
+    const h=parseInt(document.getElementById('h-input').value)||0;
+    const s=parseInt(document.getElementById('s-input').value)||0;
+    const l=parseInt(document.getElementById('l-input').value)||0;
+    const rgb=hslToRgb(h,s,l); r=rgb.r; g=rgb.g; b=rgb.b; updateAll('hsl');
+  });
+});
+
+function generateTints(r,g,b) {
+  const grid=document.getElementById('tints-grid'); grid.innerHTML='';
+  for(let i=0;i<=20;i++){
+    const t=i/20;
+    const tr=Math.round(r+(255-r)*t), tg=Math.round(g+(255-g)*t), tb=Math.round(b+(255-b)*t);
+    const hex=rgbToHex(tr,tg,tb);
+    const div=document.createElement('div');
+    div.className='palette-chip'; div.style.background=hex; div.title=hex;
+    div.onclick=()=>{ const c=hexToRgb(hex); r=c.r; g=c.g; b=c.b; updateAll('swatch'); };
+    grid.appendChild(div);
+  }
+  for(let i=1;i<=20;i++){
+    const t=i/20;
+    const sr=Math.round(r*(1-t)), sg=Math.round(g*(1-t)), sb=Math.round(b*(1-t));
+    const hex=rgbToHex(sr,sg,sb);
+    const div=document.createElement('div');
+    div.className='palette-chip'; div.style.background=hex; div.title=hex;
+    div.onclick=()=>{ const c=hexToRgb(hex); r=c.r; g=c.g; b=c.b; updateAll('swatch'); };
+    grid.appendChild(div);
+  }
+}
+
+const NAMED = [['Red','#FF0000'],['Green','#00FF00'],['Blue','#0000FF'],['Yellow','#FFFF00'],['Cyan','#00FFFF'],['Magenta','#FF00FF'],['White','#FFFFFF'],['Black','#000000'],['Orange','#FF8C00'],['Purple','#8B00FF'],['Pink','#FF69B4'],['Teal','#008080'],['Lime','#00FF7F'],['Indigo','#4B0082'],['Gold','#FFD700'],['Silver','#C0C0C0'],['Coral','#FF6347'],['Lavender','#E6E6FA'],['Navy','#000080'],['Maroon','#800000'],['Olive','#808000'],['Turquoise','#40E0D0']];
+const namedGrid = document.getElementById('named-grid');
+NAMED.forEach(([name,hex])=>{
+  const d=document.createElement('div'); d.className='named-color';
+  d.innerHTML=`<div class="nc-swatch" style="background:${hex}" title="${hex}"></div><span>${name}</span>`;
+  d.onclick=()=>{ const c=hexToRgb(hex); r=c.r; g=c.g; b=c.b; updateAll('named'); };
+  namedGrid.appendChild(d);
+});
+
+document.getElementById('copy-hex').addEventListener('click',function(){ copyText(document.getElementById('hex-input').value,this); });
+document.getElementById('copy-rgb').addEventListener('click',function(){ copyText(`rgb(${r},${g},${b})`,this); });
+document.getElementById('copy-hsl').addEventListener('click',function(){ const h=document.getElementById('h-input').value,s=document.getElementById('s-input').value,l=document.getElementById('l-input').value; copyText(`hsl(${h},${s}%,${l}%)`,this); });
+document.getElementById('copy-css').addEventListener('click',function(){ const hex=document.getElementById('hex-input').value; copyText(`--color-primary: ${hex};\n--color-rgb: rgb(${r},${g},${b});`,this); });
+
+updateAll('init');
+</script>
+</body></html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logrith — 160+ Free Online Tools for Image, PDF, Text & Developers</title>
+  <meta name="description" content="Logrith offers 160+ free online tools — image converter, PDF merge, JSON formatter, password generator, QR code maker and more. No login, no install, 100% in-browser.">
+  <meta name="keywords" content="free online tools, image converter, PDF tools, JSON formatter, QR code generator, password generator, text tools">
+  <link rel="canonical" href="https://logrith.in/en/">
+  <meta property="og:title" content="Logrith — 160+ Free Online Tools">
+  <meta property="og:description" content="Free image, PDF, text, and developer tools. No login, 100% browser-based.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://logrith.in/en/">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Logrith",
+    "url": "https://logrith.in",
+    "description": "160+ free online tools for image conversion, PDF editing, text manipulation, and developer utilities.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://logrith.in/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div id="navbar"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">⚡ Free · No Login · 100% Browser-Based</div>
+    <h1>Your Ultimate Free<br><span>Online Tool</span> <em>Hub</em></h1>
+    <p>Convert images, merge PDFs, format JSON, generate QR codes, and 150+ more tools — all free, instant, and private. Nothing leaves your browser.</p>
+
+    <!-- ✅ YAHI BADLA: hero-search ke andar ek wrapper + results div add ki -->
+    <div class="hero-search-wrap">
+      <div class="hero-search">
+        <input type="text" id="hero-search" placeholder="Search for a tool... e.g. 'image compressor'" autocomplete="off">
+        <button id="hero-search-btn">Search</button>
+      </div>
+      <!-- Hero search ka results dropdown — UI apne hisab se style.css mein control karo -->
+      <div id="hero-search-results"></div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="num">160+</span><span class="lbl">Total Tools</span></div>
+      <div class="hero-stat"><span class="num">40+</span><span class="lbl">Live Now</span></div>
+      <div class="hero-stat"><span class="num">0</span><span class="lbl">Login Required</span></div>
+      <div class="hero-stat"><span class="num">100%</span><span class="lbl">Free Forever</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="section" style="background: var(--white);">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2>Browse by Category</h2>
+      <p>Pick a category to explore all tools in that space</p>
+    </div>
+    <div class="cat-grid">
+      <a href="#image-tools" class="cat-card">
+        <div class="cat-icon">🖼️</div>
+        <h3>Image Tools</h3>
+        <p>Convert, compress, resize, crop, rotate &amp; edit images</p>
+        <span class="cat-count">22+ tools</span>
+      </a>
+      <a href="#pdf-tools" class="cat-card">
+        <div class="cat-icon">📄</div>
+        <h3>PDF Tools</h3>
+        <p>Merge, split, rotate, convert and protect PDFs</p>
+        <span class="cat-count">15+ tools</span>
+      </a>
+      <a href="#dev-tools" class="cat-card">
+        <div class="cat-icon">🛠️</div>
+        <h3>Developer Tools</h3>
+        <p>JSON, Base64, URL encoder, regex, hash &amp; more</p>
+        <span class="cat-count">25+ tools</span>
+      </a>
+      <a href="#text-tools" class="cat-card">
+        <div class="cat-icon">✏️</div>
+        <h3>Text Tools</h3>
+        <p>Word count, case convert, diff, lorem ipsum &amp; more</p>
+        <span class="cat-count">18+ tools</span>
+      </a>
+      <a href="#utility-tools" class="cat-card">
+        <div class="cat-icon">⚙️</div>
+        <h3>Utility Tools</h3>
+        <p>QR code, calculators, converters &amp; generators</p>
+        <span class="cat-count">20+ tools</span>
+      </a>
+      <a href="#audio-tools" class="cat-card">
+        <div class="cat-icon">🎵</div>
+        <h3>Audio Tools</h3>
+        <p>Trim, merge, convert and edit audio files</p>
+        <span class="cat-count">12+ tools</span>
+      </a>
+      <a href="#file-tools" class="cat-card">
+        <div class="cat-icon">📁</div>
+        <h3>File Tools</h3>
+        <p>Metadata viewer, checksum, type detector &amp; more</p>
+        <span class="cat-count">9+ tools</span>
+      </a>
+      <a href="#unit-converters" class="cat-card">
+        <div class="cat-icon">📐</div>
+        <h3>Unit Converters</h3>
+        <p>Length, weight, temperature, data &amp; more</p>
+        <span class="cat-count">15+ tools</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ALL TOOLS GRID -->
+<section class="section" id="all-tools" style="background: var(--gray-50);">
+  <div class="section-inner">
+
+    <!-- Image Tools -->
+    <div id="image-tools" class="section-header" style="text-align:left; margin-bottom:20px;">
+      <h2>🖼️ Image Tools</h2>
+    </div>
+    <div class="tool-grid" style="margin-bottom:40px;">
+      <a href="tools/image-converter.html" class="tool-item"><div class="ti-icon">🔄</div><div class="ti-text"><h4>Image Converter</h4><p>JPG, PNG, WEBP, BMP — convert any format</p></div></a>
+      <a href="tools/image-compressor.html" class="tool-item"><div class="ti-icon">📦</div><div class="ti-text"><h4>Image Compressor</h4><p>Compress images without losing quality</p></div></a>
+      <a href="tools/image-resize.html" class="tool-item"><div class="ti-icon">↔️</div><div class="ti-text"><h4>Image Resize</h4><p>Resize images to any pixel dimension</p></div></a>
+      <a href="tools/image-crop.html" class="tool-item"><div class="ti-icon">✂️</div><div class="ti-text"><h4>Image Crop</h4><p>Crop images with interactive preview</p></div></a>
+      <a href="tools/image-rotate.html" class="tool-item"><div class="ti-icon">🔃</div><div class="ti-text"><h4>Image Rotate &amp; Flip</h4><p>Rotate 90°/180°, flip horizontal &amp; vertical</p></div></a>
+    </div>
+
+    <!-- PDF Tools -->
+    <div id="pdf-tools" class="section-header" style="text-align:left; margin-bottom:20px;">
+      <h2>📄 PDF Tools</h2>
+    </div>
+    <div class="tool-grid" style="margin-bottom:40px;">
+      <a href="tools/pdf-merge.html" class="tool-item"><div class="ti-icon">📎</div><div class="ti-text"><h4>PDF Merge</h4><p>Combine multiple PDFs into one file</p></div></a>
+      <a href="tools/pdf-split.html" class="tool-item"><div class="ti-icon">✂️</div><div class="ti-text"><h4>PDF Split</h4><p>Split PDF by page ranges or individual pages</p></div></a>
+      <a href="tools/jpg-to-pdf.html" class="tool-item"><div class="ti-icon">🖼️</div><div class="ti-text"><h4>JPG to PDF</h4><p>Convert JPG/PNG images into a PDF file</p></div></a>
+      <a href="tools/pdf-to-jpg.html" class="tool-item"><div class="ti-icon">📄</div><div class="ti-text"><h4>PDF to JPG</h4><p>Extract pages from PDF as JPG images</p></div></a>
+      <a href="tools/pdf-rotate.html" class="tool-item"><div class="ti-icon">🔃</div><div class="ti-text"><h4>PDF Rotate</h4><p>Rotate PDF pages 90°, 180° or 270°</p></div></a>
+    </div>
+
+    <!-- Dev Tools -->
+    <div id="dev-tools" class="section-header" style="text-align:left; margin-bottom:20px;">
+      <h2>🛠️ Developer Tools</h2>
+    </div>
+    <div class="tool-grid" style="margin-bottom:40px;">
+      <a href="tools/json-formatter.html" class="tool-item"><div class="ti-icon">{ }</div><div class="ti-text"><h4>JSON Formatter</h4><p>Format, validate and minify JSON</p></div></a>
+      <a href="tools/base64.html" class="tool-item"><div class="ti-icon">🔐</div><div class="ti-text"><h4>Base64 Encode/Decode</h4><p>Encode text/files to Base64 and back</p></div></a>
+      <a href="tools/url-encoder.html" class="tool-item"><div class="ti-icon">🔗</div><div class="ti-text"><h4>URL Encoder/Decoder</h4><p>Encode and decode URLs safely</p></div></a>
+      <a href="tools/password-generator.html" class="tool-item"><div class="ti-icon">🔑</div><div class="ti-text"><h4>Password Generator</h4><p>Strong, random password generator</p></div></a>
+      <a href="tools/hash-generator.html" class="tool-item"><div class="ti-icon">#</div><div class="ti-text"><h4>Hash Generator</h4><p>MD5, SHA1, SHA256 hash generation</p></div></a>
+      <a href="tools/uuid-generator.html" class="tool-item"><div class="ti-icon">🆔</div><div class="ti-text"><h4>UUID Generator</h4><p>Generate v4 UUIDs instantly</p></div></a>
+      <a href="tools/regex-tester.html" class="tool-item"><div class="ti-icon">🔍</div><div class="ti-text"><h4>Regex Tester</h4><p>Test and debug regular expressions</p></div></a>
+    </div>
+
+    <!-- Text Tools -->
+    <div id="text-tools" class="section-header" style="text-align:left; margin-bottom:20px;">
+      <h2>✏️ Text Tools</h2>
+    </div>
+    <div class="tool-grid" style="margin-bottom:40px;">
+      <a href="tools/word-counter.html" class="tool-item"><div class="ti-icon">📝</div><div class="ti-text"><h4>Word Counter</h4><p>Count words, characters, sentences, paragraphs</p></div></a>
+      <a href="tools/case-converter.html" class="tool-item"><div class="ti-icon">Aa</div><div class="ti-text"><h4>Case Converter</h4><p>UPPER, lower, Title, camelCase and more</p></div></a>
+      <a href="tools/character-counter.html" class="tool-item"><div class="ti-icon">🔢</div><div class="ti-text"><h4>Character Counter</h4><p>Detailed character frequency analysis</p></div></a>
+      <a href="tools/lorem-ipsum.html" class="tool-item"><div class="ti-icon">📃</div><div class="ti-text"><h4>Lorem Ipsum Generator</h4><p>Generate placeholder text instantly</p></div></a>
+      <a href="tools/text-diff.html" class="tool-item"><div class="ti-icon">🔍</div><div class="ti-text"><h4>Text Diff Checker</h4><p>Compare two texts and highlight differences</p></div></a>
+      <a href="tools/duplicate-remover.html" class="tool-item"><div class="ti-icon">🧹</div><div class="ti-text"><h4>Duplicate Line Remover</h4><p>Remove duplicate lines from any text</p></div></a>
+      <a href="tools/slug-generator.html" class="tool-item"><div class="ti-icon">🔗</div><div class="ti-text"><h4>Slug Generator</h4><p>Generate URL-friendly slugs from text</p></div></a>
+    </div>
+
+    <!-- Utility Tools -->
+    <div id="utility-tools" class="section-header" style="text-align:left; margin-bottom:20px;">
+      <h2>⚙️ Utility Tools</h2>
+    </div>
+    <div class="tool-grid" style="margin-bottom:40px;">
+      <a href="tools/qr-generator.html" class="tool-item"><div class="ti-icon">▣</div><div class="ti-text"><h4>QR Code Generator</h4><p>Generate QR codes for URLs, text, contacts</p></div></a>
+      <a href="tools/color-converter.html" class="tool-item"><div class="ti-icon">🎨</div><div class="ti-text"><h4>Color Converter</h4><p>Convert HEX ↔ RGB ↔ HSL instantly</p></div></a>
+      <a href="tools/age-calculator.html" class="tool-item"><div class="ti-icon">📅</div><div class="ti-text"><h4>Age Calculator</h4><p>Calculate exact age in years, months, days</p></div></a>
+      <a href="tools/unit-converter.html" class="tool-item"><div class="ti-icon">📐</div><div class="ti-text"><h4>Unit Converter</h4><p>Length, weight, temperature, data &amp; more</p></div></a>
+      <a href="tools/percentage-calculator.html" class="tool-item"><div class="ti-icon">%</div><div class="ti-text"><h4>Percentage Calculator</h4><p>Calculate percentages, discounts, increase</p></div></a>
+      <a href="tools/gst-calculator.html" class="tool-item"><div class="ti-icon">💹</div><div class="ti-text"><h4>GST Calculator</h4><p>Calculate GST inclusive &amp; exclusive</p></div></a>
+      <a href="tools/emi-calculator.html" class="tool-item"><div class="ti-icon">💰</div><div class="ti-text"><h4>EMI Calculator</h4><p>Calculate loan EMI with full breakdown</p></div></a>
+      <a href="tools/password-strength.html" class="tool-item"><div class="ti-icon">🔒</div><div class="ti-text"><h4>Password Strength Checker</h4><p>Check how strong your password is</p></div></a>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY SECTION -->
+<section class="section" style="background: var(--white);">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2>Why Choose Logrith?</h2>
+      <p>Built for speed, privacy and reliability</p>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card" style="cursor:default;">
+        <div class="cat-icon">🔒</div>
+        <h3>100% Private</h3>
+        <p>All processing happens in your browser. Your files never leave your device.</p>
+      </div>
+      <div class="cat-card" style="cursor:default;">
+        <div class="cat-icon">⚡</div>
+        <h3>Lightning Fast</h3>
+        <p>No server round-trips. Instant processing using browser APIs and Canvas.</p>
+      </div>
+      <div class="cat-card" style="cursor:default;">
+        <div class="cat-icon">🆓</div>
+        <h3>Always Free</h3>
+        <p>No subscription, no credits, no watermarks. 100% free forever.</p>
+      </div>
+      <div class="cat-card" style="cursor:default;">
+        <div class="cat-icon">📱</div>
+        <h3>Mobile Ready</h3>
+        <p>Works perfectly on phones, tablets and desktops of all sizes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div id="footer"></div>
+
+<script src="/en/load-components.js"></script>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

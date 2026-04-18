@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Tool Categories — Free Online Tools Hub | Logrith</title>
+  <meta name="description" content="Browse all Logrith tool categories — Image Tools, PDF Tools, Developer Tools, Text Tools, Utility Tools and more. 160+ free browser-based tools, no login required.">
+  <meta name="keywords" content="free online tools categories, image tools, pdf tools, developer tools, text tools, utility tools, Logrith">
+  <link rel="canonical" href="https://logrith.in/en/categories.html">
+  <meta property="og:title" content="All Tool Categories — Logrith">
+  <meta property="og:description" content="Browse 160+ free online tools by category. No login, no install, 100% browser-based.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    .cat-hero {
+      background: linear-gradient(135deg, #f0f4ff 0%, #e8f7f5 100%);
+      padding: 64px 24px 52px;
+      text-align: center;
+      border-bottom: 1.5px solid var(--gray-200);
+      position: relative;
+      overflow: hidden;
+    }
+    .cat-hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(0,87,255,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cat-hero-inner { max-width: 720px; margin: 0 auto; position: relative; z-index: 1; }
+    .cat-hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 5px 14px; background: var(--white);
+      border: 1px solid var(--gray-200); border-radius: 20px;
+      font-size: .78rem; font-weight: 700; color: var(--primary);
+      font-family: var(--font-display); margin-bottom: 18px;
+      box-shadow: var(--shadow-sm);
+    }
+    .cat-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 800; color: var(--gray-900);
+      letter-spacing: -.5px; line-height: 1.2; margin-bottom: 14px;
+    }
+    .cat-hero h1 span { color: var(--primary); }
+    .cat-hero p { font-size: 1.05rem; color: var(--gray-700); line-height: 1.7; max-width: 560px; margin: 0 auto; }
+
+    /* Big category cards */
+    .bigcat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .bigcat-card {
+      background: var(--white);
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-xl);
+      padding: 28px 24px;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .bigcat-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s ease;
+    }
+    .bigcat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--gray-300); }
+    .bigcat-card:hover::after { transform: scaleX(1); }
+    .bigcat-header { display: flex; align-items: center; gap: 14px; }
+    .bigcat-icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; flex-shrink: 0;
+    }
+    .bigcat-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--gray-900); }
+    .bigcat-subtitle { font-size: .8rem; color: var(--gray-500); margin-top: 2px; }
+    .bigcat-desc { font-size: .88rem; color: var(--gray-700); line-height: 1.6; }
+    .bigcat-tools { display: flex; flex-wrap: wrap; gap: 6px; }
+    .bigcat-tool-pill {
+      padding: 4px 10px;
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: 20px;
+      font-size: .75rem;
+      color: var(--gray-700);
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    .bigcat-card:hover .bigcat-tool-pill { background: var(--gray-100); }
+    .bigcat-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: auto; padding-top: 12px;
+      border-top: 1px solid var(--gray-100);
+      font-size: .82rem;
+    }
+    .bigcat-count { font-weight: 700; color: var(--primary); font-family: var(--font-display); }
+    .bigcat-arrow { color: var(--primary); font-size: 1.1rem; }
+
+    /* Stats strip */
+    .stats-strip {
+      display: flex; justify-content: center; gap: 48px;
+      flex-wrap: wrap; padding: 32px 24px;
+      background: var(--gray-900);
+    }
+    .strip-stat { text-align: center; }
+    .strip-stat .sn { font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; color: var(--accent); display: block; }
+    .strip-stat .sl { font-size: .82rem; color: var(--gray-500); }
+
+    /* Why use section */
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+    .why-card { padding: 20px; background: var(--white); border: 1.5px solid var(--gray-200); border-radius: var(--radius-lg); }
+    .why-card .wi { font-size: 1.8rem; margin-bottom: 10px; }
+    .why-card h3 { font-family: var(--font-display); font-size: .95rem; font-weight: 700; color: var(--gray-900); margin-bottom: 6px; }
+    .why-card p { font-size: .83rem; color: var(--gray-600); line-height: 1.6; }
+
+    /* SEO text */
+    .seo-block { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    .seo-block h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--gray-900); margin-bottom: 14px; }
+    .seo-block p { font-size: .93rem; color: var(--gray-700); line-height: 1.8; margin-bottom: 14px; }
+
+    @media(max-width:768px) {
+      .bigcat-grid { grid-template-columns: 1fr; }
+      .stats-strip { gap: 28px; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Logrith — All Tool Categories",
+    "description": "Browse 160+ free online tools organized by category.",
+    "url": "https://logrith.in/en/categories.html",
+    "publisher": { "@type": "Organization", "name": "Logrith", "url": "https://logrith.in/en/" }
+  }
+  </script>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div id="navbar"></div>
+<!-- HERO -->
+<section class="cat-hero">
+  <div class="cat-hero-inner">
+    <div class="cat-hero-badge">🗂️ Browse by Category</div>
+    <h1>Find Your <span>Perfect Tool</span><br>In Seconds</h1>
+    <p>Every tool you need — organized neatly by category. From image conversion to PDF editing, JSON formatting to QR generation — all free, instant, and private.</p>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="strip-stat"><span class="sn">160+</span><span class="sl">Total Tools</span></div>
+  <div class="strip-stat"><span class="sn">8</span><span class="sl">Categories</span></div>
+  <div class="strip-stat"><span class="sn">0</span><span class="sl">Login Required</span></div>
+  <div class="strip-stat"><span class="sn">100%</span><span class="sl">Free Forever</span></div>
+  <div class="strip-stat"><span class="sn">0</span><span class="sl">Files Uploaded</span></div>
+</div>
+
+<!-- BIG CATEGORY CARDS -->
+<section class="section" style="background:var(--gray-50);">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2>All Tool Categories</h2>
+      <p>Click any category to explore all tools in that space</p>
+    </div>
+    <div class="bigcat-grid">
+
+      <!-- Image Tools -->
+      <a href="image-tools.html" class="bigcat-card">
+        <div class="bigcat-header">
+          <div class="bigcat-icon" style="background:#eff6ff;">🖼️</div>
+          <div><div class="bigcat-title">Image Tools</div><div class="bigcat-subtitle">Convert, compress, edit & transform</div></div>
+        </div>
+        <p class="bigcat-desc">Compress without quality loss, convert between JPG/PNG/WEBP, resize to exact dimensions, crop interactively, rotate and flip — all without any upload.</p>
+        <div class="bigcat-tools">
+          <span class="bigcat-tool-pill">Image Converter</span>
+          <span class="bigcat-tool-pill">Compressor</span>
+          <span class="bigcat-tool-pill">Resize</span>
+          <span class="bigcat-tool-pill">Crop</span>
+          <span class="bigcat-tool-pill">Rotate & Flip</span>
+          <span class="bigcat-tool-pill">+17 more</span>
+        </div>
+        <div class="bigcat-footer">
+          <span class="bigcat-count">22+ tools</span>
+          <span class="bigcat-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- PDF Tools -->
+      <a href="pdf-tools.html" class="bigcat-card">
+        <div class="bigcat-header">
+          <div class="bigcat-icon" style="background:#fef2f2;">📄</div>
+          <div><div class="bigcat-title">PDF Tools</div><div class="bigcat-subtitle">Merge, split, convert & manage PDFs</div></div>
+        </div>
+        <p class="bigcat-desc">Combine multiple PDFs into one, extract specific pages, convert images to PDF, render PDF pages as images, rotate pages — all powered by PDF-Lib in your browser.</p>
+        <div class="bigcat-tools">
+          <span class="bigcat-tool-pill">PDF Merge</span>
+          <span class="bigcat-tool-pill">PDF Split</span>
+          <span class="bigcat-tool-pill">JPG → PDF</span>
+          <span class="bigcat-tool-pill">PDF → JPG</span>
+          <span class="bigcat-tool-pill">PDF Rotate</span>
+          <span class="bigcat-tool-pill">+10 more</span>
+        </div>
+        <div class="bigcat-footer">
+          <span class="bigcat-count">15+ tools</span>
+          <span class="bigcat-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Dev Tools -->
+      <a href="dev-tools.html" class="bigcat-card">
+        <div class="bigcat-header">
+          <div class="bigcat-icon" style="background:#f0fdf4;">🛠️</div>
+          <div><div class="bigcat-title">Developer Tools</div><div class="bigcat-subtitle">Format, encode, generate & test</div></div>
+        </div>
+        <p class="bigcat-desc">Format and validate JSON, encode/decode Base64 and URLs, generate secure passwords and UUIDs, compute SHA-256 hashes, and test regex patterns in real-time.</p>
+        <div class="bigcat-tools">
+          <span class="bigcat-tool-pill">JSON Formatter</span>
+          <span class="bigcat-tool-pill">Base64</span>
+          <span class="bigcat-tool-pill">Password Gen</span>
+          <span class="bigcat-tool-pill">Hash Gen</span>
+          <span class="bigcat-tool-pill">Regex Tester</span>
+          <span class="bigcat-tool-pill">+20 more</span>
+        </div>
+        <div class="bigcat-footer">
+          <span class="bigcat-count">25+ tools</span>
+          <span class="bigcat-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Text Tools -->
+      <a href="text-tools.html" class="bigcat-card">
+        <div class="bigcat-header">
+          <div class="bigcat-icon" style="background:#fffbeb;">✏️</div>
+          <div><div class="bigcat-title">Text Tools</div><div class="bigcat-subtitle">Count, convert, clean & compare</div></div>
+        </div>
+        <p class="bigcat-desc">Count words and characters with keyword density, convert between 12 case formats including camelCase and snake_case, compare texts with live diff highlighting, and generate Lorem Ipsum.</p>
+        <div class="bigcat-tools">
+          <span class="bigcat-tool-pill">Word Counter</span>
+          <span class="bigcat-tool-pill">Case Converter</span>
+          <span class="bigcat-tool-pill">Text Diff</span>
+          <span class="bigcat-tool-pill">Lorem Ipsum</span>
+          <span class="bigcat-tool-pill">Slug Generator</span>
+          <span class="bigcat-tool-pill">+13 more</span>
+        </div>
+        <div class="bigcat-footer">
+          <span class="bigcat-count">18+ tools</span>
+          <span class="bigcat-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Utility Tools -->
+      <a href="utility-tools.html" class="bigcat-card">
+        <div class="bigcat-header">
+          <div class="bigcat-icon" style="background:#f0fdfa;">⚙️</div>
+          <div><div class="bigcat-title">Utility Tools</div><div class="bigcat-subtitle">Calculate, convert & generate</div></div>
+        </div>
+        <p class="bigcat-desc">Generate QR codes for URLs, WiFi and contacts, convert between HEX/RGB/HSL colors, calculate your exact age, convert 100+ units, and compute GST and EMI instantly.</p>
+        <div class="bigcat-tools">
+          <span class="bigcat-tool-pill">QR Generator</span>
+          <span class="bigcat-tool-pill">Color Converter</span>
+          <span class="bigcat-tool-pill">Age Calculator</span>
+          <span class="bigcat-tool-pill">GST Calculator</span>
+          <span class="bigcat-tool-pill">EMI Calculator</span>
+          <span class="bigcat-tool-pill">+15 more</span>
+        </div>
+        <div class="bigcat-footer">
+          <span class="bigcat-count">20+ tools</span>
+          <span class="bigcat-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Audio Tools (coming soon) -->
+      <a href="all-tools.html" class="bigcat-card" style="opacity:.7;">
+        <div class="bigcat-header">
+          <div class="bigcat-icon" style="background:#fdf4ff;">🎵</div>
+          <div><div class="bigcat-title">Audio Tools <span style="font-size:.7rem;background:var(--accent);color:white;padding:2px 8px;border-radius:10px;margin-left:6px;vertical-align:middle;">Soon</span></div><div class="bigcat-subtitle">Trim, merge & convert audio</div></div>
+        </div>
+        <p class="bigcat-desc">Trim MP3 files, merge audio tracks, convert between MP3 and WAV, adjust volume, add fade in/out effects, and extract audio from video files.</p>
+        <div class="bigcat-tools">
+          <span class="bigcat-tool-pill">MP3 Cutter</span>
+          <span class="bigcat-tool-pill">Audio Merge</span>
+          <span class="bigcat-tool-pill">MP3 → WAV</span>
+          <span class="bigcat-tool-pill">Volume Booster</span>
+          <span class="bigcat-tool-pill">+8 more</span>
+        </div>
+        <div class="bigcat-footer">
+          <span class="bigcat-count">12+ tools</span>
+          <span class="bigcat-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Unit Converters -->
+      <a href="utility-tools.html#unit" class="bigcat-card">
+        <div class="bigcat-header">
+          <div class="bigcat-icon" style="background:#eff6ff;">📐</div>
+          <div><div class="bigcat-title">Unit Converters</div><div class="bigcat-subtitle">Length, weight, temperature & more</div></div>
+        </div>
+        <p class="bigcat-desc">Convert between 10+ unit categories — length, weight, temperature, area, volume, data size, speed, energy and pressure — with all results shown simultaneously.</p>
+        <div class="bigcat-tools">
+          <span class="bigcat-tool-pill">Length</span>
+          <span class="bigcat-tool-pill">Weight</span>
+          <span class="bigcat-tool-pill">Temperature</span>
+          <span class="bigcat-tool-pill">Data Size</span>
+          <span class="bigcat-tool-pill">Speed</span>
+          <span class="bigcat-tool-pill">+10 more</span>
+        </div>
+        <div class="bigcat-footer">
+          <span class="bigcat-count">15+ categories</span>
+          <span class="bigcat-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- File Tools (coming soon) -->
+      <a href="all-tools.html" class="bigcat-card" style="opacity:.7;">
+        <div class="bigcat-header">
+          <div class="bigcat-icon" style="background:#fef9c3;">📁</div>
+          <div><div class="bigcat-title">File Tools <span style="font-size:.7rem;background:var(--accent);color:white;padding:2px 8px;border-radius:10px;margin-left:6px;vertical-align:middle;">Soon</span></div><div class="bigcat-subtitle">Inspect, checksum & manage files</div></div>
+        </div>
+        <p class="bigcat-desc">View file metadata, compute SHA-256 checksums, detect file types by magic bytes, preview files in browser, and batch rename files.</p>
+        <div class="bigcat-tools">
+          <span class="bigcat-tool-pill">Metadata Viewer</span>
+          <span class="bigcat-tool-pill">File Checksum</span>
+          <span class="bigcat-tool-pill">Type Detector</span>
+          <span class="bigcat-tool-pill">File Preview</span>
+          <span class="bigcat-tool-pill">+5 more</span>
+        </div>
+        <div class="bigcat-footer">
+          <span class="bigcat-count">9+ tools</span>
+          <span class="bigcat-arrow">→</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY Logrith -->
+<section class="section" style="background:var(--white);">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2>Why Choose Logrith</h2>
+      <p>Built different from day one</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><div class="wi">🔒</div><h3>Zero Data Exposure</h3><p>Every single tool processes data inside your browser. Your files, text, and passwords never touch any server — ever.</p></div>
+      <div class="why-card"><div class="wi">⚡</div><h3>Genuinely Instant</h3><p>No file upload delays, no queue waiting, no "processing..." screens. Results appear in milliseconds using native browser APIs.</p></div>
+      <div class="why-card"><div class="wi">🆓</div><h3>Actually Free</h3><p>No hidden limits, no "upgrade to download", no watermarks, no credit system. Every tool, every feature, completely free.</p></div>
+      <div class="why-card"><div class="wi">📱</div><h3>Works Everywhere</h3><p>Optimized for every screen — desktop, tablet, and mobile. Same great experience whether you're on Chrome, Safari, or Firefox.</p></div>
+      <div class="why-card"><div class="wi">🚫</div><h3>No Install Ever</h3><p>Open any tool URL and start working. No app to download, no extension to install, no account to create.</p></div>
+      <div class="why-card"><div class="wi">🧩</div><h3>160+ Tools in One Place</h3><p>Stop switching between a dozen different sites. Everything from image editing to EMI calculation lives right here.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SEO TEXT BLOCK -->
+<section class="section" style="background:var(--gray-50);">
+  <div class="seo-block">
+    <h2>The Complete Free Online Tool Hub — No Login, No Install</h2>
+    <p>Logrith is a browser-based tool platform designed for professionals, developers, students, and everyday users who need reliable utilities without the friction of signing up, paying subscriptions, or installing software. Every tool on Logrith runs 100% client-side using modern browser APIs — the Canvas API for image processing, the Web Crypto API for secure hashing and password generation, PDF-Lib for PDF manipulation, and the native JavaScript engine for text processing.</p>
+    <p>The platform is organized into eight major categories. The <a href="image-tools.html" style="color:var(--primary);">Image Tools</a> category covers the full spectrum of image processing — format conversion between JPG, PNG, WEBP, BMP and GIF; compression with quality control; resizing to any pixel dimension while maintaining or breaking aspect ratio; interactive cropping; and 90°/180°/270° rotation with horizontal and vertical flip. The <a href="pdf-tools.html" style="color:var(--primary);">PDF Tools</a> category handles document workflows — merging any number of PDFs in custom order, splitting by page range, converting images to multi-page PDFs, rendering PDF pages as high-DPI images, and rotating PDF pages.</p>
+    <p>For developers, the <a href="dev-tools.html" style="color:var(--primary);">Developer Tools</a> category offers JSON formatting and validation with sorting, Base64 encoding and decoding for both text and files, URL percent-encoding, cryptographic hash generation (SHA-256, SHA-512, SHA-1), UUID v4 generation, regex testing with real-time match highlighting, and cryptographically secure password generation. The <a href="text-tools.html" style="color:var(--primary);">Text Tools</a> handle word counting with reading time, 12-format case conversion, character frequency analysis, text diff comparison, duplicate line removal, Lorem Ipsum generation, and URL slug creation.</p>
+    <p>The <a href="utility-tools.html" style="color:var(--primary);">Utility Tools</a> round out the platform with QR code generation (URL, WiFi, vCard, SMS), color conversion between HEX/RGB/HSL/CMYK with palette generation, exact age calculation, unit conversion across 10 measurement categories, percentage calculators, India GST calculation, and loan EMI with amortization schedules. All tools are mobile-responsive, SEO-optimized, and load without any blocking scripts or heavy frameworks.</p>
+
+    <!-- FAQ -->
+    <h2 style="margin-top:40px;">Frequently Asked Questions</h2>
+    <div class="faq-item"><div class="faq-q">How many tools does Logrith have?</div><div class="faq-a">Logrith currently has 40+ live tools across 5 active categories, with a roadmap to 160+ tools spanning image editing, PDF manipulation, audio processing, developer utilities, text tools, unit converters, file utilities, and more.</div></div>
+    <div class="faq-item"><div class="faq-q">Are all Logrith tools really free?</div><div class="faq-a">Yes, completely and permanently free. There are no paid tiers, no usage credits, no file size limits for premium users, and no watermarks. Every tool is free for every user, always.</div></div>
+    <div class="faq-item"><div class="faq-q">Do I need to create an account?</div><div class="faq-a">No account, no email, no login — ever. Open any tool URL and start using it immediately. Nothing is stored between sessions unless you explicitly save the output to your device.</div></div>
+    <div class="faq-item"><div class="faq-q">Is Logrith safe for sensitive files?</div><div class="faq-a">Yes. All processing happens entirely in your browser using JavaScript. Files and data never leave your device — they're not uploaded to any server, not logged, not stored anywhere. You can even disconnect from the internet after loading a tool page and it will still work.</div></div>
+    <div class="faq-item"><div class="faq-q">Which browsers does Logrith support?</div><div class="faq-a">Logrith works on all modern browsers — Chrome, Firefox, Safari, Edge, and Brave — on both desktop and mobile. The tools use standard web APIs that have been supported for years.</div></div>
+    <div class="faq-item"><div class="faq-q">Can I use Logrith on my phone?</div><div class="faq-a">Absolutely. Every tool is fully responsive and tested on mobile. The upload zones support camera capture on mobile, and all outputs are directly downloadable to your phone's gallery or files.</div></div>
+    <div class="faq-item"><div class="faq-q">What is the maximum file size for tools?</div><div class="faq-a">Most tools support up to 20MB per file. The file hash tool supports up to 100MB. These limits exist to ensure smooth performance on all devices, including low-end mobile phones.</div></div>
+    <div class="faq-item"><div class="faq-q">How do I report a bug or request a new tool?</div><div class="faq-a">Use the feedback option in your browser or reach out through the contact page. The most requested tools are added in each update cycle. The roadmap includes 120+ additional tools across audio, file, and extra developer categories.</div></div>
+    <div class="faq-item"><div class="faq-q">Does Logrith work offline?</div><div class="faq-a">Most tools work offline once the page is loaded, since all processing is in-browser. Tools that require external libraries (PDF-Lib, PDF.js, QR code library) need an initial internet connection to load those scripts from CDN.</div></div>
+    <div class="faq-item"><div class="faq-q">Is the source code of Logrith open source?</div><div class="faq-a">Logrith is built with plain HTML, CSS, and JavaScript — no bundlers, no frameworks. The architecture is intentionally simple so any developer can inspect, learn from, or adapt it. Check the page source in your browser at any time.</div></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div id="footer"></div>
+
+<script src="/assets/js/main.js"></script>
+<script src="/en/load-components.js"></script>
+</body>
+</html>

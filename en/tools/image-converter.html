@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Image Converter Online — JPG, PNG, WEBP, BMP | Logrith</title>
+  <meta name="description" content="Convert images online for free — JPG to PNG, PNG to WEBP, WEBP to JPG and more. Instant, no login, 100% browser-based image format converter.">
+  <link rel="canonical" href="https://logrith.in/en/tools/image-converter.html">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Image Converter","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0"}}</script>
+</head>
+<body>
+
+<div id="navbar"></div>
+<!-- HERO -->
+<div class="tool-hero">
+  <div class="tool-hero-inner">
+    <div class="tool-breadcrumb"><a href="/en/index.html">Home</a> › <a href="/en/index.html#image-tools">Image Tools</a> › Image Converter</div>
+    <h1>🔄 Free Image Converter Online</h1>
+    <p>Convert images between JPG, PNG, WEBP, BMP and GIF formats instantly. No upload to server — all processing done in your browser.</p>
+    <div class="tool-tags">
+      <span class="tool-tag">✅ Free</span>
+      <span class="tool-tag">🔒 Private</span>
+      <span class="tool-tag">⚡ Instant</span>
+      <span class="tool-tag">📱 Mobile Ready</span>
+      <span class="tool-tag">🚫 No Login</span>
+    </div>
+  </div>
+</div>
+
+<!-- WORKSPACE -->
+<div class="tool-workspace">
+  <!-- Upload -->
+  <div class="tool-card">
+    <h2>Upload Image</h2>
+    <div class="upload-zone" id="upload-zone">
+      <input type="file" id="file-input" accept="image/*" multiple>
+      <div class="upload-icon">🖼️</div>
+      <h3>Drop your image here or click to browse</h3>
+      <p>Supports JPG, PNG, WEBP, BMP, GIF</p>
+      <span class="upload-limit">Max 20MB per file</span>
+    </div>
+    <div id="file-info" class="stats-row mt-12"></div>
+  </div>
+
+  <!-- Settings -->
+  <div class="tool-card" id="settings-card" style="display:none;">
+    <h2>Conversion Settings</h2>
+    <div class="controls-grid">
+      <div class="control-group">
+        <label>Output Format</label>
+        <select id="output-format">
+          <option value="image/png">PNG</option>
+          <option value="image/jpeg">JPG</option>
+          <option value="image/webp">WEBP</option>
+          <option value="image/bmp">BMP</option>
+          <option value="image/gif">GIF</option>
+        </select>
+      </div>
+      <div class="control-group" id="quality-group">
+        <label>Quality: <span class="range-value" id="quality-val">90%</span></label>
+        <input type="range" id="quality-slider" min="10" max="100" value="90">
+      </div>
+    </div>
+    <div class="mt-16 btn-group">
+      <button class="btn btn-primary btn-lg" id="convert-btn">🔄 Convert Image</button>
+      <button class="btn btn-secondary" id="reset-btn">✕ Reset</button>
+    </div>
+    <div class="progress-bar mt-12" id="progress"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="status-msg" id="status-msg"></div>
+  </div>
+
+  <!-- Output -->
+  <div class="tool-card" id="output-card" style="display:none;">
+    <h2>Converted Image</h2>
+    <div class="output-preview" id="output-preview">
+      <img id="output-img" src="" alt="Converted image">
+    </div>
+    <div class="stats-row mt-12" id="output-stats"></div>
+    <div class="btn-group mt-16">
+      <button class="btn btn-success" id="download-btn">⬇️ Download Image</button>
+      <button class="btn btn-secondary" id="convert-another">+ Convert Another</button>
+    </div>
+  </div>
+</div>
+
+<!-- RELATED TOOLS -->
+<div class="related-tools">
+  <h2>Related Image Tools</h2>
+  <div class="related-grid">
+    <a href="image-compressor.html" class="tool-item"><div class="ti-icon">📦</div><div class="ti-text"><h4>Image Compressor</h4><p>Reduce image file size</p></div></a>
+    <a href="image-resize.html" class="tool-item"><div class="ti-icon">↔️</div><div class="ti-text"><h4>Image Resize</h4><p>Resize to custom dimensions</p></div></a>
+    <a href="image-crop.html" class="tool-item"><div class="ti-icon">✂️</div><div class="ti-text"><h4>Image Crop</h4><p>Crop images easily</p></div></a>
+    <a href="image-rotate.html" class="tool-item"><div class="ti-icon">🔃</div><div class="ti-text"><h4>Rotate & Flip</h4><p>Rotate/flip images</p></div></a>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item">
+    <div class="faq-q">How do I convert JPG to PNG online for free?</div>
+    <div class="faq-a">Simply upload your JPG image, select PNG as the output format, and click Convert. The tool processes everything in your browser — no upload to any server. Download the converted PNG instantly.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Is my image data safe when using this converter?</div>
+    <div class="faq-a">Yes, 100% safe. All conversion happens locally in your browser using the HTML5 Canvas API. Your image never leaves your device and is not uploaded to any server.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">What is the difference between JPG and PNG?</div>
+    <div class="faq-a">JPG uses lossy compression — great for photos, smaller file size. PNG uses lossless compression — supports transparency, better for logos, screenshots and graphics with sharp edges.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">What is WEBP format and why use it?</div>
+    <div class="faq-a">WEBP is a modern image format by Google. It provides 25–34% smaller file sizes than JPG/PNG at the same quality, making it ideal for websites to improve load speed.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Can I convert multiple images at once?</div>
+    <div class="faq-a">Yes! You can select multiple images at once by holding Ctrl (or Cmd on Mac) while browsing files. Each image will be converted and available for download.</div>
+  </div>
+</div>
+
+<!-- ARTICLE -->
+<div class="article-section">
+  <h2>About Image Format Conversion</h2>
+  <p>Image format conversion is a common task for designers, developers, and everyday users. Different formats serve different purposes: JPG is the go-to for photographs due to its small file size, PNG is preferred for images requiring transparency or lossless quality, and WEBP is the modern web-optimized format that balances both.</p>
+  <p>Logrith's Image Converter uses the HTML5 Canvas API to draw your image and export it in the desired format — all client-side. This means instant results without uploading sensitive images to third-party servers.</p>
+  <p>Whether you need to convert product photos from PNG to JPG for faster website loading, prepare images for social media in the correct format, or batch convert a folder of images — this tool handles it all for free.</p>
+</div>
+
+<div id="footer"></div>
+
+<script src="/assets/js/main.js"></script>
+<script src="/en/load-components.js"></script>
+<script>
+const fileInput = document.getElementById('file-input');
+const uploadZone = document.getElementById('upload-zone');
+const settingsCard = document.getElementById('settings-card');
+const outputCard = document.getElementById('output-card');
+const convertBtn = document.getElementById('convert-btn');
+const downloadBtn = document.getElementById('download-btn');
+const outputImg = document.getElementById('output-img');
+const outputStats = document.getElementById('output-stats');
+const fileInfo = document.getElementById('file-info');
+const qualitySlider = document.getElementById('quality-slider');
+const qualityVal = document.getElementById('quality-val');
+const formatSelect = document.getElementById('output-format');
+const statusMsg = document.getElementById('status-msg');
+const progress = document.getElementById('progress');
+const progressFill = document.getElementById('progress-fill');
+
+let files = [], currentBlobs = [];
+
+qualitySlider.addEventListener('input', () => { qualityVal.textContent = qualitySlider.value + '%'; });
+formatSelect.addEventListener('change', () => {
+  const noQ = ['image/png', 'image/gif', 'image/bmp'];
+  document.getElementById('quality-group').style.display = noQ.includes(formatSelect.value) ? 'none' : 'block';
+});
+
+function handleFiles(f) {
+  files = Array.from(f).filter(file => {
+    if (!file.type.startsWith('image/')) { alert('Please upload image files only.'); return false; }
+    if (file.size > 20 * 1024 * 1024) { alert(`${file.name} is too large. Max 20MB.`); return false; }
+    return true;
+  });
+  if (!files.length) return;
+  fileInfo.innerHTML = files.map(f =>
+    `<span class="stat-chip"><strong>${f.name}</strong> — ${formatSize(f.size)}</span>`
+  ).join('');
+  settingsCard.style.display = 'block';
+  outputCard.style.display = 'none';
+}
+
+fileInput.addEventListener('change', e => handleFiles(e.target.files));
+initDragDrop(uploadZone, handleFiles);
+
+convertBtn.addEventListener('click', async () => {
+  if (!files.length) return;
+  convertBtn.disabled = true;
+  progress.classList.add('active');
+  progressFill.style.width = '20%';
+  currentBlobs = [];
+
+  try {
+    for (let i = 0; i < files.length; i++) {
+      progressFill.style.width = ((i + 1) / files.length * 80 + 20) + '%';
+      const blob = await convertImage(files[i]);
+      currentBlobs.push({ blob, name: files[i].name });
+    }
+    progressFill.style.width = '100%';
+
+    const first = currentBlobs[0];
+    const url = URL.createObjectURL(first.blob);
+    outputImg.src = url;
+    const ext = formatSelect.value.split('/')[1];
+    outputStats.innerHTML = `
+      <span class="stat-chip">Original: <strong>${formatSize(files[0].size)}</strong></span>
+      <span class="stat-chip">Converted: <strong>${formatSize(first.blob.size)}</strong></span>
+      <span class="stat-chip">Format: <strong>${ext.toUpperCase()}</strong></span>
+    `;
+    outputCard.style.display = 'block';
+    showStatus(statusMsg, 'success', `${files.length} image(s) converted successfully!`);
+
+    downloadBtn.onclick = () => {
+      currentBlobs.forEach(({ blob, name }) => {
+        const ext = formatSelect.value.split('/')[1];
+        downloadBlob(blob, name.replace(/\.[^.]+$/, '') + '.' + ext);
+      });
+    };
+  } catch (e) {
+    showStatus(statusMsg, 'error', 'Conversion failed: ' + e.message);
+  }
+  progress.classList.remove('active');
+  convertBtn.disabled = false;
+});
+
+function convertImage(file) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+      const ctx = canvas.getContext('2d');
+      if (formatSelect.value === 'image/jpeg') {
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      }
+      ctx.drawImage(img, 0, 0);
+      URL.revokeObjectURL(url);
+      const q = parseInt(qualitySlider.value) / 100;
+      canvas.toBlob(blob => {
+        if (!blob) reject(new Error('Conversion failed'));
+        else resolve(blob);
+      }, formatSelect.value, q);
+    };
+    img.onerror = () => reject(new Error('Could not load image'));
+    img.src = url;
+  });
+}
+
+document.getElementById('reset-btn').addEventListener('click', () => {
+  files = []; fileInfo.innerHTML = '';
+  settingsCard.style.display = 'none';
+  outputCard.style.display = 'none';
+  fileInput.value = '';
+});
+document.getElementById('convert-another').addEventListener('click', () => {
+  outputCard.style.display = 'none'; fileInput.click();
+});
+</script>
+</body>
+</html>

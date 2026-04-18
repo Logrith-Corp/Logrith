@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Character Counter Online — Detailed Text Analysis | Logrith</title>
+  <meta name="description" content="Count characters, letters, digits, spaces, and special characters online free. Real-time character frequency analysis with visual chart.">
+  <link rel="canonical" href="https://logrith.in/en/tools/character-counter.html">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    .char-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:12px; margin-bottom:16px; }
+    .char-box { background:var(--white); border:1.5px solid var(--gray-200); border-radius:var(--radius); padding:14px 12px; text-align:center; transition:var(--transition); }
+    .char-box:hover { border-color:var(--primary); }
+    .char-box .cb-num { font-family:var(--font-display); font-size:1.6rem; font-weight:800; color:var(--primary); display:block; }
+    .char-box .cb-lbl { font-size:.74rem; color:var(--gray-500); margin-top:3px; display:block; }
+    .freq-row { display:flex; align-items:center; gap:10px; padding:5px 0; }
+    .freq-char { width:32px; text-align:center; font-family:monospace; font-weight:700; font-size:.9rem; color:var(--gray-700); }
+    .freq-bar-wrap { flex:1; }
+    .freq-bar { height:16px; background:linear-gradient(90deg,var(--primary),var(--accent)); border-radius:3px; transition:width .3s; min-width:2px; }
+    .freq-count { width:50px; text-align:right; font-size:.8rem; color:var(--gray-500); font-weight:600; }
+  </style>
+</head>
+<body>
+<div id="navbar"></div>
+
+<div class="tool-hero"><div class="tool-hero-inner">
+  <div class="tool-breadcrumb"><a href="/en/index.html">Home</a> › <a href="/en/index.html#text-tools">Text Tools</a> › Character Counter</div>
+  <h1>🔢 Free Character Counter Online</h1>
+  <p>Count characters, letters, digits, spaces, punctuation, and get a full character frequency breakdown in real-time as you type.</p>
+  <div class="tool-tags"><span class="tool-tag">✅ Free</span><span class="tool-tag">⚡ Real-time</span><span class="tool-tag">📊 Frequency Chart</span><span class="tool-tag">🔢 Detailed Analysis</span></div>
+</div></div>
+
+<div class="tool-workspace" style="max-width:920px;">
+  <!-- Stats grid -->
+  <div class="char-grid">
+    <div class="char-box"><span class="cb-num" id="s-total">0</span><span class="cb-lbl">Total Chars</span></div>
+    <div class="char-box"><span class="cb-num" id="s-nospace">0</span><span class="cb-lbl">No Spaces</span></div>
+    <div class="char-box"><span class="cb-num" id="s-letters">0</span><span class="cb-lbl">Letters</span></div>
+    <div class="char-box"><span class="cb-num" id="s-digits">0</span><span class="cb-lbl">Digits</span></div>
+    <div class="char-box"><span class="cb-num" id="s-spaces">0</span><span class="cb-lbl">Spaces</span></div>
+    <div class="char-box"><span class="cb-num" id="s-punct">0</span><span class="cb-lbl">Punctuation</span></div>
+    <div class="char-box"><span class="cb-num" id="s-upper">0</span><span class="cb-lbl">Uppercase</span></div>
+    <div class="char-box"><span class="cb-num" id="s-lower">0</span><span class="cb-lbl">Lowercase</span></div>
+  </div>
+
+  <div class="tool-card">
+    <h2>Input Text</h2>
+    <textarea class="tool-textarea" id="text-area" rows="8" placeholder="Type or paste text here to count characters..."></textarea>
+    <div class="btn-group mt-12">
+      <button class="btn btn-secondary" id="clear-btn">✕ Clear</button>
+      <button class="btn btn-secondary" id="copy-btn">📋 Copy Text</button>
+      <button class="btn btn-secondary" id="sample-btn">📋 Load Sample</button>
+    </div>
+  </div>
+
+  <div class="tool-card">
+    <h2>Character Frequency (Top 30)</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div>
+        <h3 style="font-size:.84rem;font-weight:600;color:var(--gray-500);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px;">Letters</h3>
+        <div id="freq-letters"></div>
+      </div>
+      <div>
+        <h3 style="font-size:.84rem;font-weight:600;color:var(--gray-500);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px;">Other Characters</h3>
+        <div id="freq-other"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Limits reference -->
+  <div class="tool-card">
+    <h2>Platform Character Limits Reference</h2>
+    <div id="limits-bars"></div>
+  </div>
+</div>
+
+<div class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item"><div class="faq-q">What is character count used for?</div><div class="faq-a">Character count is crucial for social media posts (Twitter/X: 280, LinkedIn: 3000), SMS messages (160 per SMS), meta descriptions (155–160 chars), meta titles (50–60 chars), and any platform with character limits.</div></div>
+  <div class="faq-item"><div class="faq-q">Does the counter include spaces?</div><div class="faq-a">Yes, the "Total Chars" count includes spaces. Use "No Spaces" for the count without spaces. Both metrics are shown in real-time.</div></div>
+  <div class="faq-item"><div class="faq-q">What is character frequency analysis useful for?</div><div class="faq-a">Character frequency is used in cryptography (frequency analysis attacks on substitution ciphers), language detection, text compression optimization, and checking for unusual character distributions in data.</div></div>
+</div>
+
+<div id="footer"></div>
+
+<script src="/assets/js/main.js"></script>
+<script src="/en/load-components.js"></script>
+<script>
+const LIMITS = [
+  {name:'Twitter/X', limit:280}, {name:'Instagram Caption', limit:2200}, {name:'LinkedIn Post', limit:3000},
+  {name:'Meta Description', limit:160}, {name:'Meta Title', limit:60}, {name:'SMS (1 message)', limit:160},
+  {name:'WhatsApp Status', limit:139}, {name:'YouTube Title', limit:100}
+];
+
+function analyze() {
+  const text = document.getElementById('text-area').value;
+  const letters = (text.match(/[a-zA-Z]/g)||[]).length;
+  const digits = (text.match(/\d/g)||[]).length;
+  const spaces = (text.match(/\s/g)||[]).length;
+  const upper = (text.match(/[A-Z]/g)||[]).length;
+  const lower = (text.match(/[a-z]/g)||[]).length;
+  const punct = (text.match(/[^\w\s]/g)||[]).length;
+
+  document.getElementById('s-total').textContent = text.length;
+  document.getElementById('s-nospace').textContent = text.replace(/\s/g,'').length;
+  document.getElementById('s-letters').textContent = letters;
+  document.getElementById('s-digits').textContent = digits;
+  document.getElementById('s-spaces').textContent = spaces;
+  document.getElementById('s-punct').textContent = punct;
+  document.getElementById('s-upper').textContent = upper;
+  document.getElementById('s-lower').textContent = lower;
+
+  // Frequency
+  const freq = {};
+  for (const c of text) {
+    if (c === ' ' || c === '\n' || c === '\t') continue;
+    freq[c] = (freq[c]||0)+1;
+  }
+  const sorted = Object.entries(freq).sort((a,b)=>b[1]-a[1]).slice(0,30);
+  const maxFreq = sorted[0]?.[1]||1;
+
+  const letterFreq = sorted.filter(([c])=>/[a-zA-Z]/.test(c));
+  const otherFreq = sorted.filter(([c])=>!/[a-zA-Z]/.test(c));
+
+  function renderFreq(items, containerId) {
+    const el = document.getElementById(containerId);
+    if (!items.length) { el.innerHTML='<div style="color:var(--gray-500);font-size:.84rem;">None found</div>'; return; }
+    el.innerHTML = items.map(([c,count]) => `
+      <div class="freq-row">
+        <span class="freq-char">${c === '<' ? '&lt;' : c === '>' ? '&gt;' : c === '&' ? '&amp;' : c}</span>
+        <div class="freq-bar-wrap"><div class="freq-bar" style="width:${count/maxFreq*100}%"></div></div>
+        <span class="freq-count">${count}</span>
+      </div>`).join('');
+  }
+  renderFreq(letterFreq, 'freq-letters');
+  renderFreq(otherFreq, 'freq-other');
+
+  // Limits
+  const tc = text.length;
+  document.getElementById('limits-bars').innerHTML = LIMITS.map(({name,limit}) => {
+    const pct = Math.min(100, (tc/limit*100)).toFixed(0);
+    const over = tc > limit;
+    return `<div style="margin-bottom:10px;">
+      <div style="display:flex;justify-content:space-between;font-size:.82rem;margin-bottom:4px;">
+        <span style="font-weight:600;color:var(--gray-700);">${name}</span>
+        <span style="color:${over?'var(--error)':'var(--gray-500)'};">${tc}/${limit} (${pct}%) ${over?'⚠️ Over limit':''}</span>
+      </div>
+      <div style="height:8px;background:var(--gray-200);border-radius:4px;overflow:hidden;">
+        <div style="height:100%;width:${pct}%;background:${over?'var(--error)':'linear-gradient(90deg,var(--primary),var(--accent))'};border-radius:4px;transition:width .3s;"></div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+document.getElementById('text-area').addEventListener('input', analyze);
+document.getElementById('clear-btn').addEventListener('click', () => { document.getElementById('text-area').value=''; analyze(); });
+document.getElementById('copy-btn').addEventListener('click', function() { const v=document.getElementById('text-area').value; if(v) copyText(v,this); });
+document.getElementById('sample-btn').addEventListener('click', () => { document.getElementById('text-area').value='Hello World! This is a sample text for character counting. Logrith provides 160+ free online tools. Try it now at logrith.in — it\'s 100% free & private.'; analyze(); });
+analyze();
+</script>
+</body></html>
