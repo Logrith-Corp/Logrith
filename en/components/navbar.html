@@ -1,4 +1,3 @@
-<!-- TOPBAR -->
 <!-- NAVBAR -->
 <nav class="navbar" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
@@ -67,43 +66,82 @@
       <div id="search-results"></div>
     </div>
 
-    <button class="hamburger" id="hamburger" aria-label="Menu">
+    <!-- Hamburger — inline onclick so JS timing never matters -->
+    <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="openDrawer()">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
-<!-- MOBILE NAV -->
+<!-- OVERLAY — click karo to close drawer -->
+<div class="mobile-nav-overlay" id="mobile-overlay" onclick="closeDrawer()"></div>
+
+<!-- DRAWER — right side panel -->
 <div class="mobile-nav" id="mobile-nav">
   <div class="mobile-nav-header">
     <a href="/en/index.html" class="nav-logo">
-      <div class="logo-icon"><img src="assets/logo.png" alt="logo"></div>
+      <div class="logo-icon"><img src="/assets/img/logo.png" alt="logo"></div>
       <span class="logo-text">Logrith</span>
     </a>
-    <button class="mobile-nav-close" id="mobile-close">✕</button>
+    <button class="mobile-nav-close" aria-label="Close menu" onclick="closeDrawer()">✕</button>
   </div>
+
   <ul class="mobile-nav-links">
     <li><a href="/en/index.html">🏠 Home</a></li>
+
+    <!-- Image Tools group -->
     <li><a href="/en/tools/image-converter.html">🔄 Image Converter</a></li>
-    <li><a href="/en/tools/image-compressor.html">📦 Image Compressor</a></li>
-    <li><a href="/en/tools/image-resize.html">↔️ Image Resize</a></li>
-    <li><a href="/en/tools/image-crop.html">✂️ Image Crop</a></li>
-    <li><a href="/en/tools/image-rotate.html">🔃 Image Rotate &amp; Flip</a></li>
+    <li><a href="/en/tools/image-compressor.html" class="mobile-sub">📦 Compressor</a></li>
+    <li><a href="/en/tools/image-resize.html" class="mobile-sub">↔️ Resize</a></li>
+    <li><a href="/en/tools/image-crop.html" class="mobile-sub">✂️ Crop</a></li>
+    <li><a href="/en/tools/image-rotate.html" class="mobile-sub">🔃 Rotate &amp; Flip</a></li>
+
+    <!-- PDF Tools group -->
     <li><a href="/en/tools/pdf-merge.html">📎 PDF Merge</a></li>
-    <li><a href="/en/tools/pdf-split.html">✂️ PDF Split</a></li>
-    <li><a href="/en/tools/jpg-to-pdf.html">🖼️ JPG → PDF</a></li>
-    <li><a href="/en/tools/pdf-to-jpg.html">📄 PDF → JPG</a></li>
-    <li><a href="/en/tools/pdf-rotate.html">🔃 PDF Rotate</a></li>
+    <li><a href="/en/tools/pdf-split.html" class="mobile-sub">✂️ PDF Split</a></li>
+    <li><a href="/en/tools/jpg-to-pdf.html" class="mobile-sub">🖼️ JPG → PDF</a></li>
+    <li><a href="/en/tools/pdf-to-jpg.html" class="mobile-sub">📄 PDF → JPG</a></li>
+    <li><a href="/en/tools/pdf-rotate.html" class="mobile-sub">🔃 PDF Rotate</a></li>
+
+    <!-- Dev Tools group -->
     <li><a href="/en/tools/json-formatter.html">{ } JSON Formatter</a></li>
-    <li><a href="/en/tools/base64.html">🔐 Base64 Encode/Decode</a></li>
-    <li><a href="/en/tools/url-encoder.html">🔗 URL Encoder</a></li>
-    <li><a href="/en/tools/password-generator.html">🔑 Password Generator</a></li>
+    <li><a href="/en/tools/base64.html" class="mobile-sub">🔐 Base64</a></li>
+    <li><a href="/en/tools/url-encoder.html" class="mobile-sub">🔗 URL Encoder</a></li>
+    <li><a href="/en/tools/password-generator.html" class="mobile-sub">🔑 Password Gen</a></li>
+    <li><a href="/en/tools/hash-generator.html" class="mobile-sub"># Hash Generator</a></li>
+
+    <!-- Text Tools group -->
     <li><a href="/en/tools/word-counter.html">📝 Word Counter</a></li>
-    <li><a href="/en/tools/case-converter.html">Aa Case Converter</a></li>
+    <li><a href="/en/tools/case-converter.html" class="mobile-sub">Aa Case Converter</a></li>
+    <li><a href="/en/tools/character-counter.html" class="mobile-sub">🔢 Char Counter</a></li>
+    <li><a href="/en/tools/lorem-ipsum.html" class="mobile-sub">📃 Lorem Ipsum</a></li>
+    <li><a href="/en/tools/text-diff.html" class="mobile-sub">🔍 Text Diff</a></li>
+
+    <!-- Utility Tools group -->
     <li><a href="/en/tools/qr-generator.html">▣ QR Generator</a></li>
-    <li><a href="/en/tools/color-converter.html">🎨 Color Converter</a></li>
-    <li><a href="/en/tools/age-calculator.html">📅 Age Calculator</a></li>
-    <li><a href="/en/tools/unit-converter.html">📐 Unit Converter</a></li>
-    <li><a href="/en/categories/all-tools.html">⚡ All Tools</a></li>
+    <li><a href="/en/tools/color-converter.html" class="mobile-sub">🎨 Color Converter</a></li>
+    <li><a href="/en/tools/age-calculator.html" class="mobile-sub">📅 Age Calculator</a></li>
+    <li><a href="/en/tools/unit-converter.html" class="mobile-sub">📐 Unit Converter</a></li>
+    <li><a href="/en/tools/percentage-calculator.html" class="mobile-sub">% Percentage Calc</a></li>
+
+    <li><a href="/en/categories/all-tools.html" style="color:var(--primary);font-weight:700;">⚡ All Tools</a></li>
   </ul>
 </div>
+
+<!-- Drawer JS — inline, no external dependency needed -->
+<script>
+function openDrawer() {
+  document.getElementById('mobile-nav').classList.add('open');
+  document.getElementById('mobile-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden'; // page scroll band
+}
+function closeDrawer() {
+  document.getElementById('mobile-nav').classList.remove('open');
+  document.getElementById('mobile-overlay').classList.remove('open');
+  document.body.style.overflow = ''; // page scroll wapas
+}
+// Escape key support
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeDrawer();
+});
+</script>

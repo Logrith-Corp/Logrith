@@ -5,13 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Logrith — 160+ Free Online Tools for Image, PDF, Text & Developers</title>
   <meta name="description" content="Logrith offers 160+ free online tools — image converter, PDF merge, JSON formatter, password generator, QR code maker and more. No login, no install, 100% in-browser.">
-  <meta name="keywords" content="free online tools, image converter, PDF tools, JSON formatter, QR code generator, password generator, text tools">
+  <meta name="keywords" content="free online tools, image converter, PDF tools, JSON formatter, QR code generator, password generator, text tools, logrith">
   <link rel="canonical" href="https://logrith.in/en/">
   <meta property="og:title" content="Logrith — 160+ Free Online Tools">
   <meta property="og:description" content="Free image, PDF, text, and developer tools. No login, 100% browser-based.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://logrith.in/en/">
   <link rel="stylesheet" href="/assets/css/style.css">
+
+  
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -39,13 +41,13 @@
     <h1>Your Ultimate Free<br><span>Online Tool</span> <em>Hub</em></h1>
     <p>Convert images, merge PDFs, format JSON, generate QR codes, and 150+ more tools — all free, instant, and private. Nothing leaves your browser.</p>
 
-    <!-- ✅ YAHI BADLA: hero-search ke andar ek wrapper + results div add ki -->
+    <!-- HERO SEARCH WRAP — dropdown positioned relative to this -->
     <div class="hero-search-wrap">
       <div class="hero-search">
         <input type="text" id="hero-search" placeholder="Search for a tool... e.g. 'image compressor'" autocomplete="off">
         <button id="hero-search-btn">Search</button>
       </div>
-      <!-- Hero search ka results dropdown — UI apne hisab se style.css mein control karo -->
+      <!-- Hero results dropdown — z-index:9999, shows above everything -->
       <div id="hero-search-results"></div>
     </div>
 
@@ -65,56 +67,6 @@
       <h2>Browse by Category</h2>
       <p>Pick a category to explore all tools in that space</p>
     </div>
-    <div class="cat-grid">
-      <a href="#image-tools" class="cat-card">
-        <div class="cat-icon">🖼️</div>
-        <h3>Image Tools</h3>
-        <p>Convert, compress, resize, crop, rotate &amp; edit images</p>
-        <span class="cat-count">22+ tools</span>
-      </a>
-      <a href="#pdf-tools" class="cat-card">
-        <div class="cat-icon">📄</div>
-        <h3>PDF Tools</h3>
-        <p>Merge, split, rotate, convert and protect PDFs</p>
-        <span class="cat-count">15+ tools</span>
-      </a>
-      <a href="#dev-tools" class="cat-card">
-        <div class="cat-icon">🛠️</div>
-        <h3>Developer Tools</h3>
-        <p>JSON, Base64, URL encoder, regex, hash &amp; more</p>
-        <span class="cat-count">25+ tools</span>
-      </a>
-      <a href="#text-tools" class="cat-card">
-        <div class="cat-icon">✏️</div>
-        <h3>Text Tools</h3>
-        <p>Word count, case convert, diff, lorem ipsum &amp; more</p>
-        <span class="cat-count">18+ tools</span>
-      </a>
-      <a href="#utility-tools" class="cat-card">
-        <div class="cat-icon">⚙️</div>
-        <h3>Utility Tools</h3>
-        <p>QR code, calculators, converters &amp; generators</p>
-        <span class="cat-count">20+ tools</span>
-      </a>
-      <a href="#audio-tools" class="cat-card">
-        <div class="cat-icon">🎵</div>
-        <h3>Audio Tools</h3>
-        <p>Trim, merge, convert and edit audio files</p>
-        <span class="cat-count">12+ tools</span>
-      </a>
-      <a href="#file-tools" class="cat-card">
-        <div class="cat-icon">📁</div>
-        <h3>File Tools</h3>
-        <p>Metadata viewer, checksum, type detector &amp; more</p>
-        <span class="cat-count">9+ tools</span>
-      </a>
-      <a href="#unit-converters" class="cat-card">
-        <div class="cat-icon">📐</div>
-        <h3>Unit Converters</h3>
-        <p>Length, weight, temperature, data &amp; more</p>
-        <span class="cat-count">15+ tools</span>
-      </a>
-    </div>
   </div>
 </section>
 
@@ -122,7 +74,6 @@
 <section class="section" id="all-tools" style="background: var(--gray-50);">
   <div class="section-inner">
 
-    <!-- Image Tools -->
     <div id="image-tools" class="section-header" style="text-align:left; margin-bottom:20px;">
       <h2>🖼️ Image Tools</h2>
     </div>
@@ -134,7 +85,6 @@
       <a href="tools/image-rotate.html" class="tool-item"><div class="ti-icon">🔃</div><div class="ti-text"><h4>Image Rotate &amp; Flip</h4><p>Rotate 90°/180°, flip horizontal &amp; vertical</p></div></a>
     </div>
 
-    <!-- PDF Tools -->
     <div id="pdf-tools" class="section-header" style="text-align:left; margin-bottom:20px;">
       <h2>📄 PDF Tools</h2>
     </div>
@@ -146,7 +96,6 @@
       <a href="tools/pdf-rotate.html" class="tool-item"><div class="ti-icon">🔃</div><div class="ti-text"><h4>PDF Rotate</h4><p>Rotate PDF pages 90°, 180° or 270°</p></div></a>
     </div>
 
-    <!-- Dev Tools -->
     <div id="dev-tools" class="section-header" style="text-align:left; margin-bottom:20px;">
       <h2>🛠️ Developer Tools</h2>
     </div>
@@ -160,7 +109,6 @@
       <a href="tools/regex-tester.html" class="tool-item"><div class="ti-icon">🔍</div><div class="ti-text"><h4>Regex Tester</h4><p>Test and debug regular expressions</p></div></a>
     </div>
 
-    <!-- Text Tools -->
     <div id="text-tools" class="section-header" style="text-align:left; margin-bottom:20px;">
       <h2>✏️ Text Tools</h2>
     </div>
@@ -174,7 +122,6 @@
       <a href="tools/slug-generator.html" class="tool-item"><div class="ti-icon">🔗</div><div class="ti-text"><h4>Slug Generator</h4><p>Generate URL-friendly slugs from text</p></div></a>
     </div>
 
-    <!-- Utility Tools -->
     <div id="utility-tools" class="section-header" style="text-align:left; margin-bottom:20px;">
       <h2>⚙️ Utility Tools</h2>
     </div>
@@ -220,6 +167,95 @@
         <h3>Mobile Ready</h3>
         <p>Works perfectly on phones, tablets and desktops of all sizes.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SEO FAQ SECTION
+═══════════════════════════════════════════════════════════ -->
+<section class="section" style="background: var(--gray-50);">
+  <div class="section-inner" style="max-width: 860px; margin: 0 auto;">
+    <div class="section-header">
+      <h2>Frequently Asked Questions</h2>
+      <p>Everything you need to know about Logrith</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">What is Logrith and what tools does it offer?</div>
+      <div class="faq-a">Logrith is a free online tool hub offering 160+ browser-based utilities for everyday digital tasks. It includes image tools (converter, compressor, resize, crop, rotate), PDF tools (merge, split, convert), developer tools (JSON formatter, Base64, URL encoder, hash generator, UUID generator), text tools (word counter, case converter, text diff), and utility tools (QR generator, color converter, calculators). All tools run 100% in your browser — no server upload, no login required.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Is Logrith completely free to use?</div>
+      <div class="faq-a">Yes, Logrith is 100% free with absolutely no hidden charges. There are no premium plans, no usage credits, no watermarks on output files, and no account required. Every single tool on the platform is available to all users at no cost, forever.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Are my files safe when using Logrith tools?</div>
+      <div class="faq-a">Completely safe. Logrith processes all files directly in your browser using JavaScript APIs (Canvas API, Web Crypto API, PDF-Lib). Your images, PDFs, and documents are never uploaded to any server. You can even use most tools offline after the page has loaded. No file data ever leaves your device.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Do I need to create an account or log in?</div>
+      <div class="faq-a">No. Logrith requires zero registration, zero login, and zero personal information. Simply open any tool URL and start using it immediately. There is no sign-up form, no email verification, and no account management of any kind.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Does Logrith work on mobile phones?</div>
+      <div class="faq-a">Yes, all Logrith tools are fully mobile-responsive and tested on iOS and Android browsers. The interface adapts to any screen size. Image tools support camera input on mobile, and all output files are directly downloadable to your phone's storage.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">What is the maximum file size I can upload?</div>
+      <div class="faq-a">Most tools support up to 20MB per file. The file hash tool supports up to 100MB. These limits ensure smooth performance on all devices including budget smartphones. For very large files, we recommend using desktop hardware for the best experience.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Can I convert JPG to PNG for free on Logrith?</div>
+      <div class="faq-a">Yes! Open the Image Converter tool, upload your JPG file, select PNG as the output format, and click Convert. The conversion happens instantly in your browser. You can also batch convert multiple images at once, and choose quality levels for lossy formats like JPG and WEBP.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How do I merge PDF files online for free?</div>
+      <div class="faq-a">Open the PDF Merge tool on Logrith, upload all the PDF files you want to combine, drag them to reorder if needed, then click Merge. The tool uses PDF-Lib to combine the files entirely in your browser. Download the merged PDF instantly — no email required, no file size watermark.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Which browsers are supported?</div>
+      <div class="faq-a">Logrith works on all modern browsers — Chrome, Firefox, Safari, Edge, and Brave — on both desktop and mobile. The tools use standard web APIs that all modern browsers have supported for years. Internet Explorer is not supported.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Will Logrith remain free? Are there ads?</div>
+      <div class="faq-a">Logrith is committed to remaining free for all users. The platform may display minimal, non-intrusive advertisements to cover operational costs, but these never interrupt tool usage, never track your files, and never affect the quality of output. No paywalls, no forced upgrades — ever.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SEO ARTICLE SECTION
+═══════════════════════════════════════════════════════════ -->
+<section class="section" style="background: var(--white);">
+  <div class="section-inner" style="max-width: 860px; margin: 0 auto;">
+    <div class="section-header" style="text-align: left;">
+      <h2>Logrith — The Free Online Tool Platform Built for Everyone</h2>
+    </div>
+
+    <div style="font-size: 0.95rem; color: var(--gray-700); line-height: 1.85;">
+      <p>In today's digital workflow, professionals and everyday users alike find themselves jumping between dozens of different websites to accomplish basic tasks — one site to compress an image, another to merge a PDF, a third to format JSON, yet another to generate a QR code. Each of these sites comes with its own account requirement, file upload limits, watermarks, or privacy concerns. <strong>Logrith exists to eliminate this problem entirely.</strong></p>
+
+      <p>Logrith is a comprehensive free online tool hub that consolidates 160+ utilities under a single, clean, privacy-first platform. Every tool on Logrith runs 100% in your browser using modern Web APIs — the HTML5 Canvas API for image processing, PDF-Lib for PDF manipulation, the Web Crypto API for hashing and password generation, and native JavaScript engines for text and conversion operations. This means your data never leaves your device, processing is instant with no server delays, and the platform works even with an unreliable internet connection after initial page load.</p>
+
+      <p>The <strong>Image Tools</strong> collection covers the most common image processing needs: converting between JPG, PNG, WEBP, and BMP formats with quality control; compressing images by up to 80% without visible quality loss; resizing to exact pixel dimensions with aspect ratio lock; interactive drag-to-crop with ratio presets; and rotating or flipping images in any direction. These tools are particularly valuable for web developers, content creators, social media managers, and e-commerce sellers who routinely need to optimize images for different platforms and purposes.</p>
+
+      <p>The <strong>PDF Tools</strong> powered by PDF-Lib handle everything from combining documents to converting between formats. Merge unlimited PDFs in any order, extract specific page ranges, convert images to multi-page PDFs, render PDF pages as high-quality images, and rotate pages — all without uploading a single file to any external server. This makes Logrith safe for processing sensitive documents like contracts, financial statements, and personal records.</p>
+
+      <p>Logrith's <strong>Developer Tools</strong> serve the daily needs of programmers and technical users: real-time JSON formatting and validation with error location highlighting, Base64 encoding and decoding for both text and files, URL percent-encoding, cryptographically secure password generation using the Web Crypto API, SHA-256 and SHA-512 hash generation for text and files up to 100MB, UUID v4 generation with bulk output, and a live regex tester with match highlighting and capture group display.</p>
+
+      <p>For writers, editors, and content marketers, the <strong>Text Tools</strong> offer word counting with reading time estimates and keyword density analysis, 12-format case conversion including camelCase and snake_case for developers, live text diff comparison using the LCS algorithm, duplicate line removal with sorting options, Lorem Ipsum generation in plain text or HTML format, and URL slug generation with stop word removal for SEO-optimized URLs. The <strong>Utility Tools</strong> complete the picture with QR code generation for seven content types, HEX/RGB/HSL/CMYK color conversion, exact age calculation, 100+ unit conversions across 10 categories, and India-specific financial calculators for GST and EMI computation with full amortization schedules.</p>
+
+      <p>Logrith is designed to scale to 160+ tools while maintaining the same lightweight, fast, and private experience that makes it genuinely useful. Whether you're a freelance designer compressing product images, a developer formatting API responses, a student converting documents, or a small business owner generating QR codes for marketing — Logrith has the right tool for you, available instantly, for free.</p>
     </div>
   </div>
 </section>

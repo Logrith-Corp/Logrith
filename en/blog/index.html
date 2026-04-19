@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logrith Blog — Guides, Tips & Tool Tutorials</title>
+  <meta name="description" content="Logrith Blog — tutorials and guides for image compression, PDF editing, online security, developer tools, and productivity tips. Learn to get the most out of free browser tools.">
+  <meta name="keywords" content="logrith blog, image compression guide, pdf tools tutorial, free online tools guide, how to compress images, how to merge pdf">
+  <link rel="canonical" href="https://logrith.in/en/blog/">
+  <meta property="og:title" content="Logrith Blog — Tools Guides & Tutorials">
+  <meta property="og:description" content="Tips, guides and tutorials for image tools, PDF tools, developer utilities and more. All free, all browser-based.">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    .page-hero { background: linear-gradient(135deg, #f0f4ff 0%, #e8f7f5 100%); padding: 56px 24px 44px; text-align: center; border-bottom: 1.5px solid var(--gray-200); }
+    .page-hero h1 { font-family: var(--font-display); font-size: clamp(1.8rem,5vw,2.6rem); font-weight: 800; color: var(--gray-900); margin-bottom: 12px; }
+    .page-hero h1 span { color: var(--primary); }
+    .page-hero p { font-size:1rem; color:var(--gray-700); max-width:540px; margin:0 auto; line-height:1.7; }
+    .breadcrumb { display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--gray-500);justify-content:center;margin-bottom:16px; }
+    .breadcrumb a { color:var(--primary);text-decoration:none; }
+
+    /* Blog layout */
+    .blog-wrap { max-width: 1200px; margin: 0 auto; padding: 48px 24px; display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: start; }
+    .blog-main {}
+    .blog-sidebar { position: sticky; top: 88px; }
+
+    /* Blog cards */
+    .blog-grid { display: flex; flex-direction: column; gap: 24px; }
+    .blog-card { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: var(--radius-xl); overflow: hidden; text-decoration: none; display: flex; transition: var(--transition); }
+    .blog-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); border-color: var(--gray-300); }
+    .blog-card-img { width: 220px; flex-shrink: 0; background: linear-gradient(135deg, #eff6ff, #dbeafe); display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+    .blog-card-body { padding: 22px 24px; flex: 1; }
+    .blog-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .blog-cat { padding: 3px 10px; border-radius: 20px; font-size: .72rem; font-weight: 700; font-family: var(--font-display); }
+    .blog-cat.image { background: #eff6ff; color: #1d4ed8; }
+    .blog-cat.pdf   { background: #fef2f2; color: #dc2626; }
+    .blog-cat.dev   { background: #f0fdf4; color: #16a34a; }
+    .blog-cat.text  { background: #fffbeb; color: #d97706; }
+    .blog-cat.util  { background: #f0fdfa; color: #059669; }
+    .blog-cat.guide { background: #fdf4ff; color: #9333ea; }
+    .blog-date { font-size: .76rem; color: var(--gray-500); }
+    .blog-card h2 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--gray-900); margin-bottom: 8px; line-height: 1.35; }
+    .blog-card p { font-size: .86rem; color: var(--gray-600); line-height: 1.6; margin-bottom: 14px; }
+    .blog-read-more { font-size: .82rem; font-weight: 700; color: var(--primary); font-family: var(--font-display); display: inline-flex; align-items: center; gap: 4px; }
+
+    /* Sidebar */
+    .sidebar-card { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: var(--radius-lg); padding: 20px; margin-bottom: 20px; }
+    .sidebar-card h3 { font-family: var(--font-display); font-size: .92rem; font-weight: 700; color: var(--gray-900); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--gray-100); }
+    .tool-quick-link { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--gray-100); text-decoration: none; color: var(--gray-700); font-size: .86rem; transition: var(--transition); }
+    .tool-quick-link:last-child { border-bottom: none; }
+    .tool-quick-link:hover { color: var(--primary); }
+    .tool-quick-link span:first-child { font-size: 1rem; width: 22px; text-align: center; }
+    .cat-filter { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; }
+    .cat-filter-btn { padding: 5px 14px; background: var(--gray-50); border: 1.5px solid var(--gray-200); border-radius: 20px; font-size: .78rem; font-weight: 600; color: var(--gray-700); cursor: pointer; transition: var(--transition); }
+    .cat-filter-btn:hover, .cat-filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+    @media(max-width:900px){
+      .blog-wrap { grid-template-columns: 1fr; }
+      .blog-sidebar { position: static; }
+      .blog-card { flex-direction: column; }
+      .blog-card-img { width: 100%; height: 140px; }
+    }
+    @media(max-width:600px){
+      .blog-card-body { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+<div id="navbar"></div>
+
+<div class="page-hero">
+  <div class="breadcrumb"><a href="/en/index.html">Home</a> › Blog</div>
+  <h1>Logrith <span>Blog</span></h1>
+  <p>Guides, tutorials, and tips for getting the most out of free online tools. Learn faster workflows, better practices, and tool tricks.</p>
+</div>
+
+<div class="blog-wrap">
+  <!-- MAIN CONTENT -->
+  <div class="blog-main">
+
+    <!-- Filter -->
+    <div class="cat-filter">
+      <button class="cat-filter-btn active">All</button>
+      <button class="cat-filter-btn">🖼️ Image</button>
+      <button class="cat-filter-btn">📄 PDF</button>
+      <button class="cat-filter-btn">🛠️ Developer</button>
+      <button class="cat-filter-btn">✏️ Text</button>
+      <button class="cat-filter-btn">⚙️ Utility</button>
+      <button class="cat-filter-btn">📚 Guide</button>
+    </div>
+
+    <div class="blog-grid">
+
+      <a href="#" class="blog-card">
+        <div class="blog-card-img">🖼️</div>
+        <div class="blog-card-body">
+          <div class="blog-meta"><span class="blog-cat image">Image</span><span class="blog-date">Jan 15, 2026</span></div>
+          <h2>How to Compress Images for Your Website Without Losing Quality</h2>
+          <p>Large images are the #1 reason websites load slowly. Learn how to reduce image file size by up to 80% using Logrith's Image Compressor, the ideal quality settings for web use, and when to use JPG vs WEBP vs PNG.</p>
+          <span class="blog-read-more">Read Guide →</span>
+        </div>
+      </a>
+
+      <a href="#" class="blog-card">
+        <div class="blog-card-img">📄</div>
+        <div class="blog-card-body">
+          <div class="blog-meta"><span class="blog-cat pdf">PDF</span><span class="blog-date">Jan 12, 2026</span></div>
+          <h2>How to Merge PDF Files Online for Free — Step by Step</h2>
+          <p>Combining multiple PDFs into one document is a daily task for professionals. This guide walks through Logrith's PDF Merge tool, explains how to reorder pages, and covers when to merge vs when to split your documents.</p>
+          <span class="blog-read-more">Read Guide →</span>
+        </div>
+      </a>
+
+      <a href="#" class="blog-card">
+        <div class="blog-card-img">🔑</div>
+        <div class="blog-card-body">
+          <div class="blog-meta"><span class="blog-cat dev">Developer</span><span class="blog-date">Jan 10, 2026</span></div>
+          <h2>What Makes a Password Truly Strong in 2026?</h2>
+          <p>Password security has changed. This guide covers entropy, why length matters more than complexity, the difference between random and memorable passwords, and how to use Logrith's Password Generator and Strength Checker together for maximum security.</p>
+          <span class="blog-read-more">Read Guide →</span>
+        </div>
+      </a>
+
+      <a href="#" class="blog-card">
+        <div class="blog-card-img">🔗</div>
+        <div class="blog-card-body">
+          <div class="blog-meta"><span class="blog-cat text">Text</span><span class="blog-date">Jan 8, 2026</span></div>
+          <h2>SEO-Friendly URL Slugs: How to Create Them the Right Way</h2>
+          <p>URL slugs directly impact SEO rankings and click-through rates. Learn why hyphens beat underscores, how to handle stop words, what max length to use, and how Logrith's Slug Generator automates the entire process for blog posts and e-commerce.</p>
+          <span class="blog-read-more">Read Guide →</span>
+        </div>
+      </a>
+
+      <a href="#" class="blog-card">
+        <div class="blog-card-img">▣</div>
+        <div class="blog-card-body">
+          <div class="blog-meta"><span class="blog-cat util">Utility</span><span class="blog-date">Jan 5, 2026</span></div>
+          <h2>QR Codes for Business: Everything You Need to Know in 2026</h2>
+          <p>QR codes are everywhere — menus, business cards, packaging, marketing materials. This guide covers QR code types (URL, WiFi, vCard, SMS), best practices for size and contrast, how to generate high-quality QR codes for print using Logrith, and how to track scan rates.</p>
+          <span class="blog-read-more">Read Guide →</span>
+        </div>
+      </a>
+
+      <a href="#" class="blog-card">
+        <div class="blog-card-img">{ }</div>
+        <div class="blog-card-body">
+          <div class="blog-meta"><span class="blog-cat dev">Developer</span><span class="blog-date">Jan 3, 2026</span></div>
+          <h2>JSON Formatting Best Practices for APIs and Config Files</h2>
+          <p>Poorly formatted JSON is a debugging nightmare. This guide covers JSON formatting conventions, when to use 2 vs 4 space indentation, how to validate JSON structure, common JSON errors and how to fix them, and how Logrith's formatter handles edge cases.</p>
+          <span class="blog-read-more">Read Guide →</span>
+        </div>
+      </a>
+
+      <a href="#" class="blog-card">
+        <div class="blog-card-img">📊</div>
+        <div class="blog-card-body">
+          <div class="blog-meta"><span class="blog-cat guide">Guide</span><span class="blog-date">Dec 28, 2026</span></div>
+          <h2>Complete Guide to Free Online Tools — What You Can Do Without Installing Anything</h2>
+          <p>In 2026, you can handle almost any digital task entirely in your browser. This comprehensive guide covers every category of browser-based tool — image editing, PDF manipulation, developer utilities, calculators, QR generation — and how to use them without any software installation.</p>
+          <span class="blog-read-more">Read Guide →</span>
+        </div>
+      </a>
+
+      <a href="#" class="blog-card">
+        <div class="blog-card-img">💹</div>
+        <div class="blog-card-body">
+          <div class="blog-meta"><span class="blog-cat util">Utility</span><span class="blog-date">Dec 24, 2026</span></div>
+          <h2>Understanding GST in India: A Practical Calculator Guide</h2>
+          <p>GST calculation confuses many Indian business owners and freelancers. This guide explains the difference between GST-inclusive and GST-exclusive prices, all current GST slabs (5%, 12%, 18%, 28%), CGST vs SGST vs IGST, and how to use Logrith's GST Calculator for instant accurate results.</p>
+          <span class="blog-read-more">Read Guide →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="blog-sidebar">
+
+    <!-- Popular tools -->
+    <div class="sidebar-card">
+      <h3>🔥 Popular Tools</h3>
+      <a href="/en/tools/image-compressor.html" class="tool-quick-link"><span>📦</span><span>Image Compressor</span></a>
+      <a href="/en/tools/pdf-merge.html" class="tool-quick-link"><span>📎</span><span>PDF Merge</span></a>
+      <a href="/en/tools/qr-generator.html" class="tool-quick-link"><span>▣</span><span>QR Code Generator</span></a>
+      <a href="/en/tools/password-generator.html" class="tool-quick-link"><span>🔑</span><span>Password Generator</span></a>
+      <a href="/en/tools/json-formatter.html" class="tool-quick-link"><span>{ }</span><span>JSON Formatter</span></a>
+      <a href="/en/tools/word-counter.html" class="tool-quick-link"><span>📝</span><span>Word Counter</span></a>
+      <a href="/en/tools/image-converter.html" class="tool-quick-link"><span>🔄</span><span>Image Converter</span></a>
+      <a href="/en/tools/gst-calculator.html" class="tool-quick-link"><span>💹</span><span>GST Calculator</span></a>
+    </div>
+
+    <!-- Categories -->
+    <div class="sidebar-card">
+      <h3>📂 All Tool Categories</h3>
+      <a href="/en/categories/image-tools.html" class="tool-quick-link"><span>🖼️</span><span>Image Tools (22+)</span></a>
+      <a href="/en/categories/pdf-tools.html" class="tool-quick-link"><span>📄</span><span>PDF Tools (15+)</span></a>
+      <a href="/en/categories/dev-tools.html" class="tool-quick-link"><span>🛠️</span><span>Developer Tools (25+)</span></a>
+      <a href="/en/categories/text-tools.html" class="tool-quick-link"><span>✏️</span><span>Text Tools (18+)</span></a>
+      <a href="/en/categories/utility-tools.html" class="tool-quick-link"><span>⚙️</span><span>Utility Tools (20+)</span></a>
+    </div>
+
+    <!-- Newsletter placeholder -->
+    <div class="sidebar-card" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);border-color:#bfdbfe;">
+      <h3 style="color:#1e40af;">📬 Stay Updated</h3>
+      <p style="font-size:.83rem;color:#1e40af;line-height:1.6;margin-bottom:14px;">New tools and guides added weekly. Follow Logrith for updates.</p>
+      <a href="/en/pages/contact.html" class="btn btn-primary btn-sm" style="width:100%;text-align:center;display:block;">Get Notified →</a>
+    </div>
+  </div>
+</div>
+
+<div id="footer"></div>
+<script src="/en/load-components.js"></script>
+<script src="/assets/js/main.js"></script>
+<script>
+// Category filter
+document.querySelectorAll('.cat-filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.cat-filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    // In real implementation: filter blog cards by category
+  });
+});
+</script>
+</body>
+</html>

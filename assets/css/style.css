@@ -826,20 +826,83 @@ textarea.mono { font-family: 'Courier New', monospace; font-size: 0.84rem; }
 @media (max-width: 768px) {
   .nav-links, .nav-search { display: none; }
   .hamburger { display: flex; }
-  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
-  .hero { padding: 52px 20px 52px; }
-  .hero-stats { gap: 20px; }
-  .cat-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
-  .tool-grid { grid-template-columns: 1fr 1fr; }
-  .tool-card { padding: 20px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 20px; }
+  .hero { padding: 28px 16px 28px; }
+  .hero-stats { gap: 14px; }
+  .hero-badge { font-size: .72rem; padding: 4px 12px; }
+  .cat-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .tool-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .tool-card { padding: 14px; }
   .controls-grid { grid-template-columns: 1fr; }
   .btn-group { flex-direction: column; }
+  .section { padding: 28px 16px; }
+  .section-header { margin-bottom: 20px; }
+  .section-header h2 { font-size: 1.25rem; }
+  footer { padding: 32px 16px 20px; margin-top: 40px; }
+  .footer-bottom { font-size: .76rem; }
 }
 @media (max-width: 480px) {
-  .tool-grid { grid-template-columns: 1fr; }
-  .cat-grid { grid-template-columns: 1fr 1fr; }
-  .hero h1 { font-size: 1.8rem; }
-  .tool-card { padding: 16px; }
+  /* Hero — compact, not zoomed */
+  .hero { padding: 22px 14px 22px; }
+  .hero h1 { font-size: 1.5rem; letter-spacing: -.3px; margin-bottom: 10px; }
+  .hero p { font-size: .88rem; margin-bottom: 18px; line-height: 1.55; }
+  .hero-badge { margin-bottom: 12px; }
+  .hero-stats { gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .hero-stat .num { font-size: 1.2rem; }
+  .hero-stat .lbl { font-size: .72rem; }
+
+  /* Search bar — compact */
+  .hero-search { border-radius: 10px; }
+  .hero-search input { padding: 11px 14px; font-size: .88rem; }
+  .hero-search button { padding: 0 16px; font-size: .82rem; }
+  .hero-search-wrap { margin-bottom: 16px; }
+
+  /* Category cards — 2 col tight */
+  .cat-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .cat-card { padding: 14px 12px; gap: 8px; }
+  .cat-icon { font-size: 1.5rem; }
+  .cat-card h3 { font-size: .82rem; }
+  .cat-card p { font-size: .73rem; display: none; } /* hide desc on small phones */
+  .cat-count { font-size: .7rem; }
+
+  /* Tool grid — 2 col compact */
+  .tool-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .tool-item { padding: 12px; gap: 8px; flex-direction: column; }
+  .tool-item .ti-icon { width: 32px; height: 32px; font-size: 1rem; }
+  .tool-item .ti-text h4 { font-size: .78rem; }
+  .tool-item .ti-text p { font-size: .7rem; display: none; }
+
+  /* Tool workspace cards */
+  .tool-card { padding: 14px; border-radius: 12px; }
+  .tool-card h2 { font-size: .88rem; }
+  .upload-zone { padding: 24px 16px; }
+  .upload-icon { font-size: 1.8rem; }
+  .upload-zone h3 { font-size: .9rem; }
+  .upload-zone p { font-size: .78rem; }
+
+  /* Buttons — full width on mobile */
+  .btn { padding: 11px 18px; font-size: .86rem; }
+  .btn-lg { padding: 12px 20px; font-size: .9rem; }
+
+  /* Section headings */
+  .section { padding: 20px 12px; }
+  .section-header h2 { font-size: 1.1rem; }
+  .section-header p { font-size: .82rem; }
+
+  /* FAQ */
+  .faq-q { font-size: .88rem; }
+  .faq-a { font-size: .84rem; }
+
+  /* Footer compact */
+  footer { padding: 24px 14px 16px; margin-top: 28px; }
+  .footer-grid { gap: 16px; }
+  .footer-brand p { font-size: .8rem; }
+  .footer-col h4 { font-size: .76rem; }
+  .footer-col ul a { font-size: .8rem; }
+  .footer-bottom { flex-direction: column; text-align: center; gap: 6px; font-size: .74rem; }
+
+  /* Mobile nav search — hide in nav, hero search enough */
+  .mobile-nav-links a { padding: 12px 8px; font-size: .92rem; }
 }
 
 /* Utility */
@@ -860,105 +923,3 @@ textarea.mono { font-family: 'Courier New', monospace; font-size: 0.84rem; }
 .text-muted { color: var(--gray-500); }
 .fw-600 { font-weight: 600; }
 .w-full { width: 100%; }
-
-/* =========================================================
-   SEARCH ADDITIONS — Hero + Nav results improvements
-   (Tumhara existing CSS kuch nahi badla, ye sirf add hai)
-   ========================================================= */
-
-/* ── Hero search wrapper ─────────────────────────────────
-   .hero-search ka margin-bottom hata ke wrap pe le gaye
-   taaki dropdown sahi position pe aaye
-   ────────────────────────────────────────────────────────*/
-.hero-search-wrap {
-  position: relative;
-  max-width: 520px;
-  margin: 0 auto 28px;
-}
-
-/* .hero-search ab wrapper ke andar hai, uska margin hatao */
-.hero-search-wrap .hero-search {
-  margin: 0;
-}
-
-/* ── Hero search results dropdown ────────────────────────
-   Nav ke #search-results jaisa hi style,
-   lekin hero ke neeche centered hai
-   ────────────────────────────────────────────────────────*/
-#hero-search-results {
-  display: none;
-  position: absolute;
-  top: calc(100% + 6px);
-  left: 0;
-  right: 0;
-  background: var(--white);
-  border: 1.5px solid var(--gray-200);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-lg);
-  max-height: 300px;
-  overflow-y: auto;
-  z-index: 200;
-  text-align: left;
-}
-
-#hero-search-results a {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 11px 16px;
-  text-decoration: none;
-  color: var(--gray-700);
-  font-size: 0.88rem;
-  border-bottom: 1px solid var(--gray-100);
-  transition: var(--transition);
-}
-
-#hero-search-results a:last-child { border-bottom: none; }
-
-#hero-search-results a:hover,
-#hero-search-results a.sr-active {
-  background: var(--gray-50);
-  color: var(--primary);
-}
-
-/* ── Shared result item parts ─────────────────────────────
-   Dono (nav + hero) ke results mein same structure:
-   .sr-icon  .sr-name  .sr-cat
-   ────────────────────────────────────────────────────────*/
-.sr-icon {
-  flex-shrink: 0;
-  width: 22px;
-  text-align: center;
-  font-size: 1rem;
-}
-
-.sr-name {
-  flex: 1;
-  font-weight: 500;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.sr-cat {
-  font-size: 0.74rem;
-  color: var(--gray-500);
-  background: var(--gray-100);
-  padding: 2px 8px;
-  border-radius: 10px;
-  flex-shrink: 0;
-  margin-left: auto;
-}
-
-/* Nav search active highlight (arrow keys) */
-#search-results a.sr-active {
-  background: var(--gray-50);
-  color: var(--primary);
-}
-
-/* ── Mobile: hero search wrap full width ─────────────────*/
-@media (max-width: 600px) {
-  .hero-search-wrap {
-    max-width: 100%;
-  }
-}
