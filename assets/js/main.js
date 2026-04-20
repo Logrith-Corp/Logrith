@@ -121,11 +121,14 @@ function setupNavSearch() {
 
   const prefix = getRootPrefix();
 
-  input.addEventListener('input', () => {
+  function doNavSearch() {
     const q = input.value.trim();
     if (!q) { results.style.display = 'none'; return; }
     renderDropdown(results, searchTools(q, 8), prefix);
-  });
+  }
+  input.addEventListener('input', doNavSearch);
+  input.addEventListener('keyup', doNavSearch);  // extra fallback for some mobile keyboards
+  input.addEventListener('focus', doNavSearch);  // show results if text already typed
 
   document.addEventListener('click', e => {
     if (!input.contains(e.target) && !results.contains(e.target))

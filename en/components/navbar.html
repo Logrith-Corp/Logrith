@@ -2,23 +2,24 @@
 <nav class="navbar" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="/en/index.html" class="nav-logo">
-      <div class="logo-icon"><img src="/assets/img/logo.png" alt="logo"></div>
+      <div class="logo-icon"><img src="/assets/img/logo.png" alt="Logrith"></div>
       <span class="logo-text">Logrith</span>
     </a>
 
     <ul class="nav-links">
+      <li><a href="/en/index.html">Home</a></li>
       <li class="dropdown">
-        <a href="#">🖼️ Image Tools ▾</a>
+        <a href="#">Image Tools ▾</a>
         <div class="dropdown-menu">
           <a href="/en/tools/image-converter.html"><span class="dm-icon">🔄</span> Image Converter</a>
           <a href="/en/tools/image-compressor.html"><span class="dm-icon">📦</span> Image Compressor</a>
           <a href="/en/tools/image-resize.html"><span class="dm-icon">↔️</span> Image Resize</a>
           <a href="/en/tools/image-crop.html"><span class="dm-icon">✂️</span> Image Crop</a>
-          <a href="/en/tools/image-rotate.html"><span class="dm-icon">🔃</span> Image Rotate &amp; Flip</a>
+          <a href="/en/tools/image-rotate.html"><span class="dm-icon">🔃</span> Rotate &amp; Flip</a>
         </div>
       </li>
       <li class="dropdown">
-        <a href="#">📄 PDF Tools ▾</a>
+        <a href="#">PDF Tools ▾</a>
         <div class="dropdown-menu">
           <a href="/en/tools/pdf-merge.html"><span class="dm-icon">📎</span> PDF Merge</a>
           <a href="/en/tools/pdf-split.html"><span class="dm-icon">✂️</span> PDF Split</a>
@@ -27,28 +28,29 @@
           <a href="/en/tools/pdf-rotate.html"><span class="dm-icon">🔃</span> PDF Rotate</a>
         </div>
       </li>
+
       <li class="dropdown">
-        <a href="#">🛠️ Dev Tools ▾</a>
+        <a href="#">Dev Tools ▾</a>
         <div class="dropdown-menu">
           <a href="/en/tools/json-formatter.html"><span class="dm-icon">{ }</span> JSON Formatter</a>
-          <a href="/en/tools/base64.html"><span class="dm-icon">🔐</span> Base64 Encode/Decode</a>
+          <a href="/en/tools/base64.html"><span class="dm-icon">🔐</span> Base64</a>
           <a href="/en/tools/url-encoder.html"><span class="dm-icon">🔗</span> URL Encoder</a>
           <a href="/en/tools/password-generator.html"><span class="dm-icon">🔑</span> Password Generator</a>
           <a href="/en/tools/hash-generator.html"><span class="dm-icon">#</span> Hash Generator</a>
         </div>
       </li>
       <li class="dropdown">
-        <a href="#">✏️ Text Tools ▾</a>
+        <a href="#">Text Tools ▾</a>
         <div class="dropdown-menu">
           <a href="/en/tools/word-counter.html"><span class="dm-icon">📝</span> Word Counter</a>
           <a href="/en/tools/case-converter.html"><span class="dm-icon">Aa</span> Case Converter</a>
-          <a href="/en/tools/character-counter.html"><span class="dm-icon">🔢</span> Character Counter</a>
+          <a href="/en/tools/character-counter.html"><span class="dm-icon">🔢</span> Char Counter</a>
           <a href="/en/tools/lorem-ipsum.html"><span class="dm-icon">📃</span> Lorem Ipsum</a>
           <a href="/en/tools/text-diff.html"><span class="dm-icon">🔍</span> Text Diff</a>
         </div>
       </li>
       <li class="dropdown">
-        <a href="#">⚙️ Utilities ▾</a>
+        <a href="#">Utility Tools ▾</a>
         <div class="dropdown-menu">
           <a href="/en/tools/qr-generator.html"><span class="dm-icon">▣</span> QR Generator</a>
           <a href="/en/tools/color-converter.html"><span class="dm-icon">🎨</span> Color Converter</a>
@@ -57,7 +59,6 @@
           <a href="/en/tools/percentage-calculator.html"><span class="dm-icon">%</span> Percentage Calc</a>
         </div>
       </li>
-      <li><a href="/en/categories/all-tools.html">All Tools</a></li>
     </ul>
 
     <div class="nav-search">
@@ -66,81 +67,172 @@
       <div id="search-results"></div>
     </div>
 
-    <!-- Hamburger — inline onclick so JS timing never matters -->
-    <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="openDrawer()">
+    <!-- Hamburger — inline onclick, JS timing zero issue -->
+    <button class="hamburger" id="hamburger" aria-label="Open menu"
+      onclick="openDrawer()">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
-<!-- OVERLAY — click karo to close drawer -->
-<div class="mobile-nav-overlay" id="mobile-overlay" onclick="closeDrawer()"></div>
+<!-- OVERLAY — click bahar → drawer band -->
+<div class="mob-overlay" id="mob-overlay" onclick="closeDrawer()"></div>
 
-<!-- DRAWER — right side panel -->
+<!-- SIDE DRAWER -->
 <div class="mobile-nav" id="mobile-nav">
+
+  <!-- TOP: Logo + Close -->
   <div class="mobile-nav-header">
-    <a href="/en/index.html" class="nav-logo">
-      <div class="logo-icon"><img src="/assets/img/logo.png" alt="logo"></div>
+    <a href="/en/index.html" class="nav-logo" onclick="closeDrawer()">
+      <div class="logo-icon"><img src="/assets/img/logo.png" alt="Logrith"></div>
       <span class="logo-text">Logrith</span>
     </a>
-    <button class="mobile-nav-close" aria-label="Close menu" onclick="closeDrawer()">✕</button>
+    <button class="mobile-nav-close" aria-label="Close"
+      onclick="closeDrawer()">✕</button>
   </div>
 
-  <ul class="mobile-nav-links">
-    <li><a href="/en/index.html">🏠 Home</a></li>
+  <!-- MIDDLE: Scrollable content -->
+  <div class="mobile-nav-body">
+    <ul class="mobile-nav-links">
+
+      <!-- Home -->
+      <li><a href="/en/index.html" class="mob-home-link" onclick="closeDrawer()">🏠 Home</a></li>
+
+    </ul>
 
     <!-- Image Tools group -->
-    <li><a href="/en/tools/image-converter.html">🔄 Image Converter</a></li>
-    <li><a href="/en/tools/image-compressor.html" class="mobile-sub">📦 Compressor</a></li>
-    <li><a href="/en/tools/image-resize.html" class="mobile-sub">↔️ Resize</a></li>
-    <li><a href="/en/tools/image-crop.html" class="mobile-sub">✂️ Crop</a></li>
-    <li><a href="/en/tools/image-rotate.html" class="mobile-sub">🔃 Rotate &amp; Flip</a></li>
+    <div class="mob-cat-group">
+      <div class="mob-cat-header" onclick="toggleMobCat(this)">
+        <span class="mch-left">🖼️ Image Tools</span>
+        <span class="mob-cat-arrow">›</span>
+      </div>
+      <div class="mob-cat-tools">
+        <ul class="mobile-nav-links">
+          <li><a href="/en/tools/image-converter.html" onclick="closeDrawer()">🔄 Image Converter</a></li>
+          <li><a href="/en/tools/image-compressor.html" onclick="closeDrawer()">📦 Image Compressor</a></li>
+          <li><a href="/en/tools/image-resize.html" onclick="closeDrawer()">↔️ Image Resize</a></li>
+          <li><a href="/en/tools/image-crop.html" onclick="closeDrawer()">✂️ Image Crop</a></li>
+          <li><a href="/en/tools/image-rotate.html" onclick="closeDrawer()">🔃 Rotate &amp; Flip</a></li>
+        </ul>
+      </div>
+    </div>
 
     <!-- PDF Tools group -->
-    <li><a href="/en/tools/pdf-merge.html">📎 PDF Merge</a></li>
-    <li><a href="/en/tools/pdf-split.html" class="mobile-sub">✂️ PDF Split</a></li>
-    <li><a href="/en/tools/jpg-to-pdf.html" class="mobile-sub">🖼️ JPG → PDF</a></li>
-    <li><a href="/en/tools/pdf-to-jpg.html" class="mobile-sub">📄 PDF → JPG</a></li>
-    <li><a href="/en/tools/pdf-rotate.html" class="mobile-sub">🔃 PDF Rotate</a></li>
+    <div class="mob-cat-group">
+      <div class="mob-cat-header" onclick="toggleMobCat(this)">
+        <span class="mch-left">📄 PDF Tools</span>
+        <span class="mob-cat-arrow">›</span>
+      </div>
+      <div class="mob-cat-tools">
+        <ul class="mobile-nav-links">
+          <li><a href="/en/tools/pdf-merge.html" onclick="closeDrawer()">📎 PDF Merge</a></li>
+          <li><a href="/en/tools/pdf-split.html" onclick="closeDrawer()">✂️ PDF Split</a></li>
+          <li><a href="/en/tools/jpg-to-pdf.html" onclick="closeDrawer()">🖼️ JPG → PDF</a></li>
+          <li><a href="/en/tools/pdf-to-jpg.html" onclick="closeDrawer()">📄 PDF → JPG</a></li>
+          <li><a href="/en/tools/pdf-rotate.html" onclick="closeDrawer()">🔃 PDF Rotate</a></li>
+        </ul>
+      </div>
+    </div>
 
     <!-- Dev Tools group -->
-    <li><a href="/en/tools/json-formatter.html">{ } JSON Formatter</a></li>
-    <li><a href="/en/tools/base64.html" class="mobile-sub">🔐 Base64</a></li>
-    <li><a href="/en/tools/url-encoder.html" class="mobile-sub">🔗 URL Encoder</a></li>
-    <li><a href="/en/tools/password-generator.html" class="mobile-sub">🔑 Password Gen</a></li>
-    <li><a href="/en/tools/hash-generator.html" class="mobile-sub"># Hash Generator</a></li>
+    <div class="mob-cat-group">
+      <div class="mob-cat-header" onclick="toggleMobCat(this)">
+        <span class="mch-left">🛠️ Dev Tools</span>
+        <span class="mob-cat-arrow">›</span>
+      </div>
+      <div class="mob-cat-tools">
+        <ul class="mobile-nav-links">
+          <li><a href="/en/tools/json-formatter.html" onclick="closeDrawer()">{ } JSON Formatter</a></li>
+          <li><a href="/en/tools/base64.html" onclick="closeDrawer()">🔐 Base64</a></li>
+          <li><a href="/en/tools/url-encoder.html" onclick="closeDrawer()">🔗 URL Encoder</a></li>
+          <li><a href="/en/tools/password-generator.html" onclick="closeDrawer()">🔑 Password Generator</a></li>
+          <li><a href="/en/tools/hash-generator.html" onclick="closeDrawer()"># Hash Generator</a></li>
+          <li><a href="/en/tools/uuid-generator.html" onclick="closeDrawer()">🆔 UUID Generator</a></li>
+          <li><a href="/en/tools/regex-tester.html" onclick="closeDrawer()">🔍 Regex Tester</a></li>
+        </ul>
+      </div>
+    </div>
 
     <!-- Text Tools group -->
-    <li><a href="/en/tools/word-counter.html">📝 Word Counter</a></li>
-    <li><a href="/en/tools/case-converter.html" class="mobile-sub">Aa Case Converter</a></li>
-    <li><a href="/en/tools/character-counter.html" class="mobile-sub">🔢 Char Counter</a></li>
-    <li><a href="/en/tools/lorem-ipsum.html" class="mobile-sub">📃 Lorem Ipsum</a></li>
-    <li><a href="/en/tools/text-diff.html" class="mobile-sub">🔍 Text Diff</a></li>
+    <div class="mob-cat-group">
+      <div class="mob-cat-header" onclick="toggleMobCat(this)">
+        <span class="mch-left">✏️ Text Tools</span>
+        <span class="mob-cat-arrow">›</span>
+      </div>
+      <div class="mob-cat-tools">
+        <ul class="mobile-nav-links">
+          <li><a href="/en/tools/word-counter.html" onclick="closeDrawer()">📝 Word Counter</a></li>
+          <li><a href="/en/tools/case-converter.html" onclick="closeDrawer()">Aa Case Converter</a></li>
+          <li><a href="/en/tools/character-counter.html" onclick="closeDrawer()">🔢 Char Counter</a></li>
+          <li><a href="/en/tools/lorem-ipsum.html" onclick="closeDrawer()">📃 Lorem Ipsum</a></li>
+          <li><a href="/en/tools/text-diff.html" onclick="closeDrawer()">🔍 Text Diff</a></li>
+          <li><a href="/en/tools/duplicate-remover.html" onclick="closeDrawer()">🧹 Duplicate Remover</a></li>
+          <li><a href="/en/tools/slug-generator.html" onclick="closeDrawer()">🔗 Slug Generator</a></li>
+        </ul>
+      </div>
+    </div>
 
     <!-- Utility Tools group -->
-    <li><a href="/en/tools/qr-generator.html">▣ QR Generator</a></li>
-    <li><a href="/en/tools/color-converter.html" class="mobile-sub">🎨 Color Converter</a></li>
-    <li><a href="/en/tools/age-calculator.html" class="mobile-sub">📅 Age Calculator</a></li>
-    <li><a href="/en/tools/unit-converter.html" class="mobile-sub">📐 Unit Converter</a></li>
-    <li><a href="/en/tools/percentage-calculator.html" class="mobile-sub">% Percentage Calc</a></li>
+    <div class="mob-cat-group">
+      <div class="mob-cat-header" onclick="toggleMobCat(this)">
+        <span class="mch-left">⚙️ Utility Tools</span>
+        <span class="mob-cat-arrow">›</span>
+      </div>
+      <div class="mob-cat-tools">
+        <ul class="mobile-nav-links">
+          <li><a href="/en/tools/qr-generator.html" onclick="closeDrawer()">▣ QR Generator</a></li>
+          <li><a href="/en/tools/color-converter.html" onclick="closeDrawer()">🎨 Color Converter</a></li>
+          <li><a href="/en/tools/age-calculator.html" onclick="closeDrawer()">📅 Age Calculator</a></li>
+          <li><a href="/en/tools/unit-converter.html" onclick="closeDrawer()">📐 Unit Converter</a></li>
+          <li><a href="/en/tools/percentage-calculator.html" onclick="closeDrawer()">% Percentage Calc</a></li>
+          <li><a href="/en/tools/gst-calculator.html" onclick="closeDrawer()">💹 GST Calculator</a></li>
+          <li><a href="/en/tools/emi-calculator.html" onclick="closeDrawer()">💰 EMI Calculator</a></li>
+          <li><a href="/en/tools/password-strength.html" onclick="closeDrawer()">🔒 Password Strength</a></li>
+        </ul>
+      </div>
+    </div>
 
-    <li><a href="/en/categories/all-tools.html" style="color:var(--primary);font-weight:700;">⚡ All Tools</a></li>
-  </ul>
+    <!-- All Tools link -->
+    <ul class="mobile-nav-links">
+      <li><a href="/en/categories/all-tools.html" onclick="closeDrawer()">All Tools →</a></li>
+    </ul>
+  </div>
+
+  <!-- BOTTOM: Footer links -->
+  <div class="mob-drawer-footer">
+    <a href="/en/pages/about.html">About</a>
+    <span class="mob-footer-sep">·</span>
+    <a href="/en/blog/">Blog</a>
+    <span class="mob-footer-sep">·</span>
+    <a href="/en/pages/contact.html">Contact</a>
+    <span class="mob-footer-sep">·</span>
+    <a href="/en/pages/terms.html">Privacy</a>
+    <span class="mob-footer-sep">·</span>
+    <a href="/en/pages/faq.html">FAQ</a>
+  </div>
+
 </div>
 
-<!-- Drawer JS — inline, no external dependency needed -->
+<!-- Drawer JS — all inline, zero external dependency -->
 <script>
 function openDrawer() {
   document.getElementById('mobile-nav').classList.add('open');
-  document.getElementById('mobile-overlay').classList.add('open');
-  document.body.style.overflow = 'hidden'; // page scroll band
+  document.getElementById('mob-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
 function closeDrawer() {
   document.getElementById('mobile-nav').classList.remove('open');
-  document.getElementById('mobile-overlay').classList.remove('open');
-  document.body.style.overflow = ''; // page scroll wapas
+  document.getElementById('mob-overlay').classList.remove('open');
+  document.body.style.overflow = '';
 }
-// Escape key support
+function toggleMobCat(header) {
+  var group = header.parentElement;
+  // Close all others
+  document.querySelectorAll('.mob-cat-group.open').forEach(function(g) {
+    if (g !== group) g.classList.remove('open');
+  });
+  group.classList.toggle('open');
+}
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeDrawer();
 });
