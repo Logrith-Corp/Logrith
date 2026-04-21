@@ -321,3 +321,34 @@ document.addEventListener('DOMContentLoaded', () => {
   initFAQ();
   watchForComponents(); // handles nav search + hamburger with retry
 });
+
+/* ─────────────────────────────────────────────────────────
+   DRAWER GLOBALS — window pe taaki navbar inline onclick kaam kare
+───────────────────────────────────────────────────────── */
+window.openDrawer = function() {
+  var nav = document.getElementById('mobile-nav');
+  var ov  = document.getElementById('mob-overlay');
+  if (nav) nav.classList.add('open');
+  if (ov)  ov.classList.add('open');
+  document.body.classList.add('drawer-open');
+};
+
+window.closeDrawer = function() {
+  var nav = document.getElementById('mobile-nav');
+  var ov  = document.getElementById('mob-overlay');
+  if (nav) nav.classList.remove('open');
+  if (ov)  ov.classList.remove('open');
+  document.body.classList.remove('drawer-open');
+};
+
+window.toggleMobCat = function(header) {
+  var group = header.parentElement;
+  document.querySelectorAll('.mob-cat-group.open').forEach(function(g) {
+    if (g !== group) g.classList.remove('open');
+  });
+  group.classList.toggle('open');
+};
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') window.closeDrawer();
+});
