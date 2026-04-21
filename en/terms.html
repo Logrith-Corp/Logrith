@@ -1,12 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms of Service & Privacy Policy — Logrith</title>
-  <meta name="description" content="Logrith's Terms of Service and Privacy Policy. Learn how we handle data (we don't collect any), what you can use our tools for, and your rights as a user.">
-  <meta name="keywords" content="logrith terms of service, logrith privacy policy, logrith data policy, logrith legal">
-  <link rel="canonical" href="https://logrith.in/en/pages/terms.html">
+  <title>Terms of Service — Logrith</title>
+  <meta name="description" content="Logrith Terms of Service — what you can use our tools for, what we don't allow, disclaimers and governing law. Free browser-based tools, no data collected.">
+  <meta name="keywords" content="logrith terms of service, logrith terms, logrith legal, logrith usage policy">
+  <link rel="canonical" href="https://logrith.in/en/terms.html">
   <link rel="icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -14,28 +15,178 @@
   <meta name="theme-color" content="#000000">
   <link rel="stylesheet" href="/assets/css/style.css">
   <style>
-    .page-hero { background: linear-gradient(135deg, #f0f4ff 0%, #e8f7f5 100%); padding: 56px 24px 44px; text-align: center; border-bottom: 1.5px solid var(--gray-200); }
-    .page-hero h1 { font-family: var(--font-display); font-size: clamp(1.7rem,4vw,2.4rem); font-weight: 800; color: var(--gray-900); margin-bottom: 10px; }
-    .page-hero h1 span { color: var(--primary); }
-    .page-hero p { font-size:.9rem; color:var(--gray-500); }
-    .breadcrumb { display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--gray-500);justify-content:center;margin-bottom:14px; }
-    .breadcrumb a { color:var(--primary);text-decoration:none; }
-    .tabs-nav { display:flex; justify-content:center; gap:8px; padding: 24px; border-bottom:1.5px solid var(--gray-200); background:var(--white); position:sticky; top:64px; z-index:100; }
-    .tab-link { padding:9px 22px; background:var(--gray-50); border:1.5px solid var(--gray-200); border-radius:20px; font-size:.88rem; font-weight:600; font-family:var(--font-display); color:var(--gray-700); cursor:pointer; text-decoration:none; transition:var(--transition); }
-    .tab-link.active, .tab-link:hover { background:var(--primary); color:white; border-color:var(--primary); }
-    .legal-body { max-width: 820px; margin: 0 auto; padding: 48px 24px 64px; }
-    .legal-body h2 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--gray-900); margin: 36px 0 12px; padding-top: 8px; }
-    .legal-body h2:first-child { margin-top: 0; }
-    .legal-body h3 { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--gray-800); margin: 20px 0 8px; }
-    .legal-body p { font-size: .93rem; color: var(--gray-700); line-height: 1.85; margin-bottom: 12px; }
-    .legal-body ul { padding-left: 20px; margin-bottom: 14px; }
-    .legal-body ul li { font-size: .93rem; color: var(--gray-700); line-height: 1.9; }
-    .legal-body strong { color: var(--gray-900); }
-    .legal-body a { color: var(--primary); }
-    .update-badge { display:inline-block; background:var(--gray-100); border-radius:20px; padding:4px 14px; font-size:.78rem; color:var(--gray-500); margin-bottom:24px; font-weight:500; }
-    .highlight-box { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: var(--radius); padding: 16px 20px; margin: 16px 0; font-size: .9rem; color: #1e40af; line-height: 1.7; }
-    .section-tab { display:none; }
-    .section-tab.active { display:block; }
+    .legal-hero {
+      background: linear-gradient(135deg, #f0f4ff 0%, #e8f7f5 100%);
+      padding: 52px 24px 40px;
+      text-align: center;
+      border-bottom: 1.5px solid var(--gray-200);
+    }
+    .legal-hero .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: 20px; padding: 4px 14px;
+      font-size: .78rem; color: var(--gray-500); margin-bottom: 14px;
+    }
+    .legal-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 800; color: var(--gray-900); margin-bottom: 10px;
+    }
+    .legal-hero h1 span { color: var(--primary); }
+    .legal-hero p { font-size: .9rem; color: var(--gray-500); }
+
+    .breadcrumb {
+      display: flex; align-items: center; gap: 6px;
+      font-size: .82rem; color: var(--gray-500);
+      justify-content: center; margin-bottom: 14px;
+    }
+    .breadcrumb a { color: var(--primary); text-decoration: none; }
+
+    /* Page switch tabs */
+    .page-switch {
+      display: flex; justify-content: center; gap: 8px;
+      padding: 18px 24px;
+      background: var(--white);
+      border-bottom: 1.5px solid var(--gray-200);
+      position: sticky; top: 50px; z-index: 100;
+    }
+    .page-switch a {
+      padding: 8px 22px;
+      background: var(--gray-50);
+      border: 1.5px solid var(--gray-200);
+      border-radius: 20px;
+      font-size: .86rem; font-weight: 600;
+      font-family: var(--font-display);
+      color: var(--gray-600);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .page-switch a.active,
+    .page-switch a:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* Legal content */
+    .legal-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    .tldr-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 36px;
+      font-size: .9rem;
+      color: #1e40af;
+      line-height: 1.7;
+    }
+    .legal-section {
+      border-bottom: 1px solid var(--gray-100);
+      padding: 28px 0;
+    }
+    .legal-section:last-child { border-bottom: none; }
+    .section-num {
+      display: inline-block;
+      width: 28px; height: 28px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      font-size: .76rem;
+      font-weight: 700;
+      font-family: var(--font-display);
+      text-align: center;
+      line-height: 28px;
+      flex-shrink: 0;
+      margin-right: 10px;
+    }
+    .legal-section h2 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+    }
+    .legal-section p {
+      font-size: .92rem;
+      color: var(--gray-700);
+      line-height: 1.85;
+      margin-bottom: 10px;
+    }
+    .legal-section ul {
+      padding-left: 0;
+      margin: 10px 0;
+      list-style: none;
+    }
+    .legal-section ul li {
+      font-size: .92rem;
+      color: var(--gray-700);
+      line-height: 1.8;
+      padding: 6px 0 6px 20px;
+      position: relative;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .legal-section ul li:last-child { border-bottom: none; }
+    .legal-section ul li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--gray-400);
+    }
+    .legal-section strong { color: var(--gray-900); }
+    .legal-section a { color: var(--primary); }
+
+    /* Sidebar TOC on desktop */
+    .legal-layout {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .legal-toc {
+      position: sticky;
+      top: 100px;
+      background: var(--white);
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+    }
+    .legal-toc h3 {
+      font-family: var(--font-display);
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 12px;
+    }
+    .legal-toc a {
+      display: block;
+      padding: 6px 0;
+      font-size: .8rem;
+      color: var(--gray-600);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gray-100);
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .legal-toc a:last-child { border-bottom: none; }
+    .legal-toc a:hover { color: var(--primary); }
+
+    @media (max-width: 700px) {
+      .legal-layout { grid-template-columns: 1fr; padding: 28px 16px 60px; }
+      .legal-toc { position: static; }
+      .page-switch { top: 44px; padding: 12px 16px; }
+      .page-switch a { padding: 7px 16px; font-size: .82rem; }
+    }
   </style>
 
   <!-- Google tag (gtag.js) -->
@@ -51,146 +202,111 @@
 <body>
 <div id="navbar"></div>
 
-<div class="page-hero">
-  <div class="breadcrumb"><a href="/en/index.html">Home</a> › Legal</div>
-  <h1>Terms &amp; <span>Privacy</span></h1>
+<!-- HERO -->
+<div class="legal-hero">
+  <div class="breadcrumb">
+    <a href="/en/index.html">Home</a> ›
+    <a href="/en/terms.html">Legal</a> ›
+    Terms of Service
+  </div>
+  <div class="badge">📄 Legal Document</div>
+  <h1>Terms of <span>Service</span></h1>
   <p>Last updated: January 2026 · Effective immediately</p>
 </div>
 
-<div class="tabs-nav">
-  <a href="#" class="tab-link active" data-tab="terms">Terms of Service</a>
-  <a href="#" class="tab-link" data-tab="privacy">Privacy Policy</a>
-</div>
 
-<div class="legal-body">
+<!-- CONTENT -->
+<div class="legal-layout">
 
-  <!-- TERMS -->
-  <div class="section-tab active" id="tab-terms">
-    <span class="update-badge">📅 Last updated: January 2026</span>
+  <!-- TOC -->
+  <aside class="legal-toc">
+    <h3>Contents</h3>
+    <a href="#s1">1. Acceptance of Terms</a>
+    <a href="#s2">2. Description of Service</a>
+    <a href="#s3">3. Permitted Use</a>
+    <a href="#s4">4. Prohibited Use</a>
+    <a href="#s5">5. Intellectual Property</a>
+    <a href="#s6">6. Disclaimer</a>
+    <a href="#s7">7. Limitation of Liability</a>
+    <a href="#s8">8. Changes to Terms</a>
+    <a href="#s9">9. Governing Law</a>
+    <a href="#s10">10. Contact</a>
+  </aside>
 
-    <div class="highlight-box">
+  <!-- MAIN CONTENT -->
+  <main>
+    <div class="tldr-box">
       <strong>TL;DR:</strong> Use Logrith freely for personal and commercial purposes. Don't try to break the platform or use it for illegal activities. We provide tools "as is" with no warranty. All processing is in your browser — we can't see your files.
     </div>
 
-    <h2>1. Acceptance of Terms</h2>
-    <p>By accessing or using Logrith (<strong>logrith.in</strong>), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our platform. These terms apply to all visitors and users of Logrith.</p>
-
-    <h2>2. Description of Service</h2>
-    <p>Logrith provides a collection of free, browser-based online utilities ("Tools") for processing images, PDFs, text, and other digital content. All Tools are provided free of charge. Processing occurs entirely in the user's browser using JavaScript APIs — Logrith's servers do not process, store, or transmit user files.</p>
-
-    <h2>3. Permitted Use</h2>
-    <p>You may use Logrith Tools for any lawful purpose, including:</p>
-    <ul>
-      <li>Personal and professional image editing and conversion</li>
-      <li>PDF management for business or personal documents</li>
-      <li>Developer utilities for coding and development workflows</li>
-      <li>Commercial projects and client work</li>
-      <li>Educational purposes</li>
-    </ul>
-
-    <h2>4. Prohibited Use</h2>
-    <p>You may not use Logrith to:</p>
-    <ul>
-      <li>Process, distribute, or create illegal content of any kind</li>
-      <li>Attempt to reverse-engineer, scrape, or automate the platform beyond normal browser use</li>
-      <li>Use automated tools (bots, scrapers) to access tools at scale</li>
-      <li>Attempt to circumvent any technical limitations</li>
-      <li>Use the platform to infringe on intellectual property rights of third parties</li>
-    </ul>
-
-    <h2>5. Intellectual Property</h2>
-    <p>The Logrith brand, logo, website design, and original code are the intellectual property of Logrith. Open-source libraries used (PDF-Lib, PDF.js, QRCode.js) remain under their respective licenses. You retain full ownership of any content you process through Logrith's tools.</p>
-
-    <h2>6. Disclaimer of Warranties</h2>
-    <p>Logrith tools are provided <strong>"as is"</strong> without warranty of any kind, express or implied. We do not guarantee that tools will be uninterrupted, error-free, or suitable for any particular purpose. Use at your own risk. We recommend keeping backups of important files before processing.</p>
-
-    <h2>7. Limitation of Liability</h2>
-    <p>To the maximum extent permitted by applicable law, Logrith shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of or inability to use the platform. This includes but is not limited to loss of data, loss of revenue, or loss of business.</p>
-
-    <h2>8. Changes to Terms</h2>
-    <p>We reserve the right to modify these terms at any time. Material changes will be indicated by updating the "Last updated" date. Continued use of Logrith after changes constitutes acceptance of the new terms.</p>
-
-    <h2>9. Governing Law</h2>
-    <p>These terms are governed by the laws of India. Any disputes arising from these terms or use of Logrith shall be subject to the jurisdiction of courts in India.</p>
-
-    <h2>10. Contact</h2>
-    <p>Questions about these terms? Contact us at <a href="mailto:legal@logrith.in">legal@logrith.in</a> or through our <a href="/en/pages/contact.html">Contact page</a>.</p>
-  </div>
-
-  <!-- PRIVACY -->
-  <div class="section-tab" id="tab-privacy">
-    <span class="update-badge">📅 Last updated: January 2026</span>
-
-    <div class="highlight-box">
-      <strong>The short version:</strong> Logrith does not collect, store, or process your files. Everything runs in your browser. We collect minimal anonymous analytics data. We don't sell any data. Ever.
+    <div class="legal-section" id="s1">
+      <h2><span class="section-num">1</span> Acceptance of Terms</h2>
+      <p>By accessing or using Logrith (<strong>logrith.in</strong>), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our platform. These terms apply to all visitors and users of Logrith.</p>
     </div>
 
-    <h2>1. Data We Do NOT Collect</h2>
-    <p>Logrith is architecturally designed to never see your data. The following is never collected, transmitted, or stored:</p>
-    <ul>
-      <li><strong>Your files</strong> — images, PDFs, documents processed through any Logrith tool</li>
-      <li><strong>Your passwords</strong> — generated by the Password Generator or checked by the Password Strength tool</li>
-      <li><strong>Your search queries</strong> — typed into any Logrith search field</li>
-      <li><strong>Your text inputs</strong> — entered into word counters, JSON formatters, or any other tool</li>
-      <li><strong>Account information</strong> — because no accounts exist on Logrith</li>
-    </ul>
+    <div class="legal-section" id="s2">
+      <h2><span class="section-num">2</span> Description of Service</h2>
+      <p>Logrith provides a collection of free, browser-based online utilities ("Tools") for processing images, PDFs, text, and other digital content. All Tools are provided free of charge. Processing occurs entirely in the user's browser using JavaScript APIs — Logrith's servers do not process, store, or transmit user files.</p>
+    </div>
 
-    <h2>2. Analytics Data We Collect</h2>
-    <p>We collect minimal, anonymous analytics data to understand platform usage and improve the service:</p>
-    <ul>
-      <li>Page views and which tools are used (no file contents)</li>
-      <li>General geographic location (country/region level only)</li>
-      <li>Browser type and device type (for compatibility testing)</li>
-      <li>Referral source (how users find Logrith)</li>
-    </ul>
-    <p>This data is aggregated, anonymous, and cannot be linked to any individual user. We do not use this data for advertising targeting or sell it to any third party.</p>
+    <div class="legal-section" id="s3">
+      <h2><span class="section-num">3</span> Permitted Use</h2>
+      <p>You may use Logrith Tools for any lawful purpose, including:</p>
+      <ul>
+        <li>Personal and professional image editing and conversion</li>
+        <li>PDF management for business or personal documents</li>
+        <li>Developer utilities for coding and development workflows</li>
+        <li>Commercial projects and client work</li>
+        <li>Educational purposes</li>
+      </ul>
+    </div>
 
-    <h2>3. Cookies</h2>
-    <p>Logrith uses minimal cookies:</p>
-    <ul>
-      <li><strong>Essential cookies:</strong> For basic site functionality (language preferences, theme settings)</li>
-      <li><strong>Analytics cookies:</strong> Anonymous usage tracking (no personal data)</li>
-    </ul>
-    <p>We do not use advertising cookies or third-party tracking cookies. You can disable cookies in your browser settings without affecting the core functionality of any Logrith tool.</p>
+    <div class="legal-section" id="s4">
+      <h2><span class="section-num">4</span> Prohibited Use</h2>
+      <p>You may not use Logrith to:</p>
+      <ul>
+        <li>Process, distribute, or create illegal content of any kind</li>
+        <li>Attempt to reverse-engineer, scrape, or automate the platform beyond normal browser use</li>
+        <li>Use automated tools (bots, scrapers) to access tools at scale</li>
+        <li>Attempt to circumvent any technical limitations</li>
+        <li>Use the platform to infringe on intellectual property rights of third parties</li>
+      </ul>
+    </div>
 
-    <h2>4. Third-Party Libraries</h2>
-    <p>Logrith loads some JavaScript libraries from CDN servers (Cloudflare CDN) for PDF-Lib, PDF.js, and QRCode.js. These CDN loads may record your IP address in standard server logs as part of normal CDN operation. No file content is transmitted — only the library code is fetched.</p>
+    <div class="legal-section" id="s5">
+      <h2><span class="section-num">5</span> Intellectual Property</h2>
+      <p>The Logrith brand, logo, website design, and original code are the intellectual property of Logrith. Open-source libraries used (PDF-Lib, PDF.js, QRCode.js) remain under their respective licenses. You retain full ownership of any content you process through Logrith's tools.</p>
+    </div>
 
-    <h2>5. Advertising</h2>
-    <p>Logrith may display advertisements to support the free service. Advertising providers may use cookies to serve relevant ads. These are separate from Logrith's own data practices. You can opt out of personalized advertising through your browser's privacy settings or ad industry opt-out tools.</p>
+    <div class="legal-section" id="s6">
+      <h2><span class="section-num">6</span> Disclaimer of Warranties</h2>
+      <p>Logrith tools are provided <strong>"as is"</strong> without warranty of any kind, express or implied. We do not guarantee that tools will be uninterrupted, error-free, or suitable for any particular purpose. Use at your own risk. We recommend keeping backups of important files before processing.</p>
+    </div>
 
-    <h2>6. Children's Privacy</h2>
-    <p>Logrith does not knowingly collect any personal information from children under 13 years of age. Our tools do not require any personal information to use. If you believe a child has provided personal information to us, contact us at <a href="mailto:privacy@logrith.in">privacy@logrith.in</a>.</p>
+    <div class="legal-section" id="s7">
+      <h2><span class="section-num">7</span> Limitation of Liability</h2>
+      <p>To the maximum extent permitted by applicable law, Logrith shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of or inability to use the platform. This includes but is not limited to loss of data, loss of revenue, or loss of business.</p>
+    </div>
 
-    <h2>7. Data Security</h2>
-    <p>Since Logrith does not collect or store personal data or file contents, there is no meaningful data breach risk for user files. The website is served over HTTPS to protect page content in transit. Our minimal analytics data is stored with industry-standard security practices.</p>
+    <div class="legal-section" id="s8">
+      <h2><span class="section-num">8</span> Changes to Terms</h2>
+      <p>We reserve the right to modify these terms at any time. Material changes will be indicated by updating the "Last updated" date. Continued use of Logrith after changes constitutes acceptance of the new terms.</p>
+    </div>
 
-    <h2>8. Your Rights</h2>
-    <p>Under GDPR, CCPA, and Indian data protection law, you have rights including access, correction, deletion, and portability of personal data. Since we do not collect personal data beyond minimal anonymous analytics, these rights have limited practical application. For any privacy concerns, contact <a href="mailto:privacy@logrith.in">privacy@logrith.in</a>.</p>
+    <div class="legal-section" id="s9">
+      <h2><span class="section-num">9</span> Governing Law</h2>
+      <p>These terms are governed by the laws of India. Any disputes arising from these terms or use of Logrith shall be subject to the jurisdiction of courts in India.</p>
+    </div>
 
-    <h2>9. Changes to This Policy</h2>
-    <p>We may update this Privacy Policy when we make changes to the platform. Material changes will be indicated by the "Last updated" date at the top of this page. We will not reduce your privacy rights without explicit notice.</p>
-
-    <h2>10. Contact for Privacy</h2>
-    <p>For privacy-related questions or concerns, contact us at <a href="mailto:privacy@logrith.in">privacy@logrith.in</a> or through our <a href="/en/pages/contact.html">Contact page</a>.</p>
-  </div>
-
+    <div class="legal-section" id="s10">
+      <h2><span class="section-num">10</span> Contact</h2>
+      <p>Questions about these terms? Contact us at <a href="mailto:legal@logrith.in">legal@logrith.in</a> or through our <a href="/en/contact.html">Contact page</a>.</p>
+    </div>
+  </main>
 </div>
 
 <div id="footer"></div>
 <script src="/en/load-components.js"></script>
 <script src="/assets/js/main.js"></script>
-<script>
-document.querySelectorAll('.tab-link').forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    const tab = link.dataset.tab;
-    document.querySelectorAll('.tab-link').forEach(l => l.classList.remove('active'));
-    document.querySelectorAll('.section-tab').forEach(s => s.classList.remove('active'));
-    link.classList.add('active');
-    document.getElementById('tab-' + tab).classList.add('active');
-  });
-});
-</script>
 </body>
 </html>

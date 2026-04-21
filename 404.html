@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    const path = window.location.pathname;
+    const segments = path.split('/').filter(Boolean);
+
+    // agar koi language hai
+    const lang = segments[0];
+
+    if (lang === "hi") {
+      window.location.replace("/hi/404.html");
+    } else if (lang === "fr") {
+      window.location.replace("/fr/404.html");
+    } else {
+      // default = English
+      window.location.replace("/en/404.html");
+    }
+  </script>
+</head>
+<body></body>
+</html>

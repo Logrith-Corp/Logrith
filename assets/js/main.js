@@ -40,7 +40,7 @@ const ALL_TOOLS = [
    /en/index.html         → ''
    /en/tools/x.html       → '../'
    /en/categories/x.html  → '../'
-   /en/pages/x.html       → '../'
+   /en/x.html       → '../'
    /en/blog/x.html        → '../'
 ───────────────────────────────────────────────────────── */
 function getRootPrefix() {
