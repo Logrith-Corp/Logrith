@@ -1,7 +1,5 @@
 # Har language ke liye specific 404 rule
 /en/*  /en/404.html  404
-/hi/*  /hi/404.html  404
-/fr/*  /fr/404.html  404
 
 # Default 404 agar koi language match na kare
 /*     /404.html     404
