@@ -1,236 +1,445 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Logrith Blog — Guides, Tips & Tool Tutorials</title>
-  <meta name="description" content="Logrith Blog — tutorials and guides for image compression, PDF editing, online security, developer tools, and productivity tips. Learn to get the most out of free browser tools.">
-  <meta name="keywords" content="logrith blog, image compression guide, pdf tools tutorial, free online tools guide, how to compress images, how to merge pdf">
+  <title>Blog — Logrith Tools Guides & Tutorials</title>
+  <meta name="description" content="Logrith Blog — practical guides on image compression, PDF editing, developer tools, online security, and productivity. All free, browser-based tips.">
+  <meta name="keywords" content="logrith blog, image tools guide, pdf tools tutorial, free online tools tips, compress images, merge pdf guide">
   <link rel="canonical" href="https://logrith.in/en/blog/">
-  <meta property="og:title" content="Logrith Blog — Tools Guides & Tutorials">
-  <meta property="og:description" content="Tips, guides and tutorials for image tools, PDF tools, developer utilities and more. All free, all browser-based.">
   <link rel="icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#000000">
   <link rel="stylesheet" href="/assets/css/style.css">
   <style>
-    .page-hero { background: linear-gradient(135deg, #f0f4ff 0%, #e8f7f5 100%); padding: 56px 24px 44px; text-align: center; border-bottom: 1.5px solid var(--gray-200); }
-    .page-hero h1 { font-family: var(--font-display); font-size: clamp(1.8rem,5vw,2.6rem); font-weight: 800; color: var(--gray-900); margin-bottom: 12px; }
-    .page-hero h1 span { color: var(--primary); }
-    .page-hero p { font-size:1rem; color:var(--gray-700); max-width:540px; margin:0 auto; line-height:1.7; }
-    .breadcrumb { display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--gray-500);justify-content:center;margin-bottom:16px; }
-    .breadcrumb a { color:var(--primary);text-decoration:none; }
-
-    /* Blog layout */
-    .blog-wrap { max-width: 1200px; margin: 0 auto; padding: 48px 24px; display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: start; }
-    .blog-main {}
-    .blog-sidebar { position: sticky; top: 88px; }
-
-    /* Blog cards */
-    .blog-grid { display: flex; flex-direction: column; gap: 24px; }
-    .blog-card { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: var(--radius-xl); overflow: hidden; text-decoration: none; display: flex; transition: var(--transition); }
-    .blog-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); border-color: var(--gray-300); }
-    .blog-card-img { width: 220px; flex-shrink: 0; background: linear-gradient(135deg, #eff6ff, #dbeafe); display: flex; align-items: center; justify-content: center; font-size: 3rem; }
-    .blog-card-body { padding: 22px 24px; flex: 1; }
-    .blog-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-    .blog-cat { padding: 3px 10px; border-radius: 20px; font-size: .72rem; font-weight: 700; font-family: var(--font-display); }
-    .blog-cat.image { background: #eff6ff; color: #1d4ed8; }
-    .blog-cat.pdf   { background: #fef2f2; color: #dc2626; }
-    .blog-cat.dev   { background: #f0fdf4; color: #16a34a; }
-    .blog-cat.text  { background: #fffbeb; color: #d97706; }
-    .blog-cat.util  { background: #f0fdfa; color: #059669; }
-    .blog-cat.guide { background: #fdf4ff; color: #9333ea; }
-    .blog-date { font-size: .76rem; color: var(--gray-500); }
-    .blog-card h2 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--gray-900); margin-bottom: 8px; line-height: 1.35; }
-    .blog-card p { font-size: .86rem; color: var(--gray-600); line-height: 1.6; margin-bottom: 14px; }
-    .blog-read-more { font-size: .82rem; font-weight: 700; color: var(--primary); font-family: var(--font-display); display: inline-flex; align-items: center; gap: 4px; }
-
-    /* Sidebar */
-    .sidebar-card { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: var(--radius-lg); padding: 20px; margin-bottom: 20px; }
-    .sidebar-card h3 { font-family: var(--font-display); font-size: .92rem; font-weight: 700; color: var(--gray-900); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--gray-100); }
-    .tool-quick-link { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--gray-100); text-decoration: none; color: var(--gray-700); font-size: .86rem; transition: var(--transition); }
-    .tool-quick-link:last-child { border-bottom: none; }
-    .tool-quick-link:hover { color: var(--primary); }
-    .tool-quick-link span:first-child { font-size: 1rem; width: 22px; text-align: center; }
-    .cat-filter { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; }
-    .cat-filter-btn { padding: 5px 14px; background: var(--gray-50); border: 1.5px solid var(--gray-200); border-radius: 20px; font-size: .78rem; font-weight: 600; color: var(--gray-700); cursor: pointer; transition: var(--transition); }
-    .cat-filter-btn:hover, .cat-filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
-
-    @media(max-width:900px){
-      .blog-wrap { grid-template-columns: 1fr; }
-      .blog-sidebar { position: static; }
-      .blog-card { flex-direction: column; }
-      .blog-card-img { width: 100%; height: 140px; }
+    /* ── HERO ── */
+    .blog-hero {
+      padding: 60px 24px 0;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-    @media(max-width:600px){
-      .blog-card-body { padding: 16px; }
+    .blog-hero .breadcrumb {
+      display: flex; align-items: center; gap: 6px;
+      font-size: .8rem; color: var(--gray-400);
+      margin-bottom: 28px;
+    }
+    .blog-hero .breadcrumb a { color: var(--primary); text-decoration: none; }
+    .blog-hero-text h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      color: var(--gray-900);
+      letter-spacing: -.5px;
+      margin-bottom: 12px;
+    }
+    .blog-hero-text h1 em {
+      font-style: normal;
+      color: var(--primary);
+    }
+    .blog-hero-text p {
+      font-size: .96rem;
+      color: var(--gray-500);
+      max-width: 480px;
+      line-height: 1.65;
+    }
+
+    /* ── LAYOUT ── */
+    .blog-outer {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* ── FILTER TABS ── */
+    .filter-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .filter-btn {
+      padding: 6px 16px;
+      border-radius: 20px;
+      border: 1.5px solid var(--gray-200);
+      background: var(--white);
+      font-size: .8rem;
+      font-weight: 600;
+      font-family: var(--font-display);
+      color: var(--gray-600);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .filter-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .filter-btn.active { background: var(--gray-900); color: white; border-color: var(--gray-900); }
+
+    /* ── FEATURED POST (first big) ── */
+    .post-featured {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      margin-bottom: 24px;
+      text-decoration: none;
+      transition: var(--transition);
+      background: var(--white);
+    }
+    .post-featured:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+    .post-featured .pf-img {
+      min-height: 220px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4rem;
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    }
+    .post-featured .pf-body {
+      padding: 28px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .pf-body .post-cat {
+      font-size: .72rem;
+      font-weight: 700;
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 10px;
+    }
+    .pf-body h2 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+    .pf-body p {
+      font-size: .84rem;
+      color: var(--gray-500);
+      line-height: 1.6;
+      margin-bottom: 18px;
+      flex: 1;
+    }
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .76rem;
+      color: var(--gray-400);
+    }
+    .post-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gray-300); }
+    .read-time { display: flex; align-items: center; gap: 4px; }
+
+    /* ── POST GRID ── */
+    .post-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .post-card {
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      text-decoration: none;
+      transition: var(--transition);
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+    }
+    .post-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); border-color: var(--gray-300); }
+    .post-card .pc-img {
+      height: 110px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.4rem;
+    }
+    .post-card .pc-body {
+      padding: 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .pc-body .post-cat { font-size: .7rem; font-weight: 700; font-family: var(--font-display); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 6px; }
+    .pc-body h3 { font-family: var(--font-display); font-size: .9rem; font-weight: 700; color: var(--gray-900); line-height: 1.35; margin-bottom: 6px; }
+    .pc-body p { font-size: .78rem; color: var(--gray-500); line-height: 1.55; margin-bottom: 12px; flex: 1; }
+    .pc-footer { display: flex; justify-content: space-between; align-items: center; font-size: .72rem; color: var(--gray-400); margin-top: auto; }
+    .read-link { color: var(--primary); font-weight: 600; font-size: .76rem; }
+
+    /* Category colors */
+    .cat-image { color: #2563eb; }
+    .cat-pdf   { color: #dc2626; }
+    .cat-dev   { color: #059669; }
+    .cat-text  { color: #d97706; }
+    .cat-util  { color: #7c3aed; }
+    .cat-guide { color: var(--gray-600); }
+
+    .pc-img.img-image { background: linear-gradient(135deg,#eff6ff,#dbeafe); }
+    .pc-img.img-pdf   { background: linear-gradient(135deg,#fef2f2,#fee2e2); }
+    .pc-img.img-dev   { background: linear-gradient(135deg,#f0fdf4,#dcfce7); }
+    .pc-img.img-text  { background: linear-gradient(135deg,#fffbeb,#fef3c7); }
+    .pc-img.img-util  { background: linear-gradient(135deg,#fdf4ff,#f3e8ff); }
+
+    /* ── SIDEBAR ── */
+    .blog-sidebar { display: flex; flex-direction: column; gap: 20px; }
+    .sb-card {
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--white);
+    }
+    .sb-card-head {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--gray-100);
+      font-family: var(--font-display);
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      background: var(--gray-50);
+    }
+    .sb-tool-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 16px;
+      text-decoration: none;
+      color: var(--gray-700);
+      font-size: .83rem;
+      font-weight: 500;
+      border-bottom: 1px solid var(--gray-100);
+      transition: background .12s;
+    }
+    .sb-tool-link:last-child { border-bottom: none; }
+    .sb-tool-link:hover { background: var(--gray-50); color: var(--primary); }
+    .sb-tool-link .tl-icon { font-size: .9rem; width: 20px; text-align: center; flex-shrink: 0; }
+    .sb-topic-grid { padding: 14px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .topic-chip {
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1.5px solid var(--gray-200);
+      font-size: .76rem;
+      font-weight: 600;
+      color: var(--gray-600);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .topic-chip:hover { border-color: var(--primary); color: var(--primary); }
+
+    /* ── LOAD MORE ── */
+    .load-more-row { text-align: center; margin-top: 32px; }
+
+    @media (max-width: 900px) {
+      .blog-outer { grid-template-columns: 1fr; }
+      .blog-sidebar { display: none; }
+    }
+    @media (max-width: 640px) {
+      .post-featured { grid-template-columns: 1fr; }
+      .post-featured .pf-img { min-height: 140px; }
+      .post-grid { grid-template-columns: 1fr; }
+      .blog-hero { padding: 36px 16px 0; }
+      .blog-outer { padding: 28px 16px 60px; }
     }
   </style>
-
-  <!-- Google tag (gtag.js) -->
- <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPJ4332XJH"></script>
- <script>
-   window.dataLayer = window.dataLayer || [];
-   function gtag(){dataLayer.push(arguments);}
-   gtag('js', new Date());
-
-   gtag('config', 'G-BPJ4332XJH');
- </script>
-
-  <!-- Google tag (gtag.js) -->
- <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPJ4332XJH"></script>
- <script>
-   window.dataLayer = window.dataLayer || [];
-   function gtag(){dataLayer.push(arguments);}
-   gtag('js', new Date());
-
-   gtag('config', 'G-BPJ4332XJH');
- </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPJ4332XJH"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BPJ4332XJH');</script>
 </head>
 <body>
 <div id="navbar"></div>
 
-<div class="page-hero">
-  <div class="breadcrumb"><a href="/en/index.html">Home</a> › Blog</div>
-  <h1>Logrith <span>Blog</span></h1>
-  <p>Guides, tutorials, and tips for getting the most out of free online tools. Learn faster workflows, better practices, and tool tricks.</p>
+<!-- HERO -->
+<div class="blog-hero">
+  <div class="breadcrumb">
+    <a href="/en/index.html">Home</a> › Blog
+  </div>
+  <div class="blog-hero-text">
+    <h1>Learn. Do. <em>Create.</em></h1>
+    <p>Practical guides, tips, and tutorials for getting more out of free online tools — no installs, no fluff.</p>
+  </div>
 </div>
 
-<div class="blog-wrap">
-  <!-- MAIN CONTENT -->
-  <div class="blog-main">
-
-    <!-- Filter -->
-    <div class="cat-filter">
-      <button class="cat-filter-btn active">All</button>
-      <button class="cat-filter-btn">🖼️ Image</button>
-      <button class="cat-filter-btn">📄 PDF</button>
-      <button class="cat-filter-btn">🛠️ Developer</button>
-      <button class="cat-filter-btn">✏️ Text</button>
-      <button class="cat-filter-btn">⚙️ Utility</button>
-      <button class="cat-filter-btn">📚 Guide</button>
+<!-- MAIN BLOG LAYOUT -->
+<div class="blog-outer">
+  <main>
+    <!-- FILTERS -->
+    <div class="filter-row">
+      <button class="filter-btn active">All</button>
+      <button class="filter-btn">🖼️ Image</button>
+      <button class="filter-btn">📄 PDF</button>
+      <button class="filter-btn">🛠️ Developer</button>
+      <button class="filter-btn">✏️ Text</button>
+      <button class="filter-btn">⚙️ Utility</button>
     </div>
 
-    <div class="blog-grid">
+    <!-- FEATURED POST -->
+    <a href="#" class="post-featured">
+      <div class="pf-img">🖼️</div>
+      <div class="pf-body">
+        <div class="post-cat cat-image">🖼️ Image Tools</div>
+        <h2>How to Compress Images Without Losing Quality — Complete 2025 Guide</h2>
+        <p>Large images slow down websites. Learn to cut file size by up to 80% with zero visible quality loss using only your browser — no Photoshop needed.</p>
+        <div class="post-meta">
+          <span>Jan 15, 2025</span>
+          <span class="dot"></span>
+          <span class="read-time">⏱ 6 min read</span>
+        </div>
+      </div>
+    </a>
 
-      <a href="#" class="blog-card">
-        <div class="blog-card-img">🖼️</div>
-        <div class="blog-card-body">
-          <div class="blog-meta"><span class="blog-cat image">Image</span><span class="blog-date">Jan 15, 2026</span></div>
-          <h2>How to Compress Images for Your Website Without Losing Quality</h2>
-          <p>Large images are the #1 reason websites load slowly. Learn how to reduce image file size by up to 80% using Logrith's Image Compressor, the ideal quality settings for web use, and when to use JPG vs WEBP vs PNG.</p>
-          <span class="blog-read-more">Read Guide →</span>
+    <!-- POST GRID -->
+    <div class="post-grid">
+
+      <a href="#" class="post-card">
+        <div class="pc-img img-pdf">📄</div>
+        <div class="pc-body">
+          <div class="post-cat cat-pdf">PDF Tools</div>
+          <h3>How to Merge PDF Files Online — Step by Step</h3>
+          <p>Combine unlimited PDFs in any order. No server upload, no file size limit, no watermarks.</p>
+          <div class="pc-footer">
+            <span>Jan 12, 2025</span>
+            <span class="read-link">Read →</span>
+          </div>
         </div>
       </a>
 
-      <a href="#" class="blog-card">
-        <div class="blog-card-img">📄</div>
-        <div class="blog-card-body">
-          <div class="blog-meta"><span class="blog-cat pdf">PDF</span><span class="blog-date">Jan 12, 2026</span></div>
-          <h2>How to Merge PDF Files Online for Free — Step by Step</h2>
-          <p>Combining multiple PDFs into one document is a daily task for professionals. This guide walks through Logrith's PDF Merge tool, explains how to reorder pages, and covers when to merge vs when to split your documents.</p>
-          <span class="blog-read-more">Read Guide →</span>
+      <a href="#" class="post-card">
+        <div class="pc-img img-dev">🔑</div>
+        <div class="pc-body">
+          <div class="post-cat cat-dev">Developer</div>
+          <h3>What Makes a Password Truly Strong in 2025?</h3>
+          <p>Length beats complexity. Here's the science behind secure passwords and how to generate them.</p>
+          <div class="pc-footer">
+            <span>Jan 10, 2025</span>
+            <span class="read-link">Read →</span>
+          </div>
         </div>
       </a>
 
-      <a href="#" class="blog-card">
-        <div class="blog-card-img">🔑</div>
-        <div class="blog-card-body">
-          <div class="blog-meta"><span class="blog-cat dev">Developer</span><span class="blog-date">Jan 10, 2026</span></div>
-          <h2>What Makes a Password Truly Strong in 2026?</h2>
-          <p>Password security has changed. This guide covers entropy, why length matters more than complexity, the difference between random and memorable passwords, and how to use Logrith's Password Generator and Strength Checker together for maximum security.</p>
-          <span class="blog-read-more">Read Guide →</span>
+      <a href="#" class="post-card">
+        <div class="pc-img img-image">🔄</div>
+        <div class="pc-body">
+          <div class="post-cat cat-image">Image Tools</div>
+          <h3>JPG vs PNG vs WEBP — Which Format Should You Use?</h3>
+          <p>The right format can cut your image size by 35%. Here's exactly when to use each one.</p>
+          <div class="pc-footer">
+            <span>Jan 8, 2025</span>
+            <span class="read-link">Read →</span>
+          </div>
         </div>
       </a>
 
-      <a href="#" class="blog-card">
-        <div class="blog-card-img">🔗</div>
-        <div class="blog-card-body">
-          <div class="blog-meta"><span class="blog-cat text">Text</span><span class="blog-date">Jan 8, 2026</span></div>
-          <h2>SEO-Friendly URL Slugs: How to Create Them the Right Way</h2>
-          <p>URL slugs directly impact SEO rankings and click-through rates. Learn why hyphens beat underscores, how to handle stop words, what max length to use, and how Logrith's Slug Generator automates the entire process for blog posts and e-commerce.</p>
-          <span class="blog-read-more">Read Guide →</span>
+      <a href="#" class="post-card">
+        <div class="pc-img img-util">▣</div>
+        <div class="pc-body">
+          <div class="post-cat cat-util">Utility</div>
+          <h3>QR Codes for Business: The Complete 2025 Guide</h3>
+          <p>Menus, cards, packaging, WiFi sharing — everything you need to know about QR codes.</p>
+          <div class="pc-footer">
+            <span>Jan 5, 2025</span>
+            <span class="read-link">Read →</span>
+          </div>
         </div>
       </a>
 
-      <a href="#" class="blog-card">
-        <div class="blog-card-img">▣</div>
-        <div class="blog-card-body">
-          <div class="blog-meta"><span class="blog-cat util">Utility</span><span class="blog-date">Jan 5, 2026</span></div>
-          <h2>QR Codes for Business: Everything You Need to Know in 2026</h2>
-          <p>QR codes are everywhere — menus, business cards, packaging, marketing materials. This guide covers QR code types (URL, WiFi, vCard, SMS), best practices for size and contrast, how to generate high-quality QR codes for print using Logrith, and how to track scan rates.</p>
-          <span class="blog-read-more">Read Guide →</span>
+      <a href="#" class="post-card">
+        <div class="pc-img img-dev">{ }</div>
+        <div class="pc-body">
+          <div class="post-cat cat-dev">Developer</div>
+          <h3>JSON Formatting Best Practices for APIs and Config Files</h3>
+          <p>Stop debugging messy JSON. These conventions will save you hours every week.</p>
+          <div class="pc-footer">
+            <span>Jan 3, 2025</span>
+            <span class="read-link">Read →</span>
+          </div>
         </div>
       </a>
 
-      <a href="#" class="blog-card">
-        <div class="blog-card-img">{ }</div>
-        <div class="blog-card-body">
-          <div class="blog-meta"><span class="blog-cat dev">Developer</span><span class="blog-date">Jan 3, 2026</span></div>
-          <h2>JSON Formatting Best Practices for APIs and Config Files</h2>
-          <p>Poorly formatted JSON is a debugging nightmare. This guide covers JSON formatting conventions, when to use 2 vs 4 space indentation, how to validate JSON structure, common JSON errors and how to fix them, and how Logrith's formatter handles edge cases.</p>
-          <span class="blog-read-more">Read Guide →</span>
+      <a href="#" class="post-card">
+        <div class="pc-img img-text">📝</div>
+        <div class="pc-body">
+          <div class="post-cat cat-text">Text Tools</div>
+          <h3>SEO-Friendly URL Slugs: How to Create Them Properly</h3>
+          <p>Hyphens vs underscores, stop words, max length — the definitive guide to clean URLs.</p>
+          <div class="pc-footer">
+            <span>Dec 28, 2024</span>
+            <span class="read-link">Read →</span>
+          </div>
         </div>
       </a>
 
-      <a href="#" class="blog-card">
-        <div class="blog-card-img">📊</div>
-        <div class="blog-card-body">
-          <div class="blog-meta"><span class="blog-cat guide">Guide</span><span class="blog-date">Dec 28, 2026</span></div>
-          <h2>Complete Guide to Free Online Tools — What You Can Do Without Installing Anything</h2>
-          <p>In 2026, you can handle almost any digital task entirely in your browser. This comprehensive guide covers every category of browser-based tool — image editing, PDF manipulation, developer utilities, calculators, QR generation — and how to use them without any software installation.</p>
-          <span class="blog-read-more">Read Guide →</span>
+      <a href="#" class="post-card">
+        <div class="pc-img img-pdf">✂️</div>
+        <div class="pc-body">
+          <div class="post-cat cat-pdf">PDF Tools</div>
+          <h3>How to Extract Specific Pages from a PDF for Free</h3>
+          <p>Enter page ranges like "1-5, 8, 10-12" and get exactly those pages — no signup needed.</p>
+          <div class="pc-footer">
+            <span>Dec 24, 2024</span>
+            <span class="read-link">Read →</span>
+          </div>
         </div>
       </a>
 
-      <a href="#" class="blog-card">
-        <div class="blog-card-img">💹</div>
-        <div class="blog-card-body">
-          <div class="blog-meta"><span class="blog-cat util">Utility</span><span class="blog-date">Dec 24, 2026</span></div>
-          <h2>Understanding GST in India: A Practical Calculator Guide</h2>
-          <p>GST calculation confuses many Indian business owners and freelancers. This guide explains the difference between GST-inclusive and GST-exclusive prices, all current GST slabs (5%, 12%, 18%, 28%), CGST vs SGST vs IGST, and how to use Logrith's GST Calculator for instant accurate results.</p>
-          <span class="blog-read-more">Read Guide →</span>
+      <a href="#" class="post-card">
+        <div class="pc-img img-util">💹</div>
+        <div class="pc-body">
+          <div class="post-cat cat-util">Utility</div>
+          <h3>Understanding GST in India: A Practical Calculator Guide</h3>
+          <p>Inclusive vs exclusive, all slabs, CGST + SGST breakdown — clear and simple.</p>
+          <div class="pc-footer">
+            <span>Dec 20, 2024</span>
+            <span class="read-link">Read →</span>
+          </div>
         </div>
       </a>
 
     </div>
-  </div>
+
+    <div class="load-more-row">
+      <button class="btn btn-secondary" style="min-width:160px;">Load More Posts</button>
+    </div>
+  </main>
 
   <!-- SIDEBAR -->
-  <div class="blog-sidebar">
+  <aside class="blog-sidebar">
 
-    <!-- Popular tools -->
-    <div class="sidebar-card">
-      <h3>🔥 Popular Tools</h3>
-      <a href="/en/tools/image-compressor.html" class="tool-quick-link"><span>📦</span><span>Image Compressor</span></a>
-      <a href="/en/tools/pdf-merge.html" class="tool-quick-link"><span>📎</span><span>PDF Merge</span></a>
-      <a href="/en/tools/qr-generator.html" class="tool-quick-link"><span>▣</span><span>QR Code Generator</span></a>
-      <a href="/en/tools/password-generator.html" class="tool-quick-link"><span>🔑</span><span>Password Generator</span></a>
-      <a href="/en/tools/json-formatter.html" class="tool-quick-link"><span>{ }</span><span>JSON Formatter</span></a>
-      <a href="/en/tools/word-counter.html" class="tool-quick-link"><span>📝</span><span>Word Counter</span></a>
-      <a href="/en/tools/image-converter.html" class="tool-quick-link"><span>🔄</span><span>Image Converter</span></a>
-      <a href="/en/tools/gst-calculator.html" class="tool-quick-link"><span>💹</span><span>GST Calculator</span></a>
+    <div class="sb-card">
+      <div class="sb-card-head">🔥 Popular Tools</div>
+      <a href="/en/tools/image-compressor.html" class="sb-tool-link"><span class="tl-icon">📦</span> Image Compressor</a>
+      <a href="/en/tools/pdf-merge.html" class="sb-tool-link"><span class="tl-icon">📎</span> PDF Merge</a>
+      <a href="/en/tools/qr-generator.html" class="sb-tool-link"><span class="tl-icon">▣</span> QR Generator</a>
+      <a href="/en/tools/password-generator.html" class="sb-tool-link"><span class="tl-icon">🔑</span> Password Generator</a>
+      <a href="/en/tools/json-formatter.html" class="sb-tool-link"><span class="tl-icon">{ }</span> JSON Formatter</a>
+      <a href="/en/tools/word-counter.html" class="sb-tool-link"><span class="tl-icon">📝</span> Word Counter</a>
     </div>
 
-    <!-- Categories -->
-    <div class="sidebar-card">
-      <h3>📂 All Tool Categories</h3>
-      <a href="/en/categories/image-tools.html" class="tool-quick-link"><span>🖼️</span><span>Image Tools (22+)</span></a>
-      <a href="/en/categories/pdf-tools.html" class="tool-quick-link"><span>📄</span><span>PDF Tools (15+)</span></a>
-      <a href="/en/categories/dev-tools.html" class="tool-quick-link"><span>🛠️</span><span>Developer Tools (25+)</span></a>
-      <a href="/en/categories/text-tools.html" class="tool-quick-link"><span>✏️</span><span>Text Tools (18+)</span></a>
-      <a href="/en/categories/utility-tools.html" class="tool-quick-link"><span>⚙️</span><span>Utility Tools (20+)</span></a>
+    <div class="sb-card">
+      <div class="sb-card-head">📂 Topics</div>
+      <div class="sb-topic-grid">
+        <a href="#" class="topic-chip">🖼️ Image</a>
+        <a href="#" class="topic-chip">📄 PDF</a>
+        <a href="#" class="topic-chip">🛠️ Dev</a>
+        <a href="#" class="topic-chip">✏️ Text</a>
+        <a href="#" class="topic-chip">⚙️ Utility</a>
+        <a href="#" class="topic-chip">📚 Guide</a>
+        <a href="#" class="topic-chip">🔒 Security</a>
+        <a href="#" class="topic-chip">🇮🇳 India</a>
+      </div>
     </div>
 
-    <!-- Newsletter placeholder -->
-    <div class="sidebar-card" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);border-color:#bfdbfe;">
-      <h3 style="color:#1e40af;">📬 Stay Updated</h3>
-      <p style="font-size:.83rem;color:#1e40af;line-height:1.6;margin-bottom:14px;">New tools and guides added weekly. Follow Logrith for updates.</p>
-      <a href="/en/contact.html" class="btn btn-primary btn-sm" style="width:100%;text-align:center;display:block;">Get Notified →</a>
+    <div class="sb-card" style="background:linear-gradient(135deg,#0f172a,#1e293b); border-color:transparent;">
+      <div style="padding:20px;">
+        <div style="font-size:1.3rem;margin-bottom:8px;">✍️</div>
+        <div style="font-family:var(--font-display);font-size:.88rem;font-weight:700;color:white;margin-bottom:6px;">Write for Logrith</div>
+        <div style="font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.6;margin-bottom:14px;">Have a tip or tutorial to share? We're looking for contributors.</div>
+        <a href="/en/pages/contact.html" style="display:block;text-align:center;padding:8px 14px;background:var(--primary);color:white;border-radius:8px;font-size:.8rem;font-weight:700;font-family:var(--font-display);text-decoration:none;">Get in Touch →</a>
+      </div>
     </div>
-  </div>
+
+  </aside>
 </div>
 
 <div id="footer"></div>
@@ -238,11 +447,10 @@
 <script src="/assets/js/main.js"></script>
 <script>
 // Category filter
-document.querySelectorAll('.cat-filter-btn').forEach(btn => {
+document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    document.querySelectorAll('.cat-filter-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    // In real implementation: filter blog cards by category
   });
 });
 </script>
