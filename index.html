@@ -5,8 +5,30 @@
   <title>Redirecting...</title>
 
   <script>
-   if (location.pathname === "/" || location.pathname === "") {
+   const path = location.pathname;
+
+   // root pe hi language redirect
+   if (path === "/" || path === "") {
      location.replace("/en/");
+   }
+
+   // language-wise 404 (basic)
+   else if (path.startsWith("/en/")) {
+     check("/en");
+    } 
+   else if (path.startsWith("/es/")) {
+     check("/es");
+    } 
+   else {
+      location.replace("/404.html");
+    }
+
+    function check(lang) {
+     fetch(path, { method: "HEAD" })
+      .then(r => {
+       if (!r.ok) location.replace(lang + "/404.html");
+      })
+      .catch(() => location.replace(lang + "/404.html"));
     }
   </script>
 
