@@ -1,458 +1,1139 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog — Logrith Tools Guides & Tutorials</title>
-  <meta name="description" content="Logrith Blog — practical guides on image compression, PDF editing, developer tools, online security, and productivity. All free, browser-based tips.">
-  <meta name="keywords" content="logrith blog, image tools guide, pdf tools tutorial, free online tools tips, compress images, merge pdf guide">
-  <link rel="canonical" href="https://logrith.in/en/blog/">
-  <link rel="icon" href="/favicon.ico">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <style>
-    /* ── HERO ── */
-    .blog-hero {
-      padding: 60px 24px 0;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .blog-hero .breadcrumb {
-      display: flex; align-items: center; gap: 6px;
-      font-size: .8rem; color: var(--gray-400);
-      margin-bottom: 28px;
-    }
-    .blog-hero .breadcrumb a { color: var(--primary); text-decoration: none; }
-    .blog-hero-text h1 {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 800;
-      color: var(--gray-900);
-      letter-spacing: -.5px;
-      margin-bottom: 12px;
-    }
-    .blog-hero-text h1 em {
-      font-style: normal;
-      color: var(--primary);
-    }
-    .blog-hero-text p {
-      font-size: .96rem;
-      color: var(--gray-500);
-      max-width: 480px;
-      line-height: 1.65;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>404 — Lost in Space</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#2563eb;
+  --blue2:#3b82f6;
+  --blue3:#60a5fa;
+  --bluel:#dbeafe;
+  --bluell:#eff6ff;
+  --white:#ffffff;
+  --ink:#0c1a2e;
+  --ink2:#1e3a5f;
+  --muted:#64748b;
+  --border:#bfdbfe;
+  --border2:#e2e8f0;
+  --bg:#f0f7ff;
+  --card:#ffffff;
+  --shadow:0 14px 40px rgba(37,99,235,.10);
+  --shadow2:0 8px 24px rgba(37,99,235,.08);
+}
 
-    /* ── LAYOUT ── */
-    .blog-outer {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px 24px 80px;
-      display: grid;
-      grid-template-columns: 1fr 280px;
-      gap: 48px;
-      align-items: start;
-    }
+*,
+*::before,
+*::after{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-    /* ── FILTER TABS ── */
-    .filter-row {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin-bottom: 32px;
-    }
-    .filter-btn {
-      padding: 6px 16px;
-      border-radius: 20px;
-      border: 1.5px solid var(--gray-200);
-      background: var(--white);
-      font-size: .8rem;
-      font-weight: 600;
-      font-family: var(--font-display);
-      color: var(--gray-600);
-      cursor: pointer;
-      transition: var(--transition);
-    }
-    .filter-btn:hover { border-color: var(--primary); color: var(--primary); }
-    .filter-btn.active { background: var(--gray-900); color: white; border-color: var(--gray-900); }
+html,body{
+  min-height:100%;
+  font-family:'Instrument Sans',sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  overflow-x:hidden;
+}
 
-    /* ── FEATURED POST (first big) ── */
-    .post-featured {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      border: 1.5px solid var(--gray-200);
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-      margin-bottom: 24px;
-      text-decoration: none;
-      transition: var(--transition);
-      background: var(--white);
-    }
-    .post-featured:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
-    .post-featured .pf-img {
-      min-height: 220px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 4rem;
-      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-    }
-    .post-featured .pf-body {
-      padding: 28px 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .pf-body .post-cat {
-      font-size: .72rem;
-      font-weight: 700;
-      font-family: var(--font-display);
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      margin-bottom: 10px;
-    }
-    .pf-body h2 {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--gray-900);
-      line-height: 1.3;
-      margin-bottom: 10px;
-    }
-    .pf-body p {
-      font-size: .84rem;
-      color: var(--gray-500);
-      line-height: 1.6;
-      margin-bottom: 18px;
-      flex: 1;
-    }
-    .post-meta {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: .76rem;
-      color: var(--gray-400);
-    }
-    .post-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gray-300); }
-    .read-time { display: flex; align-items: center; gap: 4px; }
+body{
+  position:relative;
+}
 
-    /* ── POST GRID ── */
-    .post-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .post-card {
-      border: 1.5px solid var(--gray-200);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      text-decoration: none;
-      transition: var(--transition);
-      background: var(--white);
-      display: flex;
-      flex-direction: column;
-    }
-    .post-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); border-color: var(--gray-300); }
-    .post-card .pc-img {
-      height: 110px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2.4rem;
-    }
-    .post-card .pc-body {
-      padding: 16px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .pc-body .post-cat { font-size: .7rem; font-weight: 700; font-family: var(--font-display); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 6px; }
-    .pc-body h3 { font-family: var(--font-display); font-size: .9rem; font-weight: 700; color: var(--gray-900); line-height: 1.35; margin-bottom: 6px; }
-    .pc-body p { font-size: .78rem; color: var(--gray-500); line-height: 1.55; margin-bottom: 12px; flex: 1; }
-    .pc-footer { display: flex; justify-content: space-between; align-items: center; font-size: .72rem; color: var(--gray-400); margin-top: auto; }
-    .read-link { color: var(--primary); font-weight: 600; font-size: .76rem; }
+button,a{
+  -webkit-tap-highlight-color:transparent;
+}
 
-    /* Category colors */
-    .cat-image { color: #2563eb; }
-    .cat-pdf   { color: #dc2626; }
-    .cat-dev   { color: #059669; }
-    .cat-text  { color: #d97706; }
-    .cat-util  { color: #7c3aed; }
-    .cat-guide { color: var(--gray-600); }
+a{
+  color:inherit;
+  text-decoration:none;
+}
 
-    .pc-img.img-image { background: linear-gradient(135deg,#eff6ff,#dbeafe); }
-    .pc-img.img-pdf   { background: linear-gradient(135deg,#fef2f2,#fee2e2); }
-    .pc-img.img-dev   { background: linear-gradient(135deg,#f0fdf4,#dcfce7); }
-    .pc-img.img-text  { background: linear-gradient(135deg,#fffbeb,#fef3c7); }
-    .pc-img.img-util  { background: linear-gradient(135deg,#fdf4ff,#f3e8ff); }
+/* background */
+.bg{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  overflow:hidden;
+}
+.bg-grid{
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(59,130,246,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59,130,246,.05) 1px, transparent 1px);
+  background-size:44px 44px;
+}
+.bb{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(80px);
+}
+.b1{
+  width:500px;
+  height:500px;
+  background:#bfdbfe;
+  opacity:.5;
+  top:-160px;
+  left:-150px;
+  animation:bf 11s ease-in-out infinite;
+}
+.b2{
+  width:380px;
+  height:380px;
+  background:#e0f2fe;
+  opacity:.5;
+  bottom:-100px;
+  right:-80px;
+  animation:bf 14s ease-in-out infinite reverse;
+}
+.b3{
+  width:220px;
+  height:220px;
+  background:#dbeafe;
+  opacity:.4;
+  top:42%;
+  left:55%;
+  animation:bf 8s ease-in-out infinite;
+}
+@keyframes bf{
+  0%,100%{transform:translate(0,0)}
+  50%{transform:translate(22px,-22px)}
+}
 
-    /* ── SIDEBAR ── */
-    .blog-sidebar { display: flex; flex-direction: column; gap: 20px; }
-    .sb-card {
-      border: 1.5px solid var(--gray-200);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      background: var(--white);
-    }
-    .sb-card-head {
-      padding: 12px 16px;
-      border-bottom: 1px solid var(--gray-100);
-      font-family: var(--font-display);
-      font-size: .78rem;
-      font-weight: 700;
-      color: var(--gray-500);
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      background: var(--gray-50);
-    }
-    .sb-tool-link {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 11px 16px;
-      text-decoration: none;
-      color: var(--gray-700);
-      font-size: .83rem;
-      font-weight: 500;
-      border-bottom: 1px solid var(--gray-100);
-      transition: background .12s;
-    }
-    .sb-tool-link:last-child { border-bottom: none; }
-    .sb-tool-link:hover { background: var(--gray-50); color: var(--primary); }
-    .sb-tool-link .tl-icon { font-size: .9rem; width: 20px; text-align: center; flex-shrink: 0; }
-    .sb-topic-grid { padding: 14px; display: flex; flex-wrap: wrap; gap: 6px; }
-    .topic-chip {
-      padding: 5px 12px;
-      border-radius: 20px;
-      border: 1.5px solid var(--gray-200);
-      font-size: .76rem;
-      font-weight: 600;
-      color: var(--gray-600);
-      text-decoration: none;
-      transition: var(--transition);
-    }
-    .topic-chip:hover { border-color: var(--primary); color: var(--primary); }
+/* page */
+.page{
+  position:relative;
+  z-index:1;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:32px 20px 40px;
+  text-align:center;
+}
 
-    /* ── LOAD MORE ── */
-    .load-more-row { text-align: center; margin-top: 32px; }
+/* pill */
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:999px;
+  padding:6px 16px 6px 7px;
+  font-size:12px;
+  font-weight:600;
+  color:var(--ink2);
+  letter-spacing:.25px;
+  margin-bottom:28px;
+  box-shadow:var(--shadow2);
+  animation:fadeDown .5s ease both;
+}
+.pdot{
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  background:var(--bluel);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+.pdot i{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--blue2);
+  display:block;
+  animation:blink 1.3s ease-in-out infinite;
+}
+@keyframes blink{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:.2;transform:scale(.65)}
+}
 
-    @media (max-width: 900px) {
-      .blog-outer { grid-template-columns: 1fr; }
-      .blog-sidebar { display: none; }
-    }
-    @media (max-width: 640px) {
-      .post-featured { grid-template-columns: 1fr; }
-      .post-featured .pf-img { min-height: 140px; }
-      .post-grid { grid-template-columns: 1fr; }
-      .blog-hero { padding: 36px 16px 0; }
-      .blog-outer { padding: 28px 16px 60px; }
-    }
-  </style>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPJ4332XJH"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BPJ4332XJH');</script>
+/* hero */
+.hero{
+  position:relative;
+  margin-bottom:6px;
+  line-height:1;
+  animation:fadeUp .55s ease .08s both;
+}
+.n-shadow,
+.n-main{
+  font-family:'Bebas Neue',cursive;
+  font-size:clamp(120px,28vw,210px);
+  letter-spacing:8px;
+  user-select:none;
+}
+.n-shadow{
+  color:transparent;
+  -webkit-text-stroke:2px #bfdbfe;
+  position:absolute;
+  inset:0;
+  transform:translate(6px,6px);
+  pointer-events:none;
+}
+.n-main{
+  color:var(--blue2);
+  position:relative;
+  z-index:1;
+  text-shadow:0 3px 0 #bfdbfe;
+}
+
+.strip{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  margin-bottom:18px;
+  animation:fadeUp .55s ease .14s both;
+}
+.sline{
+  width:32px;
+  height:1px;
+  background:var(--border);
+}
+.stext{
+  font-family:'Instrument Serif',serif;
+  font-style:italic;
+  font-size:15px;
+  color:var(--muted);
+  letter-spacing:.5px;
+}
+
+/* heading */
+.h1{
+  font-family:'Instrument Sans',sans-serif;
+  font-size:clamp(24px,5vw,34px);
+  font-weight:700;
+  color:var(--ink);
+  line-height:1.2;
+  margin-bottom:12px;
+  letter-spacing:-.5px;
+  animation:fadeUp .55s ease .20s both;
+}
+.h1 em{
+  font-family:'Instrument Serif',serif;
+  font-style:italic;
+  font-weight:400;
+  color:var(--blue);
+}
+
+.sub{
+  font-size:15px;
+  color:var(--muted);
+  max-width:340px;
+  line-height:1.7;
+  margin-bottom:28px;
+  animation:fadeUp .55s ease .25s both;
+}
+
+/* card */
+.gc{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:20px;
+  max-width:360px;
+  width:100%;
+  margin-bottom:18px;
+  box-shadow:var(--shadow);
+  animation:fadeUp .55s ease .31s both;
+  position:relative;
+  overflow:hidden;
+  backdrop-filter:blur(8px);
+}
+.gc::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:3px;
+  background:linear-gradient(90deg,#2563eb,#60a5fa,#bae6fd);
+}
+.gc-row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:12px;
+  text-align:left;
+}
+.gc-ico{
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  background:var(--bluell);
+  border:1px solid var(--bluel);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  flex-shrink:0;
+}
+.gc-eye{
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:2px;
+  color:var(--blue2);
+  text-transform:uppercase;
+  margin-bottom:4px;
+}
+.gc-name{
+  font-size:16px;
+  font-weight:700;
+  color:var(--ink);
+  line-height:1.25;
+}
+.gc-desc{
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.65;
+  margin-bottom:16px;
+  border-left:2px solid var(--bluel);
+  padding-left:12px;
+  text-align:left;
+}
+
+.btn-play{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  background:var(--blue);
+  color:#fff;
+  border:none;
+  border-radius:14px;
+  padding:13px 18px;
+  font-family:'Instrument Sans',sans-serif;
+  font-size:13px;
+  font-weight:700;
+  cursor:pointer;
+  width:100%;
+  transition:transform .15s, background .15s, box-shadow .15s;
+  box-shadow:0 10px 24px rgba(37,99,235,.24);
+}
+.btn-play:hover{
+  background:#1d4ed8;
+  transform:translateY(-1px);
+  box-shadow:0 12px 28px rgba(37,99,235,.28);
+}
+.btn-play:active{
+  transform:translateY(1px);
+  box-shadow:none;
+}
+.pio{
+  width:26px;
+  height:26px;
+  border-radius:8px;
+  background:rgba(255,255,255,.18);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.pio svg{
+  width:12px;
+  height:12px;
+  fill:#fff;
+  margin-left:2px;
+}
+
+/* links */
+.btns{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  width:100%;
+  max-width:320px;
+  animation:fadeUp .55s ease .38s both;
+}
+.btn-h,
+.btn-c{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  border-radius:14px;
+  padding:12px 18px;
+  font-family:'Instrument Sans',sans-serif;
+  font-size:13px;
+  font-weight:700;
+  cursor:pointer;
+  transition:all .15s;
+}
+.btn-h{
+  background:var(--white);
+  color:var(--ink2);
+  border:1px solid var(--border);
+  box-shadow:0 1px 10px rgba(37,99,235,.05);
+}
+.btn-h:hover{
+  background:var(--bluell);
+  border-color:var(--blue3);
+}
+.btn-c{
+  background:transparent;
+  color:var(--muted);
+  border:1px solid var(--border2);
+}
+.btn-c:hover{
+  color:var(--blue);
+  border-color:var(--border);
+  background:var(--bluell);
+}
+
+.foot{
+  margin-top:24px;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  animation:fadeUp .55s ease .44s both;
+}
+.fdot{
+  width:3px;
+  height:3px;
+  border-radius:50%;
+  background:#cbd5e1;
+}
+.fnote{
+  font-size:11px;
+  color:#94a3b8;
+  letter-spacing:.3px;
+}
+
+/* overlay */
+.g-ov{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:200;
+  background:rgba(10,20,40,.72);
+  backdrop-filter:blur(10px);
+  align-items:center;
+  justify-content:center;
+  padding:14px;
+}
+.g-ov.open{
+  display:flex;
+  animation:fadeIn .2s ease both;
+}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.gm{
+  background:#080f1a;
+  border:1px solid #172d4d;
+  border-radius:24px;
+  width:100%;
+  max-width:420px;
+  max-height:92vh;
+  overflow-y:auto;
+  padding:16px 14px 18px;
+  position:relative;
+  box-shadow:0 32px 80px rgba(0,0,0,.65);
+  animation:modalIn .28s cubic-bezier(.34,1.4,.64,1) both;
+}
+@keyframes modalIn{
+  from{transform:scale(.87) translateY(14px);opacity:0}
+  to{transform:scale(1) translateY(0);opacity:1}
+}
+.gm::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:2px;
+  background:linear-gradient(90deg,#2563eb,#60a5fa,#93c5fd);
+  border-radius:24px 24px 0 0;
+}
+.gh{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:13px;
+}
+.gl{
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:2.5px;
+  color:#3b82f6;
+  text-transform:uppercase;
+  margin-bottom:2px;
+}
+.gt{
+  font-family:'Bebas Neue',cursive;
+  font-size:22px;
+  letter-spacing:2px;
+  color:#e2e8f0;
+  line-height:1;
+}
+.bx{
+  width:32px;
+  height:32px;
+  border-radius:10px;
+  background:#111c2b;
+  border:1px solid #1e3554;
+  color:#5a7090;
+  font-size:15px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:all .15s;
+}
+.bx:hover{
+  background:#1a2d42;
+  color:#e2e8f0;
+}
+.gst{
+  display:flex;
+  gap:6px;
+  margin-bottom:10px;
+}
+.gch{
+  flex:1;
+  background:#0c1624;
+  border:1px solid #172d4d;
+  border-radius:10px;
+  padding:7px 3px;
+  text-align:center;
+}
+.gcl{
+  font-size:8px;
+  color:#3d5a80;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+}
+.gcv{
+  font-family:'Bebas Neue',cursive;
+  font-size:18px;
+  color:#dce9f5;
+  line-height:1.15;
+  letter-spacing:1px;
+}
+.gdf{
+  display:flex;
+  gap:6px;
+  margin-bottom:10px;
+}
+.gdb{
+  flex:1;
+  background:#0c1624;
+  border:1px solid #172d4d;
+  border-radius:10px;
+  padding:7px 3px;
+  font-size:9px;
+  color:#3d5a80;
+  letter-spacing:.5px;
+  cursor:pointer;
+  font-family:'Instrument Sans',sans-serif;
+  font-weight:700;
+  transition:all .15s;
+  text-transform:uppercase;
+  text-align:center;
+}
+.gdb.on,.gdb:hover{
+  border-color:#2563eb;
+  color:#60a5fa;
+  background:#0c1e35;
+}
+.gsv{
+  background:#0c1624;
+  border:1px solid #172d4d;
+  border-radius:10px;
+  padding:9px 10px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  margin-bottom:10px;
+  min-height:42px;
+}
+.gmsg{
+  flex:1;
+  font-size:10.5px;
+  color:#5a7090;
+  line-height:1.45;
+}
+.gmsg strong{color:#60a5fa}
+.gmsg .er{font-size:15px;vertical-align:middle}
+.gbh,
+.gba{
+  border-radius:8px;
+  padding:6px 10px;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.6px;
+  cursor:pointer;
+  white-space:nowrap;
+  font-family:inherit;
+  transition:all .15s;
+  text-transform:uppercase;
+}
+.gbh{
+  background:#2563eb;
+  color:#fff;
+  border:none;
+}
+.gbh:hover{background:#1d4ed8}
+.gbh:disabled{
+  background:#172d4d;
+  color:#3d5a80;
+  cursor:not-allowed;
+}
+.gba{
+  background:transparent;
+  color:#60a5fa;
+  border:1px solid #2563eb;
+}
+.gba:hover{background:#0c1e35}
+.gba:disabled{
+  opacity:.3;
+  cursor:not-allowed;
+}
+.gg{
+  width:100%;
+  display:grid;
+  gap:6px;
+  margin-bottom:10px;
+}
+.gcw{perspective:650px}
+.gci{
+  width:100%;
+  padding-bottom:100%;
+  position:relative;
+  transform-style:preserve-3d;
+  transition:transform .36s cubic-bezier(.4,0,.2,1);
+  cursor:pointer;
+}
+.gci.fl,.gci.dn{transform:rotateY(180deg)}
+.gcf{
+  position:absolute;
+  inset:0;
+  border-radius:10px;
+  backface-visibility:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid #172d4d;
+  user-select:none;
+}
+.g-bk{background:#0c1624}
+.gbkp{
+  width:58%;
+  height:58%;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:2px;
+  opacity:.15;
+}
+.gbkp div{
+  background:#3b82f6;
+  border-radius:1px;
+}
+.g-fr{
+  background:#111c2b;
+  transform:rotateY(180deg);
+  font-size:19px;
+  border-color:#1a2d44;
+  transition:border-color .2s,background .2s;
+}
+.g-fr.hit{
+  border-color:#2563eb;
+  background:#0a1a30;
+}
+.g-fr.hs{
+  border-color:#fbbf24!important;
+  background:#18130a!important;
+  animation:hp .55s ease-in-out infinite;
+}
+@keyframes hp{
+  0%,100%{box-shadow:0 0 0 2px #fbbf2440}
+  50%{box-shadow:0 0 0 6px #fbbf2480}
+}
+.gck{
+  position:absolute;
+  bottom:3px;
+  right:4px;
+  font-size:8.5px;
+  color:#3b82f6;
+  display:none;
+}
+.hit .gck{display:block}
+
+.gpr{
+  height:3px;
+  background:#0c1624;
+  border-radius:2px;
+  overflow:hidden;
+}
+.gpf{
+  height:100%;
+  background:linear-gradient(90deg,#2563eb,#60a5fa);
+  border-radius:2px;
+  transition:width .4s;
+}
+
+/* win */
+.ww{
+  display:none;
+  position:absolute;
+  inset:0;
+  background:rgba(8,15,26,.93);
+  border-radius:24px;
+  align-items:center;
+  justify-content:center;
+  z-index:50;
+  padding:14px;
+}
+.ww.show{
+  display:flex;
+  animation:fadeIn .2s ease both;
+}
+.wb{
+  background:#0c1624;
+  border:1px solid #2563eb;
+  border-radius:18px;
+  padding:22px 20px;
+  text-align:center;
+  width:100%;
+  max-width:300px;
+}
+.wst{
+  font-size:22px;
+  letter-spacing:5px;
+  margin-bottom:7px;
+}
+.wti{
+  font-family:'Bebas Neue',cursive;
+  font-size:26px;
+  letter-spacing:3px;
+  color:#e2e8f0;
+  margin-bottom:2px;
+}
+.wsu{
+  font-size:9px;
+  color:#3d5a80;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+.wgr{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:7px;
+  margin-bottom:16px;
+}
+.wsc{
+  background:#111c2b;
+  border-radius:9px;
+  padding:9px 7px;
+}
+.wsl{
+  font-size:8px;
+  color:#3d5a80;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+.wsv{
+  font-family:'Bebas Neue',cursive;
+  font-size:21px;
+  color:#60a5fa;
+  line-height:1.1;
+  letter-spacing:1px;
+}
+.bta{
+  background:#2563eb;
+  color:#fff;
+  border:none;
+  border-radius:10px;
+  padding:10px 22px;
+  font-size:12px;
+  font-weight:700;
+  cursor:pointer;
+  font-family:inherit;
+  width:100%;
+  transition:background .15s;
+  letter-spacing:.2px;
+}
+.bta:hover{background:#1d4ed8}
+
+/* animations */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(15px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes fadeDown{
+  from{opacity:0;transform:translateY(-12px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* responsive */
+@media (max-width:480px){
+  .page{
+    padding:24px 16px 32px;
+    justify-content:flex-start;
+    padding-top:52px;
+  }
+  .pill{
+    margin-bottom:22px;
+  }
+  .n-shadow,
+  .n-main{
+    font-size:clamp(96px,34vw,150px);
+    letter-spacing:5px;
+  }
+  .sub{
+    max-width:300px;
+    margin-bottom:24px;
+  }
+  .gc{
+    max-width:100%;
+    border-radius:22px;
+    padding:18px;
+  }
+  .btns{
+    max-width:100%;
+  }
+  .foot{
+    margin-top:20px;
+    gap:6px;
+  }
+  .fnote{
+    text-align:center;
+    line-height:1.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *,
+  *::before,
+  *::after{
+    animation:none !important;
+    transition:none !important;
+    scroll-behavior:auto !important;
+  }
+}
+</style>
 </head>
 <body>
-<div id="navbar"></div>
 
-<!-- HERO -->
-<div class="blog-hero">
-  <div class="breadcrumb">
-    <a href="/en/index.html">Home</a> › Blog
-  </div>
-  <div class="blog-hero-text">
-    <h1>Learn. Do. <em>Create.</em></h1>
-    <p>Practical guides, tips, and tutorials for getting more out of free online tools — no installs, no fluff.</p>
-  </div>
+<div class="bg">
+  <div class="bg-grid"></div>
+  <div class="bb b1"></div>
+  <div class="bb b2"></div>
+  <div class="bb b3"></div>
 </div>
 
-<!-- MAIN BLOG LAYOUT -->
-<div class="blog-outer">
-  <main>
-    <!-- FILTERS -->
-    <div class="filter-row">
-      <button class="filter-btn active">All</button>
-      <button class="filter-btn">🖼️ Image</button>
-      <button class="filter-btn">📄 PDF</button>
-      <button class="filter-btn">🛠️ Developer</button>
-      <button class="filter-btn">✏️ Text</button>
-      <button class="filter-btn">⚙️ Utility</button>
-    </div>
+<div class="page">
+  <div class="pill">
+    <div class="pdot"><i></i></div>
+    You’ve landed on a page that doesn’t exist
+  </div>
 
-    <!-- FEATURED POST -->
-    <a href="#" class="post-featured">
-      <div class="pf-img">🖼️</div>
-      <div class="pf-body">
-        <div class="post-cat cat-image">🖼️ Image Tools</div>
-        <h2>How to Compress Images Without Losing Quality — Complete 2025 Guide</h2>
-        <p>Large images slow down websites. Learn to cut file size by up to 80% with zero visible quality loss using only your browser — no Photoshop needed.</p>
-        <div class="post-meta">
-          <span>Jan 15, 2025</span>
-          <span class="dot"></span>
-          <span class="read-time">⏱ 6 min read</span>
-        </div>
+  <div class="hero">
+    <div class="n-shadow">404</div>
+    <div class="n-main">404</div>
+  </div>
+
+  <div class="strip">
+    <div class="sline"></div>
+    <div class="stext">page not found</div>
+    <div class="sline"></div>
+  </div>
+
+  <h1 class="h1">Looks like you’re <em>lost.</em></h1>
+  <p class="sub">The URL you visited doesn’t exist on our server. The link may be broken, expired, or mistyped.</p>
+
+  <div class="gc">
+    <div class="gc-row">
+      <div class="gc-ico">🧩</div>
+      <div>
+        <div class="gc-eye">While you’re here</div>
+        <div class="gc-name">Memory Puzzle Challenge</div>
       </div>
+    </div>
+    <p class="gc-desc">Flip cards and find matching pairs. Stuck? Use AI Solver to watch it get solved automatically.</p>
+    <button class="btn-play" onclick="openGame()">
+      <div class="pio">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      Play Puzzle Game
+    </button>
+  </div>
+
+  <div class="btns">
+    <a href="/" class="btn-h">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Back to Home
     </a>
+    <a href="/en/contact.html" class="btn-c">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+      Contact Page
+    </a>
+  </div>
 
-    <!-- POST GRID -->
-    <div class="post-grid">
-
-      <a href="#" class="post-card">
-        <div class="pc-img img-pdf">📄</div>
-        <div class="pc-body">
-          <div class="post-cat cat-pdf">PDF Tools</div>
-          <h3>How to Merge PDF Files Online — Step by Step</h3>
-          <p>Combine unlimited PDFs in any order. No server upload, no file size limit, no watermarks.</p>
-          <div class="pc-footer">
-            <span>Jan 12, 2025</span>
-            <span class="read-link">Read →</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="#" class="post-card">
-        <div class="pc-img img-dev">🔑</div>
-        <div class="pc-body">
-          <div class="post-cat cat-dev">Developer</div>
-          <h3>What Makes a Password Truly Strong in 2025?</h3>
-          <p>Length beats complexity. Here's the science behind secure passwords and how to generate them.</p>
-          <div class="pc-footer">
-            <span>Jan 10, 2025</span>
-            <span class="read-link">Read →</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="#" class="post-card">
-        <div class="pc-img img-image">🔄</div>
-        <div class="pc-body">
-          <div class="post-cat cat-image">Image Tools</div>
-          <h3>JPG vs PNG vs WEBP — Which Format Should You Use?</h3>
-          <p>The right format can cut your image size by 35%. Here's exactly when to use each one.</p>
-          <div class="pc-footer">
-            <span>Jan 8, 2025</span>
-            <span class="read-link">Read →</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="#" class="post-card">
-        <div class="pc-img img-util">▣</div>
-        <div class="pc-body">
-          <div class="post-cat cat-util">Utility</div>
-          <h3>QR Codes for Business: The Complete 2025 Guide</h3>
-          <p>Menus, cards, packaging, WiFi sharing — everything you need to know about QR codes.</p>
-          <div class="pc-footer">
-            <span>Jan 5, 2025</span>
-            <span class="read-link">Read →</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="#" class="post-card">
-        <div class="pc-img img-dev">{ }</div>
-        <div class="pc-body">
-          <div class="post-cat cat-dev">Developer</div>
-          <h3>JSON Formatting Best Practices for APIs and Config Files</h3>
-          <p>Stop debugging messy JSON. These conventions will save you hours every week.</p>
-          <div class="pc-footer">
-            <span>Jan 3, 2025</span>
-            <span class="read-link">Read →</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="#" class="post-card">
-        <div class="pc-img img-text">📝</div>
-        <div class="pc-body">
-          <div class="post-cat cat-text">Text Tools</div>
-          <h3>SEO-Friendly URL Slugs: How to Create Them Properly</h3>
-          <p>Hyphens vs underscores, stop words, max length — the definitive guide to clean URLs.</p>
-          <div class="pc-footer">
-            <span>Dec 28, 2024</span>
-            <span class="read-link">Read →</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="#" class="post-card">
-        <div class="pc-img img-pdf">✂️</div>
-        <div class="pc-body">
-          <div class="post-cat cat-pdf">PDF Tools</div>
-          <h3>How to Extract Specific Pages from a PDF for Free</h3>
-          <p>Enter page ranges like "1-5, 8, 10-12" and get exactly those pages — no signup needed.</p>
-          <div class="pc-footer">
-            <span>Dec 24, 2024</span>
-            <span class="read-link">Read →</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="#" class="post-card">
-        <div class="pc-img img-util">💹</div>
-        <div class="pc-body">
-          <div class="post-cat cat-util">Utility</div>
-          <h3>Understanding GST in India: A Practical Calculator Guide</h3>
-          <p>Inclusive vs exclusive, all slabs, CGST + SGST breakdown — clear and simple.</p>
-          <div class="pc-footer">
-            <span>Dec 20, 2024</span>
-            <span class="read-link">Read →</span>
-          </div>
-        </div>
-      </a>
-
-    </div>
-
-    <div class="load-more-row">
-      <button class="btn btn-secondary" style="min-width:160px;">Load More Posts</button>
-    </div>
-  </main>
-
-  <!-- SIDEBAR -->
-  <aside class="blog-sidebar">
-
-    <div class="sb-card">
-      <div class="sb-card-head">🔥 Popular Tools</div>
-      <a href="/en/tools/image-compressor.html" class="sb-tool-link"><span class="tl-icon">📦</span> Image Compressor</a>
-      <a href="/en/tools/pdf-merge.html" class="sb-tool-link"><span class="tl-icon">📎</span> PDF Merge</a>
-      <a href="/en/tools/qr-generator.html" class="sb-tool-link"><span class="tl-icon">▣</span> QR Generator</a>
-      <a href="/en/tools/password-generator.html" class="sb-tool-link"><span class="tl-icon">🔑</span> Password Generator</a>
-      <a href="/en/tools/json-formatter.html" class="sb-tool-link"><span class="tl-icon">{ }</span> JSON Formatter</a>
-      <a href="/en/tools/word-counter.html" class="sb-tool-link"><span class="tl-icon">📝</span> Word Counter</a>
-    </div>
-
-    <div class="sb-card">
-      <div class="sb-card-head">📂 Topics</div>
-      <div class="sb-topic-grid">
-        <a href="#" class="topic-chip">🖼️ Image</a>
-        <a href="#" class="topic-chip">📄 PDF</a>
-        <a href="#" class="topic-chip">🛠️ Dev</a>
-        <a href="#" class="topic-chip">✏️ Text</a>
-        <a href="#" class="topic-chip">⚙️ Utility</a>
-        <a href="#" class="topic-chip">📚 Guide</a>
-        <a href="#" class="topic-chip">🔒 Security</a>
-        <a href="#" class="topic-chip">🇮🇳 India</a>
-      </div>
-    </div>
-
-    <div class="sb-card" style="background:linear-gradient(135deg,#0f172a,#1e293b); border-color:transparent;">
-      <div style="padding:20px;">
-        <div style="font-size:1.3rem;margin-bottom:8px;">✍️</div>
-        <div style="font-family:var(--font-display);font-size:.88rem;font-weight:700;color:white;margin-bottom:6px;">Write for Logrith</div>
-        <div style="font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.6;margin-bottom:14px;">Have a tip or tutorial to share? We're looking for contributors.</div>
-        <a href="/en/pages/contact.html" style="display:block;text-align:center;padding:8px 14px;background:var(--primary);color:white;border-radius:8px;font-size:.8rem;font-weight:700;font-family:var(--font-display);text-decoration:none;">Get in Touch →</a>
-      </div>
-    </div>
-
-  </aside>
+  <div class="foot">
+    <span class="fnote">Error 404</span>
+    <div class="fdot"></div>
+    <span class="fnote">Page not found</span>
+    <div class="fdot"></div>
+    <span class="fnote">Check the URL and try again</span>
+  </div>
 </div>
 
-<div id="footer"></div>
-<script src="/en/load-components.js"></script>
-<script src="/assets/js/main.js"></script>
+<!-- GAME OVERLAY -->
+<div class="g-ov" id="gOv" onclick="bgC(event)">
+  <div class="gm" id="gMod">
+    <div class="ww" id="ww">
+      <div class="wb">
+        <div class="wst" id="wSt">★★★</div>
+        <div class="wti">SOLVED!</div>
+        <div class="wsu">Puzzle Complete</div>
+        <div class="wgr">
+          <div class="wsc"><div class="wsl">Moves</div><div class="wsv" id="wM">0</div></div>
+          <div class="wsc"><div class="wsl">Time</div><div class="wsv" id="wT">0:00</div></div>
+          <div class="wsc"><div class="wsl">Hints</div><div class="wsv" id="wH">0</div></div>
+          <div class="wsc"><div class="wsl">Score</div><div class="wsv" id="wS">0</div></div>
+        </div>
+        <button class="bta" onclick="again()">Play Again</button>
+      </div>
+    </div>
+
+    <div class="gh">
+      <div><div class="gl">Puzzle Game</div><div class="gt">LOGRI MEMORY</div></div>
+      <button class="bx" onclick="closeGame()">✕</button>
+    </div>
+
+    <div class="gst">
+      <div class="gch"><div class="gcl">Moves</div><div class="gcv" id="gM">0</div></div>
+      <div class="gch"><div class="gcl">Time</div><div class="gcv" id="gTi">0:00</div></div>
+      <div class="gch"><div class="gcl">Hints</div><div class="gcv" id="gH">3</div></div>
+    </div>
+
+    <div class="gdf">
+      <button class="gdb on" onclick="sDiff(4,4,this)">4×4 Easy</button>
+      <button class="gdb" onclick="sDiff(5,4,this)">5×4 Medium</button>
+      <button class="gdb" onclick="sDiff(6,5,this)">6×5 Hard</button>
+    </div>
+
+    <div class="gsv">
+      <div class="gmsg" id="gMsg">Flip cards to find matching pairs. Use <strong>Hint</strong> or <strong>Auto</strong>!</div>
+      <button class="gbh" id="gBH" onclick="hint()">Hint</button>
+      <button class="gba" id="gBA" onclick="autoS()">Auto</button>
+    </div>
+
+    <div class="gg" id="gG"></div>
+    <div class="gpr"><div class="gpf" id="gPr" style="width:0%"></div></div>
+  </div>
+</div>
+
 <script>
-// Category filter
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
+const EM=['🔥','⚡','💎','🎯','🚀','🎸','🌙','🦊','🐉','🏆','💀','🎭','🌊','🍀','🎲','👾','🦋','🎪','🔮','🌈','🎨','🎬','🎵','💫','🦁','🐺','🌺','🍄'];
+let C=4,R=4,cards=[],flipped=[],matched=[],moves=0,hL=3,hU=0;
+let tI=null,t0=null,el=0,act=false,solving=false,lk=false;
+
+const $=id=>document.getElementById(id);
+const msg=h=>$('gMsg').innerHTML=h;
+
+function openGame(){ $('gOv').classList.add('open'); init(); }
+function closeGame(){ $('gOv').classList.remove('open'); clearInterval(tI); }
+function bgC(e){ if(e.target===$('gOv')) closeGame(); }
+
+function sDiff(c,r,b){
+  document.querySelectorAll('.gdb').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');
+  C=c; R=r;
+  init();
+}
+
+function init(){
+  clearInterval(tI);
+  el=0; moves=0; hL=3; hU=0; matched=[]; flipped=[]; lk=false; act=false; solving=false;
+  $('gM').textContent='0';
+  $('gTi').textContent='0:00';
+  $('gH').textContent='3';
+  $('gPr').style.width='0%';
+  $('ww').classList.remove('show');
+  $('gBH').disabled=false;
+  $('gBA').disabled=false;
+  msg('Flip cards to find matching pairs. Use <strong>Hint</strong> or <strong>Auto</strong>!');
+
+  const pc=(C*R)/2, pool=EM.slice(0,pc), deck=[...pool,...pool];
+  for(let i=deck.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [deck[i],deck[j]]=[deck[j],deck[i]];
+  }
+  cards=deck.map((e,i)=>({id:i,e,flipped:false,matched:false}));
+
+  const g=$('gG');
+  g.style.gridTemplateColumns=`repeat(${C},1fr)`;
+  g.innerHTML='';
+  cards.forEach(card=>{
+    const w=document.createElement('div');
+    w.className='gcw';
+    const ci=document.createElement('div');
+    ci.className='gci';
+    ci.id='ci'+card.id;
+    ci.onclick=()=>fc(card.id);
+    ci.innerHTML=`<div class="gcf g-bk"><div class="gbkp">${'<div></div>'.repeat(9)}</div></div><div class="gcf g-fr" id="cf${card.id}">${card.e}<span class="gck">✓</span></div>`;
+    w.appendChild(ci);
+    g.appendChild(w);
   });
-});
+}
+
+function startT(){
+  if(!act){
+    act=true;
+    t0=Date.now()-el*1000;
+    tI=setInterval(()=>{
+      el=Math.floor((Date.now()-t0)/1000);
+      const m=Math.floor(el/60), s=el%60;
+      $('gTi').textContent=`${m}:${s.toString().padStart(2,'0')}`;
+    },500);
+  }
+}
+
+function fc(id){
+  if(lk||solving) return;
+  const c=cards[id];
+  if(c.flipped||c.matched||flipped.length>=2) return;
+  startT();
+  c.flipped=true;
+  $('ci'+id).classList.add('fl');
+  flipped.push(id);
+  if(flipped.length===2){
+    moves++;
+    $('gM').textContent=moves;
+    lk=true;
+    setTimeout(chk,630);
+  }
+}
+
+function chk(){
+  const [a,b]=flipped;
+  if(cards[a].e===cards[b].e){
+    cards[a].matched=cards[b].matched=true;
+    matched.push(a,b);
+    $('cf'+a).classList.add('hit');
+    $('cf'+b).classList.add('hit');
+    $('ci'+a).classList.add('dn');
+    $('ci'+b).classList.add('dn');
+    $('gPr').style.width=(matched.length/cards.length*100)+'%';
+    if(matched.length===cards.length) setTimeout(end,360);
+  }else{
+    cards[a].flipped=cards[b].flipped=false;
+    $('ci'+a).classList.remove('fl');
+    $('ci'+b).classList.remove('fl');
+  }
+  flipped=[];
+  lk=false;
+}
+
+function hint(){
+  if(hL<=0||solving||lk) return;
+  hL--;
+  hU++;
+  $('gH').textContent=hL;
+  if(hL===0) $('gBH').disabled=true;
+
+  const hidden=cards.filter(c=>!c.matched&&!c.flipped);
+  const map={};
+  for(const c of hidden){
+    if(!map[c.e]) map[c.e]=[];
+    map[c.e].push(c.id);
+  }
+  const pairs=Object.values(map).filter(p=>p.length>=2);
+  if(!pairs.length){
+    msg('No hidden pairs left to reveal!');
+    return;
+  }
+
+  const [ia,ib]=pairs[Math.floor(Math.random()*pairs.length)];
+  const em=cards[ia].e;
+
+  lk=true;
+  $('ci'+ia).classList.add('fl');
+  $('ci'+ib).classList.add('fl');
+  $('cf'+ia).classList.add('hs');
+  $('cf'+ib).classList.add('hs');
+  msg(`<span class="er">${em}</span> <strong>Remember this pair!</strong> Flipping back in 2.5s…`);
+
+  setTimeout(()=>{
+    if(!cards[ia].matched){
+      cards[ia].flipped=false;
+      $('ci'+ia).classList.remove('fl');
+      $('cf'+ia).classList.remove('hs');
+    }
+    if(!cards[ib].matched){
+      cards[ib].flipped=false;
+      $('ci'+ib).classList.remove('fl');
+      $('cf'+ib).classList.remove('hs');
+    }
+    lk=false;
+    msg(`Now find <strong>${em}</strong>! Use <strong>Hint</strong> or <strong>Auto</strong>!`);
+  },2500);
+}
+
+async function autoS(){
+  if(solving||lk) return;
+  solving=true;
+  $('gBA').disabled=true;
+  $('gBH').disabled=true;
+  msg('<strong>AI Solver</strong> is solving — watch carefully!');
+  startT();
+  const w=ms=>new Promise(r=>setTimeout(r,ms));
+  const mp={};
+  for(const c of cards){
+    if(!c.matched){
+      if(!mp[c.e]) mp[c.e]=[];
+      mp[c.e].push(c.id);
+    }
+  }
+  for(const e in mp){
+    const [a,b]=mp[e];
+    if(cards[a].matched) continue;
+    cards[a].flipped=true; $('ci'+a).classList.add('fl'); await w(450);
+    cards[b].flipped=true; $('ci'+b).classList.add('fl'); await w(450);
+    moves+=2; $('gM').textContent=moves;
+    cards[a].matched=cards[b].matched=true;
+    matched.push(a,b);
+    $('cf'+a).classList.add('hit');
+    $('cf'+b).classList.add('hit');
+    $('ci'+a).classList.add('dn');
+    $('ci'+b).classList.add('dn');
+    $('gPr').style.width=(matched.length/cards.length*100)+'%';
+    await w(230);
+  }
+  solving=false;
+  setTimeout(end,360);
+}
+
+function end(){
+  clearInterval(tI);
+  act=false;
+  const m=Math.floor(el/60), s=el%60;
+  const sc=Math.max(0,1000-moves*5-el*2-hU*80);
+  $('wSt').textContent=sc>700?'★★★':sc>400?'★★☆':'★☆☆';
+  $('wM').textContent=moves;
+  $('wT').textContent=`${m}:${s.toString().padStart(2,'0')}`;
+  $('wH').textContent=hU;
+  $('wS').textContent=sc;
+  $('ww').classList.add('show');
+}
+
+function again(){
+  $('ww').classList.remove('show');
+  init();
+}
 </script>
 </body>
 </html>

@@ -1,106 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Free Hash Generator Online — MD5, SHA1, SHA256, SHA512 | Logrith</title>
-  <meta name="description" content="Generate MD5, SHA1, SHA256, SHA384, SHA512 hashes online free. Hash text or files instantly. No upload to server required.">
-  <link rel="canonical" href="https://logrith.in/en/tools/hash-generator.html">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Free Hash Generator Online — SHA-1, SHA-256, SHA-384, SHA-512 | Logrith</title>
+  <meta name="description" content="Generate SHA-1, SHA-256, SHA-384, and SHA-512 hashes online for text and files. Free browser-based hash generator with local processing, file integrity check, and hash comparison.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://logrith.in/en/tools/hash-generator">
+
+  <meta property="og:title" content="Free Hash Generator Online — SHA-1, SHA-256, SHA-384, SHA-512 | Logrith">
+  <meta property="og:description" content="Generate secure hashes for text and files in your browser. Compare hashes, verify file integrity, and copy results instantly.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://logrith.in/en/tools/hash-generator.html">
+  <meta property="og:site_name" content="Logrith">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Free Hash Generator Online | Logrith">
+  <meta name="twitter:description" content="Hash text and files with SHA-1, SHA-256, SHA-384, and SHA-512 in your browser.">
+
   <link rel="icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#000000">
   <link rel="stylesheet" href="/assets/css/style.css">
+
   <style>
-    .hash-row { display:flex; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid var(--gray-100); }
+    .hash-row { display:flex; align-items:flex-start; gap:12px; padding:12px 0; border-bottom:1px solid var(--gray-100); }
     .hash-row:last-child { border-bottom:none; }
-    .hash-label { font-size:.78rem; font-weight:700; color:var(--gray-500); width:80px; flex-shrink:0; text-transform:uppercase; letter-spacing:.05em; }
-    .hash-value { flex:1; font-family:'Courier New',monospace; font-size:.82rem; color:var(--gray-700); word-break:break-all; background:var(--gray-50); padding:8px 12px; border-radius:6px; border:1px solid var(--gray-200); }
-    .hash-copy { flex-shrink:0; }
+    .hash-label { font-size:.78rem; font-weight:700; color:var(--gray-500); width:88px; flex-shrink:0; text-transform:uppercase; letter-spacing:.05em; padding-top:10px; }
+    .hash-value-wrap { flex:1; min-width:0; }
+    .hash-value { display:block; width:100%; font-family:'Courier New',monospace; font-size:.82rem; line-height:1.6; color:var(--gray-700); word-break:break-all; background:var(--gray-50); padding:10px 12px; border-radius:8px; border:1px solid var(--gray-200); }
+    .hash-copy { flex-shrink:0; align-self:center; }
+    .tool-note { margin-top:14px; font-size:.88rem; color:var(--gray-600); line-height:1.7; }
+    .compare-box { padding:14px 16px; border-radius:10px; font-weight:600; }
+    .compare-box.success { background:#ecfdf3; color:#166534; border:1px solid #bbf7d0; }
+    .compare-box.error { background:#fef2f2; color:#991b1b; border:1px solid #fecaca; }
+    .compare-box.info { background:#f8fafc; color:#334155; border:1px solid #e2e8f0; }
+    .mini-help { font-size:.82rem; color:var(--gray-500); margin-top:6px; }
   </style>
 
-  <!-- Google tag (gtag.js) -->
- <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPJ4332XJH"></script>
- <script>
-   window.dataLayer = window.dataLayer || [];
-   function gtag(){dataLayer.push(arguments);}
-   gtag('js', new Date());
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Logrith Hash Generator",
+    "url":"https://logrith.in/en/tools/hash-generator.html",
+    "applicationCategory":"DeveloperApplication",
+    "operatingSystem":"Web Browser",
+    "description":"Free online hash generator for SHA-1, SHA-256, SHA-384, and SHA-512. Hash text and files locally in your browser and compare hashes instantly.",
+    "offers":{
+      "@type":"Offer",
+      "price":"0",
+      "priceCurrency":"USD"
+    }
+  }
+  </script>
 
-   gtag('config', 'G-BPJ4332XJH');
- </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"What is a cryptographic hash?",
+        "acceptedAnswer":{"@type":"Answer","text":"A cryptographic hash is a fixed-length output generated from input data. The same input gives the same result, but even a small change in the input creates a different hash."}
+      },
+      {
+        "@type":"Question",
+        "name":"Which hash should I use for file integrity?",
+        "acceptedAnswer":{"@type":"Answer","text":"SHA-256 is the most practical and widely recommended choice for general file integrity verification and security-related checking."}
+      },
+      {
+        "@type":"Question",
+        "name":"Is SHA-1 secure?",
+        "acceptedAnswer":{"@type":"Answer","text":"SHA-1 is considered weak for modern security use because of known vulnerabilities. SHA-256 or stronger algorithms are recommended instead."}
+      },
+      {
+        "@type":"Question",
+        "name":"Does this tool upload my file?",
+        "acceptedAnswer":{"@type":"Answer","text":"No. Hashes are generated locally in your browser, so your file stays on your device during processing."}
+      }
+    ]
+  }
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPJ4332XJH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BPJ4332XJH');
+  </script>
 </head>
 <body>
 <div id="navbar"></div>
 
-<div class="tool-hero"><div class="tool-hero-inner">
-  <div class="tool-breadcrumb"><a href="/en/index.html">Home</a> › <a href="/en/index.html#dev-tools">Dev Tools</a> › Hash Generator</div>
-  <h1># Free Hash Generator Online</h1>
-  <p>Generate cryptographic hashes for text or files. Supports SHA-256, SHA-512, SHA-1, SHA-384 using the Web Crypto API. All hashing is done locally in your browser.</p>
-  <div class="tool-tags"><span class="tool-tag">✅ Free</span><span class="tool-tag">🔒 SHA-256/512</span><span class="tool-tag">📄 Text & Files</span><span class="tool-tag">🔒 No Upload</span></div>
-</div></div>
-
-<div class="tool-workspace" style="max-width:860px;">
-  <div class="tool-card">
-    <h2>Hash Generator</h2>
-    <div class="tabs">
-      <button class="tab-btn active" data-tab="text">Hash Text</button>
-      <button class="tab-btn" data-tab="file">Hash File</button>
-      <button class="tab-btn" data-tab="compare">Compare Hashes</button>
-    </div>
-
-    <!-- TEXT -->
-    <div class="tab-panel active" id="tab-text">
-      <div class="control-group mt-12"><label>Input Text</label>
-        <textarea class="tool-textarea mono" id="hash-input" rows="5" placeholder="Type or paste text to hash..."></textarea>
+<main>
+  <div class="tool-hero">
+    <div class="tool-hero-inner">
+      <div class="tool-breadcrumb">
+        <a href="/en/index.html">Home</a> › <a href="/en/index.html#dev-tools">Dev Tools</a> › Hash Generator
       </div>
-      <div class="btn-group mt-12">
-        <button class="btn btn-primary" id="hash-text-btn">🔐 Generate Hashes</button>
-        <button class="btn btn-secondary" id="clear-text-btn">✕ Clear</button>
-        <div style="display:flex;align-items:center;gap:8px;margin-left:8px;">
-          <input type="checkbox" id="realtime-cb" checked style="width:16px;height:16px;accent-color:var(--primary);cursor:pointer;">
-          <label for="realtime-cb" style="font-size:.84rem;color:var(--gray-700);cursor:pointer;">Real-time</label>
+      <h1># Free Hash Generator Online</h1>
+      <p>Generate SHA-1, SHA-256, SHA-384, and SHA-512 hashes for text and files. Compare hashes instantly and verify file integrity with fully local browser-based processing.</p>
+      <div class="tool-tags">
+        <span class="tool-tag">✅ Free</span>
+        <span class="tool-tag">🔒 Local Processing</span>
+        <span class="tool-tag">📄 Text & Files</span>
+        <span class="tool-tag">⚡ Instant Compare</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tool-workspace" style="max-width:860px;">
+    <div class="tool-card">
+      <h2>Hash Generator</h2>
+      <div class="tabs" role="tablist" aria-label="Hash generator modes">
+        <button class="tab-btn active" data-tab="text" role="tab" aria-selected="true">Hash Text</button>
+        <button class="tab-btn" data-tab="file" role="tab" aria-selected="false">Hash File</button>
+        <button class="tab-btn" data-tab="compare" role="tab" aria-selected="false">Compare Hashes</button>
+      </div>
+
+      <div class="tab-panel active" id="tab-text">
+        <div class="control-group mt-12">
+          <label for="hash-input">Input Text</label>
+          <textarea class="tool-textarea mono" id="hash-input" rows="6" placeholder="Type or paste text to generate hashes..."></textarea>
+          <div class="mini-help">Tip: Real-time mode updates hashes automatically as you type.</div>
+        </div>
+        <div class="btn-group mt-12">
+          <button class="btn btn-primary" id="hash-text-btn">🔐 Generate Hashes</button>
+          <button class="btn btn-secondary" id="clear-text-btn">✕ Clear</button>
+          <div style="display:flex;align-items:center;gap:8px;margin-left:8px;">
+            <input type="checkbox" id="realtime-cb" checked style="width:16px;height:16px;accent-color:var(--primary);cursor:pointer;">
+            <label for="realtime-cb" style="font-size:.84rem;color:var(--gray-700);cursor:pointer;">Real-time</label>
+          </div>
         </div>
       </div>
+
+      <div class="tab-panel" id="tab-file">
+        <div class="upload-zone mt-12" id="upload-zone">
+          <input type="file" id="file-input">
+          <div class="upload-icon">📄</div>
+          <h3>Drop any file to generate hash</h3>
+          <p>Supports local browser hashing for common file integrity checks.</p>
+          <span class="upload-limit">Recommended max: 100MB per file</span>
+        </div>
+        <div class="status-msg" id="file-status" style="margin-top:12px;" aria-live="polite"></div>
+        <div class="stats-row mt-8" id="file-info"></div>
+      </div>
+
+      <div class="tab-panel" id="tab-compare">
+        <div class="controls-grid mt-12">
+          <div class="control-group">
+            <label for="hash-a">Hash 1</label>
+            <input type="text" id="hash-a" class="mono" placeholder="Paste first hash...">
+          </div>
+          <div class="control-group">
+            <label for="hash-b">Hash 2</label>
+            <input type="text" id="hash-b" class="mono" placeholder="Paste second hash...">
+          </div>
+        </div>
+        <div class="btn-group mt-12">
+          <button class="btn btn-primary" id="compare-btn">🔍 Compare Hashes</button>
+        </div>
+        <div id="compare-result" style="margin-top:12px;" aria-live="polite"></div>
+        <p class="tool-note">For best accuracy, compare hashes generated with the same algorithm, such as SHA-256 vs SHA-256.</p>
+      </div>
     </div>
 
-    <!-- FILE -->
-    <div class="tab-panel" id="tab-file">
-      <div class="upload-zone mt-12" id="upload-zone">
-        <input type="file" id="file-input">
-        <div class="upload-icon">📄</div>
-        <h3>Drop any file to hash</h3>
-        <p>Max 100MB — hash is computed locally, file never uploaded</p>
-      </div>
-      <div class="status-msg" id="file-status" style="margin-top:12px;"></div>
-      <div class="stats-row mt-8" id="file-info"></div>
+    <div class="tool-card" id="results-card" style="display:none;">
+      <h2>Hash Results</h2>
+      <div id="hash-results"></div>
+      <div class="stats-row mt-12" id="hash-meta"></div>
+      <p class="tool-note">SHA-256 is generally the best default choice for most file verification and integrity checks.</p>
     </div>
 
-    <!-- COMPARE -->
-    <div class="tab-panel" id="tab-compare">
-      <div class="controls-grid mt-12">
-        <div class="control-group"><label>Hash 1</label><input type="text" id="hash-a" class="mono" placeholder="Paste first hash..."></div>
-        <div class="control-group"><label>Hash 2</label><input type="text" id="hash-b" class="mono" placeholder="Paste second hash..."></div>
-      </div>
-      <div class="btn-group mt-12"><button class="btn btn-primary" id="compare-btn">🔍 Compare Hashes</button></div>
-      <div class="status-msg" id="compare-result" style="margin-top:12px;"></div>
+    <div class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item"><div class="faq-q">What is a cryptographic hash?</div><div class="faq-a">A cryptographic hash is a fixed-size string generated from input data. The same input always creates the same output, but even a tiny change in the original text or file creates a different result.</div></div>
+      <div class="faq-item"><div class="faq-q">Which algorithm should I use?</div><div class="faq-a">SHA-256 is the most practical option for general use. SHA-384 and SHA-512 produce longer outputs, while SHA-1 is older and no longer recommended for modern security-sensitive use.</div></div>
+      <div class="faq-item"><div class="faq-q">Can I verify file integrity with this tool?</div><div class="faq-a">Yes. Generate the hash of your downloaded file and compare it with the official checksum provided by the software publisher. If both hashes match exactly, the file is unchanged.</div></div>
+      <div class="faq-item"><div class="faq-q">Does this tool upload my file anywhere?</div><div class="faq-a">No. The hashing process runs locally in your browser, so your file remains on your device during the operation.</div></div>
+    </div>
+
+    <div class="article-section">
+      <h2>Why Use an Online Hash Generator?</h2>
+      <p>A hash generator helps you create a unique fingerprint of text or a file for verification, integrity checking, and development workflows. Developers use hashes to compare output, validate downloads, and confirm that file contents have not changed between versions. For general use, SHA-256 is widely preferred because it balances strong security with broad compatibility.</p>
+      <p>This Logrith hash generator works directly in the browser using modern Web Crypto support, which means hashing is fast and privacy-friendly. You can hash text, generate file digests, compare two values, and copy outputs instantly without needing to install software or send files to a remote server.</p>
     </div>
   </div>
-
-  <!-- Results -->
-  <div class="tool-card" id="results-card" style="display:none;">
-    <h2>Hash Results</h2>
-    <div id="hash-results"></div>
-    <div class="stats-row mt-12" id="hash-meta"></div>
-  </div>
-</div>
-
-<div class="faq-section">
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq-item"><div class="faq-q">What is a cryptographic hash?</div><div class="faq-a">A cryptographic hash is a fixed-size string generated from any input data. The same input always produces the same hash. Even a tiny change in input creates a completely different hash. Hashes are one-way — you cannot reverse them to get the original data.</div></div>
-  <div class="faq-item"><div class="faq-q">SHA-256 vs SHA-512 — which should I use?</div><div class="faq-a">SHA-256 produces a 256-bit (64-character hex) hash and is the industry standard for most use cases including SSL certificates and Bitcoin. SHA-512 produces a 512-bit (128-character) hash, offering more resistance against brute force but with larger output.</div></div>
-  <div class="faq-item"><div class="faq-q">Is MD5 still safe to use?</div><div class="faq-a">MD5 is NOT cryptographically secure for security-sensitive uses — it has known collision vulnerabilities. It's fine for checksums (verifying file integrity) but should not be used for password hashing or digital signatures. Use SHA-256 or SHA-512 for security purposes.</div></div>
-  <div class="faq-item"><div class="faq-q">How do I verify a file's integrity with a hash?</div><div class="faq-a">Use the "Hash File" tab to generate the SHA-256 hash of the downloaded file. Compare it with the hash provided by the software publisher. If they match exactly, the file is authentic and unmodified.</div></div>
-</div>
+</main>
 
 <div id="footer"></div>
 
@@ -108,101 +200,174 @@
 <script src="/en/load-components.js"></script>
 
 <script>
-document.querySelectorAll('.tab-btn').forEach(btn => {
+const tabs = document.querySelectorAll('.tab-btn');
+const panels = document.querySelectorAll('.tab-panel');
+const hashInput = document.getElementById('hash-input');
+const realtimeCb = document.getElementById('realtime-cb');
+const resultsCard = document.getElementById('results-card');
+const hashResults = document.getElementById('hash-results');
+const hashMeta = document.getElementById('hash-meta');
+const fileInput = document.getElementById('file-input');
+const fileStatus = document.getElementById('file-status');
+const fileInfo = document.getElementById('file-info');
+const compareResult = document.getElementById('compare-result');
+
+tabs.forEach(btn => {
   btn.addEventListener('click', () => {
-    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+    tabs.forEach(b => {
+      b.classList.remove('active');
+      b.setAttribute('aria-selected', 'false');
+    });
+    panels.forEach(p => p.classList.remove('active'));
     btn.classList.add('active');
-    document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
+    btn.setAttribute('aria-selected', 'true');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
   });
 });
+
+function bufferToHex(buffer) {
+  return Array.from(new Uint8Array(buffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
 
 async function hashText(text) {
   const encoder = new TextEncoder();
   const data = encoder.encode(text);
-  const algos = ['SHA-1','SHA-256','SHA-384','SHA-512'];
+  const algorithms = ['SHA-1', 'SHA-256', 'SHA-384', 'SHA-512'];
   const results = {};
-  for (const algo of algos) {
-    const hashBuffer = await crypto.subtle.digest(algo, data);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    results[algo] = hashArray.map(b => b.toString(16).padStart(2,'0')).join('');
+  for (const algorithm of algorithms) {
+    const digest = await crypto.subtle.digest(algorithm, data);
+    results[algorithm] = bufferToHex(digest);
   }
   return results;
 }
 
-async function showHashes(hashes, meta = '') {
-  document.getElementById('hash-results').innerHTML = Object.entries(hashes).map(([algo, hash]) => `
-    <div class="hash-row">
-      <span class="hash-label">${algo.replace('SHA-','SHA')}</span>
-      <span class="hash-value">${hash}</span>
-      <button class="btn btn-sm btn-secondary hash-copy" onclick="copyText('${hash}', this)">📋</button>
-    </div>`).join('');
-  if (meta) document.getElementById('hash-meta').innerHTML = meta;
-  document.getElementById('results-card').style.display = 'block';
+async function hashFile(file) {
+  const arrayBuffer = await file.arrayBuffer();
+  const algorithms = ['SHA-1', 'SHA-256', 'SHA-384', 'SHA-512'];
+  const results = {};
+  for (const algorithm of algorithms) {
+    const digest = await crypto.subtle.digest(algorithm, arrayBuffer);
+    results[algorithm] = bufferToHex(digest);
+  }
+  return results;
 }
 
-// Real-time text hashing
+function safeCopy(hash, button) {
+  if (typeof copyText === 'function') {
+    copyText(hash, button);
+    return;
+  }
+  navigator.clipboard.writeText(hash).then(() => {
+    const old = button.textContent;
+    button.textContent = '✓';
+    setTimeout(() => button.textContent = old, 1200);
+  });
+}
+
+function showHashes(hashes, metaHtml = '') {
+  hashResults.innerHTML = Object.entries(hashes).map(([algorithm, value]) => `
+    <div class="hash-row">
+      <span class="hash-label">${algorithm.replace('SHA-', 'SHA')}</span>
+      <div class="hash-value-wrap">
+        <code class="hash-value">${value}</code>
+      </div>
+      <button class="btn btn-sm btn-secondary hash-copy" data-copy="${value}" aria-label="Copy ${algorithm} hash">📋</button>
+    </div>
+  `).join('');
+
+  hashMeta.innerHTML = metaHtml;
+  resultsCard.style.display = 'block';
+
+  hashResults.querySelectorAll('[data-copy]').forEach(btn => {
+    btn.addEventListener('click', () => safeCopy(btn.dataset.copy, btn));
+  });
+}
+
 let debounceTimer;
-document.getElementById('hash-input').addEventListener('input', () => {
-  if (!document.getElementById('realtime-cb').checked) return;
+hashInput.addEventListener('input', () => {
+  if (!realtimeCb.checked) return;
   clearTimeout(debounceTimer);
   debounceTimer = setTimeout(async () => {
-    const text = document.getElementById('hash-input').value;
-    if (!text) { document.getElementById('results-card').style.display='none'; return; }
+    const text = hashInput.value;
+    if (!text.trim()) {
+      resultsCard.style.display = 'none';
+      return;
+    }
     const hashes = await hashText(text);
-    const size = new TextEncoder().encode(text).length;
-    showHashes(hashes, `<span class="stat-chip">Input: <strong>${size} bytes</strong></span><span class="stat-chip">Chars: <strong>${text.length}</strong></span>`);
-  }, 300);
+    const bytes = new TextEncoder().encode(text).length;
+    showHashes(
+      hashes,
+      `<span class="stat-chip">Input: <strong>${bytes} bytes</strong></span><span class="stat-chip">Characters: <strong>${text.length}</strong></span>`
+    );
+  }, 250);
 });
 
 document.getElementById('hash-text-btn').addEventListener('click', async () => {
-  const text = document.getElementById('hash-input').value;
-  if (!text) return;
+  const text = hashInput.value;
+  if (!text.trim()) return;
   const hashes = await hashText(text);
-  showHashes(hashes);
+  const bytes = new TextEncoder().encode(text).length;
+  showHashes(
+    hashes,
+    `<span class="stat-chip">Input: <strong>${bytes} bytes</strong></span><span class="stat-chip">Characters: <strong>${text.length}</strong></span>`
+  );
 });
 
 document.getElementById('clear-text-btn').addEventListener('click', () => {
-  document.getElementById('hash-input').value='';
-  document.getElementById('results-card').style.display='none';
+  hashInput.value = '';
+  resultsCard.style.display = 'none';
 });
 
-// File hashing
-async function hashFile(file) {
-  const ab = await file.arrayBuffer();
-  const algos = ['SHA-1','SHA-256','SHA-384','SHA-512'];
-  const results = {};
-  for (const algo of algos) {
-    const hashBuffer = await crypto.subtle.digest(algo, ab);
-    results[algo] = Array.from(new Uint8Array(hashBuffer)).map(b=>b.toString(16).padStart(2,'0')).join('');
-  }
-  return results;
-}
-
-document.getElementById('file-input').addEventListener('change', async e => {
+fileInput.addEventListener('change', async e => {
   const file = e.target.files[0];
   if (!file) return;
-  if (file.size > 100*1024*1024) { showStatus(document.getElementById('file-status'),'error','Max 100MB for file hashing.'); return; }
-  showStatus(document.getElementById('file-status'),'info','Computing hashes...');
+
+  if (file.size > 100 * 1024 * 1024) {
+    if (typeof showStatus === 'function') showStatus(fileStatus, 'error', 'Recommended maximum is 100MB per file.');
+    else fileStatus.textContent = 'Recommended maximum is 100MB per file.';
+    return;
+  }
+
+  if (typeof showStatus === 'function') showStatus(fileStatus, 'info', 'Generating file hashes...');
+  else fileStatus.textContent = 'Generating file hashes...';
+
   try {
     const hashes = await hashFile(file);
-    showHashes(hashes, `<span class="stat-chip">File: <strong>${file.name}</strong></span><span class="stat-chip">Size: <strong>${formatSize(file.size)}</strong></span>`);
-    showStatus(document.getElementById('file-status'),'success','File hashed successfully!');
-    document.getElementById('file-info').innerHTML = `<span class="stat-chip">✅ <strong>${file.name}</strong> — ${formatSize(file.size)}</span>`;
-  } catch(e) { showStatus(document.getElementById('file-status'),'error','Error: '+e.message); }
-});
-initDragDrop(document.getElementById('upload-zone'), files => {
-  document.getElementById('file-input').files = files;
-  document.getElementById('file-input').dispatchEvent(new Event('change'));
+    showHashes(
+      hashes,
+      `<span class="stat-chip">File: <strong>${file.name}</strong></span><span class="stat-chip">Size: <strong>${typeof formatSize === 'function' ? formatSize(file.size) : file.size + ' bytes'}</strong></span>`
+    );
+    if (typeof showStatus === 'function') showStatus(fileStatus, 'success', 'Hash generated successfully.');
+    else fileStatus.textContent = 'Hash generated successfully.';
+    fileInfo.innerHTML = `<span class="stat-chip">✅ <strong>${file.name}</strong></span>`;
+  } catch (err) {
+    if (typeof showStatus === 'function') showStatus(fileStatus, 'error', 'Error: ' + err.message);
+    else fileStatus.textContent = 'Error: ' + err.message;
+  }
 });
 
-// Compare
+if (typeof initDragDrop === 'function') {
+  initDragDrop(document.getElementById('upload-zone'), files => {
+    fileInput.files = files;
+    fileInput.dispatchEvent(new Event('change'));
+  });
+}
+
 document.getElementById('compare-btn').addEventListener('click', () => {
   const a = document.getElementById('hash-a').value.trim().toLowerCase();
   const b = document.getElementById('hash-b').value.trim().toLowerCase();
-  if (!a || !b) { showStatus(document.getElementById('compare-result'),'error','Please enter both hashes.'); return; }
-  if (a === b) showStatus(document.getElementById('compare-result'),'success','✅ Hashes MATCH — files/data are identical.');
-  else showStatus(document.getElementById('compare-result'),'error','❌ Hashes DO NOT MATCH — data is different or corrupted.');
+
+  if (!a || !b) {
+    compareResult.innerHTML = `<div class="compare-box error">Please enter both hashes before comparing.</div>`;
+    return;
+  }
+
+  if (a === b) {
+    compareResult.innerHTML = `<div class="compare-box success">✅ Hashes match exactly. The compared values are identical.</div>`;
+  } else {
+    compareResult.innerHTML = `<div class="compare-box error">❌ Hashes do not match. The input data or files are different.</div>`;
+  }
 });
 </script>
-</body></html>
+</body>
+</html>
