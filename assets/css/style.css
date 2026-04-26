@@ -1162,3 +1162,13 @@ body.drawer-open {
   width: 100% !important;
   overflow-y: scroll !important;
 }
+
+/* Fade-in effect */
+body {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+body.loaded {
+  opacity: 1;
+}

@@ -352,3 +352,8 @@ window.toggleMobCat = function(header) {
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') window.closeDrawer();
 });
+
+/* Fade-in effect */
+window.onload = () => {
+  document.body.classList.add('loaded');
+};
