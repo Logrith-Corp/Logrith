@@ -156,6 +156,12 @@
     .field-error.show { display: block; }
     .char-count { font-size: .74rem; color: var(--gray-400); text-align: right; margin-top: 4px; }
 
+    .contact-card { background:var(--white); border:1.5px solid var(--gray-200); border-radius:var(--radius-lg); padding:16px 18px; margin-bottom:12px; display:flex; align-items:flex-start; gap:14px; transition:var(--transition); }
+    .contact-card:hover { border-color:var(--gray-300); box-shadow:var(--shadow-sm); }
+    .cc-icon { font-size:1.3rem; flex-shrink:0; margin-top:1px; }
+    .contact-card h3 { font-family:var(--font-display); font-size:.88rem; font-weight:700; color:var(--gray-900); margin-bottom:4px; }
+    .contact-card p { font-size:.82rem; color:var(--gray-600); line-height:1.55; margin:0; }
+
     .submit-btn {
       width: 100%;
       padding: 12px;
@@ -270,7 +276,7 @@
       <span class="cc-icon">🤝</span>
       <div>
         <h3>Business Inquiries</h3>
-        <p>Advertising, partnerships or integrations? Reach us at <a href="mailto:hello@logrith.in">hello@logrith.in</a></p>
+        <p>Advertising, partnerships or integrations? Reach us at <a href="mailto:contact@logrith.in">contact@logrith.in</a></p>
       </div>
     </div>
 
@@ -282,8 +288,12 @@
       </div>
     </div>
 
-    <div class="info-note">
-      <strong>Quick fix first:</strong> If a tool isn't working, try refreshing or switching to Chrome/Firefox. Most issues are browser-related.
+    <div class="contact-card">
+      <span class="cc-icon">📧</span>
+      <div>
+        <h3>Direct Email</h3>
+        <p>email us at <a href="mailto:hello@logrith.in" style="color:var(--primary);font-weight:600;">hello@logrith.in</a></p>
+      </div>
     </div>
 
     <div class="page-links">
