@@ -40,9 +40,22 @@ body {
   background: var(--white);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+
+}
+
+html, body {
+  overflow-x: hidden;
 }
 
 
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+}
+a:hover {
+  transform: translateY(-2px) scale(1.03);
+}
 /* ===== NAVBAR ===== */
 .navbar {
   position: sticky;
@@ -480,7 +493,7 @@ body {
 .controls-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
 .control-group { display: flex; flex-direction: column; gap: 6px; }
 .control-group label { font-size: 0.84rem; font-weight: 500; color: var(--gray-700); }
-.control-group input[type="range"] { -webkit-appearance: none; width: 100%; height: 6px; border-radius: 3px; background: var(--gray-200); outline: none; }
+.control-group input[type="range"] {-webkit-appearance: none; width: 100%; height: 6px; border-radius: 3px; background: var(--gray-200); outline: none; }
 .control-group input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--primary); cursor: pointer; box-shadow: 0 2px 6px rgba(0,87,255,0.3); }
 .control-group select, .control-group input[type="number"], .control-group input[type="text"] {
   padding: 9px 13px;
@@ -671,9 +684,9 @@ textarea.mono { font-family: 'Courier New', monospace; font-size: 0.84rem; }
   align-items: center;
   gap: 6px;
   padding: 6px 16px;
-  background: var(--white);
+  background: var(--white) blur(8px);
   border: 1px solid var(--gray-200);
-  border-radius: 20px;
+  border-radius: 14px;
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--primary);
@@ -1137,19 +1150,21 @@ body.drawer-open .hero { overflow: hidden !important; }
 
 /* Footer niche nahi jayega — flex layout theek karo */
 .mobile-nav {
-  display: flex !important;
-  flex-direction: column !important;
-  height: 100% !important;
+
   max-height: 100dvh !important;
   overflow: hidden !important;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 .mobile-nav-body {
   flex: 1 1 auto !important;
   min-height: 0 !important;
-  overflow-y: auto !important;
   overflow-x: hidden !important;
   overscroll-behavior: contain !important;
   -webkit-overflow-scrolling: touch !important;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 .mob-drawer-footer {
   flex-shrink: 0 !important;
@@ -1171,4 +1186,13 @@ body {
 
 body.loaded {
   opacity: 1;
+}
+
+/*icons*/
+.icon{
+  width:18px;
+  height:18px;
+  stroke:currentColor;
+  fill:none;
+  flex-shrink:0;
 }

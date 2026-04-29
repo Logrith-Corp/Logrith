@@ -43,6 +43,13 @@
     .seo-text h2 { font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--gray-900);margin-bottom:12px;margin-top:32px; }
     .seo-text p { font-size:.93rem;color:var(--gray-700);line-height:1.8;margin-bottom:12px; }
     .seo-text a { color:#dc2626; }
+
+    .faq-q::after {
+     content: '+';
+     color: #dc2626;
+     font-size: 1.3rem;
+     flex-shrink: 0;
+    }
     @media(max-width:600px){ .tl-tags{display:none;} }
   </style>
 
@@ -64,7 +71,7 @@
 <section class="page-hero">
   <div class="page-hero-inner">
     <div class="tool-breadcrumb" style="justify-content:center;margin-bottom:14px;"><a href="index.html">Home</a> › <a href="categories.html">Categories</a> › PDF Tools</div>
-    <div class="badge">📄 15+ PDF Tools</div>
+    <div class="badge"><svg class="icon"><use href="/assets/svg/icons.svg#pdf"></use></svg> 15+ PDF Tools</div>
     <h1>Free Online <span>PDF Tools</span></h1>
     <p>Merge, split, convert, rotate and manage PDFs — powered by PDF-Lib running entirely in your browser. Your documents never leave your device.</p>
     <div class="tool-tags" style="justify-content:center;margin-top:16px;"><span class="tool-tag">✅ No Login</span><span class="tool-tag">🔒 Files Stay Local</span><span class="tool-tag">📚 PDF-Lib Powered</span><span class="tool-tag">⚡ Instant</span></div>
@@ -76,41 +83,46 @@
   <div class="tool-list">
 
     <a href="/en/tools/pdf-merge.html" class="tl-item">
-      <div class="tl-icon">📎</div>
+      <svg class="icon"><use href="/assets/svg/icons.svg#pages"></use></svg>
       <div class="tl-body"><div class="tl-name">PDF Merge</div><div class="tl-desc">Combine any number of PDF files into one. Drag to reorder before merging. Preserves all page content, formatting, fonts, and links.</div><div class="tl-tags"><span class="tl-tag">Drag to reorder</span><span class="tl-tag">Unlimited PDFs</span><span class="tl-tag">Preserve quality</span></div></div>
       <span class="tl-arrow">→</span>
     </a>
 
     <a href="/en/tools/pdf-split.html" class="tl-item">
-      <div class="tl-icon">✂️</div>
+      <svg class="icon"><use href="/assets/svg/icons.svg#pdf-split"></use></svg>
       <div class="tl-body"><div class="tl-name">PDF Split</div><div class="tl-desc">Split a PDF into individual pages or extract specific page ranges. Enter "1-3, 5, 7-10" to extract exactly those pages into a new PDF.</div><div class="tl-tags"><span class="tl-tag">Page ranges</span><span class="tl-tag">Split all pages</span><span class="tl-tag">Extract pages</span></div></div>
       <span class="tl-arrow">→</span>
     </a>
 
     <a href="/en/tools/jpg-to-pdf.html" class="tl-item">
-      <div class="tl-icon">🖼️</div>
+      <svg class="icon"><use href="/assets/svg/icons.svg#image"></use></svg>
       <div class="tl-body"><div class="tl-name">JPG / Image to PDF</div><div class="tl-desc">Convert one or multiple images into a PDF document. Each image becomes a page. Choose A4, Letter, or fit-to-image page size.</div><div class="tl-tags"><span class="tl-tag">Multiple images</span><span class="tl-tag">A4 / Letter</span><span class="tl-tag">Fit to image</span></div></div>
       <span class="tl-arrow">→</span>
     </a>
 
     <a href="/en/tools/pdf-to-jpg.html" class="tl-item">
-      <div class="tl-icon">📷</div>
+      <svg class="icon"><use href="/assets/svg/icons.svg#pdf"></use></svg>
       <div class="tl-body"><div class="tl-name">PDF to JPG / PNG</div><div class="tl-desc">Render each PDF page as a high-quality image. Control DPI scale (72–216 DPI). Convert all pages or specific page ranges.</div><div class="tl-tags"><span class="tl-tag">High DPI</span><span class="tl-tag">PNG or JPG</span><span class="tl-tag">Page selection</span></div></div>
       <span class="tl-arrow">→</span>
     </a>
 
     <a href="/en/tools/pdf-rotate.html" class="tl-item">
-      <div class="tl-icon">🔃</div>
+      <svg class="icon"><use href="/assets/svg/icons.svg#pdf-rotate"></use></svg>
       <div class="tl-body"><div class="tl-name">PDF Rotate Pages</div><div class="tl-desc">Rotate all, odd, even, or specific pages by 90°, 180° or 270°. Uses PDF-Lib metadata rotation — no quality loss at all.</div><div class="tl-tags"><span class="tl-tag">90/180/270°</span><span class="tl-tag">Odd/Even pages</span><span class="tl-tag">No quality loss</span></div></div>
       <span class="tl-arrow">→</span>
     </a>
 
-    <div class="tl-item" style="opacity:.55;cursor:default;"><div class="tl-icon">🔐</div><div class="tl-body"><div class="tl-name">PDF Password Protect <span style="font-size:.7rem;background:var(--accent);color:white;padding:2px 7px;border-radius:10px;margin-left:8px;">Coming Soon</span></div><div class="tl-desc">Add password protection to any PDF. Set both open and permissions password. Uses AES-256 encryption via PDF-Lib.</div><div class="tl-tags"><span class="tl-tag">AES-256</span><span class="tl-tag">Open password</span><span class="tl-tag">Permissions</span></div></div></div>
+    <div class="tl-item" style="opacity:.55;cursor:default;"><svg class="icon"><use href="/assets/svg/icons.svg#pdf-protect"></use></svg><div class="tl-body"><div class="tl-name">PDF Password Protect <span style="font-size:.7rem;background:var(--accent);color:white;padding:2px 7px;border-radius:10px;margin-left:8px;">Coming Soon</span></div><div class="tl-desc">Add password protection to any PDF. Set both open and permissions password. Uses AES-256 encryption via PDF-Lib.</div><div class="tl-tags"><span class="tl-tag">AES-256</span><span class="tl-tag">Open password</span><span class="tl-tag">Permissions</span></div></div></div>
 
-    <div class="tl-item" style="opacity:.55;cursor:default;"><div class="tl-icon">📄</div><div class="tl-body"><div class="tl-name">Add Page Numbers <span style="font-size:.7rem;background:var(--accent);color:white;padding:2px 7px;border-radius:10px;margin-left:8px;">Coming Soon</span></div><div class="tl-desc">Stamp page numbers on all PDF pages. Choose position (footer center, bottom right), font size, and starting number.</div><div class="tl-tags"><span class="tl-tag">Custom position</span><span class="tl-tag">Font size</span><span class="tl-tag">Start number</span></div></div></div>
+    <div class="tl-item" style="opacity:.55;cursor:default;"><svg class="icon"><use href="/assets/svg/icons.svg#pdf"></use></svg><div class="tl-body"><div class="tl-name">Add Page Numbers <span style="font-size:.7rem;background:var(--accent);color:white;padding:2px 7px;border-radius:10px;margin-left:8px;">Coming Soon</span></div><div class="tl-desc">Stamp page numbers on all PDF pages. Choose position (footer center, bottom right), font size, and starting number.</div><div class="tl-tags"><span class="tl-tag">Custom position</span><span class="tl-tag">Font size</span><span class="tl-tag">Start number</span></div></div></div>
 
-    <div class="tl-item" style="opacity:.55;cursor:default;"><div class="tl-icon">💧</div><div class="tl-body"><div class="tl-name">PDF Watermark <span style="font-size:.7rem;background:var(--accent);color:white;padding:2px 7px;border-radius:10px;margin-left:8px;">Coming Soon</span></div><div class="tl-desc">Add diagonal text watermarks to all PDF pages. Control text, font size, opacity and rotation angle. Does not alter original content.</div><div class="tl-tags"><span class="tl-tag">Text watermark</span><span class="tl-tag">Opacity control</span><span class="tl-tag">All pages</span></div></div></div>
+    <div class="tl-item" style="opacity:.55;cursor:default;"><svg class="icon"><use href="/assets/svg/icons.svg#unlock"></use></svg><div class="tl-body"><div class="tl-name">PDF Unlock <span style="font-size:.7rem;background:var(--accent);color:white;padding:2px 7px;border-radius:10px;margin-left:8px;">Coming Soon</span></div><div class="tl-desc">Remove password from known-password PDFs.</div><div class="tl-tags"><span class="tl-tag">Text watermark</span><span class="tl-tag">Opacity control</span><span class="tl-tag">All pages</span></div></div></div>
 
+    <div class="tl-item" style="opacity:.55;cursor:default;"><svg class="icon"><use href="/assets/svg/icons.svg#watermark"></use></svg><div class="tl-body"><div class="tl-name">PDF Watermark <span style="font-size:.7rem;background:var(--accent);color:white;padding:2px 7px;border-radius:10px;margin-left:8px;">Coming Soon</span></div><div class="tl-desc">Text watermark on all pages.</div><div class="tl-tags"><span class="tl-tag">Text watermark</span><span class="tl-tag">Opacity control</span><span class="tl-tag">All pages</span></div></div></div>
+
+    <div class="tl-item" style="opacity:.55;cursor:default;"><svg class="icon"><use href="/assets/svg/icons.svg#csv"></use></svg><div class="tl-body"><div class="tl-name">Add Page Numbers <span style="font-size:.7rem;background:var(--accent);color:white;padding:2px 7px;border-radius:10px;margin-left:8px;">Coming Soon</span></div><div class="tl-desc">Footer page numbers, custom style.</div><div class="tl-tags"><span class="tl-tag">Text watermark</span><span class="tl-tag">Opacity control</span><span class="tl-tag">All pages</span></div></div></div>
+
+    <div class="tl-item" style="opacity:.55;cursor:default;"><svg class="icon"><use href="/assets/svg/icons.svg#eye"></use></svg><div class="tl-body"><div class="tl-name">PDF Metadata Viewer <span style="font-size:.7rem;background:var(--accent);color:white;padding:2px 7px;border-radius:10px;margin-left:8px;">Coming Soon</span></div><div class="tl-desc">Author, creation date, title, subject.</div><div class="tl-tags"><span class="tl-tag">Text watermark</span><span class="tl-tag">Opacity control</span><span class="tl-tag">All pages</span></div></div></div>
   </div>
 </div>
 

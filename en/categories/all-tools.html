@@ -25,8 +25,8 @@
     .all-hero p { font-size:.96rem;color:var(--gray-700);line-height:1.7; }
 
     /* Filter bar */
-    .filter-bar { max-width:1280px;margin:0 auto;padding:24px 24px 0; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
-    .filter-btn { padding:8px 16px; background:var(--white); border:1.5px solid var(--gray-200); border-radius:20px; font-size:.82rem; font-weight:600; font-family:var(--font-display); color:var(--gray-700); cursor:pointer; transition:var(--transition); }
+    .filter-bar { max-width:1200px;margin:0 auto;padding:20px 20px 0; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+    .filter-btn { padding:6px 12px; background:var(--white); border:1.5px solid var(--gray-200); border-radius:18px; font-size:.82rem; font-weight:600; font-family:var(--font-display); color:var(--gray-700); cursor:pointer; transition:var(--transition); gap:3px; display:flex; align-items:center;}
     .filter-btn:hover { border-color:var(--primary); color:var(--primary); }
     .filter-btn.active { background:var(--primary); color:white; border-color:var(--primary); }
     .filter-search { flex:1; min-width:200px; max-width:320px; position:relative; }
@@ -35,10 +35,10 @@
     .filter-search .si { position:absolute; left:12px; top:50%; transform:translateY(-50%); color:var(--gray-500); }
 
     /* Section */
-    .all-section { max-width:1280px; margin:0 auto; padding:32px 24px; }
-    .all-section-header { display:flex; align-items:center; gap:12px; margin-bottom:18px; padding-bottom:12px; border-bottom:2px solid var(--gray-100); }
-    .all-section-header h2 { font-family:var(--font-display); font-size:1.1rem; font-weight:700; color:var(--gray-900); }
-    .all-section-header .cat-badge { padding:3px 10px; border-radius:20px; font-size:.74rem; font-weight:700; }
+    .all-section {  max-width:1280px; margin:0 auto; padding:32px 24px; }
+    .all-section-header { display:flex; align-items:center; gap:8px; margin-bottom:10px; padding-bottom:10px; border-bottom:2px solid var(--gray-100); }
+    .all-section-header h2 {  font-family:var(--font-display); font-size:1.0rem; font-weight:800; color:rgb(61, 61, 61); }
+    .all-section-header .cat-badge { padding:3px 8px; border-radius:18px; font-size:.7rem; font-weight:700; }
     .all-section-header a { margin-left:auto; font-size:.82rem; color:var(--primary); font-weight:600; text-decoration:none; }
     .all-section-header a:hover { text-decoration:underline; }
 
@@ -91,13 +91,13 @@
 <!-- FILTER BAR -->
 <div class="filter-bar">
   <button class="filter-btn active" data-cat="all">All</button>
-  <button class="filter-btn" data-cat="image">🖼️ Image</button>
-  <button class="filter-btn" data-cat="pdf">📄 PDF</button>
-  <button class="filter-btn" data-cat="dev">🛠️ Dev</button>
-  <button class="filter-btn" data-cat="text">✏️ Text</button>
-  <button class="filter-btn" data-cat="utility">⚙️ Utility</button>
+  <button class="filter-btn" data-cat="image"><svg class="icon" style="width:13px; height:13px;" ><use href="/assets/svg/icons.svg#image"></use></svg> Image</button>
+  <button class="filter-btn" data-cat="pdf"><svg class="icon" style="width:13px; height:13px;" ><use href="/assets/svg/icons.svg#pdf"></use></svg> PDF</button>
+  <button class="filter-btn" data-cat="dev"><svg class="icon" style="width:13px; height:13px;" ><use href="/assets/svg/icons.svg#code"></use></svg> Dev</button>
+  <button class="filter-btn" data-cat="text"><svg class="icon" style="width:13px; height:13px;" ><use href="/assets/svg/icons.svg#text"></use></svg> Text</button>
+  <button class="filter-btn" data-cat="utility"><svg class="icon" style="width:13px; height:13px;" ><use href="/assets/svg/icons.svg#settings"></use></svg> Utility</button>
   <div class="filter-search">
-    <span class="si">🔍</span>
+    <span class="si"><svg class="icon" style="margin-top: 6px; width:18px; height:px;"><use href="/assets/svg/icons.svg#filter-img"></use></svg></span>
     <input type="text" id="tool-filter" placeholder="Filter tools...">
   </div>
   <span id="tool-count" style="font-size:.82rem;color:var(--gray-500);font-weight:600;"></span>
@@ -108,118 +108,118 @@
 <!-- IMAGE TOOLS -->
 <div class="all-section" data-cat="image">
   <div class="all-section-header">
-    <span style="font-size:1.3rem;">🖼️</span>
+    <span style="font-size:1.3rem;"><svg class="icon" style="width:24px; height:24px;"><use href="/assets/svg/icons.svg#image"></use></svg></span>
     <h2>Image Tools</h2>
     <span class="cat-badge" style="background:#eff6ff;color:#1d4ed8;">22+ tools</span>
     <a href="image-tools.html">View category →</a>
   </div>
   <div class="compact-grid">
-    <a href="/en/tools/image-converter.html" class="compact-item"><div class="ci-icon">🔄</div><div class="ci-text"><div class="ci-name">Image Converter</div><div class="ci-desc">JPG, PNG, WEBP, BMP, GIF — any format</div></div></a>
-    <a href="/en/tools/image-compressor.html" class="compact-item"><div class="ci-icon">📦</div><div class="ci-text"><div class="ci-name">Image Compressor</div><div class="ci-desc">Up to 80% smaller, quality control</div></div></a>
-    <a href="/en/tools/image-resize.html" class="compact-item"><div class="ci-icon">↔️</div><div class="ci-text"><div class="ci-name">Image Resize</div><div class="ci-desc">Custom px, aspect ratio lock, presets</div></div></a>
-    <a href="/en/tools/image-crop.html" class="compact-item"><div class="ci-icon">✂️</div><div class="ci-text"><div class="ci-name">Image Crop</div><div class="ci-desc">Drag to crop, ratio presets (16:9, 1:1)</div></div></a>
-    <a href="/en/tools/image-rotate.html" class="compact-item"><div class="ci-icon">🔃</div><div class="ci-text"><div class="ci-name">Image Rotate &amp; Flip</div><div class="ci-desc">90/180/270°, flip horizontal/vertical</div></div></a>
-    <div class="compact-item coming-soon"><div class="ci-icon">🎨</div><div class="ci-text"><div class="ci-name">Brightness / Contrast</div><div class="ci-desc">Adjust image tone and saturation</div></div><span class="ci-soon">Soon</span></div>
-    <div class="compact-item coming-soon"><div class="ci-icon">🌫️</div><div class="ci-text"><div class="ci-name">Blur / Sharpen Filter</div><div class="ci-desc">Gaussian blur and sharpen effect</div></div><span class="ci-soon">Soon</span></div>
-    <div class="compact-item coming-soon"><div class="ci-icon">👴</div><div class="ci-text"><div class="ci-name">Grayscale / Sepia</div><div class="ci-desc">B&W and vintage film effect</div></div><span class="ci-soon">Soon</span></div>
-    <div class="compact-item coming-soon"><div class="ci-icon">💧</div><div class="ci-text"><div class="ci-name">Watermark Add</div><div class="ci-desc">Text/image watermark with opacity</div></div><span class="ci-soon">Soon</span></div>
-    <div class="compact-item coming-soon"><div class="ci-icon">🖼️</div><div class="ci-text"><div class="ci-name">Border Add</div><div class="ci-desc">Custom colored borders and padding</div></div><span class="ci-soon">Soon</span></div>
-    <div class="compact-item coming-soon"><div class="ci-icon">📝</div><div class="ci-text"><div class="ci-name">Text on Image</div><div class="ci-desc">Add custom text overlays to photos</div></div><span class="ci-soon">Soon</span></div>
-    <div class="compact-item coming-soon"><div class="ci-icon">🖼️</div><div class="ci-text"><div class="ci-name">Thumbnail Maker</div><div class="ci-desc">YouTube and social media thumbnails</div></div><span class="ci-soon">Soon</span></div>
+    <a href="/en/tools/image-converter.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#refresh"></use></svg><div class="ci-text"><div class="ci-name">Image Converter</div><div class="ci-desc">JPG, PNG, WEBP, BMP, GIF — any format</div></div></a>
+    <a href="/en/tools/image-compressor.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#compress-img"></use></svg><div class="ci-text"><div class="ci-name">Image Compressor</div><div class="ci-desc">Up to 80% smaller, quality control</div></div></a>
+    <a href="/en/tools/image-resize.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#resize"></use></svg><div class="ci-text"><div class="ci-name">Image Resize</div><div class="ci-desc">Custom px, aspect ratio lock, presets</div></div></a>
+    <a href="/en/tools/image-crop.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#crop"></use></svg><div class="ci-text"><div class="ci-name">Image Crop</div><div class="ci-desc">Drag to crop, ratio presets (16:9, 1:1)</div></div></a>
+    <a href="/en/tools/image-rotate.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#pdf-rotate"></use></svg><div class="ci-text"><div class="ci-name">Image Rotate &amp; Flip</div><div class="ci-desc">90/180/270°, flip horizontal/vertical</div></div></a>
+    <div class="compact-item coming-soon"><svg class="icon"><use href="/assets/svg/icons.svg#brightness"></use></svg><div class="ci-text"><div class="ci-name">Brightness / Contrast</div><div class="ci-desc">Adjust image tone and saturation</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><svg class="icon"><use href="/assets/svg/icons.svg#blur-img"></use></svg><div class="ci-text"><div class="ci-name">Blur / Sharpen Filter</div><div class="ci-desc">Gaussian blur and sharpen effect</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><svg class="icon"><use href="/assets/svg/icons.svg#contrast"></use></svg><div class="ci-text"><div class="ci-name">Grayscale / Sepia</div><div class="ci-desc">B&W and vintage film effect</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><svg class="icon"><use href="/assets/svg/icons.svg#watermark"></use></svg><div class="ci-text"><div class="ci-name">Watermark Add</div><div class="ci-desc">Text/image watermark with opacity</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><svg class="icon"><use href="/assets/svg/icons.svg#border-add"></use></svg><div class="ci-text"><div class="ci-name">Border Add</div><div class="ci-desc">Custom colored borders and padding</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><svg class="icon"><use href="/assets/svg/icons.svg#pdf-edit"></use></svg><div class="ci-text"><div class="ci-name">Text on Image</div><div class="ci-desc">Add custom text overlays to photos</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><svg class="icon"><use href="/assets/svg/icons.svg#copy"></use></svg><div class="ci-text"><div class="ci-name">Thumbnail Maker</div><div class="ci-desc">YouTube and social media thumbnails</div></div><span class="ci-soon">Soon</span></div>
   </div>
 </div>
 
 <!-- PDF TOOLS -->
 <div class="all-section" data-cat="pdf" style="background:var(--gray-50);">
   <div class="all-section-header">
-    <span style="font-size:1.3rem;">📄</span>
+    <span style="font-size:1.3rem;"><svg class="icon" style="width:24px; height:24px;"><use href="/assets/svg/icons.svg#pdf"></use></svg></span>
     <h2>PDF Tools</h2>
     <span class="cat-badge" style="background:#fef2f2;color:#dc2626;">15+ tools</span>
     <a href="pdf-tools.html">View category →</a>
   </div>
   <div class="compact-grid">
-    <a href="/en/tools/pdf-merge.html" class="compact-item"><div class="ci-icon">📎</div><div class="ci-text"><div class="ci-name">PDF Merge</div><div class="ci-desc">Combine PDFs, drag to reorder</div></div></a>
-    <a href="/en/tools/pdf-split.html" class="compact-item"><div class="ci-icon">✂️</div><div class="ci-text"><div class="ci-name">PDF Split</div><div class="ci-desc">Extract pages by range (1-3, 5, 7-10)</div></div></a>
-    <a href="/en/tools/jpg-to-pdf.html" class="compact-item"><div class="ci-icon">🖼️</div><div class="ci-text"><div class="ci-name">JPG / Image to PDF</div><div class="ci-desc">Multiple images → multi-page PDF</div></div></a>
-    <a href="/en/tools/pdf-to-jpg.html" class="compact-item"><div class="ci-icon">📷</div><div class="ci-text"><div class="ci-name">PDF to JPG / PNG</div><div class="ci-desc">High DPI page rendering, all pages</div></div></a>
-    <a href="/en/tools/pdf-rotate.html" class="compact-item"><div class="ci-icon">🔃</div><div class="ci-text"><div class="ci-name">PDF Rotate Pages</div><div class="ci-desc">90/180/270°, all/odd/even/range</div></div></a>
-    <div class="compact-item coming-soon"><div class="ci-icon">🔐</div><div class="ci-text"><div class="ci-name">PDF Password Protect</div><div class="ci-desc">AES-256 encryption via PDF-Lib</div></div><span class="ci-soon">Soon</span></div>
-    <div class="compact-item coming-soon"><div class="ci-icon">🔓</div><div class="ci-text"><div class="ci-name">PDF Unlock</div><div class="ci-desc">Remove password from known-password PDFs</div></div><span class="ci-soon">Soon</span></div>
-    <div class="compact-item coming-soon"><div class="ci-icon">💧</div><div class="ci-text"><div class="ci-name">PDF Watermark</div><div class="ci-desc">Text watermark on all pages</div></div><span class="ci-soon">Soon</span></div>
-    <div class="compact-item coming-soon"><div class="ci-icon">📄</div><div class="ci-text"><div class="ci-name">Add Page Numbers</div><div class="ci-desc">Footer page numbers, custom style</div></div><span class="ci-soon">Soon</span></div>
-    <div class="compact-item coming-soon"><div class="ci-icon">📋</div><div class="ci-text"><div class="ci-name">PDF Metadata Viewer</div><div class="ci-desc">Author, creation date, title, subject</div></div><span class="ci-soon">Soon</span></div>
+    <a href="/en/tools/pdf-merge.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#pages"></use></svg><div class="ci-text"><div class="ci-name">PDF Merge</div><div class="ci-desc">Combine PDFs, drag to reorder</div></div></a>
+    <a href="/en/tools/pdf-split.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#pdf-split"></use></svg><div class="ci-text"><div class="ci-name">PDF Split</div><div class="ci-desc">Extract pages by range (1-3, 5, 7-10)</div></div></a>
+    <a href="/en/tools/jpg-to-pdf.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#image"></use></svg><div class="ci-text"><div class="ci-name">JPG / Image to PDF</div><div class="ci-desc">Multiple images → multi-page PDF</div></div></a>
+    <a href="/en/tools/pdf-to-jpg.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#pdf"></use></svg><div class="ci-text"><div class="ci-name">PDF to JPG / PNG</div><div class="ci-desc">High DPI page rendering, all pages</div></div></a>
+    <a href="/en/tools/pdf-rotate.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#pdf-rotate"></use></svg><div class="ci-text"><div class="ci-name">PDF Rotate Pages</div><div class="ci-desc">90/180/270°, all/odd/even/range</div></div></a>
+    <div class="compact-item coming-soon"><svg class="icon"><use href="/assets/svg/icons.svg#pdf-protect"></use></svg><div class="ci-text"><div class="ci-name">PDF Password Protect</div><div class="ci-desc">AES-256 encryption via PDF-Lib</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><svg class="icon"><use href="/assets/svg/icons.svg#unlock"></use></svg><div class="ci-text"><div class="ci-name">PDF Unlock</div><div class="ci-desc">Remove password from known-password PDFs</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><svg class="icon"><use href="/assets/svg/icons.svg#watermark"></use></svg><div class="ci-text"><div class="ci-name">PDF Watermark</div><div class="ci-desc">Text watermark on all pages</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><svg class="icon"><use href="/assets/svg/icons.svg#csv"></use></svg><div class="ci-text"><div class="ci-name">Add Page Numbers</div><div class="ci-desc">Footer page numbers, custom style</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><svg class="icon"><use href="/assets/svg/icons.svg#eye"></use></svg><div class="ci-text"><div class="ci-name">PDF Metadata Viewer</div><div class="ci-desc">Author, creation date, title, subject</div></div><span class="ci-soon">Soon</span></div>
   </div>
 </div>
 
 <!-- DEV TOOLS -->
 <div class="all-section" data-cat="dev">
   <div class="all-section-header">
-    <span style="font-size:1.3rem;">🛠️</span>
+    <span style="font-size:1.3rem;"><svg class="icon" style="width:24px; height:24px;"><use href="/assets/svg/icons.svg#code"></use></svg></span>
     <h2>Developer Tools</h2>
     <span class="cat-badge" style="background:#f0fdf4;color:#16a34a;">25+ tools</span>
     <a href="dev-tools.html">View category →</a>
   </div>
   <div class="compact-grid">
-    <a href="/en/tools/json-formatter.html" class="compact-item"><div class="ci-icon">{ }</div><div class="ci-text"><div class="ci-name">JSON Formatter</div><div class="ci-desc">Format, validate, minify, sort keys</div></div></a>
-    <a href="/en/tools/base64.html" class="compact-item"><div class="ci-icon">🔐</div><div class="ci-text"><div class="ci-name">Base64 Encode / Decode</div><div class="ci-desc">Text, files, URL-safe, data URI</div></div></a>
-    <a href="/en/tools/url-encoder.html" class="compact-item"><div class="ci-icon">🔗</div><div class="ci-text"><div class="ci-name">URL Encoder / Decoder</div><div class="ci-desc">Percent-encoding, encodeURIComponent</div></div></a>
-    <a href="/en/tools/hash-generator.html" class="compact-item"><div class="ci-icon">#</div><div class="ci-text"><div class="ci-name">Hash Generator</div><div class="ci-desc">SHA-256, SHA-512, SHA-1, file hash</div></div></a>
-    <a href="/en/tools/password-generator.html" class="compact-item"><div class="ci-icon">🔑</div><div class="ci-text"><div class="ci-name">Password Generator</div><div class="ci-desc">Crypto-secure, bulk, custom charset</div></div></a>
-    <a href="/en/tools/uuid-generator.html" class="compact-item"><div class="ci-icon">🆔</div><div class="ci-text"><div class="ci-name">UUID v4 Generator</div><div class="ci-desc">Bulk, multiple formats, validator</div></div></a>
-    <a href="/en/tools/regex-tester.html" class="compact-item"><div class="ci-icon">🔍</div><div class="ci-text"><div class="ci-name">Regex Tester</div><div class="ci-desc">Real-time highlight, capture groups</div></div></a>
-    <a href="/en/tools/password-strength.html" class="compact-item"><div class="ci-icon">🔒</div><div class="ci-text"><div class="ci-name">Password Strength</div><div class="ci-desc">Entropy, crack time, 10 checks</div></div></a>
-    <div class="compact-item coming-soon"><div class="ci-icon">📝</div><div class="ci-text"><div class="ci-name">CSS Minifier</div><div class="ci-desc">Remove whitespace and comments</div></div><span class="ci-soon">Soon</span></div>
-    <div class="compact-item coming-soon"><div class="ci-icon">⚡</div><div class="ci-text"><div class="ci-name">JS Minifier</div><div class="ci-desc">Compress JavaScript code</div></div><span class="ci-soon">Soon</span></div>
-    <div class="compact-item coming-soon"><div class="ci-icon">🌐</div><div class="ci-text"><div class="ci-name">HTML Formatter</div><div class="ci-desc">Beautify HTML with proper indentation</div></div><span class="ci-soon">Soon</span></div>
-    <div class="compact-item coming-soon"><div class="ci-icon">📋</div><div class="ci-text"><div class="ci-name">HTML Previewer</div><div class="ci-desc">Live preview raw HTML in browser</div></div><span class="ci-soon">Soon</span></div>
+    <a href="/en/tools/json-formatter.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#json"></use></svg><div class="ci-text"><div class="ci-name">JSON Formatter</div><div class="ci-desc">Format, validate, minify, sort keys</div></div></a>
+    <a href="/en/tools/base64.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#base64"></use></svg><div class="ci-text"><div class="ci-name">Base64 Encode / Decode</div><div class="ci-desc">Text, files, URL-safe, data URI</div></div></a>
+    <a href="/en/tools/url-encoder.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#link"></use></svg><div class="ci-text"><div class="ci-name">URL Encoder / Decoder</div><div class="ci-desc">Percent-encoding, encodeURIComponent</div></div></a>
+    <a href="/en/tools/hash-generator.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#hash"></use></svg><div class="ci-text"><div class="ci-name">Hash Generator</div><div class="ci-desc">SHA-256, SHA-512, SHA-1, file hash</div></div></a>
+    <a href="/en/tools/password-generator.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#key"></use></svg><div class="ci-text"><div class="ci-name">Password Generator</div><div class="ci-desc">Crypto-secure, bulk, custom charset</div></div></a>
+    <a href="/en/tools/uuid-generator.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#uuid"></use></svg><div class="ci-text"><div class="ci-name">UUID v4 Generator</div><div class="ci-desc">Bulk, multiple formats, validator</div></div></a>
+    <a href="/en/tools/regex-tester.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#regex"></use></svg><div class="ci-text"><div class="ci-name">Regex Tester</div><div class="ci-desc">Real-time highlight, capture groups</div></div></a>
+    <a href="/en/tools/password-strength.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#lock"></use></svg><div class="ci-text"><div class="ci-name">Password Strength</div><div class="ci-desc">Entropy, crack time, 10 checks</div></div></a>
+    <div class="compact-item coming-soon"><svg class="icon"><use href="/assets/svg/icons.svg#css-minify"></use></svg><div class="ci-text"><div class="ci-name">CSS Minifier</div><div class="ci-desc">Remove whitespace and comments</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><svg class="icon"><use href="/assets/svg/icons.svg#js-minify"></use></svg><div class="ci-text"><div class="ci-name">JS Minifier</div><div class="ci-desc">Compress JavaScript code</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><svg class="icon"><use href="/assets/svg/icons.svg#html-format"></use></svg><div class="ci-text"><div class="ci-name">HTML Formatter</div><div class="ci-desc">Beautify HTML with proper indentation</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><svg class="icon"><use href="/assets/svg/icons.svg#html-preview"></use></svg><div class="ci-text"><div class="ci-name">HTML Previewer</div><div class="ci-desc">Live preview raw HTML in browser</div></div><span class="ci-soon">Soon</span></div>
   </div>
 </div>
 
 <!-- TEXT TOOLS -->
 <div class="all-section" data-cat="text" style="background:var(--gray-50);">
   <div class="all-section-header">
-    <span style="font-size:1.3rem;">✏️</span>
+    <span style="font-size:1.3rem;"><svg class="icon" style="width:24px; height:24px;"><use href="/assets/svg/icons.svg#text"></use></svg></span>
     <h2>Text Tools</h2>
     <span class="cat-badge" style="background:#fffbeb;color:#d97706;">18+ tools</span>
     <a href="text-tools.html">View category →</a>
   </div>
   <div class="compact-grid">
-    <a href="/en/tools/word-counter.html" class="compact-item"><div class="ci-icon">📝</div><div class="ci-text"><div class="ci-name">Word Counter</div><div class="ci-desc">Words, chars, reading time, keyword density</div></div></a>
-    <a href="/en/tools/character-counter.html" class="compact-item"><div class="ci-icon">🔢</div><div class="ci-text"><div class="ci-name">Character Counter</div><div class="ci-desc">Frequency chart, platform limits</div></div></a>
-    <a href="/en/tools/case-converter.html" class="compact-item"><div class="ci-icon">Aa</div><div class="ci-text"><div class="ci-name">Case Converter</div><div class="ci-desc">12 formats incl. camelCase, snake_case</div></div></a>
-    <a href="/en/tools/text-diff.html" class="compact-item"><div class="ci-icon">🔍</div><div class="ci-text"><div class="ci-name">Text Diff Checker</div><div class="ci-desc">Line/word/char diff with highlighting</div></div></a>
-    <a href="/en/tools/duplicate-remover.html" class="compact-item"><div class="ci-icon">🧹</div><div class="ci-text"><div class="ci-name">Duplicate Line Remover</div><div class="ci-desc">Sort, trim, deduplicate text lists</div></div></a>
-    <a href="/en/tools/lorem-ipsum.html" class="compact-item"><div class="ci-icon">📃</div><div class="ci-text"><div class="ci-name">Lorem Ipsum Generator</div><div class="ci-desc">Paragraphs, words, HTML, Markdown</div></div></a>
-    <a href="/en/tools/slug-generator.html" class="compact-item"><div class="ci-icon">🔗</div><div class="ci-text"><div class="ci-name">Slug Generator</div><div class="ci-desc">SEO slugs, bulk, stop words, custom sep</div></div></a>
-    <div class="compact-item coming-soon"><div class="ci-icon">📊</div><div class="ci-text"><div class="ci-name">Text Sorter</div><div class="ci-desc">Sort lines A→Z, numerically, by length</div></div><span class="ci-soon">Soon</span></div>
-    <div class="compact-item coming-soon"><div class="ci-icon">🎲</div><div class="ci-text"><div class="ci-name">Random Text Generator</div><div class="ci-desc">Random words, names, sentences</div></div><span class="ci-soon">Soon</span></div>
-    <div class="compact-item coming-soon"><div class="ci-icon">📌</div><div class="ci-text"><div class="ci-name">Keyword Density Checker</div><div class="ci-desc">SEO keyword frequency analysis</div></div><span class="ci-soon">Soon</span></div>
-    <div class="compact-item coming-soon"><div class="ci-icon">✉️</div><div class="ci-text"><div class="ci-name">Email Extractor</div><div class="ci-desc">Extract emails from any text</div></div><span class="ci-soon">Soon</span></div>
-    <div class="compact-item coming-soon"><div class="ci-icon">📝</div><div class="ci-text"><div class="ci-name">Markdown → HTML</div><div class="ci-desc">Convert Markdown to HTML instantly</div></div><span class="ci-soon">Soon</span></div>
+    <a href="/en/tools/word-counter.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#word-count"></use></svg><div class="ci-text"><div class="ci-name">Word Counter</div><div class="ci-desc">Words, chars, reading time, keyword density</div></div></a>
+    <a href="/en/tools/character-counter.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#info"></use></svg><div class="ci-text"><div class="ci-name">Character Counter</div><div class="ci-desc">Frequency chart, platform limits</div></div></a>
+    <a href="/en/tools/case-converter.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#case"></use></svg><div class="ci-text"><div class="ci-name">Case Converter</div><div class="ci-desc">12 formats incl. camelCase, snake_case</div></div></a>
+    <a href="/en/tools/text-diff.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#diff"></use></svg><div class="ci-text"><div class="ci-name">Text Diff Checker</div><div class="ci-desc">Line/word/char diff with highlighting</div></div></a>
+    <a href="/en/tools/duplicate-remover.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#duplicate"></use></svg><div class="ci-text"><div class="ci-name">Duplicate Line Remover</div><div class="ci-desc">Sort, trim, deduplicate text lists</div></div></a>
+    <a href="/en/tools/lorem-ipsum.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#list-ol"></use></svg><div class="ci-text"><div class="ci-name">Lorem Ipsum Generator</div><div class="ci-desc">Paragraphs, words, HTML, Markdown</div></div></a>
+    <a href="/en/tools/slug-generator.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#slug"></use></svg><div class="ci-text"><div class="ci-name">Slug Generator</div><div class="ci-desc">SEO slugs, bulk, stop words, custom sep</div></div></a>
+    <div class="compact-item coming-soon"><svg class="icon"><use href="/assets/svg/icons.svg#font-size"></use></svg><div class="ci-text"><div class="ci-name">Text Sorter</div><div class="ci-desc">Sort lines A→Z, numerically, by length</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><svg class="icon"><use href="/assets/svg/icons.svg#text"></use></svg><div class="ci-text"><div class="ci-name">Random Text Generator</div><div class="ci-desc">Random words, names, sentences</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><svg class="icon"><use href="/assets/svg/icons.svg#check-circle"></use></svg><div class="ci-text"><div class="ci-name">Keyword Density Checker</div><div class="ci-desc">SEO keyword frequency analysis</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><svg class="icon"><use href="/assets/svg/icons.svg#mail"></use></svg><div class="ci-text"><div class="ci-name">Email Extractor</div><div class="ci-desc">Extract emails from any text</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><svg class="icon"><use href="/assets/svg/icons.svg#markdown-html"></use></svg><div class="ci-text"><div class="ci-name">Markdown → HTML</div><div class="ci-desc">Convert Markdown to HTML instantly</div></div><span class="ci-soon">Soon</span></div>
   </div>
 </div>
 
 <!-- UTILITY TOOLS -->
 <div class="all-section" data-cat="utility">
   <div class="all-section-header">
-    <span style="font-size:1.3rem;">⚙️</span>
+    <span style="font-size:1.3rem;"><svg class="icon" style="width:24px; height:24px;"><use href="/assets/svg/icons.svg#settings"></use></svg></span>
     <h2>Utility Tools</h2>
     <span class="cat-badge" style="background:#f0fdfa;color:#059669;">20+ tools</span>
     <a href="utility-tools.html">View category →</a>
   </div>
   <div class="compact-grid">
-    <a href="/en/tools/qr-generator.html" class="compact-item"><div class="ci-icon">▣</div><div class="ci-text"><div class="ci-name">QR Code Generator</div><div class="ci-desc">URL, WiFi, vCard, SMS, 7 types</div></div></a>
-    <a href="/en/tools/color-converter.html" class="compact-item"><div class="ci-icon">🎨</div><div class="ci-text"><div class="ci-name">Color Converter</div><div class="ci-desc">HEX↔RGB↔HSL↔CMYK, palette</div></div></a>
-    <a href="/en/tools/age-calculator.html" class="compact-item"><div class="ci-icon">📅</div><div class="ci-text"><div class="ci-name">Age Calculator</div><div class="ci-desc">Exact age, birthday countdown</div></div></a>
-    <a href="/en/tools/unit-converter.html" class="compact-item"><div class="ci-icon">📐</div><div class="ci-text"><div class="ci-name">Unit Converter</div><div class="ci-desc">Length, weight, temp, data — 10 categories</div></div></a>
-    <a href="/en/tools/percentage-calculator.html" class="compact-item"><div class="ci-icon">%</div><div class="ci-text"><div class="ci-name">Percentage Calculator</div><div class="ci-desc">% of, % change, discount — 4 modes</div></div></a>
-    <a href="/en/tools/gst-calculator.html" class="compact-item"><div class="ci-icon">💹</div><div class="ci-text"><div class="ci-name">GST Calculator India</div><div class="ci-desc">All slabs, CGST+SGST, inclusive/exclusive</div></div></a>
-    <a href="/en/tools/emi-calculator.html" class="compact-item"><div class="ci-icon">💰</div><div class="ci-text"><div class="ci-name">EMI Calculator</div><div class="ci-desc">Monthly EMI + full amortization table</div></div></a>
-    <a href="/en/tools/password-strength.html" class="compact-item"><div class="ci-icon">🔒</div><div class="ci-text"><div class="ci-name">Password Strength Checker</div><div class="ci-desc">Entropy, crack time, tips</div></div></a>
-    <div class="compact-item coming-soon"><div class="ci-icon">🎲</div><div class="ci-text"><div class="ci-name">Random Number Generator</div><div class="ci-desc">Range, bulk, no-duplicates, dice</div></div><span class="ci-soon">Soon</span></div>
-    <div class="compact-item coming-soon"><div class="ci-icon">▣</div><div class="ci-text"><div class="ci-name">Barcode Generator</div><div class="ci-desc">Code128, EAN-13, UPC-A</div></div><span class="ci-soon">Soon</span></div>
-    <div class="compact-item coming-soon"><div class="ci-icon">🖥️</div><div class="ci-text"><div class="ci-name">Screen Resolution Checker</div><div class="ci-desc">Your device's resolution and DPI</div></div><span class="ci-soon">Soon</span></div>
-    <div class="compact-item coming-soon"><div class="ci-icon">🔵</div><div class="ci-text"><div class="ci-name">WCAG Contrast Checker</div><div class="ci-desc">AA/AAA accessibility compliance</div></div><span class="ci-soon">Soon</span></div>
+    <a href="/en/tools/qr-generator.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#qr-code"></use></svg><div class="ci-text"><div class="ci-name">QR Code Generator</div><div class="ci-desc">URL, WiFi, vCard, SMS, 7 types</div></div></a>
+    <a href="/en/tools/color-converter.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#color-picker"></use></svg><div class="ci-text"><div class="ci-name">Color Converter</div><div class="ci-desc">HEX↔RGB↔HSL↔CMYK, palette</div></div></a>
+    <a href="/en/tools/age-calculator.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#age"></use></svg><div class="ci-text"><div class="ci-name">Age Calculator</div><div class="ci-desc">Exact age, birthday countdown</div></div></a>
+    <a href="/en/tools/unit-converter.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#ruler"></use></svg><div class="ci-text"><div class="ci-name">Unit Converter</div><div class="ci-desc">Length, weight, temp, data — 10 categories</div></div></a>
+    <a href="/en/tools/percentage-calculator.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#percent"></use></svg><div class="ci-text"><div class="ci-name">Percentage Calculator</div><div class="ci-desc">% of, % change, discount — 4 modes</div></div></a>
+    <a href="/en/tools/gst-calculator.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#gst"></use></svg><div class="ci-text"><div class="ci-name">GST Calculator India</div><div class="ci-desc">All slabs, CGST+SGST, inclusive/exclusive</div></div></a>
+    <a href="/en/tools/emi-calculator.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#emi"></use></svg><div class="ci-text"><div class="ci-name">EMI Calculator</div><div class="ci-desc">Monthly EMI + full amortization table</div></div></a>
+    <a href="/en/tools/password-strength.html" class="compact-item"><svg class="icon"><use href="/assets/svg/icons.svg#qr-code"></use></svg><div class="ci-text"><div class="ci-name">Password Strength Checker</div><div class="ci-desc">Entropy, crack time, tips</div></div></a>
+    <div class="compact-item coming-soon"><svg class="icon"><use href="/assets/svg/icons.svg#random"></use></svg><div class="ci-text"><div class="ci-name">Random Number Generator</div><div class="ci-desc">Range, bulk, no-duplicates, dice</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><svg class="icon"><use href="/assets/svg/icons.svg#barcode"></use></svg><div class="ci-text"><div class="ci-name">Barcode Generator</div><div class="ci-desc">Code128, EAN-13, UPC-A</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><svg class="icon"><use href="/assets/svg/icons.svg#resolution"></use></svg><div class="ci-text"><div class="ci-name">Screen Resolution Checker</div><div class="ci-desc">Your device's resolution and DPI</div></div><span class="ci-soon">Soon</span></div>
+    <div class="compact-item coming-soon"><svg class="icon"><use href="/assets/svg/icons.svg#contrast-check"></use></svg><div class="ci-text"><div class="ci-name">WCAG Contrast Checker</div><div class="ci-desc">AA/AAA accessibility compliance</div></div><span class="ci-soon">Soon</span></div>
   </div>
 </div>
 
@@ -233,7 +233,7 @@
   <h2>Frequently Asked Questions</h2>
   <div class="faq-item"><div class="faq-q">Are all Logrith tools completely free?</div><div class="faq-a">Yes — no exceptions. No paid plan, no usage limits, no watermarks, no account required. Every tool listed on this page is free forever.</div></div>
   <div class="faq-item"><div class="faq-q">Do any of these tools upload my files to a server?</div><div class="faq-a">None. Every single tool processes data in your browser. This is verifiable — open Chrome DevTools Network tab on any tool page and you'll see zero upload requests when using the tools.</div></div>
-  <div class="faq-item"><div class="faq-q">How many tools are currently live vs "coming soon"?</div><div class="faq-a">Currently 40+ tools are fully functional. The remaining are on the roadmap with "Coming Soon" labels. New tools are added regularly — check back or bookmark this page.</div></div>
+  <div class="faq-item"><div class="faq-q">How many tools are currently live vs "coming soon"?</div><div class="faq-a">Currently 30+ tools are fully functional. The remaining are on the roadmap with "Coming Soon" labels. New tools are added regularly — check back or bookmark this page.</div></div>
   <div class="faq-item"><div class="faq-q">Can I suggest a tool that should be added?</div><div class="faq-a">Yes! The most-requested tools get prioritized. Tools that can run client-side (in the browser) without requiring a server are most likely to be implemented quickly.</div></div>
   <div class="faq-item"><div class="faq-q">Do the tools work on mobile?</div><div class="faq-a">All tools are fully mobile-responsive. Image tools support camera input on iOS and Android. PDF tools work on mobile browsers. Some complex tools (like batch processing) may be slower on low-end mobile devices.</div></div>
   <div class="faq-item"><div class="faq-q">Why do some tools require an internet connection even if they're "client-side"?</div><div class="faq-a">Some tools load JavaScript libraries from CDNs on first use — PDF-Lib, PDF.js, QRCode.js. After the library loads, the actual processing is local. Once a page has been loaded, most tools work offline. This is a performance tradeoff to keep page sizes small.</div></div>

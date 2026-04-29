@@ -63,7 +63,7 @@
     </ul>
 
     <div class="nav-search">
-      <span class="search-icon">🔍</span>
+      <span class="search-icon"><svg class="icon" style="margin-top: 5px;"><use href="/assets/svg/icons.svg#search"></use></svg></span>
       <input type="text" id="nav-search-input" placeholder="Search tools..." autocomplete="off">
       <div id="search-results"></div>
     </div>
@@ -95,25 +95,23 @@
   <!-- MIDDLE: Scrollable content -->
   <div class="mobile-nav-body">
     <ul class="mobile-nav-links">
-
       <!-- Home -->
-      <li><a href="/en/index.html" class="mob-home-link" onclick="closeDrawer()">🏠 Home</a></li>
-
+      <li><a href="/en/index.html" class="mob-home-link" onclick="closeDrawer()"><svg class="icon"><use href="/assets/svg/icons.svg#home"></use></svg> Home</a></li>
     </ul>
 
     <!-- Image Tools group -->
     <div class="mob-cat-group">
       <div class="mob-cat-header" onclick="toggleMobCat(this)">
-        <span class="mch-left">🖼️ Image Tools</span>
+        <span class="mch-left"> Image Tools</span>
         <span class="mob-cat-arrow">›</span>
       </div>
       <div class="mob-cat-tools">
         <ul class="mobile-nav-links">
-          <li><a href="/en/tools/image-converter.html" onclick="closeDrawer()">🔄 Image Converter</a></li>
-          <li><a href="/en/tools/image-compressor.html" onclick="closeDrawer()">📦 Image Compressor</a></li>
-          <li><a href="/en/tools/image-resize.html" onclick="closeDrawer()">↔️ Image Resize</a></li>
-          <li><a href="/en/tools/image-crop.html" onclick="closeDrawer()">✂️ Image Crop</a></li>
-          <li><a href="/en/tools/image-rotate.html" onclick="closeDrawer()">🔃 Rotate &amp; Flip</a></li>
+          <li><a href="/en/tools/image-converter.html" onclick="closeDrawer()">Image Converter</a></li>
+          <li><a href="/en/tools/image-compressor.html" onclick="closeDrawer()">Image Compressor</a></li>
+          <li><a href="/en/tools/image-resize.html" onclick="closeDrawer()">Image Resize</a></li>
+          <li><a href="/en/tools/image-crop.html" onclick="closeDrawer()">Image Crop</a></li>
+          <li><a href="/en/tools/image-rotate.html" onclick="closeDrawer()">Rotate &amp; Flip</a></li>
         </ul>
       </div>
     </div>
@@ -121,16 +119,16 @@
     <!-- PDF Tools group -->
     <div class="mob-cat-group">
       <div class="mob-cat-header" onclick="toggleMobCat(this)">
-        <span class="mch-left">📄 PDF Tools</span>
+        <span class="mch-left"> PDF Tools</span>
         <span class="mob-cat-arrow">›</span>
       </div>
       <div class="mob-cat-tools">
         <ul class="mobile-nav-links">
-          <li><a href="/en/tools/pdf-merge.html" onclick="closeDrawer()">📎 PDF Merge</a></li>
-          <li><a href="/en/tools/pdf-split.html" onclick="closeDrawer()">✂️ PDF Split</a></li>
-          <li><a href="/en/tools/jpg-to-pdf.html" onclick="closeDrawer()">🖼️ JPG → PDF</a></li>
-          <li><a href="/en/tools/pdf-to-jpg.html" onclick="closeDrawer()">📄 PDF → JPG</a></li>
-          <li><a href="/en/tools/pdf-rotate.html" onclick="closeDrawer()">🔃 PDF Rotate</a></li>
+          <li><a href="/en/tools/pdf-merge.html" onclick="closeDrawer()"> PDF Merge</a></li>
+          <li><a href="/en/tools/pdf-split.html" onclick="closeDrawer()"> PDF Split</a></li>
+          <li><a href="/en/tools/jpg-to-pdf.html" onclick="closeDrawer()"> JPG → PDF</a></li>
+          <li><a href="/en/tools/pdf-to-jpg.html" onclick="closeDrawer()"> PDF → JPG</a></li>
+          <li><a href="/en/tools/pdf-rotate.html" onclick="closeDrawer()"> PDF Rotate</a></li>
         </ul>
       </div>
     </div>
@@ -138,18 +136,18 @@
     <!-- Dev Tools group -->
     <div class="mob-cat-group">
       <div class="mob-cat-header" onclick="toggleMobCat(this)">
-        <span class="mch-left">🛠️ Dev Tools</span>
+        <span class="mch-left"> Dev Tools</span>
         <span class="mob-cat-arrow">›</span>
       </div>
       <div class="mob-cat-tools">
         <ul class="mobile-nav-links">
-          <li><a href="/en/tools/json-formatter.html" onclick="closeDrawer()">{ } JSON Formatter</a></li>
-          <li><a href="/en/tools/base64.html" onclick="closeDrawer()">🔐 Base64</a></li>
-          <li><a href="/en/tools/url-encoder.html" onclick="closeDrawer()">🔗 URL Encoder</a></li>
-          <li><a href="/en/tools/password-generator.html" onclick="closeDrawer()">🔑 Password Generator</a></li>
-          <li><a href="/en/tools/hash-generator.html" onclick="closeDrawer()"># Hash Generator</a></li>
-          <li><a href="/en/tools/uuid-generator.html" onclick="closeDrawer()">🆔 UUID Generator</a></li>
-          <li><a href="/en/tools/regex-tester.html" onclick="closeDrawer()">🔍 Regex Tester</a></li>
+          <li><a href="/en/tools/json-formatter.html" onclick="closeDrawer()"> JSON Formatter</a></li>
+          <li><a href="/en/tools/base64.html" onclick="closeDrawer()"> Base64</a></li>
+          <li><a href="/en/tools/url-encoder.html" onclick="closeDrawer()"> URL Encoder</a></li>
+          <li><a href="/en/tools/password-generator.html" onclick="closeDrawer()"> Password Generator</a></li>
+          <li><a href="/en/tools/hash-generator.html" onclick="closeDrawer()"> Hash Generator</a></li>
+          <li><a href="/en/tools/uuid-generator.html" onclick="closeDrawer()"> UUID Generator</a></li>
+          <li><a href="/en/tools/regex-tester.html" onclick="closeDrawer()"> Regex Tester</a></li>
         </ul>
       </div>
     </div>
@@ -157,19 +155,19 @@
     <!-- Text Tools group -->
     <div class="mob-cat-group">
       <div class="mob-cat-header" onclick="toggleMobCat(this)">
-        <span class="mch-left">✏️ Text Tools</span>
+        <span class="mch-left"> Text Tools</span>
         <span class="mob-cat-arrow">›</span>
       </div>
       <div class="mob-cat-tools">
         <ul class="mobile-nav-links">
-          <li><a href="/en/tools/word-counter.html" onclick="closeDrawer()">📝 Word Counter</a></li>
-          <li><a href="/en/tools/case-converter.html" onclick="closeDrawer()">Aa Case Converter</a></li>
-          <li><a href="/en/tools/character-counter.html" onclick="closeDrawer()">🔢 Char Counter</a></li>
-          <li><a href="/en/tools/lorem-ipsum.html" onclick="closeDrawer()">📃 Lorem Ipsum</a></li>
-          <li><a href="/en/tools/text-diff.html" onclick="closeDrawer()">🔍 Text Diff</a></li>
-          <li><a href="/en/tools/duplicate-remover.html" onclick="closeDrawer()">🧹 Duplicate Remover</a></li>
-          <li><a href="/en/tools/slug-generator.html" onclick="closeDrawer()">🔗 Slug Generator</a></li>
-          <li><a href="/en/tools/duplicate-remover.html" onclick="closeDrawer()">🧹 Duplicate Remover</a></li>
+          <li><a href="/en/tools/word-counter.html" onclick="closeDrawer()"> Word Counter</a></li>
+          <li><a href="/en/tools/case-converter.html" onclick="closeDrawer()"> Case Converter</a></li>
+          <li><a href="/en/tools/character-counter.html" onclick="closeDrawer()"> Char Counter</a></li>
+          <li><a href="/en/tools/lorem-ipsum.html" onclick="closeDrawer()"> Lorem Ipsum</a></li>
+          <li><a href="/en/tools/text-diff.html" onclick="closeDrawer()"> Text Diff</a></li>
+          <li><a href="/en/tools/duplicate-remover.html" onclick="closeDrawer()"> Duplicate Remover</a></li>
+          <li><a href="/en/tools/slug-generator.html" onclick="closeDrawer()"> Slug Generator</a></li>
+          <li><a href="/en/tools/duplicate-remover.html" onclick="closeDrawer()"> Duplicate Remover</a></li>
         </ul>
       </div>
     </div>
@@ -177,42 +175,44 @@
     <!-- Utility Tools group -->
     <div class="mob-cat-group">
       <div class="mob-cat-header" onclick="toggleMobCat(this)">
-        <span class="mch-left">⚙️ Utility Tools</span>
+        <span class="mch-left"> Utility Tools</span>
         <span class="mob-cat-arrow">›</span>
       </div>
       <div class="mob-cat-tools">
         <ul class="mobile-nav-links">
-          <li><a href="/en/tools/qr-generator.html" onclick="closeDrawer()">▣ QR Generator</a></li>
-          <li><a href="/en/tools/color-converter.html" onclick="closeDrawer()">🎨 Color Converter</a></li>
-          <li><a href="/en/tools/age-calculator.html" onclick="closeDrawer()">📅 Age Calculator</a></li>
-          <li><a href="/en/tools/unit-converter.html" onclick="closeDrawer()">📐 Unit Converter</a></li>
-          <li><a href="/en/tools/percentage-calculator.html" onclick="closeDrawer()">% Percentage Calc</a></li>
-          <li><a href="/en/tools/gst-calculator.html" onclick="closeDrawer()">💹 GST Calculator</a></li>
-          <li><a href="/en/tools/emi-calculator.html" onclick="closeDrawer()">💰 EMI Calculator</a></li>
-          <li><a href="/en/tools/password-strength.html" onclick="closeDrawer()">🔒 Password Strength</a></li>
+          <li><a href="/en/tools/qr-generator.html" onclick="closeDrawer()"> QR Generator</a></li>
+          <li><a href="/en/tools/color-converter.html" onclick="closeDrawer()"> Color Converter</a></li>
+          <li><a href="/en/tools/age-calculator.html" onclick="closeDrawer()"> Age Calculator</a></li>
+          <li><a href="/en/tools/unit-converter.html" onclick="closeDrawer()"> Unit Converter</a></li>
+          <li><a href="/en/tools/percentage-calculator.html" onclick="closeDrawer()"> Percentage Calc</a></li>
+          <li><a href="/en/tools/gst-calculator.html" onclick="closeDrawer()"> GST Calculator</a></li>
+          <li><a href="/en/tools/emi-calculator.html" onclick="closeDrawer()"> EMI Calculator</a></li>
+          <li><a href="/en/tools/password-strength.html" onclick="closeDrawer()"> Password Strength</a></li>
         </ul>
       </div>
     </div>
 
     <!-- All Tools link -->
     <ul class="mobile-nav-links">
-      <li><a href="/en/categories/all-tools.html" onclick="closeDrawer()">All Tools →</a></li>
+      <li><a href="/en/categories/all-tools.html" onclick="closeDrawer()"> All Tools →</a></li>
     </ul>
   </div>
 
   <!-- BOTTOM: Footer links -->
   <div class="mob-drawer-footer">
     <a href="/en/about.html">About</a>
-    <span class="mob-footer-sep">·</span>
+    <span class="mob-footer-sep">|</span>
     <a href="/en/blog/">Blog</a>
-    <span class="mob-footer-sep">·</span>
+    <span class="mob-footer-sep">|</span>
     <a href="/en/contact.html">Contact</a>
-    <span class="mob-footer-sep">·</span>
+    <span class="mob-footer-sep">|</span>
     <a href="/en/terms.html">Terms</a>
-        <span class="mob-footer-sep">·</span>
+    <span class="mob-footer-sep">|</span>
     <a href="/en/Privacy.html">Privacy</a>
-    <span class="mob-footer-sep">·</span>
+    <span class="mob-footer-sep">|</span>
     <a href="/en/faq.html">FAQ</a>
+    <span class="mob-footer-sep">|</span>
+    <a href="/en/sitemap.html">Sitemap</a>
   </div>
 
 </div>
