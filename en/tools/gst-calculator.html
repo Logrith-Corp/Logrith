@@ -40,6 +40,75 @@
     .slab-grid { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
     .slab-btn { padding:8px 16px; background:var(--gray-50); border:1.5px solid var(--gray-200); border-radius:8px; font-size:.86rem; font-weight:600; font-family:var(--font-display); color:var(--gray-700); cursor:pointer; transition:var(--transition); }
     .slab-btn:hover, .slab-btn.active { background:var(--primary); color:white; border-color:var(--primary); }
+
+
+    .article-section, .faq-section, .feature-section, .related-tools, .keyword-section, .howto-section {
+      max-width: 860px;
+      margin: 22px auto 0;
+      background: #fff;
+      border: 1px solid var(--gray-100);
+      border-radius: 14px;
+      padding: 22px;
+    }
+
+    .article-section h2, .faq-section h2, .feature-section h2, .related-tools h2, .keyword-section h2, .howto-section h2 {
+      margin-bottom: 14px;
+    }
+
+    .article-section p, .howto-section p {
+      margin: 0 0 12px;
+      line-height: 1.8;
+      color: var(--gray-700);
+    }
+
+    .feature-list, .keyword-list, .related-list, .howto-list {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .feature-list li, .keyword-list li, .related-list li, .howto-list li {
+      margin-bottom: 10px;
+      color: var(--gray-700);
+      line-height: 1.7;
+    }
+
+    .privacy-note {
+      max-width: 860px;
+      margin: 10px auto 0;
+      font-size: .88rem;
+      color: var(--gray-600);
+      text-align: left;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--gray-100);
+      padding: 14px 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 700;
+      color: var(--gray-800);
+      margin-bottom: 6px;
+    }
+
+    .faq-a {
+      color: var(--gray-700);
+      line-height: 1.8;
+    }
+
+    .related-list a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .related-list a:hover {
+      text-decoration: underline;
+    }
   </style>
 
   <!-- Schema: WebPage -->
@@ -69,7 +138,7 @@
           "@type": "ListItem",
           "position": 2,
           "name": "Utility Tools",
-          "item": "https://logrith.in/en/index.html#utility-tools"
+          "item": "https://logrith.in/en/index.html#utilities"
         },
         {
           "@type": "ListItem",
@@ -151,14 +220,13 @@
    gtag('js', new Date());
    gtag('config', 'G-BPJ4332XJH');
   </script>
-<meta property="og:image" content="https://logrith.in/preview.jpg">
-<meta name="twitter:image" content="https://logrith.in/preview.jpg">
+ 
 </head>
 <body>
 <div id="navbar"></div>
 
 <div class="tool-hero"><div class="tool-hero-inner">
-  <div class="tool-breadcrumb"><a href="/en/index.html">Home</a> › <a href="/en/index.html#utility-tools">Utility Tools</a> › GST Calculator</div>
+  <div class="tool-breadcrumb"><a href="/en/index.html">Home</a> › <a href="/en/index.html#utilities">Utility Tools</a> › GST Calculator</div>
   <h1>💹 Free GST Calculator Online</h1>
   <p>Calculate GST inclusive and exclusive prices instantly. Supports all Indian GST slabs — 5%, 12%, 18%, 28%. Find CGST, SGST and IGST breakdowns.</p>
   <div class="tool-tags"><span class="tool-tag">✅ Free</span><span class="tool-tag">🇮🇳 India GST Slabs</span><span class="tool-tag">⚡ Instant</span><span class="tool-tag">📊 CGST + SGST</span></div>
@@ -215,26 +283,84 @@
   </div>
 </div>
 
-<div class="faq-section">
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq-item"><div class="faq-q">What is GST Exclusive vs GST Inclusive?</div><div class="faq-a">GST Exclusive means GST is added on top of the base price. If a product costs ₹1000 with 18% GST exclusive, total = ₹1180. GST Inclusive means the price already includes GST. If price is ₹1180 inclusive at 18%, the base = ₹1000 and GST = ₹180.</div></div>
-  <div class="faq-item"><div class="faq-q">What is CGST, SGST and IGST?</div><div class="faq-a">For intra-state (within same state) transactions: GST is split equally into CGST (Central GST) and SGST (State GST). For inter-state transactions: IGST (Integrated GST) applies, which equals the full GST rate. E.g., 18% GST intra-state = 9% CGST + 9% SGST.</div></div>
-  <div class="faq-item"><div class="faq-q">Which GST slab applies to which goods?</div><div class="faq-a">0%: Essential items such as selected fresh food products. 5%: Some packaged food items and budget services. 12%: Certain processed goods and standard products. 18%: Most services, electronics, and restaurants. 28%: Luxury goods, selected automobiles, and tobacco-related items.</div></div>
-  <div class="faq-item"><div class="faq-q">How to calculate GST amount from total price?</div><div class="faq-a">If the total price is inclusive of GST: GST Amount = Total Price × GST Rate / (100 + GST Rate). E.g., Total = ₹1180, GST 18%: GST = 1180 × 18/118 = ₹180. Base price = ₹1000.</div></div>
-</div>
 
-<div class="article-section">
-  <h2>About GST in India</h2>
+<section class="howto-section">
+  <h2>How to Use Hash Generator</h2>
+ <ol class="howto-list">
+   <li>Enter your text, upload a file, or open the compare tab to paste two hashes for verification.</li>
+   <li>Click the generate or compare button, or keep real-time mode enabled for instant output while typing.</li>
+   <li>Copy the required SHA hash and use it for checksum verification, file integrity checks, development tasks, or secure comparison.</li>
+ </ol>
+</section>
+
+<section class="feature-section">
+  <h2>Why Our Hash Generator is Best</h2>
+  <ul class="feature-list">
+    <li><strong>Fast:</strong> Generates SHA-1, SHA-256, SHA-384, and SHA-512 hashes instantly in the browser.</li>
+    <li><strong>Private:</strong> Local browser-based processing means your text and files stay on your device.</li>
+    <li><strong>Free:</strong> Use the tool unlimited times without signup or installation.</li>
+    <li><strong>Practical:</strong> Supports text hashing, file hashing, one-click copy, and instant hash comparison.</li>
+    <li><strong>Useful for developers:</strong> Great for checksums, debugging, file verification, and integrity checks.</li>
+ </ul>
+</section>
+
+<section class="article-section">
+  <h2>About GST in India And Why Use Our Tool</h2>
   <p>Goods and Services Tax (GST) is an indirect tax system levied on the supply of goods and services in India. It was implemented on July 1, 2017, to replace multiple central and state taxes with a more unified taxation structure.</p>
   <p>GST in India generally follows four major slabs: 5%, 12%, 18%, and 28%. Essential goods may fall under lower or zero tax slabs, while common goods and services usually come under 12% or 18%, and luxury or sin goods may attract 28% GST.</p>
-  <p>A GST calculator helps businesses, freelancers, shop owners, students, and consumers quickly calculate tax-inclusive and tax-exclusive prices without manual errors. It is also useful for understanding how much tax is charged as CGST, SGST, or IGST depending on the type of transaction.</p>
-</div>
+  <p>A GST calculator helps businesses, freelancers, shop owners, students, and consumers quickly calculate tax-inclusive and tax-exclusive prices without manual errors. It is also useful for understanding how much tax is charged as CGST, SGST, or IGST depending on the type of transaction.</p></section>
+
+<section class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <div class="faq-q">What is GST Exclusive vs GST Inclusive?</div>
+    <div class="faq-a">GST Exclusive means GST is added on top of the base price. If a product costs ₹1000 with 18% GST exclusive, total = ₹1180. GST Inclusive means the price already includes GST. If price is ₹1180 inclusive at 18%, the base = ₹1000 and GST = ₹180.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">What is CGST, SGST and IGST?</div>
+    <div class="faq-a">For intra-state (within same state) transactions: GST is split equally into CGST (Central GST) and SGST (State GST). For inter-state transactions: IGST (Integrated GST) applies, which equals the full GST rate. E.g., 18% GST intra-state = 9% CGST + 9% SGST.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Which GST slab applies to which goods?</div>
+    <div class="faq-a">0%: Essential items such as selected fresh food products. 5%: Some packaged food items and budget services. 12%: Certain processed goods and standard products. 18%: Most services, electronics, and restaurants. 28%: Luxury goods, selected automobiles, and tobacco-related items.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">How to calculate GST amount from total price?</div>
+    <div class="faq-a">If the total price is inclusive of GST: GST Amount = Total Price × GST Rate / (100 + GST Rate). E.g., Total = ₹1180, GST 18%: GST = 1180 × 18/118 = ₹180. Base price = ₹1000.</div>
+  </div>
+</section>
 
 <!-- Related internal links -->
-<div class="article-section">
+<section class="related-tools">
   <h2>Related Tools</h2>
-  <p><a href="/en/tools/emi-calculator.html">EMI Calculator</a> · <a href="/en/tools/percentage-calculator.html">Percentage Calculator</a> · <a href="/en/tools/unit-converter.html">Unit Converter</a> · <a href="/en/tools/age-calculator.html">Age Calculator</a></p>
-</div>
+  <ul class="related-list">
+    <li><a href="/en/tools/emi-calculator.html">EMI Calculator</a></li>
+    <li><a href="/en/tools/qr-generator.html">QR Code Generator</a></li>
+    <li><a href="/en/tools/age-calculator.html">Age Calculator</a></li>
+    <li><a href="/en/tools/color-converter.html">Color Converter</a></li>
+  </ul>
+</section>
+
+<section class="keyword-section">
+  <h2>Top 10 Hash Generator Search Queries/Keywords</h2>
+  <ul class="keyword-list">
+   <li>hash generator online</li>
+   <li>free hash generator</li>
+   <li>sha 256 hash generator</li>
+   <li>sha 512 hash generator online</li>
+   <li>sha 1 generator</li>
+   <li>file hash generator</li>
+   <li>hash checker online</li>
+   <li>compare hashes online</li>
+   <li>checksum generator tool</li>
+   <li>browser hash generator</li>
+  </ul>
+</section>
+
 
 <div id="footer"></div>
 
