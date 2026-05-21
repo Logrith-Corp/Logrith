@@ -23,80 +23,80 @@
 
   <!-- CATEGORY PAGES -->
   <url>
-    <loc>https://logrith.in/en/categories/all-tools.html</loc>
+    <loc>https://logrith.in/en/categories/all-tools</loc>
     <priority>0.95</priority>
     <changefreq>weekly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/categories/calculate-convert.html</loc>
+    <loc>https://logrith.in/en/categories/calculate-convert</loc>
     <priority>0.85</priority>
     <changefreq>weekly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/categories/developer-tools.html</loc>
+    <loc>https://logrith.in/en/categories/developer-tools</loc>
     <priority>0.85</priority>
     <changefreq>weekly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/categories/text-generators.html</loc>
+    <loc>https://logrith.in/en/categories/text-generators</loc>
     <priority>0.85</priority>
     <changefreq>weekly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/categories/utilities.html</loc>
+    <loc>https://logrith.in/en/categories/utilities</loc>
     <priority>0.85</priority>
     <changefreq>weekly</changefreq>
   </url>
 
   <!-- MAIN PAGES -->
   <url>
-    <loc>https://logrith.in/en/pages/about.html</loc>
+    <loc>https://logrith.in/en/pages/about</loc>
     <priority>0.60</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/pages/business.html</loc>
+    <loc>https://logrith.in/en/pages/business</loc>
     <priority>0.60</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/pages/contact.html</loc>
+    <loc>https://logrith.in/en/pages/contact</loc>
     <priority>0.50</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/pages/faq.html</loc>
+    <loc>https://logrith.in/en/pages/faq</loc>
     <priority>0.55</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/pages/license.html</loc>
+    <loc>https://logrith.in/en/pages/license</loc>
     <priority>0.30</priority>
     <changefreq>yearly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/pages/privacy.html</loc>
+    <loc>https://logrith.in/en/pages/privacy</loc>
     <priority>0.30</priority>
     <changefreq>yearly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/pages/support.html</loc>
+    <loc>https://logrith.in/en/pages/support</loc>
     <priority>0.50</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/pages/terms.html</loc>
+    <loc>https://logrith.in/en/pages/terms</loc>
     <priority>0.30</priority>
     <changefreq>yearly</changefreq>
   </url>
@@ -104,37 +104,37 @@
   <!-- CALCULATE & CONVERT TOOLS -->
 
   <url>
-    <loc>https://logrith.in/en/tools/age-calculator.html</loc>
+    <loc>https://logrith.in/en/tools/age-calculator</loc>
     <priority>0.75</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/tools/color-converter.html</loc>
+    <loc>https://logrith.in/en/tools/color-converter</loc>
     <priority>0.75</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/tools/emi-calculator.html</loc>
+    <loc>https://logrith.in/en/tools/emi-calculator</loc>
     <priority>0.75</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/tools/gst-calculator.html</loc>
+    <loc>https://logrith.in/en/tools/gst-calculator</loc>
     <priority>0.75</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/tools/percentage-calculator.html</loc>
+    <loc>https://logrith.in/en/tools/percentage-calculator</loc>
     <priority>0.75</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/tools/unit-converter.html</loc>
+    <loc>https://logrith.in/en/tools/unit-converter</loc>
     <priority>0.75</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -142,49 +142,49 @@
   <!-- TEXT & GENERATOR TOOLS -->
 
   <url>
-    <loc>https://logrith.in/en/tools/case-converter.html</loc>
+    <loc>https://logrith.in/en/tools/case-converter</loc>
     <priority>0.75</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/tools/character-counter.html</loc>
+    <loc>https://logrith.in/en/tools/character-counter</loc>
     <priority>0.75</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/tools/duplicate-remover.html</loc>
+    <loc>https://logrith.in/en/tools/duplicate-remover</loc>
     <priority>0.70</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/tools/lorem-ipsum.html</loc>
+    <loc>https://logrith.in/en/tools/lorem-ipsum</loc>
     <priority>0.70</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/tools/qr-generator.html</loc>
+    <loc>https://logrith.in/en/tools/qr-generator</loc>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/tools/slug-generator.html</loc>
+    <loc>https://logrith.in/en/tools/slug-generator</loc>
     <priority>0.70</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/tools/text-diff.html</loc>
+    <loc>https://logrith.in/en/tools/text-diff</loc>
     <priority>0.75</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/tools/word-counter.html</loc>
+    <loc>https://logrith.in/en/tools/word-counter</loc>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -192,37 +192,37 @@
   <!-- DEVELOPER TOOLS -->
 
   <url>
-    <loc>https://logrith.in/en/tools/base64.html</loc>
+    <loc>https://logrith.in/en/tools/base64</loc>
     <priority>0.70</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/tools/hash-generator.html</loc>
+    <loc>https://logrith.in/en/tools/hash-generator</loc>
     <priority>0.70</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/tools/json-formatter.html</loc>
+    <loc>https://logrith.in/en/tools/json-formatter</loc>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/tools/regex-tester.html</loc>
+    <loc>https://logrith.in/en/tools/regex-tester</loc>
     <priority>0.70</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/tools/url-encoder.html</loc>
+    <loc>https://logrith.in/en/tools/url-encoder</loc>
     <priority>0.70</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/tools/uuid-generator.html</loc>
+    <loc>https://logrith.in/en/tools/uuid-generator</loc>
     <priority>0.70</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -230,31 +230,31 @@
   <!-- IMAGE TOOLS -->
 
   <url>
-    <loc>https://logrith.in/en/tools/image-compressor.html</loc>
+    <loc>https://logrith.in/en/tools/image-compressor</loc>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/tools/image-converter.html</loc>
+    <loc>https://logrith.in/en/tools/image-converter</loc>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/tools/image-crop.html</loc>
+    <loc>https://logrith.in/en/tools/image-crop</loc>
     <priority>0.75</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/tools/image-resize.html</loc>
+    <loc>https://logrith.in/en/tools/image-resize</loc>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/tools/image-rotate.html</loc>
+    <loc>https://logrith.in/en/tools/image-rotate</loc>
     <priority>0.75</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -262,31 +262,31 @@
   <!-- PDF TOOLS -->
 
   <url>
-    <loc>https://logrith.in/en/tools/jpg-to-pdf.html</loc>
+    <loc>https://logrith.in/en/tools/jpg-to-pdf</loc>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/tools/pdf-merge.html</loc>
+    <loc>https://logrith.in/en/tools/pdf-merge</loc>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/tools/pdf-rotate.html</loc>
+    <loc>https://logrith.in/en/tools/pdf-rotate</loc>
     <priority>0.70</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/tools/pdf-split.html</loc>
+    <loc>https://logrith.in/en/tools/pdf-split</loc>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/tools/pdf-to-jpg.html</loc>
+    <loc>https://logrith.in/en/tools/pdf-to-jpg</loc>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -294,13 +294,13 @@
   <!-- SECURITY / UTILITIES -->
 
   <url>
-    <loc>https://logrith.in/en/tools/password-generator.html</loc>
+    <loc>https://logrith.in/en/tools/password-generator</loc>
     <priority>0.75</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/tools/password-strength.html</loc>
+    <loc>https://logrith.in/en/tools/password-strength</loc>
     <priority>0.70</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -308,13 +308,13 @@
   <!-- ADVANCED / AI TOOLS -->
 
   <url>
-    <loc>https://logrith.in/en/tools/resume-analyzer.html</loc>
+    <loc>https://logrith.in/en/tools/resume-analyzer</loc>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://logrith.in/en/tools/website-speed-analyzer.html</loc>
+    <loc>https://logrith.in/en/tools/website-speed-analyzer</loc>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
