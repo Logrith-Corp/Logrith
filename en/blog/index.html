@@ -1,1140 +1,695 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>404 — Lost in Space</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logrith Blog - Free Online Tools Guide & Tips | Articles</title>
+  <meta name="description" content="Logrith Blog - Read articles, guides, and tips about free online tools. Learn how to use image converters, PDF editors, calculators, and developer utilities effectively.">
+  <meta name="keywords" content="blog, tools guide, online tools tips, image converter tutorial, pdf tools guide, developer tools, calculator guide, free online tools articles">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Logrith">
+  <link rel="canonical" href="https://logrith.in/en/blog">
+
+  <meta property="og:title" content="Logrith Blog - Free Online Tools Guide & Tips">
+  <meta property="og:description" content="Explore helpful articles and guides about Logrith tools. Learn pro tips and best practices for image, PDF, text, and developer tools.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://logrith.in/en/blog">
+  <meta property="og:site_name" content="Logrith">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Logrith Blog - Tools Guide & Tips">
+  <meta name="twitter:description" content="Read useful articles about using Logrith free online tools effectively.">
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#000000">
+  <link rel="preload" href="/assets/css/style.css" as="style">
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <!-- Blog Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Logrith Blog",
+    "description": "Articles and guides about free online tools for images, PDFs, text processing, and development",
+    "url": "https://logrith.in/en/blog",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Logrith",
+      "url": "https://logrith.in",
+      "logo": "https://logrith.in/apple-touch-icon.png"
+    }
+  }
+  </script>
+
+  <!-- Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Logrith",
+    "url": "https://logrith.in/en/",
+    "logo": "https://logrith.in/en/apple-touch-icon.png"
+  }
+  </script>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What topics does the Logrith Blog cover?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Logrith Blog covers comprehensive guides on using Logrith tools including image conversion and compression, PDF editing and manipulation, text processing, calculator usage, developer utilities, and optimization tips for all categories of tools."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How often is the blog updated with new articles?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We regularly publish new blog posts with tips, tutorials, and guides about our tools. Check back frequently to learn new techniques and best practices for maximizing your productivity."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I get step-by-step tutorials for using Logrith tools?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! Our blog includes detailed step-by-step tutorials, how-to guides, and best practices for all major tool categories. Each article provides practical examples and tips to help you use our tools effectively."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are there guides for beginners?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely! We publish beginner-friendly guides that explain how to use each tool category. Whether you're new to online tools or looking to improve your skills, our blog has content for all levels."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I suggest topics for blog posts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We'd love to hear your suggestions! Feel free to reach out through our contact page with topics you'd like us to cover in future blog posts."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPJ4332XJH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BPJ4332XJH');
+  </script>
+
 <style>
-:root{
-  --blue:#2563eb;
-  --blue2:#3b82f6;
-  --blue3:#60a5fa;
-  --bluel:#dbeafe;
-  --bluell:#eff6ff;
-  --white:#ffffff;
-  --ink:#0c1a2e;
-  --ink2:#1e3a5f;
-  --muted:#64748b;
-  --border:#bfdbfe;
-  --border2:#e2e8f0;
-  --bg:#f0f7ff;
-  --card:#ffffff;
-  --shadow:0 14px 40px rgba(37,99,235,.10);
-  --shadow2:0 8px 24px rgba(37,99,235,.08);
-}
-
-*,
-*::before,
-*::after{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html,body{
-  min-height:100%;
-  font-family:'Instrument Sans',sans-serif;
-  background:var(--bg);
-  color:var(--ink);
-  overflow-x:hidden;
-}
-
-body{
-  position:relative;
-}
-
-button,a{
-  -webkit-tap-highlight-color:transparent;
-}
-
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-/* background */
-.bg{
-  position:fixed;
-  inset:0;
-  z-index:0;
-  pointer-events:none;
-  overflow:hidden;
-}
-.bg-grid{
-  position:absolute;
-  inset:0;
-  background-image:
-    linear-gradient(rgba(59,130,246,.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(59,130,246,.05) 1px, transparent 1px);
-  background-size:44px 44px;
-}
-.bb{
-  position:absolute;
-  border-radius:50%;
-  filter:blur(80px);
-}
-.b1{
-  width:500px;
-  height:500px;
-  background:#bfdbfe;
-  opacity:.5;
-  top:-160px;
-  left:-150px;
-  animation:bf 11s ease-in-out infinite;
-}
-.b2{
-  width:380px;
-  height:380px;
-  background:#e0f2fe;
-  opacity:.5;
-  bottom:-100px;
-  right:-80px;
-  animation:bf 14s ease-in-out infinite reverse;
-}
-.b3{
-  width:220px;
-  height:220px;
-  background:#dbeafe;
-  opacity:.4;
-  top:42%;
-  left:55%;
-  animation:bf 8s ease-in-out infinite;
-}
-@keyframes bf{
-  0%,100%{transform:translate(0,0)}
-  50%{transform:translate(22px,-22px)}
-}
-
-/* page */
-.page{
-  position:relative;
-  z-index:1;
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  padding:32px 20px 40px;
-  text-align:center;
-}
-
-/* pill */
-.pill{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  background:var(--white);
-  border:1px solid var(--border);
-  border-radius:999px;
-  padding:6px 16px 6px 7px;
-  font-size:12px;
-  font-weight:600;
-  color:var(--ink2);
-  letter-spacing:.25px;
-  margin-bottom:28px;
-  box-shadow:var(--shadow2);
-  animation:fadeDown .5s ease both;
-}
-.pdot{
-  width:24px;
-  height:24px;
-  border-radius:50%;
-  background:var(--bluel);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-shrink:0;
-}
-.pdot i{
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:var(--blue2);
-  display:block;
-  animation:blink 1.3s ease-in-out infinite;
-}
-@keyframes blink{
-  0%,100%{opacity:1;transform:scale(1)}
-  50%{opacity:.2;transform:scale(.65)}
-}
-
-/* hero */
-.hero{
-  position:relative;
-  margin-bottom:6px;
-  line-height:1;
-  animation:fadeUp .55s ease .08s both;
-}
-.n-shadow,
-.n-main{
-  font-family:'Bebas Neue',cursive;
-  font-size:clamp(120px,28vw,210px);
-  letter-spacing:8px;
-  user-select:none;
-}
-.n-shadow{
-  color:transparent;
-  -webkit-text-stroke:2px #bfdbfe;
-  position:absolute;
-  inset:0;
-  transform:translate(6px,6px);
-  pointer-events:none;
-}
-.n-main{
-  color:var(--blue2);
-  position:relative;
-  z-index:1;
-  text-shadow:0 3px 0 #bfdbfe;
-}
-
-.strip{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  margin-bottom:18px;
-  animation:fadeUp .55s ease .14s both;
-}
-.sline{
-  width:32px;
-  height:1px;
-  background:var(--border);
-}
-.stext{
-  font-family:'Instrument Serif',serif;
-  font-style:italic;
-  font-size:15px;
-  color:var(--muted);
-  letter-spacing:.5px;
-}
-
-/* heading */
-.h1{
-  font-family:'Instrument Sans',sans-serif;
-  font-size:clamp(24px,5vw,34px);
-  font-weight:700;
-  color:var(--ink);
-  line-height:1.2;
-  margin-bottom:12px;
-  letter-spacing:-.5px;
-  animation:fadeUp .55s ease .20s both;
-}
-.h1 em{
-  font-family:'Instrument Serif',serif;
-  font-style:italic;
-  font-weight:400;
-  color:var(--blue);
-}
-
-.sub{
-  font-size:15px;
-  color:var(--muted);
-  max-width:340px;
-  line-height:1.7;
-  margin-bottom:28px;
-  animation:fadeUp .55s ease .25s both;
-}
-
-/* card */
-.gc{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:24px;
-  padding:20px;
-  max-width:360px;
-  width:100%;
-  margin-bottom:18px;
-  box-shadow:var(--shadow);
-  animation:fadeUp .55s ease .31s both;
-  position:relative;
-  overflow:hidden;
-  backdrop-filter:blur(8px);
-}
-.gc::before{
-  content:'';
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  height:3px;
-  background:linear-gradient(90deg,#2563eb,#60a5fa,#bae6fd);
-}
-.gc-row{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  margin-bottom:12px;
-  text-align:left;
-}
-.gc-ico{
-  width:44px;
-  height:44px;
-  border-radius:14px;
-  background:var(--bluell);
-  border:1px solid var(--bluel);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:20px;
-  flex-shrink:0;
-}
-.gc-eye{
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:2px;
-  color:var(--blue2);
-  text-transform:uppercase;
-  margin-bottom:4px;
-}
-.gc-name{
-  font-size:16px;
-  font-weight:700;
-  color:var(--ink);
-  line-height:1.25;
-}
-.gc-desc{
-  font-size:13px;
-  color:var(--muted);
-  line-height:1.65;
-  margin-bottom:16px;
-  border-left:2px solid var(--bluel);
-  padding-left:12px;
-  text-align:left;
-}
-
-.btn-play{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  background:var(--blue);
-  color:#fff;
-  border:none;
-  border-radius:14px;
-  padding:13px 18px;
-  font-family:'Instrument Sans',sans-serif;
-  font-size:13px;
-  font-weight:700;
-  cursor:pointer;
-  width:100%;
-  transition:transform .15s, background .15s, box-shadow .15s;
-  box-shadow:0 10px 24px rgba(37,99,235,.24);
-}
-.btn-play:hover{
-  background:#1d4ed8;
-  transform:translateY(-1px);
-  box-shadow:0 12px 28px rgba(37,99,235,.28);
-}
-.btn-play:active{
-  transform:translateY(1px);
-  box-shadow:none;
-}
-.pio{
-  width:26px;
-  height:26px;
-  border-radius:8px;
-  background:rgba(255,255,255,.18);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.pio svg{
-  width:12px;
-  height:12px;
-  fill:#fff;
-  margin-left:2px;
-}
-
-/* links */
-.btns{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  width:100%;
-  max-width:320px;
-  animation:fadeUp .55s ease .38s both;
-}
-.btn-h,
-.btn-c{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  border-radius:14px;
-  padding:12px 18px;
-  font-family:'Instrument Sans',sans-serif;
-  font-size:13px;
-  font-weight:700;
-  cursor:pointer;
-  transition:all .15s;
-}
-.btn-h{
-  background:var(--white);
-  color:var(--ink2);
-  border:1px solid var(--border);
-  box-shadow:0 1px 10px rgba(37,99,235,.05);
-}
-.btn-h:hover{
-  background:var(--bluell);
-  border-color:var(--blue3);
-}
-.btn-c{
-  background:transparent;
-  color:var(--muted);
-  border:1px solid var(--border2);
-}
-.btn-c:hover{
-  color:var(--blue);
-  border-color:var(--border);
-  background:var(--bluell);
-}
-
-.foot{
-  margin-top:24px;
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  animation:fadeUp .55s ease .44s both;
-}
-.fdot{
-  width:3px;
-  height:3px;
-  border-radius:50%;
-  background:#cbd5e1;
-}
-.fnote{
-  font-size:11px;
-  color:#94a3b8;
-  letter-spacing:.3px;
-}
-
-/* overlay */
-.g-ov{
-  display:none;
-  position:fixed;
-  inset:0;
-  z-index:200;
-  background:rgba(10,20,40,.72);
-  backdrop-filter:blur(10px);
-  align-items:center;
-  justify-content:center;
-  padding:14px;
-}
-.g-ov.open{
-  display:flex;
-  animation:fadeIn .2s ease both;
-}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.gm{
-  background:#080f1a;
-  border:1px solid #172d4d;
-  border-radius:24px;
-  width:100%;
-  max-width:420px;
-  max-height:92vh;
-  overflow-y:auto;
-  padding:16px 14px 18px;
-  position:relative;
-  box-shadow:0 32px 80px rgba(0,0,0,.65);
-  animation:modalIn .28s cubic-bezier(.34,1.4,.64,1) both;
-}
-@keyframes modalIn{
-  from{transform:scale(.87) translateY(14px);opacity:0}
-  to{transform:scale(1) translateY(0);opacity:1}
-}
-.gm::before{
-  content:'';
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  height:2px;
-  background:linear-gradient(90deg,#2563eb,#60a5fa,#93c5fd);
-  border-radius:24px 24px 0 0;
-}
-.gh{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:13px;
-}
-.gl{
-  font-size:9px;
-  font-weight:700;
-  letter-spacing:2.5px;
-  color:#3b82f6;
-  text-transform:uppercase;
-  margin-bottom:2px;
-}
-.gt{
-  font-family:'Bebas Neue',cursive;
-  font-size:22px;
-  letter-spacing:2px;
-  color:#e2e8f0;
-  line-height:1;
-}
-.bx{
-  width:32px;
-  height:32px;
-  border-radius:10px;
-  background:#111c2b;
-  border:1px solid #1e3554;
-  color:#5a7090;
-  font-size:15px;
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transition:all .15s;
-}
-.bx:hover{
-  background:#1a2d42;
-  color:#e2e8f0;
-}
-.gst{
-  display:flex;
-  gap:6px;
-  margin-bottom:10px;
-}
-.gch{
-  flex:1;
-  background:#0c1624;
-  border:1px solid #172d4d;
-  border-radius:10px;
-  padding:7px 3px;
-  text-align:center;
-}
-.gcl{
-  font-size:8px;
-  color:#3d5a80;
-  letter-spacing:1.5px;
-  text-transform:uppercase;
-}
-.gcv{
-  font-family:'Bebas Neue',cursive;
-  font-size:18px;
-  color:#dce9f5;
-  line-height:1.15;
-  letter-spacing:1px;
-}
-.gdf{
-  display:flex;
-  gap:6px;
-  margin-bottom:10px;
-}
-.gdb{
-  flex:1;
-  background:#0c1624;
-  border:1px solid #172d4d;
-  border-radius:10px;
-  padding:7px 3px;
-  font-size:9px;
-  color:#3d5a80;
-  letter-spacing:.5px;
-  cursor:pointer;
-  font-family:'Instrument Sans',sans-serif;
-  font-weight:700;
-  transition:all .15s;
-  text-transform:uppercase;
-  text-align:center;
-}
-.gdb.on,.gdb:hover{
-  border-color:#2563eb;
-  color:#60a5fa;
-  background:#0c1e35;
-}
-.gsv{
-  background:#0c1624;
-  border:1px solid #172d4d;
-  border-radius:10px;
-  padding:9px 10px;
-  display:flex;
-  align-items:center;
-  gap:7px;
-  margin-bottom:10px;
-  min-height:42px;
-}
-.gmsg{
-  flex:1;
-  font-size:10.5px;
-  color:#5a7090;
-  line-height:1.45;
-}
-.gmsg strong{color:#60a5fa}
-.gmsg .er{font-size:15px;vertical-align:middle}
-.gbh,
-.gba{
-  border-radius:8px;
-  padding:6px 10px;
-  font-size:9px;
-  font-weight:800;
-  letter-spacing:.6px;
-  cursor:pointer;
-  white-space:nowrap;
-  font-family:inherit;
-  transition:all .15s;
-  text-transform:uppercase;
-}
-.gbh{
-  background:#2563eb;
-  color:#fff;
-  border:none;
-}
-.gbh:hover{background:#1d4ed8}
-.gbh:disabled{
-  background:#172d4d;
-  color:#3d5a80;
-  cursor:not-allowed;
-}
-.gba{
-  background:transparent;
-  color:#60a5fa;
-  border:1px solid #2563eb;
-}
-.gba:hover{background:#0c1e35}
-.gba:disabled{
-  opacity:.3;
-  cursor:not-allowed;
-}
-.gg{
-  width:100%;
-  display:grid;
-  gap:6px;
-  margin-bottom:10px;
-}
-.gcw{perspective:650px}
-.gci{
-  width:100%;
-  padding-bottom:100%;
-  position:relative;
-  transform-style:preserve-3d;
-  transition:transform .36s cubic-bezier(.4,0,.2,1);
-  cursor:pointer;
-}
-.gci.fl,.gci.dn{transform:rotateY(180deg)}
-.gcf{
-  position:absolute;
-  inset:0;
-  border-radius:10px;
-  backface-visibility:hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border:1px solid #172d4d;
-  user-select:none;
-}
-.g-bk{background:#0c1624}
-.gbkp{
-  width:58%;
-  height:58%;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:2px;
-  opacity:.15;
-}
-.gbkp div{
-  background:#3b82f6;
-  border-radius:1px;
-}
-.g-fr{
-  background:#111c2b;
-  transform:rotateY(180deg);
-  font-size:19px;
-  border-color:#1a2d44;
-  transition:border-color .2s,background .2s;
-}
-.g-fr.hit{
-  border-color:#2563eb;
-  background:#0a1a30;
-}
-.g-fr.hs{
-  border-color:#fbbf24!important;
-  background:#18130a!important;
-  animation:hp .55s ease-in-out infinite;
-}
-@keyframes hp{
-  0%,100%{box-shadow:0 0 0 2px #fbbf2440}
-  50%{box-shadow:0 0 0 6px #fbbf2480}
-}
-.gck{
-  position:absolute;
-  bottom:3px;
-  right:4px;
-  font-size:8.5px;
-  color:#3b82f6;
-  display:none;
-}
-.hit .gck{display:block}
-
-.gpr{
-  height:3px;
-  background:#0c1624;
-  border-radius:2px;
-  overflow:hidden;
-}
-.gpf{
-  height:100%;
-  background:linear-gradient(90deg,#2563eb,#60a5fa);
-  border-radius:2px;
-  transition:width .4s;
-}
-
-/* win */
-.ww{
-  display:none;
-  position:absolute;
-  inset:0;
-  background:rgba(8,15,26,.93);
-  border-radius:24px;
-  align-items:center;
-  justify-content:center;
-  z-index:50;
-  padding:14px;
-}
-.ww.show{
-  display:flex;
-  animation:fadeIn .2s ease both;
-}
-.wb{
-  background:#0c1624;
-  border:1px solid #2563eb;
-  border-radius:18px;
-  padding:22px 20px;
-  text-align:center;
-  width:100%;
-  max-width:300px;
-}
-.wst{
-  font-size:22px;
-  letter-spacing:5px;
-  margin-bottom:7px;
-}
-.wti{
-  font-family:'Bebas Neue',cursive;
-  font-size:26px;
-  letter-spacing:3px;
-  color:#e2e8f0;
-  margin-bottom:2px;
-}
-.wsu{
-  font-size:9px;
-  color:#3d5a80;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  margin-bottom:14px;
-}
-.wgr{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:7px;
-  margin-bottom:16px;
-}
-.wsc{
-  background:#111c2b;
-  border-radius:9px;
-  padding:9px 7px;
-}
-.wsl{
-  font-size:8px;
-  color:#3d5a80;
-  letter-spacing:1px;
-  text-transform:uppercase;
-}
-.wsv{
-  font-family:'Bebas Neue',cursive;
-  font-size:21px;
-  color:#60a5fa;
-  line-height:1.1;
-  letter-spacing:1px;
-}
-.bta{
-  background:#2563eb;
-  color:#fff;
-  border:none;
-  border-radius:10px;
-  padding:10px 22px;
-  font-size:12px;
-  font-weight:700;
-  cursor:pointer;
-  font-family:inherit;
-  width:100%;
-  transition:background .15s;
-  letter-spacing:.2px;
-}
-.bta:hover{background:#1d4ed8}
-
-/* animations */
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(15px)}
-  to{opacity:1;transform:translateY(0)}
-}
-@keyframes fadeDown{
-  from{opacity:0;transform:translateY(-12px)}
-  to{opacity:1;transform:translateY(0)}
-}
-
-/* responsive */
-@media (max-width:480px){
-  .page{
-    padding:24px 16px 32px;
-    justify-content:flex-start;
-    padding-top:52px;
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
   }
-  .pill{
-    margin-bottom:22px;
-  }
-  .n-shadow,
-  .n-main{
-    font-size:clamp(96px,34vw,150px);
-    letter-spacing:5px;
-  }
-  .sub{
-    max-width:300px;
-    margin-bottom:24px;
-  }
-  .gc{
-    max-width:100%;
-    border-radius:22px;
-    padding:18px;
-  }
-  .btns{
-    max-width:100%;
-  }
-  .foot{
-    margin-top:20px;
-    gap:6px;
-  }
-  .fnote{
-    text-align:center;
-    line-height:1.4;
-  }
-}
 
-@media (prefers-reduced-motion: reduce){
-  *,
-  *::before,
-  *::after{
-    animation:none !important;
-    transition:none !important;
-    scroll-behavior:auto !important;
+  .blog-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
-}
+
+  .blog-card:hover {
+    border-color: var(--blue-500);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12);
+    transform: translateY(-4px);
+  }
+
+  .blog-thumbnail {
+    width: 100%;
+    height: 180px;
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: var(--blue-500);
+    overflow: hidden;
+  }
+
+  .blog-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .blog-category {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--gray-100);
+    color: var(--blue-600);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: fit-content;
+    margin-bottom: 10px;
+  }
+
+  .blog-category svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .blog-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .blog-excerpt {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    line-height: 1.6;
+    margin-bottom: 12px;
+    flex-grow: 1;
+  }
+
+  .blog-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+    border-top: 1px solid var(--gray-100);
+    font-size: 0.8rem;
+    color: var(--gray-500);
+  }
+
+  .blog-date {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .blog-date svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .blog-read-time {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .blog-read-time svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .blog-filter {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    padding: 8px 16px;
+    border: 1px solid var(--gray-300);
+    background: var(--white);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--gray-700);
+  }
+
+  .filter-btn:hover,
+  .filter-btn.active {
+    border-color: var(--blue-500);
+    background: var(--blue-50);
+    color: var(--blue-600);
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  .empty-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+  }
+
+  .empty-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 8px;
+  }
+
+  .empty-text {
+    color: var(--gray-600);
+    font-size: 0.95rem;
+  }
+
+  .coming-soon {
+    background: var(--gray-50);
+    border: 2px dashed var(--gray-300);
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+  }
+
+  .coming-soon-icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+  }
+
+  .coming-soon-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 8px;
+  }
+
+  .coming-soon-text {
+    color: var(--gray-600);
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 768px) {
+    .blog-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 16px;
+    }
+
+    .blog-filter {
+      gap: 8px;
+    }
+
+    .filter-btn {
+      padding: 6px 12px;
+      font-size: 0.85rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .blog-thumbnail {
+      height: 150px;
+      font-size: 2rem;
+    }
+
+    .blog-title {
+      font-size: 1rem;
+    }
+
+    .blog-excerpt {
+      font-size: 0.85rem;
+    }
+  }
+
+  .about-blog {
+    background: var(--gray-50);
+    border-radius: 12px;
+    padding: 32px;
+    margin: 40px 0;
+  }
+
+  .about-blog h2 {
+    color: var(--gray-900);
+    margin-bottom: 16px;
+    font-size: 1.3rem;
+  }
+
+  .about-blog p {
+    color: var(--gray-700);
+    line-height: 1.8;
+    margin-bottom: 16px;
+    font-size: 1rem;
+  }
 </style>
- 
 </head>
 <body>
 
-<div class="bg">
-  <div class="bg-grid"></div>
-  <div class="bb b1"></div>
-  <div class="bb b2"></div>
-  <div class="bb b3"></div>
-</div>
+<!-- NAVBAR -->
+<div id="navbar"></div>
 
-<div class="page">
-  <div class="pill">
-    <div class="pdot"><i></i></div>
-    You’ve landed on a page that doesn’t exist
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Learn and Master Online Tools</div>
+    <h1>Logrith<br><span>Blog</span></h1>
+    <p>Read helpful guides, tutorials, and tips to maximize the power of free online tools. From image editing to development.</p>
   </div>
+</section>
 
-  <div class="hero">
-    <div class="n-shadow">404</div>
-    <div class="n-main">404</div>
-  </div>
-
-  <div class="strip">
-    <div class="sline"></div>
-    <div class="stext">page not found</div>
-    <div class="sline"></div>
-  </div>
-
-  <h1 class="h1">Looks like you’re <em>lost.</em></h1>
-  <p class="sub">The URL you visited doesn’t exist on our server. The link may be broken, expired, or mistyped.</p>
-
-  <div class="gc">
-    <div class="gc-row">
-      <div class="gc-ico">🧩</div>
-      <div>
-        <div class="gc-eye">While you’re here</div>
-        <div class="gc-name">Memory Puzzle Challenge</div>
-      </div>
+<!-- BLOG SECTION -->
+<section class="section" style="background: var(--white);">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2>Latest Articles & Guides</h2>
+      <p>Explore tutorials and tips for using Logrith tools effectively</p>
     </div>
-    <p class="gc-desc">Flip cards and find matching pairs. Stuck? Use AI Solver to watch it get solved automatically.</p>
-    <button class="btn-play" onclick="openGame()">
-      <div class="pio">
-        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-      Play Puzzle Game
-    </button>
-  </div>
 
-  <div class="btns">
-    <a href="/" class="btn-h">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      Back to Home
-    </a>
-    <a href=" /en/pages/contact" class="btn-c">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
-      Contact Page
-    </a>
-  </div>
+    <!-- FILTER BUTTONS -->
+    <div class="blog-filter">
+      <button class="filter-btn active" onclick="filterBlog('all')">All Articles</button>
+      <button class="filter-btn" onclick="filterBlog('image')">Image Tools</button>
+      <button class="filter-btn" onclick="filterBlog('pdf')">PDF Tools</button>
+      <button class="filter-btn" onclick="filterBlog('text')">Text Tools</button>
+      <button class="filter-btn" onclick="filterBlog('developer')">Developer</button>
+      <button class="filter-btn" onclick="filterBlog('tips')">Tips & Tricks</button>
+    </div>
 
-  <div class="foot">
-    <span class="fnote">Error 404</span>
-    <div class="fdot"></div>
-    <span class="fnote">Page not found</span>
-    <div class="fdot"></div>
-    <span class="fnote">Check the URL and try again</span>
-  </div>
-</div>
-
-<!-- GAME OVERLAY -->
-<div class="g-ov" id="gOv" onclick="bgC(event)">
-  <div class="gm" id="gMod">
-    <div class="ww" id="ww">
-      <div class="wb">
-        <div class="wst" id="wSt">★★★</div>
-        <div class="wti">SOLVED!</div>
-        <div class="wsu">Puzzle Complete</div>
-        <div class="wgr">
-          <div class="wsc"><div class="wsl">Moves</div><div class="wsv" id="wM">0</div></div>
-          <div class="wsc"><div class="wsl">Time</div><div class="wsv" id="wT">0:00</div></div>
-          <div class="wsc"><div class="wsl">Hints</div><div class="wsv" id="wH">0</div></div>
-          <div class="wsc"><div class="wsl">Score</div><div class="wsv" id="wS">0</div></div>
+    <!-- BLOG GRID -->
+    <div class="blog-grid" id="blogGrid">
+      
+      <!-- BLOG CARD 1: Image Compression Guide -->
+      <a href="/en/blog/image-compression-guide" class="blog-card" data-category="image">
+        <div class="blog-thumbnail">
+          <svg style="width: 3rem; height: 3rem;"><use href="/assets/svg/icons.svg#compress-img"></use></svg>
         </div>
-        <button class="bta" onclick="again()">Play Again</button>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#image"></use></svg>
+            Image Tools
+          </span>
+          <h3 class="blog-title">Complete Guide to Image Compression Without Quality Loss</h3>
+          <p class="blog-excerpt">Learn how to reduce image file sizes while maintaining visual quality. Perfect for web optimization and storage efficiency.</p>
+          <div class="blog-meta">
+            <span class="blog-date">
+              <svg><use href="/assets/svg/icons.svg#calendar"></use></svg>
+              May 24, 2026
+            </span>
+            <span class="blog-read-time">
+              <svg><use href="/assets/svg/icons.svg#clock"></use></svg>
+              5 min
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- BLOG CARD 2: PDF Merge Tips -->
+      <a href="/en/blog/pdf-merge-guide" class="blog-card" data-category="pdf">
+        <div class="blog-thumbnail">
+          <svg style="width: 3rem; height: 3rem;"><use href="/assets/svg/icons.svg#pages"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#pdf"></use></svg>
+            PDF Tools
+          </span>
+          <h3 class="blog-title">How to Merge Multiple PDFs Efficiently</h3>
+          <p class="blog-excerpt">Master the art of combining multiple PDF documents into one organized file. Best practices for document management.</p>
+          <div class="blog-meta">
+            <span class="blog-date">
+              <svg><use href="/assets/svg/icons.svg#calendar"></use></svg>
+              May 22, 2026
+            </span>
+            <span class="blog-read-time">
+              <svg><use href="/assets/svg/icons.svg#clock"></use></svg>
+              4 min
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- BLOG CARD 3: Password Generator Best Practices -->
+      <a href="/en/blog/password-generator-tips" class="blog-card" data-category="tips">
+        <div class="blog-thumbnail">
+          <svg style="width: 3rem; height: 3rem;"><use href="/assets/svg/icons.svg#key"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#lock"></use></svg>
+            Security Tips
+          </span>
+          <h3 class="blog-title">Creating Strong Passwords: A Comprehensive Guide</h3>
+          <p class="blog-excerpt">Understand why strong passwords matter and how to generate secure credentials that protect your online accounts.</p>
+          <div class="blog-meta">
+            <span class="blog-date">
+              <svg><use href="/assets/svg/icons.svg#calendar"></use></svg>
+              May 20, 2026
+            </span>
+            <span class="blog-read-time">
+              <svg><use href="/assets/svg/icons.svg#clock"></use></svg>
+              6 min
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- BLOG CARD 4: JSON Formatting for Developers -->
+      <a href="/en/blog/json-formatting-guide" class="blog-card" data-category="developer">
+        <div class="blog-thumbnail">
+          <svg style="width: 3rem; height: 3rem;"><use href="/assets/svg/icons.svg#json"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#code"></use></svg>
+            Developer Tools
+          </span>
+          <h3 class="blog-title">JSON Formatting and Validation for Developers</h3>
+          <p class="blog-excerpt">Learn how to properly format JSON data, validate syntax, and debug JSON errors quickly using our formatter tool.</p>
+          <div class="blog-meta">
+            <span class="blog-date">
+              <svg><use href="/assets/svg/icons.svg#calendar"></use></svg>
+              May 18, 2026
+            </span>
+            <span class="blog-read-time">
+              <svg><use href="/assets/svg/icons.svg#clock"></use></svg>
+              7 min
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- BLOG CARD 5: Text Processing Tips -->
+      <a href="/en/blog/text-processing-tips" class="blog-card" data-category="text">
+        <div class="blog-thumbnail">
+          <svg style="width: 3rem; height: 3rem;"><use href="/assets/svg/icons.svg#case"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#edit"></use></svg>
+            Text Tools
+          </span>
+          <h3 class="blog-title">Master Text Formatting: Case Conversion & Cleanup</h3>
+          <p class="blog-excerpt">Discover techniques for transforming text between different cases, removing duplicates, and cleaning up content efficiently.</p>
+          <div class="blog-meta">
+            <span class="blog-date">
+              <svg><use href="/assets/svg/icons.svg#calendar"></use></svg>
+              May 16, 2026
+            </span>
+            <span class="blog-read-time">
+              <svg><use href="/assets/svg/icons.svg#clock"></use></svg>
+              5 min
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- BLOG CARD 6: URL Encoding Explained -->
+      <a href="/en/blog/url-encoding-guide" class="blog-card" data-category="developer">
+        <div class="blog-thumbnail">
+          <svg style="width: 3rem; height: 3rem;"><use href="/assets/svg/icons.svg#link"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#code"></use></svg>
+            Developer Tools
+          </span>
+          <h3 class="blog-title">Understanding URL Encoding and Decoding</h3>
+          <p class="blog-excerpt">Learn how URL encoding works, why it's necessary, and how to properly encode and decode URLs for web applications.</p>
+          <div class="blog-meta">
+            <span class="blog-date">
+              <svg><use href="/assets/svg/icons.svg#calendar"></use></svg>
+              May 14, 2026
+            </span>
+            <span class="blog-read-time">
+              <svg><use href="/assets/svg/icons.svg#clock"></use></svg>
+              6 min
+            </span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- COMING SOON SECTION -->
+    <div style="margin-top: 40px;">
+      <div class="coming-soon">
+        <div class="coming-soon-icon">
+          <svg style="width: 2.5rem; height: 2.5rem;"><use href="/assets/svg/icons.svg#rocket"></use></svg>
+        </div>
+        <h3 class="coming-soon-title">More Articles Coming Soon</h3>
+        <p class="coming-soon-text">We're constantly creating new guides and tutorials. Stay tuned for in-depth content about all Logrith tools and best practices.</p>
       </div>
     </div>
 
-    <div class="gh">
-      <div><div class="gl">Puzzle Game</div><div class="gt">LOGRI MEMORY</div></div>
-      <button class="bx" onclick="closeGame()">✕</button>
-    </div>
-
-    <div class="gst">
-      <div class="gch"><div class="gcl">Moves</div><div class="gcv" id="gM">0</div></div>
-      <div class="gch"><div class="gcl">Time</div><div class="gcv" id="gTi">0:00</div></div>
-      <div class="gch"><div class="gcl">Hints</div><div class="gcv" id="gH">3</div></div>
-    </div>
-
-    <div class="gdf">
-      <button class="gdb on" onclick="sDiff(4,4,this)">4×4 Easy</button>
-      <button class="gdb" onclick="sDiff(5,4,this)">5×4 Medium</button>
-      <button class="gdb" onclick="sDiff(6,5,this)">6×5 Hard</button>
-    </div>
-
-    <div class="gsv">
-      <div class="gmsg" id="gMsg">Flip cards to find matching pairs. Use <strong>Hint</strong> or <strong>Auto</strong>!</div>
-      <button class="gbh" id="gBH" onclick="hint()">Hint</button>
-      <button class="gba" id="gBA" onclick="autoS()">Auto</button>
-    </div>
-
-    <div class="gg" id="gG"></div>
-    <div class="gpr"><div class="gpf" id="gPr" style="width:0%"></div></div>
   </div>
-</div>
+</section>
+
+<!-- ABOUT BLOG SECTION -->
+<section class="section" style="background: var(--gray-50);">
+  <div class="section-inner" style="max-width: 900px; margin: 0 auto;">
+    <div class="section-header">
+      <h2>About the Logrith Blog</h2>
+      <p>Your resource for learning and mastering free online tools</p>
+    </div>
+
+    <div class="about-blog" style="background: var(--white); border: 1px solid var(--gray-200);">
+      <h3 style="color: var(--gray-900); margin-bottom: 16px; font-size: 1.2rem;">Why We Created the Blog</h3>
+      
+      <p>The Logrith Blog exists to help you get the most out of our tools. Whether you're a beginner just discovering online tools or an experienced developer looking for optimization techniques, our blog provides comprehensive guides, tutorials, and tips to enhance your productivity.</p>
+
+      <p><strong>Comprehensive Tool Guides:</strong> Each tool category has dedicated guides explaining features, use cases, and best practices. From image compression to PDF manipulation, from text processing to JSON formatting, you'll find detailed instructions and pro tips.</p>
+
+      <p><strong>Step-by-Step Tutorials:</strong> We break down complex processes into simple, easy-to-follow steps. Whether you're converting an image format, merging PDFs, or generating secure passwords, our tutorials walk you through everything.</p>
+
+      <p><strong>Best Practices and Tips:</strong> Learn industry-standard practices for document management, image optimization, code formatting, and security. Our tips help you work smarter, not harder.</p>
+
+      <p><strong>Regular Updates:</strong> New articles are published regularly covering new tools, emerging techniques, and reader requests. Subscribe to stay informed about the latest content.</p>
+
+      <h3 style="color: var(--gray-900); margin-bottom: 16px; margin-top: 24px; font-size: 1.2rem;">What You'll Find Here</h3>
+      
+      <p><strong>Image Tools Guides:</strong> Master image compression without quality loss, convert between formats, resize images for different purposes, and optimize visual content for web and print.</p>
+
+      <p><strong>PDF Tools Tutorials:</strong> Learn to merge multiple PDFs, split large documents, convert images to PDF, extract pages, and rotate documents efficiently.</p>
+
+      <p><strong>Text Processing Tips:</strong> Discover techniques for word counting, case conversion, text comparison, slug generation, QR code creation, and more.</p>
+
+      <p><strong>Developer Resources:</strong> Find guides on JSON formatting, Base64 encoding/decoding, URL encoding, hash generation, UUID creation, and regex testing.</p>
+
+      <p><strong>Calculator Guides:</strong> Understand how to use percentage calculators, GST calculations, and EMI calculations for financial planning.</p>
+
+      <p><strong>Security and Best Practices:</strong> Learn about password security, strength checking, and other important digital safety practices.</p>
+
+      <h3 style="color: var(--gray-900); margin-bottom: 16px; margin-top: 24px; font-size: 1.2rem;">How to Use the Blog</h3>
+      
+      <p>You can browse all articles, filter by category, or search for specific topics. Each article includes reading time estimates so you know how long it will take. Articles include practical examples, screenshots, and actionable tips you can apply immediately.</p>
+
+      <p>Whether you have a specific question about a tool or want to explore new techniques, the Logrith Blog is your trusted resource for learning and mastery. Happy reading!</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ SECTION -->
+<section class="section" style="background: var(--white);">
+  <div class="section-inner" style="max-width: 860px; margin: 0 auto;">
+    <div class="section-header">
+      <h2>Blog FAQ</h2>
+      <p>Frequently asked questions about the Logrith Blog</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">What topics does the blog cover?</div>
+      <div class="faq-a">Our blog covers comprehensive guides for all Logrith tools including image conversion and compression, PDF editing, text processing, calculators, developer utilities, and general best practices for productivity and security.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How often are new articles published?</div>
+      <div class="faq-a">We regularly publish new articles with guides, tutorials, and tips. New content is added frequently, so check back regularly or watch for updates on new topics and tools.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Are the articles suitable for beginners?</div>
+      <div class="faq-a">Yes! We publish content for all skill levels. Beginners will find easy-to-follow tutorials and explanations, while advanced users can find pro tips and optimization techniques.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Can I find step-by-step instructions?</div>
+      <div class="faq-a">Absolutely. Our tutorials break down complex processes into simple, numbered steps. Each article includes clear instructions and practical examples you can follow along with.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How long are the blog articles?</div>
+      <div class="faq-a">Each article includes a reading time estimate. Most articles take 4-7 minutes to read and provide comprehensive information without unnecessary length.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Can I share blog articles?</div>
+      <div class="faq-a">Yes! All articles are designed to be shared. You can share individual article links with friends, colleagues, and on social media to help others learn about using online tools effectively.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Can I suggest blog topics?</div>
+      <div class="faq-a">We'd love to hear your suggestions! Contact us through the contact page with topics you'd like us to cover. Your feedback helps us create content that's most useful for our readers.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Are there video tutorials?</div>
+      <div class="faq-a">Currently our blog features written guides with detailed instructions. As we grow, we plan to add video tutorials to accompany our articles. Stay tuned!</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Can I search for specific topics?</div>
+      <div class="faq-a">Yes! You can use the category filter buttons to browse articles by topic. Articles are organized by tool category making it easy to find what you need.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Is all content free?</div>
+      <div class="faq-a">Yes! All blog articles are completely free to read. There are no paywalls, no subscriptions required, and no registration necessary to access our guides and tutorials.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div id="footer"></div>
+
+<script src="/en/load-components.js"></script>
+<script src="/assets/js/main.js" defer></script>
 
 <script>
-const EM=['🔥','⚡','💎','🎯','🚀','🎸','🌙','🦊','🐉','🏆','💀','🎭','🌊','🍀','🎲','👾','🦋','🎪','🔮','🌈','🎨','🎬','🎵','💫','🦁','🐺','🌺','🍄'];
-let C=4,R=4,cards=[],flipped=[],matched=[],moves=0,hL=3,hU=0;
-let tI=null,t0=null,el=0,act=false,solving=false,lk=false;
-
-const $=id=>document.getElementById(id);
-const msg=h=>$('gMsg').innerHTML=h;
-
-function openGame(){ $('gOv').classList.add('open'); init(); }
-function closeGame(){ $('gOv').classList.remove('open'); clearInterval(tI); }
-function bgC(e){ if(e.target===$('gOv')) closeGame(); }
-
-function sDiff(c,r,b){
-  document.querySelectorAll('.gdb').forEach(x=>x.classList.remove('on'));
-  b.classList.add('on');
-  C=c; R=r;
-  init();
-}
-
-function init(){
-  clearInterval(tI);
-  el=0; moves=0; hL=3; hU=0; matched=[]; flipped=[]; lk=false; act=false; solving=false;
-  $('gM').textContent='0';
-  $('gTi').textContent='0:00';
-  $('gH').textContent='3';
-  $('gPr').style.width='0%';
-  $('ww').classList.remove('show');
-  $('gBH').disabled=false;
-  $('gBA').disabled=false;
-  msg('Flip cards to find matching pairs. Use <strong>Hint</strong> or <strong>Auto</strong>!');
-
-  const pc=(C*R)/2, pool=EM.slice(0,pc), deck=[...pool,...pool];
-  for(let i=deck.length-1;i>0;i--){
-    const j=Math.floor(Math.random()*(i+1));
-    [deck[i],deck[j]]=[deck[j],deck[i]];
-  }
-  cards=deck.map((e,i)=>({id:i,e,flipped:false,matched:false}));
-
-  const g=$('gG');
-  g.style.gridTemplateColumns=`repeat(${C},1fr)`;
-  g.innerHTML='';
-  cards.forEach(card=>{
-    const w=document.createElement('div');
-    w.className='gcw';
-    const ci=document.createElement('div');
-    ci.className='gci';
-    ci.id='ci'+card.id;
-    ci.onclick=()=>fc(card.id);
-    ci.innerHTML=`<div class="gcf g-bk"><div class="gbkp">${'<div></div>'.repeat(9)}</div></div><div class="gcf g-fr" id="cf${card.id}">${card.e}<span class="gck">✓</span></div>`;
-    w.appendChild(ci);
-    g.appendChild(w);
+function filterBlog(category) {
+  const cards = document.querySelectorAll('.blog-card');
+  const buttons = document.querySelectorAll('.filter-btn');
+  
+  // Update active button
+  buttons.forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+  
+  // Filter cards
+  cards.forEach(card => {
+    if (category === 'all' || card.dataset.category === category) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
   });
 }
-
-function startT(){
-  if(!act){
-    act=true;
-    t0=Date.now()-el*1000;
-    tI=setInterval(()=>{
-      el=Math.floor((Date.now()-t0)/1000);
-      const m=Math.floor(el/60), s=el%60;
-      $('gTi').textContent=`${m}:${s.toString().padStart(2,'0')}`;
-    },500);
-  }
-}
-
-function fc(id){
-  if(lk||solving) return;
-  const c=cards[id];
-  if(c.flipped||c.matched||flipped.length>=2) return;
-  startT();
-  c.flipped=true;
-  $('ci'+id).classList.add('fl');
-  flipped.push(id);
-  if(flipped.length===2){
-    moves++;
-    $('gM').textContent=moves;
-    lk=true;
-    setTimeout(chk,630);
-  }
-}
-
-function chk(){
-  const [a,b]=flipped;
-  if(cards[a].e===cards[b].e){
-    cards[a].matched=cards[b].matched=true;
-    matched.push(a,b);
-    $('cf'+a).classList.add('hit');
-    $('cf'+b).classList.add('hit');
-    $('ci'+a).classList.add('dn');
-    $('ci'+b).classList.add('dn');
-    $('gPr').style.width=(matched.length/cards.length*100)+'%';
-    if(matched.length===cards.length) setTimeout(end,360);
-  }else{
-    cards[a].flipped=cards[b].flipped=false;
-    $('ci'+a).classList.remove('fl');
-    $('ci'+b).classList.remove('fl');
-  }
-  flipped=[];
-  lk=false;
-}
-
-function hint(){
-  if(hL<=0||solving||lk) return;
-  hL--;
-  hU++;
-  $('gH').textContent=hL;
-  if(hL===0) $('gBH').disabled=true;
-
-  const hidden=cards.filter(c=>!c.matched&&!c.flipped);
-  const map={};
-  for(const c of hidden){
-    if(!map[c.e]) map[c.e]=[];
-    map[c.e].push(c.id);
-  }
-  const pairs=Object.values(map).filter(p=>p.length>=2);
-  if(!pairs.length){
-    msg('No hidden pairs left to reveal!');
-    return;
-  }
-
-  const [ia,ib]=pairs[Math.floor(Math.random()*pairs.length)];
-  const em=cards[ia].e;
-
-  lk=true;
-  $('ci'+ia).classList.add('fl');
-  $('ci'+ib).classList.add('fl');
-  $('cf'+ia).classList.add('hs');
-  $('cf'+ib).classList.add('hs');
-  msg(`<span class="er">${em}</span> <strong>Remember this pair!</strong> Flipping back in 2.5s…`);
-
-  setTimeout(()=>{
-    if(!cards[ia].matched){
-      cards[ia].flipped=false;
-      $('ci'+ia).classList.remove('fl');
-      $('cf'+ia).classList.remove('hs');
-    }
-    if(!cards[ib].matched){
-      cards[ib].flipped=false;
-      $('ci'+ib).classList.remove('fl');
-      $('cf'+ib).classList.remove('hs');
-    }
-    lk=false;
-    msg(`Now find <strong>${em}</strong>! Use <strong>Hint</strong> or <strong>Auto</strong>!`);
-  },2500);
-}
-
-async function autoS(){
-  if(solving||lk) return;
-  solving=true;
-  $('gBA').disabled=true;
-  $('gBH').disabled=true;
-  msg('<strong>AI Solver</strong> is solving — watch carefully!');
-  startT();
-  const w=ms=>new Promise(r=>setTimeout(r,ms));
-  const mp={};
-  for(const c of cards){
-    if(!c.matched){
-      if(!mp[c.e]) mp[c.e]=[];
-      mp[c.e].push(c.id);
-    }
-  }
-  for(const e in mp){
-    const [a,b]=mp[e];
-    if(cards[a].matched) continue;
-    cards[a].flipped=true; $('ci'+a).classList.add('fl'); await w(450);
-    cards[b].flipped=true; $('ci'+b).classList.add('fl'); await w(450);
-    moves+=2; $('gM').textContent=moves;
-    cards[a].matched=cards[b].matched=true;
-    matched.push(a,b);
-    $('cf'+a).classList.add('hit');
-    $('cf'+b).classList.add('hit');
-    $('ci'+a).classList.add('dn');
-    $('ci'+b).classList.add('dn');
-    $('gPr').style.width=(matched.length/cards.length*100)+'%';
-    await w(230);
-  }
-  solving=false;
-  setTimeout(end,360);
-}
-
-function end(){
-  clearInterval(tI);
-  act=false;
-  const m=Math.floor(el/60), s=el%60;
-  const sc=Math.max(0,1000-moves*5-el*2-hU*80);
-  $('wSt').textContent=sc>700?'★★★':sc>400?'★★☆':'★☆☆';
-  $('wM').textContent=moves;
-  $('wT').textContent=`${m}:${s.toString().padStart(2,'0')}`;
-  $('wH').textContent=hU;
-  $('wS').textContent=sc;
-  $('ww').classList.add('show');
-}
-
-function again(){
-  $('ww').classList.remove('show');
-  init();
-}
 </script>
+
 </body>
 </html>
