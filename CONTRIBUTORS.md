@@ -166,12 +166,12 @@ Logrith/
 
 ### For Security Issues
 
-- **Email:** security@logrith.in
+- **Email:** contact@logrith.in
 - **Security Policy:** [SECURITY.md](./SECURITY.md)
 
 ### For Privacy Questions
 
-- **Email:** privacy@logrith.in
+- **Email:** contact@logrith.in
 - **Privacy Policy:** [PRIVACY.md](./PRIVACY.md)
 
 ---
