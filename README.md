@@ -23,6 +23,7 @@
 - [Browser Support](#browser-support)
 - [Performance](#performance)
 - [Security & Privacy](#security--privacy)
+- [Build with Video Coding](#build-with-video-coding)
 - [Contributing](#contributing)
 - [Roadmap](#roadmap)
 - [License](#license)
@@ -32,7 +33,7 @@
 
 ## 🎯 Overview
 
-**Logrith** is a comprehensive online tools platform offering 30+ free, browser-based utilities designed to solve everyday digital tasks instantly. All tools run entirely in your browser with zero server dependencies, ensuring complete privacy and lightning-fast performance.
+**Logrith** is a comprehensive online tools platform offering 30+ free, browser-based utilities designed to solve everyday digital tasks instantly. All tools run entirely in your browser with zero data uploads to servers.
 
 ### Why Logrith?
 
@@ -153,19 +154,26 @@ git clone https://github.com/Logrith-Corp/Logrith.git
 cd Logrith
 ```
 
-2. **Open in browser:**
-```bash
-# Simply open the HTML files in your browser
-# Or use a local server for best results
+2. **Run local server:**
+   
+Choose one of the following methods to serve the project locally:
 
+```bash
 # Using Python 3:
 python -m http.server 8000
+
+# Using Python 2:
+python -m SimpleHTTPServer 8000
 
 # Using Node.js (http-server):
 npx http-server
 
 # Using PHP:
 php -S localhost:8000
+
+# Using Live Server (VS Code Extension):
+# Install "Live Server" extension in VS Code
+# Right-click index.html → "Open with Live Server"
 ```
 
 3. **Access the site:**
@@ -185,7 +193,7 @@ Logrith/
 │   │   └── footer.html         # Footer component
 │   ├── categories/
 │   │   ├── categories.html     # All categories hub
-│   │   ├── image-tools/        # Category pages (coming soon)
+│   │   ├── image-tools/        # Category pages
 │   │   ├── pdf-tools/
 │   │   ├── converter-tools/
 │   │   ├── calculator-tools/
@@ -194,7 +202,7 @@ Logrith/
 │   │   ├── daily-utilities/
 │   │   └── ai-tools/
 │   ├── tools/                  # Individual tool pages
-│   │   ├── image-converter.html
+│   │   ├���─ image-converter.html
 │   │   ├── pdf-merge.html
 │   │   ├── json-formatter.html
 │   │   └── ... (30+ tools)
@@ -216,8 +224,10 @@ Logrith/
 ├── index.html                  # Root redirect
 ├── README.md                   # This file
 ├── LICENSE                     # MIT License
-└── SECURITY.md                 # Security policy
-
+├── PRIVACY.md                  # Privacy Policy
+├── SECURITY.md                 # Security policy
+├── CONTRIBUTORS.md             # Contributors & License Credits
+└── CHANGELOG.md                # Version history
 ```
 
 ---
@@ -230,6 +240,8 @@ Logrith/
 2. **Browse tools:** Explore tools by category or search
 3. **Use instantly:** No login or installation needed
 4. **Your data stays private:** All processing happens in your browser
+5. **Privacy guaranteed:** See our [Privacy Policy](./PRIVACY.md)
+6. **Have questions?** Visit our [Contact Page](https://logrith.in/en/pages/contact.html)
 
 ### For Developers
 
@@ -337,10 +349,10 @@ Logrith/
 ### Privacy First Approach
 
 1. **No Data Uploads** - All processing happens in your browser
-2. **No Tracking** - Only essential analytics (privacy-focused)
-3. **No Cookies** - No tracking cookies used
-4. **No Third-Party APIs** - All tools are self-contained
-5. **HTTPS Only** - Encrypted connection to the server
+2. **No Tracking** - No tracking cookies or analytics
+3. **No Third-Party APIs** - All tools are self-contained
+4. **HTTPS Only** - Encrypted connection to the server
+5. **Frontend Only** - Completely frontend-based application (no backend processing)
 
 ### Security Practices
 
@@ -353,12 +365,79 @@ Logrith/
 ### Data Handling
 
 - ✅ Images are never uploaded to servers
-- ✅ PDFs are processed locally
+- ✅ PDFs are processed locally in your browser
 - ✅ Text data never leaves your device
 - ✅ No personal information collected
 - ✅ No analytics tracking of usage
+- ✅ 100% Frontend Application - No backend data storage
 
-*See [SECURITY.md](./SECURITY.md) for detailed security information.*
+**For complete privacy details, see [PRIVACY.md](./PRIVACY.md)**
+
+*For security details, see [SECURITY.md](./SECURITY.md)*
+
+---
+
+## 🎥 Build with Video Coding
+
+Logrith is built entirely with **HTML, CSS, and JavaScript** - pure frontend development. Here's how you can learn and build similar projects:
+
+### Technologies Used
+- **HTML5** - Structure and semantics
+- **CSS3** - Styling and responsive design
+- **Vanilla JavaScript** - Logic and interactivity (No frameworks!)
+
+### Learning Resources
+
+#### For Beginners
+1. Learn HTML fundamentals
+2. Master CSS responsive design
+3. Understand vanilla JavaScript
+4. Practice building tool UI components
+
+#### For Developers
+- Study Canvas API for image processing
+- Learn File API for file handling
+- Understand Web APIs and browser APIs
+- Practice modular JavaScript patterns
+
+### Running Locally
+
+All you need is a simple local server (no build tools required):
+
+**Option 1: Python (Built-in on most systems)**
+```bash
+python -m http.server 8000
+# Open http://localhost:8000/en/
+```
+
+**Option 2: Live Server (VS Code)**
+- Install "Live Server" extension
+- Right-click `index.html` → "Open with Live Server"
+- Automatic reload on file changes
+
+**Option 3: Node.js**
+```bash
+npx http-server
+# Open http://localhost:8080/
+```
+
+### Project Architecture
+
+- **No Build Process** - Files served as-is
+- **No Node Modules** - Zero npm dependencies
+- **No Framework** - Pure vanilla JavaScript
+- **Modular Design** - Reusable HTML/CSS/JS components
+- **Component System** - Dynamic loading via `load-components.js`
+
+### Start Building!
+
+1. Clone the repository
+2. Open any tool file in `en/tools/` 
+3. Modify the HTML/CSS/JS
+4. Refresh your browser to see changes
+5. Use browser DevTools to debug
+
+**That's it! No compilation, no build steps, just code and refresh.**
 
 ---
 
@@ -393,7 +472,7 @@ Found a bug? Have a feature request? Please open an issue:
 
 ### Contributors
 
-- **Logrith Corp** - Original Creator & Maintainer
+See [CONTRIBUTORS.md](./CONTRIBUTORS.md) for a list of contributors and license information.
 
 ---
 
@@ -439,6 +518,8 @@ Found a bug? Have a feature request? Please open an issue:
 
 This project is licensed under the **MIT License** - see the [LICENSE](./LICENSE) file for details.
 
+**Full license information and credits available in [CONTRIBUTORS.md](./CONTRIBUTORS.md)**
+
 ### MIT License Summary
 - ✅ Commercial use
 - ✅ Modification
@@ -454,6 +535,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](./LICENSE
 ### Get In Touch
 
 - **Website:** [logrith.in](https://logrith.in)
+- **Contact Page:** [logrith.in/en/pages/contact.html](https://logrith.in/en/pages/contact.html)
 - **Email:** support@logrith.in
 - **GitHub:** [github.com/Logrith-Corp](https://github.com/Logrith-Corp)
 - **Issues:** [Report on GitHub](https://github.com/Logrith-Corp/Logrith/issues)
@@ -463,6 +545,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](./LICENSE
 - **Documentation:** Available on [logrith.in/docs](https://logrith.in/docs)
 - **FAQ:** Available on [logrith.in/faq](https://logrith.in/faq)
 - **Blog:** Tips and tutorials on [logrith.in/blog](https://logrith.in/blog)
+- **Privacy Policy:** [logrith.in/en/pages/privacy.html](https://logrith.in/en/pages/privacy.html)
 
 ---
 
@@ -482,6 +565,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](./LICENSE
 - **Lines of Code:** 10,000+
 - **Load Time:** < 2 seconds
 - **Browser Support:** All modern browsers
+- **Tech Stack:** HTML, CSS, JavaScript (100% Frontend)
 
 ---
 
@@ -493,6 +577,8 @@ This project is licensed under the **MIT License** - see the [LICENSE](./LICENSE
 | [All Tools](https://logrith.in/en/categories/all-tools) | Complete tool list |
 | [Categories](https://logrith.in/en/categories/categories) | Tools by category |
 | [Blog](https://logrith.in/en/blog) | Guides and tutorials |
+| [Contact](https://logrith.in/en/pages/contact.html) | Get in touch |
+| [Privacy Policy](https://logrith.in/en/pages/privacy.html) | Privacy information |
 | [GitHub](https://github.com/Logrith-Corp/Logrith) | Source code |
 | [Issues](https://github.com/Logrith-Corp/Logrith/issues) | Report bugs |
 
