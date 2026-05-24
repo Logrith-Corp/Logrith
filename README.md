@@ -23,7 +23,7 @@
 - [Browser Support](#browser-support)
 - [Performance](#performance)
 - [Security & Privacy](#security--privacy)
-- [Build with Video Coding](#build-with-video-coding)
+- [Vibe Coding - Build Like We Did](#vibe-coding---build-like-we-did)
 - [Contributing](#contributing)
 - [Roadmap](#roadmap)
 - [License](#license)
@@ -202,7 +202,7 @@ Logrith/
 │   │   ├── daily-utilities/
 │   │   └── ai-tools/
 │   ├── tools/                  # Individual tool pages
-│   │   ├���─ image-converter.html
+│   │   ├── image-converter.html
 │   │   ├── pdf-merge.html
 │   │   ├── json-formatter.html
 │   │   └── ... (30+ tools)
@@ -377,67 +377,79 @@ Logrith/
 
 ---
 
-## 🎥 Build with Video Coding
+## 💻 Vibe Coding - Build Like We Did
 
-Logrith is built entirely with **HTML, CSS, and JavaScript** - pure frontend development. Here's how you can learn and build similar projects:
+**Logrith is pure vibe coding** - No AI copy-paste, no frameworks, no build tools. Just raw HTML, CSS, and JavaScript written with intuition and creativity.
 
-### Technologies Used
-- **HTML5** - Structure and semantics
-- **CSS3** - Styling and responsive design
-- **Vanilla JavaScript** - Logic and interactivity (No frameworks!)
+### The Vibe Coding Philosophy
 
-### Learning Resources
+- **Direct Typing** - Code written naturally without generators
+- **Zero Framework Bloat** - Vanilla JavaScript only
+- **No Build Pipeline** - Edit → Save → Refresh
+- **Pure Frontend** - Browser is your runtime
+- **Creative Freedom** - Full control over every line
 
-#### For Beginners
-1. Learn HTML fundamentals
-2. Master CSS responsive design
-3. Understand vanilla JavaScript
-4. Practice building tool UI components
+### How We Built It
 
-#### For Developers
-- Study Canvas API for image processing
-- Learn File API for file handling
-- Understand Web APIs and browser APIs
-- Practice modular JavaScript patterns
+```
+1. Open HTML editor (VS Code, Sublime, Notepad++)
+2. Type HTML structure directly
+3. Style with CSS - no preprocessors
+4. Write vanilla JS - no libraries needed
+5. Test in browser immediately
+6. Iterate and refine
+```
 
-### Running Locally
+### Why Vibe Coding?
 
-All you need is a simple local server (no build tools required):
+✨ **Intuitive Development** - No learning curve for build tools  
+✨ **Full Control** - Understand every line you write  
+✨ **Lightweight Code** - Only what you actually need  
+✨ **Fast Feedback** - Instant browser refresh  
+✨ **Pure JavaScript** - Learn the fundamentals  
 
-**Option 1: Python (Built-in on most systems)**
+### Running Locally for Development
+
 ```bash
+# Clone and navigate
+git clone https://github.com/Logrith-Corp/Logrith.git
+cd Logrith
+
+# Start a simple server
 python -m http.server 8000
-# Open http://localhost:8000/en/
+
+# Open in browser
+# http://localhost:8000/en/
 ```
 
-**Option 2: Live Server (VS Code)**
-- Install "Live Server" extension
-- Right-click `index.html` → "Open with Live Server"
-- Automatic reload on file changes
+### Edit and Refresh
 
-**Option 3: Node.js**
-```bash
-npx http-server
-# Open http://localhost:8080/
-```
+1. Open `/en/tools/` and pick any tool
+2. Edit the HTML/CSS/JavaScript directly
+3. Save the file
+4. Refresh browser (F5 or Ctrl+R)
+5. See your changes immediately
 
-### Project Architecture
+**No npm. No webpack. No babel. Just code.**
 
-- **No Build Process** - Files served as-is
-- **No Node Modules** - Zero npm dependencies
-- **No Framework** - Pure vanilla JavaScript
-- **Modular Design** - Reusable HTML/CSS/JS components
-- **Component System** - Dynamic loading via `load-components.js`
+### Project Stats
 
-### Start Building!
+- 📁 **30+ Tools** - Each with pure HTML/CSS/JS
+- 🎨 **Custom CSS** - No Bootstrap or Tailwind
+- ⚡ **Vanilla JS** - No jQuery, React, Vue, etc.
+- 📄 **Static Files** - Hosted as-is on GitHub Pages
+- 💾 **Single Refresh** - All processing in browser
 
-1. Clone the repository
-2. Open any tool file in `en/tools/` 
-3. Modify the HTML/CSS/JS
-4. Refresh your browser to see changes
-5. Use browser DevTools to debug
+### Start Your Own Vibe Coding Project
 
-**That's it! No compilation, no build steps, just code and refresh.**
+This is the perfect template if you want to:
+- Learn web development fundamentals
+- Build without frameworks
+- Keep projects lightweight
+- Maintain complete code clarity
+- Ship instantly with zero build complexity
+
+**Copy our approach. Build your own vibes.**
 
 ---
 
