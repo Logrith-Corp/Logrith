@@ -118,9 +118,23 @@
 <style>
   .blog-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
     margin-bottom: 40px;
+  }
+
+  @media (min-width: 900px) {
+    .blog-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .blog-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
   }
 
   .blog-card {
@@ -144,7 +158,7 @@
 
   .blog-thumbnail {
     width: 100%;
-    height: 180px;
+    height: 160px;
     background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
     display: flex;
     align-items: center;
@@ -154,8 +168,16 @@
     overflow: hidden;
   }
 
+  .blog-thumbnail.pdf-thumb   { background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%); color: #dc2626; }
+  .blog-thumbnail.image-thumb { background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); color: #059669; }
+  .blog-thumbnail.text-thumb  { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); color: #d97706; }
+  .blog-thumbnail.dev-thumb   { background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%); color: #7c3aed; }
+  .blog-thumbnail.calc-thumb  { background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); color: #2563eb; }
+  .blog-thumbnail.sec-thumb   { background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%); color: #db2777; }
+  .blog-thumbnail.ai-thumb    { background: linear-gradient(135deg, #ccfbf1 0%, #99f6e4 100%); color: #0d9488; }
+
   .blog-content {
-    padding: 20px;
+    padding: 16px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -169,7 +191,7 @@
     color: var(--blue-600);
     padding: 4px 10px;
     border-radius: 20px;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -177,13 +199,10 @@
     margin-bottom: 10px;
   }
 
-  .blog-category svg {
-    width: 12px;
-    height: 12px;
-  }
+  .blog-category svg { width: 12px; height: 12px; }
 
   .blog-title {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     font-weight: 700;
     color: var(--gray-900);
     margin-bottom: 8px;
@@ -191,7 +210,7 @@
   }
 
   .blog-excerpt {
-    font-size: 0.9rem;
+    font-size: 0.82rem;
     color: var(--gray-600);
     line-height: 1.6;
     margin-bottom: 12px;
@@ -202,38 +221,24 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 12px;
+    padding-top: 10px;
     border-top: 1px solid var(--gray-100);
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--gray-500);
   }
 
-  .blog-date {
+  .blog-date, .blog-read-time {
     display: flex;
     align-items: center;
     gap: 4px;
   }
 
-  .blog-date svg {
-    width: 14px;
-    height: 14px;
-  }
-
-  .blog-read-time {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-  }
-
-  .blog-read-time svg {
-    width: 14px;
-    height: 14px;
-  }
+  .blog-date svg, .blog-read-time svg { width: 13px; height: 13px; }
 
   .blog-filter {
     display: flex;
-    gap: 10px;
-    margin-bottom: 30px;
+    gap: 8px;
+    margin-bottom: 28px;
     flex-wrap: wrap;
   }
 
@@ -242,7 +247,7 @@
     border: 1px solid var(--gray-300);
     background: var(--white);
     border-radius: 20px;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s;
@@ -256,27 +261,17 @@
     color: var(--blue-600);
   }
 
-  .empty-state {
-    text-align: center;
-    padding: 60px 20px;
+  .tool-link-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.75rem;
+    color: var(--blue-600);
+    font-weight: 600;
+    margin-top: 4px;
   }
 
-  .empty-icon {
-    font-size: 3rem;
-    margin-bottom: 16px;
-  }
-
-  .empty-title {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--gray-900);
-    margin-bottom: 8px;
-  }
-
-  .empty-text {
-    color: var(--gray-600);
-    font-size: 0.95rem;
-  }
+  .tool-link-badge svg { width: 12px; height: 12px; }
 
   .coming-soon {
     background: var(--gray-50);
@@ -284,11 +279,6 @@
     border-radius: 12px;
     padding: 40px;
     text-align: center;
-  }
-
-  .coming-soon-icon {
-    font-size: 2.5rem;
-    margin-bottom: 16px;
   }
 
   .coming-soon-title {
@@ -303,59 +293,34 @@
     font-size: 0.9rem;
   }
 
-  @media (max-width: 768px) {
-    .blog-grid {
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 16px;
-    }
-
-    .blog-filter {
-      gap: 8px;
-    }
-
-    .filter-btn {
-      padding: 6px 12px;
-      font-size: 0.85rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .blog-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .blog-thumbnail {
-      height: 150px;
-      font-size: 2rem;
-    }
-
-    .blog-title {
-      font-size: 1rem;
-    }
-
-    .blog-excerpt {
-      font-size: 0.85rem;
-    }
-  }
-
   .about-blog {
-    background: var(--gray-50);
+    background: var(--white);
+    border: 1px solid var(--gray-200);
     border-radius: 12px;
     padding: 32px;
-    margin: 40px 0;
+    margin: 0;
   }
 
-  .about-blog h2 {
+  .about-blog h3 {
     color: var(--gray-900);
     margin-bottom: 16px;
-    font-size: 1.3rem;
+    font-size: 1.15rem;
   }
 
   .about-blog p {
     color: var(--gray-700);
     line-height: 1.8;
     margin-bottom: 16px;
-    font-size: 1rem;
+    font-size: 0.97rem;
+  }
+
+  @media (max-width: 480px) {
+    .blog-thumbnail { height: 120px; }
+    .blog-content { padding: 12px; }
+    .blog-title { font-size: 0.85rem; }
+    .blog-excerpt { display: none; }
+    .blog-meta { font-size: 0.7rem; }
+    .filter-btn { padding: 6px 10px; font-size: 0.8rem; }
   }
 </style>
 </head>
@@ -383,177 +348,757 @@
 
     <!-- FILTER BUTTONS -->
     <div class="blog-filter">
-      <button class="filter-btn active" onclick="filterBlog('all')">All Articles</button>
-      <button class="filter-btn" onclick="filterBlog('image')">Image Tools</button>
-      <button class="filter-btn" onclick="filterBlog('pdf')">PDF Tools</button>
-      <button class="filter-btn" onclick="filterBlog('text')">Text Tools</button>
-      <button class="filter-btn" onclick="filterBlog('developer')">Developer</button>
-      <button class="filter-btn" onclick="filterBlog('tips')">Tips & Tricks</button>
+      <button class="filter-btn active" onclick="filterBlog('all', this)">All Articles</button>
+      <button class="filter-btn" onclick="filterBlog('image', this)">Image Tools</button>
+      <button class="filter-btn" onclick="filterBlog('pdf', this)">PDF Tools</button>
+      <button class="filter-btn" onclick="filterBlog('text', this)">Text Tools</button>
+      <button class="filter-btn" onclick="filterBlog('developer', this)">Developer</button>
+      <button class="filter-btn" onclick="filterBlog('calc', this)">Calculators</button>
+      <button class="filter-btn" onclick="filterBlog('security', this)">Security</button>
+      <button class="filter-btn" onclick="filterBlog('ai', this)">AI Tools</button>
     </div>
 
-    <!-- BLOG GRID -->
+    <!-- BLOG GRID — 34 cards -->
     <div class="blog-grid" id="blogGrid">
-      
-      <!-- BLOG CARD 1: Image Compression Guide -->
-      <a href="/en/blog/image-compression-guide" class="blog-card" data-category="image">
-        <div class="blog-thumbnail">
-          <svg style="width: 3rem; height: 3rem;"><use href="/assets/svg/icons.svg#compress-img"></use></svg>
+
+      <!-- IMAGE TOOLS (5) -->
+
+      <a href="/en/blog/image-compressor" class="blog-card" data-category="image">
+        <div class="blog-thumbnail image-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#compress-img"></use></svg>
         </div>
         <div class="blog-content">
           <span class="blog-category">
-            <svg><use href="/assets/svg/icons.svg#image"></use></svg>
-            Image Tools
+            <svg><use href="/assets/svg/icons.svg#image"></use></svg>Image Tools
           </span>
           <h3 class="blog-title">Complete Guide to Image Compression Without Quality Loss</h3>
-          <p class="blog-excerpt">Learn how to reduce image file sizes while maintaining visual quality. Perfect for web optimization and storage efficiency.</p>
-          <div class="blog-meta">
-            <span class="blog-date">
-              <svg><use href="/assets/svg/icons.svg#calendar"></use></svg>
-              May 24, 2026
-            </span>
-            <span class="blog-read-time">
-              <svg><use href="/assets/svg/icons.svg#clock"></use></svg>
-              5 min
-            </span>
-          </div>
-        </div>
-      </a>
-
-      <!-- BLOG CARD 2: PDF Merge Tips -->
-      <a href="/en/blog/pdf-merge-guide" class="blog-card" data-category="pdf">
-        <div class="blog-thumbnail">
-          <svg style="width: 3rem; height: 3rem;"><use href="/assets/svg/icons.svg#pages"></use></svg>
-        </div>
-        <div class="blog-content">
-          <span class="blog-category">
-            <svg><use href="/assets/svg/icons.svg#pdf"></use></svg>
-            PDF Tools
+          <p class="blog-excerpt">Reduce image file sizes while keeping visual quality intact. Perfect for web optimization and storage savings.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use Image Compressor
           </span>
-          <h3 class="blog-title">How to Merge Multiple PDFs Efficiently</h3>
-          <p class="blog-excerpt">Master the art of combining multiple PDF documents into one organized file. Best practices for document management.</p>
           <div class="blog-meta">
-            <span class="blog-date">
-              <svg><use href="/assets/svg/icons.svg#calendar"></use></svg>
-              May 22, 2026
-            </span>
-            <span class="blog-read-time">
-              <svg><use href="/assets/svg/icons.svg#clock"></use></svg>
-              4 min
-            </span>
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 24, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>5 min</span>
           </div>
         </div>
       </a>
 
-      <!-- BLOG CARD 3: Password Generator Best Practices -->
-      <a href="/en/blog/password-generator-tips" class="blog-card" data-category="tips">
-        <div class="blog-thumbnail">
-          <svg style="width: 3rem; height: 3rem;"><use href="/assets/svg/icons.svg#key"></use></svg>
+      <a href="/en/blog/image-converter" class="blog-card" data-category="image">
+        <div class="blog-thumbnail image-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#image"></use></svg>
         </div>
         <div class="blog-content">
           <span class="blog-category">
-            <svg><use href="/assets/svg/icons.svg#lock"></use></svg>
-            Security Tips
+            <svg><use href="/assets/svg/icons.svg#image"></use></svg>Image Tools
           </span>
-          <h3 class="blog-title">Creating Strong Passwords: A Comprehensive Guide</h3>
-          <p class="blog-excerpt">Understand why strong passwords matter and how to generate secure credentials that protect your online accounts.</p>
-          <div class="blog-meta">
-            <span class="blog-date">
-              <svg><use href="/assets/svg/icons.svg#calendar"></use></svg>
-              May 20, 2026
-            </span>
-            <span class="blog-read-time">
-              <svg><use href="/assets/svg/icons.svg#clock"></use></svg>
-              6 min
-            </span>
-          </div>
-        </div>
-      </a>
-
-      <!-- BLOG CARD 4: JSON Formatting for Developers -->
-      <a href="/en/blog/json-formatting-guide" class="blog-card" data-category="developer">
-        <div class="blog-thumbnail">
-          <svg style="width: 3rem; height: 3rem;"><use href="/assets/svg/icons.svg#json"></use></svg>
-        </div>
-        <div class="blog-content">
-          <span class="blog-category">
-            <svg><use href="/assets/svg/icons.svg#code"></use></svg>
-            Developer Tools
+          <h3 class="blog-title">Image Format Conversion: JPG, PNG, WebP and More</h3>
+          <p class="blog-excerpt">Learn when to use each image format and how to convert between them for best quality and performance.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use Image Converter
           </span>
-          <h3 class="blog-title">JSON Formatting and Validation for Developers</h3>
-          <p class="blog-excerpt">Learn how to properly format JSON data, validate syntax, and debug JSON errors quickly using our formatter tool.</p>
           <div class="blog-meta">
-            <span class="blog-date">
-              <svg><use href="/assets/svg/icons.svg#calendar"></use></svg>
-              May 18, 2026
-            </span>
-            <span class="blog-read-time">
-              <svg><use href="/assets/svg/icons.svg#clock"></use></svg>
-              7 min
-            </span>
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 23, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>5 min</span>
           </div>
         </div>
       </a>
 
-      <!-- BLOG CARD 5: Text Processing Tips -->
-      <a href="/en/blog/text-processing-tips" class="blog-card" data-category="text">
-        <div class="blog-thumbnail">
-          <svg style="width: 3rem; height: 3rem;"><use href="/assets/svg/icons.svg#case"></use></svg>
+      <a href="/en/blog/image-crop" class="blog-card" data-category="image">
+        <div class="blog-thumbnail image-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#crop"></use></svg>
         </div>
         <div class="blog-content">
           <span class="blog-category">
-            <svg><use href="/assets/svg/icons.svg#edit"></use></svg>
-            Text Tools
+            <svg><use href="/assets/svg/icons.svg#image"></use></svg>Image Tools
           </span>
-          <h3 class="blog-title">Master Text Formatting: Case Conversion & Cleanup</h3>
-          <p class="blog-excerpt">Discover techniques for transforming text between different cases, removing duplicates, and cleaning up content efficiently.</p>
+          <h3 class="blog-title">How to Crop Images Perfectly for Any Platform</h3>
+          <p class="blog-excerpt">Master cropping techniques for social media, websites, and print — get the right dimensions every time.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use Image Crop
+          </span>
           <div class="blog-meta">
-            <span class="blog-date">
-              <svg><use href="/assets/svg/icons.svg#calendar"></use></svg>
-              May 16, 2026
-            </span>
-            <span class="blog-read-time">
-              <svg><use href="/assets/svg/icons.svg#clock"></use></svg>
-              5 min
-            </span>
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 22, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>4 min</span>
           </div>
         </div>
       </a>
 
-      <!-- BLOG CARD 6: URL Encoding Explained -->
-      <a href="/en/blog/url-encoding-guide" class="blog-card" data-category="developer">
-        <div class="blog-thumbnail">
-          <svg style="width: 3rem; height: 3rem;"><use href="/assets/svg/icons.svg#link"></use></svg>
+      <a href="/en/blog/image-resize" class="blog-card" data-category="image">
+        <div class="blog-thumbnail image-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#resize"></use></svg>
         </div>
         <div class="blog-content">
           <span class="blog-category">
-            <svg><use href="/assets/svg/icons.svg#code"></use></svg>
-            Developer Tools
+            <svg><use href="/assets/svg/icons.svg#image"></use></svg>Image Tools
+          </span>
+          <h3 class="blog-title">Resizing Images the Right Way: Width, Height & Ratio</h3>
+          <p class="blog-excerpt">Understand aspect ratios, pixel dimensions, and how to resize without distortion for any use case.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use Image Resize
+          </span>
+          <div class="blog-meta">
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 21, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>5 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/en/blog/image-rotate" class="blog-card" data-category="image">
+        <div class="blog-thumbnail image-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#rotate"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#image"></use></svg>Image Tools
+          </span>
+          <h3 class="blog-title">Rotating and Flipping Images: When and Why</h3>
+          <p class="blog-excerpt">Fix camera orientation issues and prepare images for print or web with proper rotation techniques.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use Image Rotate
+          </span>
+          <div class="blog-meta">
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 20, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>3 min</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- PDF TOOLS (5) -->
+
+      <a href="/en/blog/pdf-merge" class="blog-card" data-category="pdf">
+        <div class="blog-thumbnail pdf-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#pages"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#pdf"></use></svg>PDF Tools
+          </span>
+          <h3 class="blog-title">How to Merge Multiple PDFs Into One Organized File</h3>
+          <p class="blog-excerpt">Combine reports, contracts, and documents efficiently. Best practices for professional document management.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use PDF Merge
+          </span>
+          <div class="blog-meta">
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 22, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>4 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/en/blog/pdf-split" class="blog-card" data-category="pdf">
+        <div class="blog-thumbnail pdf-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#split"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#pdf"></use></svg>PDF Tools
+          </span>
+          <h3 class="blog-title">Splitting Large PDFs: Extract the Pages You Need</h3>
+          <p class="blog-excerpt">Break oversized documents into smaller files. Share only the relevant pages without sharing everything.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use PDF Split
+          </span>
+          <div class="blog-meta">
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 19, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>4 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/en/blog/pdf-rotate" class="blog-card" data-category="pdf">
+        <div class="blog-thumbnail pdf-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#rotate"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#pdf"></use></svg>PDF Tools
+          </span>
+          <h3 class="blog-title">Fix Rotated PDF Pages Instantly</h3>
+          <p class="blog-excerpt">Correct upside-down or sideways pages in your PDF documents quickly — no software install needed.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use PDF Rotate
+          </span>
+          <div class="blog-meta">
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 17, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>3 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/en/blog/jpg-to-pdf" class="blog-card" data-category="pdf">
+        <div class="blog-thumbnail pdf-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#pdf"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#pdf"></use></svg>PDF Tools
+          </span>
+          <h3 class="blog-title">Convert JPG Images to PDF: Complete Guide</h3>
+          <p class="blog-excerpt">Turn photos and scanned images into professional PDF documents. Ideal for sharing, printing, and archiving.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use JPG to PDF
+          </span>
+          <div class="blog-meta">
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 15, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>4 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/en/blog/pdf-to-jpg" class="blog-card" data-category="pdf">
+        <div class="blog-thumbnail pdf-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#image"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#pdf"></use></svg>PDF Tools
+          </span>
+          <h3 class="blog-title">Converting PDF Pages to JPG Images Explained</h3>
+          <p class="blog-excerpt">Extract high-quality images from any PDF. Useful for presentations, thumbnails, and social media posts.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use PDF to JPG
+          </span>
+          <div class="blog-meta">
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 13, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>4 min</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- TEXT TOOLS (8) -->
+
+      <a href="/en/blog/word-counter" class="blog-card" data-category="text">
+        <div class="blog-thumbnail text-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#edit"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#edit"></use></svg>Text Tools
+          </span>
+          <h3 class="blog-title">Word Count, Reading Time & Character Limits Explained</h3>
+          <p class="blog-excerpt">Why word count matters for SEO, academic writing, and social media — and how to track it accurately.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use Word Counter
+          </span>
+          <div class="blog-meta">
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 18, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>4 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/en/blog/character-counter" class="blog-card" data-category="text">
+        <div class="blog-thumbnail text-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#case"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#edit"></use></svg>Text Tools
+          </span>
+          <h3 class="blog-title">Character Counter: Twitter, Meta Ads & SMS Limits</h3>
+          <p class="blog-excerpt">Stay within platform character limits for tweets, ad copy, and text messages with real-time counting.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use Character Counter
+          </span>
+          <div class="blog-meta">
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 17, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>4 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/en/blog/case-converter" class="blog-card" data-category="text">
+        <div class="blog-thumbnail text-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#case"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#edit"></use></svg>Text Tools
+          </span>
+          <h3 class="blog-title">Master Text Case Conversion: Title, Upper, Lower & More</h3>
+          <p class="blog-excerpt">When to use title case vs sentence case vs all caps — plus bulk conversion tricks for writers and coders.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use Case Converter
+          </span>
+          <div class="blog-meta">
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 16, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>5 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/en/blog/duplicate-remover" class="blog-card" data-category="text">
+        <div class="blog-thumbnail text-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#edit"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#edit"></use></svg>Text Tools
+          </span>
+          <h3 class="blog-title">Remove Duplicate Lines and Clean Up Text Fast</h3>
+          <p class="blog-excerpt">Clean messy lists, email databases, and code files by eliminating duplicate entries in seconds.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use Duplicate Remover
+          </span>
+          <div class="blog-meta">
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 15, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>3 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/en/blog/lorem-ipsum" class="blog-card" data-category="text">
+        <div class="blog-thumbnail text-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#edit"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#edit"></use></svg>Text Tools
+          </span>
+          <h3 class="blog-title">Lorem Ipsum: What It Is and How Designers Use It</h3>
+          <p class="blog-excerpt">The history of placeholder text and how to generate the right amount of dummy content for your layouts.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use Lorem Ipsum Generator
+          </span>
+          <div class="blog-meta">
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 14, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>4 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/en/blog/slug-generator" class="blog-card" data-category="text">
+        <div class="blog-thumbnail text-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#link"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#edit"></use></svg>Text Tools
+          </span>
+          <h3 class="blog-title">URL Slugs: Why They Matter for SEO and How to Write Them</h3>
+          <p class="blog-excerpt">Create clean, readable URL slugs that help search engines and users understand your page content.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use Slug Generator
+          </span>
+          <div class="blog-meta">
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 12, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>4 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/en/blog/text-diff" class="blog-card" data-category="text">
+        <div class="blog-thumbnail text-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#edit"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#edit"></use></svg>Text Tools
+          </span>
+          <h3 class="blog-title">Text Comparison: Find Differences Between Two Documents</h3>
+          <p class="blog-excerpt">Compare versions of contracts, essays, or code to spot changes and edits quickly and accurately.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use Text Diff
+          </span>
+          <div class="blog-meta">
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 11, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>5 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/en/blog/qr-generator" class="blog-card" data-category="text">
+        <div class="blog-thumbnail text-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#qr"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#edit"></use></svg>Text Tools
+          </span>
+          <h3 class="blog-title">QR Codes: Generate, Use, and Share Links Instantly</h3>
+          <p class="blog-excerpt">Create QR codes for URLs, WiFi passwords, contact cards, and more. Best practices for print and digital use.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use QR Generator
+          </span>
+          <div class="blog-meta">
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 10, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>5 min</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- DEVELOPER TOOLS (6) -->
+
+      <a href="/en/blog/json-formatter" class="blog-card" data-category="developer">
+        <div class="blog-thumbnail dev-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#json"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#code"></use></svg>Developer Tools
+          </span>
+          <h3 class="blog-title">JSON Formatting, Validation & Debugging for Developers</h3>
+          <p class="blog-excerpt">Format messy JSON, catch syntax errors, and validate API responses quickly with our online formatter.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use JSON Formatter
+          </span>
+          <div class="blog-meta">
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 18, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>7 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/en/blog/base64" class="blog-card" data-category="developer">
+        <div class="blog-thumbnail dev-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#code"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#code"></use></svg>Developer Tools
+          </span>
+          <h3 class="blog-title">Base64 Encoding & Decoding: A Developer's Guide</h3>
+          <p class="blog-excerpt">Understand how Base64 works, when to use it, and how to encode or decode data for APIs and emails.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use Base64 Tool
+          </span>
+          <div class="blog-meta">
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 16, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>6 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/en/blog/url-encoder" class="blog-card" data-category="developer">
+        <div class="blog-thumbnail dev-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#link"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#code"></use></svg>Developer Tools
           </span>
           <h3 class="blog-title">Understanding URL Encoding and Decoding</h3>
-          <p class="blog-excerpt">Learn how URL encoding works, why it's necessary, and how to properly encode and decode URLs for web applications.</p>
+          <p class="blog-excerpt">Learn how URL encoding works, why it is necessary, and how to handle special characters in web applications.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use URL Encoder
+          </span>
           <div class="blog-meta">
-            <span class="blog-date">
-              <svg><use href="/assets/svg/icons.svg#calendar"></use></svg>
-              May 14, 2026
-            </span>
-            <span class="blog-read-time">
-              <svg><use href="/assets/svg/icons.svg#clock"></use></svg>
-              6 min
-            </span>
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 14, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>6 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/en/blog/hash-generator" class="blog-card" data-category="developer">
+        <div class="blog-thumbnail dev-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#code"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#code"></use></svg>Developer Tools
+          </span>
+          <h3 class="blog-title">Hash Functions Explained: MD5, SHA-1, SHA-256</h3>
+          <p class="blog-excerpt">What hashing is, how different algorithms compare, and when to use MD5 vs SHA-256 in your projects.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use Hash Generator
+          </span>
+          <div class="blog-meta">
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 12, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>6 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/en/blog/regex-tester" class="blog-card" data-category="developer">
+        <div class="blog-thumbnail dev-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#code"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#code"></use></svg>Developer Tools
+          </span>
+          <h3 class="blog-title">Regex Testing Made Easy: Patterns, Flags & Examples</h3>
+          <p class="blog-excerpt">Test and debug regular expressions in real time. Common patterns for emails, URLs, phone numbers, and more.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use Regex Tester
+          </span>
+          <div class="blog-meta">
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 10, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>7 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/en/blog/uuid-generator" class="blog-card" data-category="developer">
+        <div class="blog-thumbnail dev-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#code"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#code"></use></svg>Developer Tools
+          </span>
+          <h3 class="blog-title">UUID Generation: What They Are and Why You Need Them</h3>
+          <p class="blog-excerpt">Learn about UUID versions, use cases in databases and APIs, and how to generate them reliably.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use UUID Generator
+          </span>
+          <div class="blog-meta">
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 8, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>5 min</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- CALCULATORS (6) -->
+
+      <a href="/en/blog/age-calculator" class="blog-card" data-category="calc">
+        <div class="blog-thumbnail calc-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#calc"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#calc"></use></svg>Calculators
+          </span>
+          <h3 class="blog-title">Age Calculator: Find Exact Age in Years, Months and Days</h3>
+          <p class="blog-excerpt">Calculate precise age for birthdays, legal documents, and medical forms. Handles leap years automatically.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use Age Calculator
+          </span>
+          <div class="blog-meta">
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 18, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>4 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/en/blog/emi-calculator" class="blog-card" data-category="calc">
+        <div class="blog-thumbnail calc-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#calc"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#calc"></use></svg>Calculators
+          </span>
+          <h3 class="blog-title">EMI Calculator: Plan Your Loan Repayments Accurately</h3>
+          <p class="blog-excerpt">Understand how EMI is calculated, compare loan options, and plan your monthly budget with confidence.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use EMI Calculator
+          </span>
+          <div class="blog-meta">
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 15, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>6 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/en/blog/gst-calculator" class="blog-card" data-category="calc">
+        <div class="blog-thumbnail calc-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#calc"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#calc"></use></svg>Calculators
+          </span>
+          <h3 class="blog-title">GST Calculator: Add or Remove Tax From Any Amount</h3>
+          <p class="blog-excerpt">Calculate inclusive and exclusive GST for invoicing, shopping, and business accounting with ease.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use GST Calculator
+          </span>
+          <div class="blog-meta">
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 13, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>5 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/en/blog/percentage-calculator" class="blog-card" data-category="calc">
+        <div class="blog-thumbnail calc-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#calc"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#calc"></use></svg>Calculators
+          </span>
+          <h3 class="blog-title">Percentage Calculator: Discounts, Increases & More</h3>
+          <p class="blog-excerpt">Instantly calculate percentages for discounts, tips, exam scores, and business growth metrics.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use Percentage Calculator
+          </span>
+          <div class="blog-meta">
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 11, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>4 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/en/blog/unit-converter" class="blog-card" data-category="calc">
+        <div class="blog-thumbnail calc-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#calc"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#calc"></use></svg>Calculators
+          </span>
+          <h3 class="blog-title">Unit Converter: Length, Weight, Temperature & More</h3>
+          <p class="blog-excerpt">Convert between metric and imperial units for cooking, travel, science, and engineering projects.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use Unit Converter
+          </span>
+          <div class="blog-meta">
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 9, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>5 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/en/blog/color-converter" class="blog-card" data-category="calc">
+        <div class="blog-thumbnail calc-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#palette"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#calc"></use></svg>Calculators
+          </span>
+          <h3 class="blog-title">Color Code Converter: HEX, RGB, HSL Made Simple</h3>
+          <p class="blog-excerpt">Convert colors between HEX, RGB, and HSL formats for design work, CSS, and brand guidelines.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use Color Converter
+          </span>
+          <div class="blog-meta">
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 7, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>5 min</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- SECURITY (2) -->
+
+      <a href="/en/blog/password-generator" class="blog-card" data-category="security">
+        <div class="blog-thumbnail sec-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#key"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#lock"></use></svg>Security
+          </span>
+          <h3 class="blog-title">Creating Strong Passwords: A Comprehensive Security Guide</h3>
+          <p class="blog-excerpt">Why strong passwords matter and how to generate secure credentials that protect your accounts online.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use Password Generator
+          </span>
+          <div class="blog-meta">
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 20, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>6 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/en/blog/password-strength" class="blog-card" data-category="security">
+        <div class="blog-thumbnail sec-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#lock"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#lock"></use></svg>Security
+          </span>
+          <h3 class="blog-title">Password Strength Checker: What Makes a Password Secure?</h3>
+          <p class="blog-excerpt">Learn how password strength is measured, what attackers exploit, and how to make your passwords uncrackable.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use Password Strength Checker
+          </span>
+          <div class="blog-meta">
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 18, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>5 min</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- AI TOOLS (2) -->
+
+      <a href="/en/blog/resume-analyzer" class="blog-card" data-category="ai">
+        <div class="blog-thumbnail ai-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#rocket"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#rocket"></use></svg>AI Tools
+          </span>
+          <h3 class="blog-title">Resume Analyzer: Get AI Feedback on Your CV Instantly</h3>
+          <p class="blog-excerpt">Improve your resume with AI-powered analysis. Understand what recruiters and ATS systems look for.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use Resume Analyzer
+          </span>
+          <div class="blog-meta">
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 22, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>6 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/en/blog/website-speed-analyzer" class="blog-card" data-category="ai">
+        <div class="blog-thumbnail ai-thumb">
+          <svg style="width:2.8rem;height:2.8rem;"><use href="/assets/svg/icons.svg#rocket"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#rocket"></use></svg>AI Tools
+          </span>
+          <h3 class="blog-title">Website Speed Analyzer: Boost Your Core Web Vitals</h3>
+          <p class="blog-excerpt">Diagnose slow page loads, understand performance scores, and get actionable tips to speed up your website.</p>
+          <span class="tool-link-badge">
+            <svg><use href="/assets/svg/icons.svg#arrow-right"></use></svg>
+            Use Website Speed Analyzer
+          </span>
+          <div class="blog-meta">
+            <span class="blog-date"><svg><use href="/assets/svg/icons.svg#calendar"></use></svg>May 20, 2026</span>
+            <span class="blog-read-time"><svg><use href="/assets/svg/icons.svg#clock"></use></svg>7 min</span>
           </div>
         </div>
       </a>
 
     </div>
 
-    <!-- COMING SOON SECTION -->
+    <!-- COMING SOON -->
     <div style="margin-top: 40px;">
       <div class="coming-soon">
-        <div class="coming-soon-icon">
-          <svg style="width: 2.5rem; height: 2.5rem;"><use href="/assets/svg/icons.svg#rocket"></use></svg>
+        <div style="margin-bottom:16px;">
+          <svg style="width:2.5rem;height:2.5rem;color:var(--blue-500);"><use href="/assets/svg/icons.svg#rocket"></use></svg>
         </div>
         <h3 class="coming-soon-title">More Articles Coming Soon</h3>
-        <p class="coming-soon-text">We're constantly creating new guides and tutorials. Stay tuned for in-depth content about all Logrith tools and best practices.</p>
+        <p class="coming-soon-text">We are constantly creating new guides and tutorials. Stay tuned for in-depth content about all Logrith tools and best practices.</p>
       </div>
     </div>
 
@@ -568,38 +1113,21 @@
       <p>Your resource for learning and mastering free online tools</p>
     </div>
 
-    <div class="about-blog" style="background: var(--white); border: 1px solid var(--gray-200);">
-      <h3 style="color: var(--gray-900); margin-bottom: 16px; font-size: 1.2rem;">Why We Created the Blog</h3>
-      
-      <p>The Logrith Blog exists to help you get the most out of our tools. Whether you're a beginner just discovering online tools or an experienced developer looking for optimization techniques, our blog provides comprehensive guides, tutorials, and tips to enhance your productivity.</p>
-
-      <p><strong>Comprehensive Tool Guides:</strong> Each tool category has dedicated guides explaining features, use cases, and best practices. From image compression to PDF manipulation, from text processing to JSON formatting, you'll find detailed instructions and pro tips.</p>
-
-      <p><strong>Step-by-Step Tutorials:</strong> We break down complex processes into simple, easy-to-follow steps. Whether you're converting an image format, merging PDFs, or generating secure passwords, our tutorials walk you through everything.</p>
-
+    <div class="about-blog">
+      <h3>Why We Created the Blog</h3>
+      <p>The Logrith Blog exists to help you get the most out of our tools. Whether you are a beginner just discovering online tools or an experienced developer looking for optimization techniques, our blog provides comprehensive guides, tutorials, and tips to enhance your productivity.</p>
+      <p><strong>Comprehensive Tool Guides:</strong> Each tool category has dedicated guides explaining features, use cases, and best practices. From image compression to PDF manipulation, from text processing to JSON formatting, you will find detailed instructions and pro tips.</p>
+      <p><strong>Step-by-Step Tutorials:</strong> We break down complex processes into simple, easy-to-follow steps. Whether you are converting an image format, merging PDFs, or generating secure passwords, our tutorials walk you through everything.</p>
       <p><strong>Best Practices and Tips:</strong> Learn industry-standard practices for document management, image optimization, code formatting, and security. Our tips help you work smarter, not harder.</p>
+      <p><strong>Regular Updates:</strong> New articles are published regularly covering new tools, emerging techniques, and reader requests.</p>
 
-      <p><strong>Regular Updates:</strong> New articles are published regularly covering new tools, emerging techniques, and reader requests. Subscribe to stay informed about the latest content.</p>
-
-      <h3 style="color: var(--gray-900); margin-bottom: 16px; margin-top: 24px; font-size: 1.2rem;">What You'll Find Here</h3>
-      
+      <h3 style="margin-top:24px;">What You Will Find Here</h3>
       <p><strong>Image Tools Guides:</strong> Master image compression without quality loss, convert between formats, resize images for different purposes, and optimize visual content for web and print.</p>
-
       <p><strong>PDF Tools Tutorials:</strong> Learn to merge multiple PDFs, split large documents, convert images to PDF, extract pages, and rotate documents efficiently.</p>
-
       <p><strong>Text Processing Tips:</strong> Discover techniques for word counting, case conversion, text comparison, slug generation, QR code creation, and more.</p>
-
-      <p><strong>Developer Resources:</strong> Find guides on JSON formatting, Base64 encoding/decoding, URL encoding, hash generation, UUID creation, and regex testing.</p>
-
+      <p><strong>Developer Resources:</strong> Find guides on JSON formatting, Base64 encoding, URL encoding, hash generation, UUID creation, and regex testing.</p>
       <p><strong>Calculator Guides:</strong> Understand how to use percentage calculators, GST calculations, and EMI calculations for financial planning.</p>
-
       <p><strong>Security and Best Practices:</strong> Learn about password security, strength checking, and other important digital safety practices.</p>
-
-      <h3 style="color: var(--gray-900); margin-bottom: 16px; margin-top: 24px; font-size: 1.2rem;">How to Use the Blog</h3>
-      
-      <p>You can browse all articles, filter by category, or search for specific topics. Each article includes reading time estimates so you know how long it will take. Articles include practical examples, screenshots, and actionable tips you can apply immediately.</p>
-
-      <p>Whether you have a specific question about a tool or want to explore new techniques, the Logrith Blog is your trusted resource for learning and mastery. Happy reading!</p>
     </div>
   </div>
 </section>
@@ -616,52 +1144,42 @@
       <div class="faq-q">What topics does the blog cover?</div>
       <div class="faq-a">Our blog covers comprehensive guides for all Logrith tools including image conversion and compression, PDF editing, text processing, calculators, developer utilities, and general best practices for productivity and security.</div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q">How often are new articles published?</div>
-      <div class="faq-a">We regularly publish new articles with guides, tutorials, and tips. New content is added frequently, so check back regularly or watch for updates on new topics and tools.</div>
+      <div class="faq-a">We regularly publish new articles with guides, tutorials, and tips. New content is added frequently, so check back regularly for updates.</div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q">Are the articles suitable for beginners?</div>
-      <div class="faq-a">Yes! We publish content for all skill levels. Beginners will find easy-to-follow tutorials and explanations, while advanced users can find pro tips and optimization techniques.</div>
+      <div class="faq-a">Yes! We publish content for all skill levels. Beginners will find easy-to-follow tutorials while advanced users can find pro tips and optimization techniques.</div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q">Can I find step-by-step instructions?</div>
       <div class="faq-a">Absolutely. Our tutorials break down complex processes into simple, numbered steps. Each article includes clear instructions and practical examples you can follow along with.</div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q">How long are the blog articles?</div>
       <div class="faq-a">Each article includes a reading time estimate. Most articles take 4-7 minutes to read and provide comprehensive information without unnecessary length.</div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q">Can I share blog articles?</div>
-      <div class="faq-a">Yes! All articles are designed to be shared. You can share individual article links with friends, colleagues, and on social media to help others learn about using online tools effectively.</div>
+      <div class="faq-a">Yes! All articles are designed to be shared. You can share individual article links with friends, colleagues, and on social media.</div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q">Can I suggest blog topics?</div>
-      <div class="faq-a">We'd love to hear your suggestions! Contact us through the contact page with topics you'd like us to cover. Your feedback helps us create content that's most useful for our readers.</div>
+      <div class="faq-a">We would love to hear your suggestions! Contact us through the contact page with topics you would like us to cover.</div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q">Are there video tutorials?</div>
-      <div class="faq-a">Currently our blog features written guides with detailed instructions. As we grow, we plan to add video tutorials to accompany our articles. Stay tuned!</div>
+      <div class="faq-a">Currently our blog features written guides with detailed instructions. As we grow, we plan to add video tutorials to accompany our articles.</div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q">Can I search for specific topics?</div>
-      <div class="faq-a">Yes! You can use the category filter buttons to browse articles by topic. Articles are organized by tool category making it easy to find what you need.</div>
+      <div class="faq-a">Yes! You can use the category filter buttons at the top to browse articles by tool type. Articles are organized by category making it easy to find what you need.</div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q">Is all content free?</div>
-      <div class="faq-a">Yes! All blog articles are completely free to read. There are no paywalls, no subscriptions required, and no registration necessary to access our guides and tutorials.</div>
+      <div class="faq-a">Yes! All blog articles are completely free to read. There are no paywalls, no subscriptions required, and no registration necessary.</div>
     </div>
-
   </div>
 </section>
 
@@ -672,15 +1190,13 @@
 <script src="/assets/js/main.js" defer></script>
 
 <script>
-function filterBlog(category) {
+function filterBlog(category, btn) {
   const cards = document.querySelectorAll('.blog-card');
   const buttons = document.querySelectorAll('.filter-btn');
-  
-  // Update active button
-  buttons.forEach(btn => btn.classList.remove('active'));
-  event.target.classList.add('active');
-  
-  // Filter cards
+
+  buttons.forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
   cards.forEach(card => {
     if (category === 'all' || card.dataset.category === category) {
       card.style.display = '';
