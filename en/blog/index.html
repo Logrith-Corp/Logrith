@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logrith Blog - Free Online Tools Guide & Tips | Articles</title>
+  <meta name="description" content="Logrith Blog - Read articles, guides, and tips about free online tools. Learn how to use image converters, PDF editors, calculators, and developer utilities effectively.">
+  <meta name="keywords" content="blog, tools guide, online tools tips, image converter tutorial, pdf tools guide, developer tools, calculator guide, free online tools articles">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Logrith">
+  <link rel="canonical" href="https://logrith.in/en/blog">
+
+  <meta property="og:title" content="Logrith Blog - Free Online Tools Guide & Tips">
+  <meta property="og:description" content="Explore helpful articles and guides about Logrith tools. Learn pro tips and best practices for image, PDF, text, and developer tools.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://logrith.in/en/blog">
+  <meta property="og:site_name" content="Logrith">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Logrith Blog - Tools Guide & Tips">
+  <meta name="twitter:description" content="Read useful articles about using Logrith free online tools effectively.">
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#000000">
+  <link rel="preload" href="/assets/css/style.css" as="style">
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <!-- Blog Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Logrith Blog",
+    "description": "Articles and guides about free online tools for images, PDFs, text processing, and development",
+    "url": "https://logrith.in/en/blog",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Logrith",
+      "url": "https://logrith.in",
+      "logo": "https://logrith.in/apple-touch-icon.png"
+    }
+  }
+  </script>
+
+  <!-- Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Logrith",
+    "url": "https://logrith.in/en/",
+    "logo": "https://logrith.in/en/apple-touch-icon.png"
+  }
+  </script>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What topics does the Logrith Blog cover?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Logrith Blog covers comprehensive guides on using Logrith tools including image conversion and compression, PDF editing and manipulation, text processing, calculator usage, developer utilities, and optimization tips for all categories of tools."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How often is the blog updated with new articles?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We regularly publish new blog posts with tips, tutorials, and guides about our tools. Check back frequently to learn new techniques and best practices for maximizing your productivity."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I get step-by-step tutorials for using Logrith tools?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! Our blog includes detailed step-by-step tutorials, how-to guides, and best practices for all major tool categories. Each article provides practical examples and tips to help you use our tools effectively."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are there guides for beginners?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely! We publish beginner-friendly guides that explain how to use each tool category. Whether you're new to online tools or looking to improve your skills, our blog has content for all levels."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I suggest topics for blog posts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We'd love to hear your suggestions! Feel free to reach out through our contact page with topics you'd like us to cover in future blog posts."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPJ4332XJH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BPJ4332XJH');
+  </script>
+
+<style>
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .blog-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .blog-card:hover {
+    border-color: var(--blue-500);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12);
+    transform: translateY(-4px);
+  }
+
+  .blog-thumbnail {
+    width: 100%;
+    height: 180px;
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: var(--blue-500);
+    overflow: hidden;
+  }
+
+  .blog-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .blog-category {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--gray-100);
+    color: var(--blue-600);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: fit-content;
+    margin-bottom: 10px;
+  }
+
+  .blog-category svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .blog-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .blog-excerpt {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    line-height: 1.6;
+    margin-bottom: 12px;
+    flex-grow: 1;
+  }
+
+  .blog-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+    border-top: 1px solid var(--gray-100);
+    font-size: 0.8rem;
+    color: var(--gray-500);
+  }
+
+  .blog-date {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .blog-date svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .blog-read-time {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .blog-read-time svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .blog-filter {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    padding: 8px 16px;
+    border: 1px solid var(--gray-300);
+    background: var(--white);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--gray-700);
+  }
+
+  .filter-btn:hover,
+  .filter-btn.active {
+    border-color: var(--blue-500);
+    background: var(--blue-50);
+    color: var(--blue-600);
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  .empty-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+  }
+
+  .empty-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 8px;
+  }
+
+  .empty-text {
+    color: var(--gray-600);
+    font-size: 0.95rem;
+  }
+
+  .coming-soon {
+    background: var(--gray-50);
+    border: 2px dashed var(--gray-300);
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+  }
+
+  .coming-soon-icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+  }
+
+  .coming-soon-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 8px;
+  }
+
+  .coming-soon-text {
+    color: var(--gray-600);
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 768px) {
+    .blog-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 16px;
+    }
+
+    .blog-filter {
+      gap: 8px;
+    }
+
+    .filter-btn {
+      padding: 6px 12px;
+      font-size: 0.85rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .blog-thumbnail {
+      height: 150px;
+      font-size: 2rem;
+    }
+
+    .blog-title {
+      font-size: 1rem;
+    }
+
+    .blog-excerpt {
+      font-size: 0.85rem;
+    }
+  }
+
+  .about-blog {
+    background: var(--gray-50);
+    border-radius: 12px;
+    padding: 32px;
+    margin: 40px 0;
+  }
+
+  .about-blog h2 {
+    color: var(--gray-900);
+    margin-bottom: 16px;
+    font-size: 1.3rem;
+  }
+
+  .about-blog p {
+    color: var(--gray-700);
+    line-height: 1.8;
+    margin-bottom: 16px;
+    font-size: 1rem;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div id="navbar"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Learn and Master Online Tools</div>
+    <h1>Logrith<br><span>Blog</span></h1>
+    <p>Read helpful guides, tutorials, and tips to maximize the power of free online tools. From image editing to development.</p>
+  </div>
+</section>
+
+<!-- BLOG SECTION -->
+<section class="section" style="background: var(--white);">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2>Latest Articles & Guides</h2>
+      <p>Explore tutorials and tips for using Logrith tools effectively</p>
+    </div>
+
+    <!-- FILTER BUTTONS -->
+    <div class="blog-filter">
+      <button class="filter-btn active" onclick="filterBlog('all')">All Articles</button>
+      <button class="filter-btn" onclick="filterBlog('image')">Image Tools</button>
+      <button class="filter-btn" onclick="filterBlog('pdf')">PDF Tools</button>
+      <button class="filter-btn" onclick="filterBlog('text')">Text Tools</button>
+      <button class="filter-btn" onclick="filterBlog('developer')">Developer</button>
+      <button class="filter-btn" onclick="filterBlog('tips')">Tips & Tricks</button>
+    </div>
+
+    <!-- BLOG GRID -->
+    <div class="blog-grid" id="blogGrid">
+      
+      <!-- BLOG CARD 1: Image Compression Guide -->
+      <a href="/en/blog/image-compression-guide" class="blog-card" data-category="image">
+        <div class="blog-thumbnail">
+          <svg style="width: 3rem; height: 3rem;"><use href="/assets/svg/icons.svg#compress-img"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#image"></use></svg>
+            Image Tools
+          </span>
+          <h3 class="blog-title">Complete Guide to Image Compression Without Quality Loss</h3>
+          <p class="blog-excerpt">Learn how to reduce image file sizes while maintaining visual quality. Perfect for web optimization and storage efficiency.</p>
+          <div class="blog-meta">
+            <span class="blog-date">
+              <svg><use href="/assets/svg/icons.svg#calendar"></use></svg>
+              May 24, 2026
+            </span>
+            <span class="blog-read-time">
+              <svg><use href="/assets/svg/icons.svg#clock"></use></svg>
+              5 min
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- BLOG CARD 2: PDF Merge Tips -->
+      <a href="/en/blog/pdf-merge-guide" class="blog-card" data-category="pdf">
+        <div class="blog-thumbnail">
+          <svg style="width: 3rem; height: 3rem;"><use href="/assets/svg/icons.svg#pages"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#pdf"></use></svg>
+            PDF Tools
+          </span>
+          <h3 class="blog-title">How to Merge Multiple PDFs Efficiently</h3>
+          <p class="blog-excerpt">Master the art of combining multiple PDF documents into one organized file. Best practices for document management.</p>
+          <div class="blog-meta">
+            <span class="blog-date">
+              <svg><use href="/assets/svg/icons.svg#calendar"></use></svg>
+              May 22, 2026
+            </span>
+            <span class="blog-read-time">
+              <svg><use href="/assets/svg/icons.svg#clock"></use></svg>
+              4 min
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- BLOG CARD 3: Password Generator Best Practices -->
+      <a href="/en/blog/password-generator-tips" class="blog-card" data-category="tips">
+        <div class="blog-thumbnail">
+          <svg style="width: 3rem; height: 3rem;"><use href="/assets/svg/icons.svg#key"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#lock"></use></svg>
+            Security Tips
+          </span>
+          <h3 class="blog-title">Creating Strong Passwords: A Comprehensive Guide</h3>
+          <p class="blog-excerpt">Understand why strong passwords matter and how to generate secure credentials that protect your online accounts.</p>
+          <div class="blog-meta">
+            <span class="blog-date">
+              <svg><use href="/assets/svg/icons.svg#calendar"></use></svg>
+              May 20, 2026
+            </span>
+            <span class="blog-read-time">
+              <svg><use href="/assets/svg/icons.svg#clock"></use></svg>
+              6 min
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- BLOG CARD 4: JSON Formatting for Developers -->
+      <a href="/en/blog/json-formatting-guide" class="blog-card" data-category="developer">
+        <div class="blog-thumbnail">
+          <svg style="width: 3rem; height: 3rem;"><use href="/assets/svg/icons.svg#json"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#code"></use></svg>
+            Developer Tools
+          </span>
+          <h3 class="blog-title">JSON Formatting and Validation for Developers</h3>
+          <p class="blog-excerpt">Learn how to properly format JSON data, validate syntax, and debug JSON errors quickly using our formatter tool.</p>
+          <div class="blog-meta">
+            <span class="blog-date">
+              <svg><use href="/assets/svg/icons.svg#calendar"></use></svg>
+              May 18, 2026
+            </span>
+            <span class="blog-read-time">
+              <svg><use href="/assets/svg/icons.svg#clock"></use></svg>
+              7 min
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- BLOG CARD 5: Text Processing Tips -->
+      <a href="/en/blog/text-processing-tips" class="blog-card" data-category="text">
+        <div class="blog-thumbnail">
+          <svg style="width: 3rem; height: 3rem;"><use href="/assets/svg/icons.svg#case"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#edit"></use></svg>
+            Text Tools
+          </span>
+          <h3 class="blog-title">Master Text Formatting: Case Conversion & Cleanup</h3>
+          <p class="blog-excerpt">Discover techniques for transforming text between different cases, removing duplicates, and cleaning up content efficiently.</p>
+          <div class="blog-meta">
+            <span class="blog-date">
+              <svg><use href="/assets/svg/icons.svg#calendar"></use></svg>
+              May 16, 2026
+            </span>
+            <span class="blog-read-time">
+              <svg><use href="/assets/svg/icons.svg#clock"></use></svg>
+              5 min
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- BLOG CARD 6: URL Encoding Explained -->
+      <a href="/en/blog/url-encoding-guide" class="blog-card" data-category="developer">
+        <div class="blog-thumbnail">
+          <svg style="width: 3rem; height: 3rem;"><use href="/assets/svg/icons.svg#link"></use></svg>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">
+            <svg><use href="/assets/svg/icons.svg#code"></use></svg>
+            Developer Tools
+          </span>
+          <h3 class="blog-title">Understanding URL Encoding and Decoding</h3>
+          <p class="blog-excerpt">Learn how URL encoding works, why it's necessary, and how to properly encode and decode URLs for web applications.</p>
+          <div class="blog-meta">
+            <span class="blog-date">
+              <svg><use href="/assets/svg/icons.svg#calendar"></use></svg>
+              May 14, 2026
+            </span>
+            <span class="blog-read-time">
+              <svg><use href="/assets/svg/icons.svg#clock"></use></svg>
+              6 min
+            </span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- COMING SOON SECTION -->
+    <div style="margin-top: 40px;">
+      <div class="coming-soon">
+        <div class="coming-soon-icon">
+          <svg style="width: 2.5rem; height: 2.5rem;"><use href="/assets/svg/icons.svg#rocket"></use></svg>
+        </div>
+        <h3 class="coming-soon-title">More Articles Coming Soon</h3>
+        <p class="coming-soon-text">We're constantly creating new guides and tutorials. Stay tuned for in-depth content about all Logrith tools and best practices.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT BLOG SECTION -->
+<section class="section" style="background: var(--gray-50);">
+  <div class="section-inner" style="max-width: 900px; margin: 0 auto;">
+    <div class="section-header">
+      <h2>About the Logrith Blog</h2>
+      <p>Your resource for learning and mastering free online tools</p>
+    </div>
+
+    <div class="about-blog" style="background: var(--white); border: 1px solid var(--gray-200);">
+      <h3 style="color: var(--gray-900); margin-bottom: 16px; font-size: 1.2rem;">Why We Created the Blog</h3>
+      
+      <p>The Logrith Blog exists to help you get the most out of our tools. Whether you're a beginner just discovering online tools or an experienced developer looking for optimization techniques, our blog provides comprehensive guides, tutorials, and tips to enhance your productivity.</p>
+
+      <p><strong>Comprehensive Tool Guides:</strong> Each tool category has dedicated guides explaining features, use cases, and best practices. From image compression to PDF manipulation, from text processing to JSON formatting, you'll find detailed instructions and pro tips.</p>
+
+      <p><strong>Step-by-Step Tutorials:</strong> We break down complex processes into simple, easy-to-follow steps. Whether you're converting an image format, merging PDFs, or generating secure passwords, our tutorials walk you through everything.</p>
+
+      <p><strong>Best Practices and Tips:</strong> Learn industry-standard practices for document management, image optimization, code formatting, and security. Our tips help you work smarter, not harder.</p>
+
+      <p><strong>Regular Updates:</strong> New articles are published regularly covering new tools, emerging techniques, and reader requests. Subscribe to stay informed about the latest content.</p>
+
+      <h3 style="color: var(--gray-900); margin-bottom: 16px; margin-top: 24px; font-size: 1.2rem;">What You'll Find Here</h3>
+      
+      <p><strong>Image Tools Guides:</strong> Master image compression without quality loss, convert between formats, resize images for different purposes, and optimize visual content for web and print.</p>
+
+      <p><strong>PDF Tools Tutorials:</strong> Learn to merge multiple PDFs, split large documents, convert images to PDF, extract pages, and rotate documents efficiently.</p>
+
+      <p><strong>Text Processing Tips:</strong> Discover techniques for word counting, case conversion, text comparison, slug generation, QR code creation, and more.</p>
+
+      <p><strong>Developer Resources:</strong> Find guides on JSON formatting, Base64 encoding/decoding, URL encoding, hash generation, UUID creation, and regex testing.</p>
+
+      <p><strong>Calculator Guides:</strong> Understand how to use percentage calculators, GST calculations, and EMI calculations for financial planning.</p>
+
+      <p><strong>Security and Best Practices:</strong> Learn about password security, strength checking, and other important digital safety practices.</p>
+
+      <h3 style="color: var(--gray-900); margin-bottom: 16px; margin-top: 24px; font-size: 1.2rem;">How to Use the Blog</h3>
+      
+      <p>You can browse all articles, filter by category, or search for specific topics. Each article includes reading time estimates so you know how long it will take. Articles include practical examples, screenshots, and actionable tips you can apply immediately.</p>
+
+      <p>Whether you have a specific question about a tool or want to explore new techniques, the Logrith Blog is your trusted resource for learning and mastery. Happy reading!</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ SECTION -->
+<section class="section" style="background: var(--white);">
+  <div class="section-inner" style="max-width: 860px; margin: 0 auto;">
+    <div class="section-header">
+      <h2>Blog FAQ</h2>
+      <p>Frequently asked questions about the Logrith Blog</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">What topics does the blog cover?</div>
+      <div class="faq-a">Our blog covers comprehensive guides for all Logrith tools including image conversion and compression, PDF editing, text processing, calculators, developer utilities, and general best practices for productivity and security.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How often are new articles published?</div>
+      <div class="faq-a">We regularly publish new articles with guides, tutorials, and tips. New content is added frequently, so check back regularly or watch for updates on new topics and tools.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Are the articles suitable for beginners?</div>
+      <div class="faq-a">Yes! We publish content for all skill levels. Beginners will find easy-to-follow tutorials and explanations, while advanced users can find pro tips and optimization techniques.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Can I find step-by-step instructions?</div>
+      <div class="faq-a">Absolutely. Our tutorials break down complex processes into simple, numbered steps. Each article includes clear instructions and practical examples you can follow along with.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How long are the blog articles?</div>
+      <div class="faq-a">Each article includes a reading time estimate. Most articles take 4-7 minutes to read and provide comprehensive information without unnecessary length.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Can I share blog articles?</div>
+      <div class="faq-a">Yes! All articles are designed to be shared. You can share individual article links with friends, colleagues, and on social media to help others learn about using online tools effectively.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Can I suggest blog topics?</div>
+      <div class="faq-a">We'd love to hear your suggestions! Contact us through the contact page with topics you'd like us to cover. Your feedback helps us create content that's most useful for our readers.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Are there video tutorials?</div>
+      <div class="faq-a">Currently our blog features written guides with detailed instructions. As we grow, we plan to add video tutorials to accompany our articles. Stay tuned!</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Can I search for specific topics?</div>
+      <div class="faq-a">Yes! You can use the category filter buttons to browse articles by topic. Articles are organized by tool category making it easy to find what you need.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Is all content free?</div>
+      <div class="faq-a">Yes! All blog articles are completely free to read. There are no paywalls, no subscriptions required, and no registration necessary to access our guides and tutorials.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div id="footer"></div>
+
+<script src="/en/load-components.js"></script>
+<script src="/assets/js/main.js" defer></script>
+
+<script>
+function filterBlog(category) {
+  const cards = document.querySelectorAll('.blog-card');
+  const buttons = document.querySelectorAll('.filter-btn');
+  
+  // Update active button
+  buttons.forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+  
+  // Filter cards
+  cards.forEach(card => {
+    if (category === 'all' || card.dataset.category === category) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
+
+</body>
+</html>
