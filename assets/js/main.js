@@ -37,11 +37,11 @@ const ALL_TOOLS = [
 
 /* ─────────────────────────────────────────────────────────
    PATH PREFIX
-   /en/index.html         → ''
-   /en/tools/x.html       → '../'
-   /en/categories/x.html  → '../'
-   /en/x.html       → '../'
-   /en/blog/x.html        → '../'
+   /legacy/index.html         → ''
+   /legacy/tools/x.html       → '../'
+   /legacy/categories/x.html  → '../'
+   /legacy/x.html       → '../'
+   /legacy/blog/x.html        → '../'
 ───────────────────────────────────────────────────────── */
 function getRootPrefix() {
   const path = window.location.pathname;
