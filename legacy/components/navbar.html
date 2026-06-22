@@ -4,7 +4,7 @@ LOGRITH LEGACY NAVBAR
 
 <nav class="lg-navbar">
 
-  <a href="/legacy/" class="lg-logo">
+  <a href="/legacy/" class="lg-logo" aria-label="Logrith Home">
     <img src="/assets/img/logo.webp" alt="Logrith">
     <span>Logrith</span>
   </a>
@@ -18,270 +18,311 @@ LOGRITH LEGACY NAVBAR
   </div>
 
   <div class="lg-right">
-
     <input
       type="search"
       placeholder="Search tools..."
-      id="toolSearch">
+      id="toolSearch"
+      aria-label="Search tools">
 
-    <button
-      class="lg-menu-btn"
-      onclick="toggleMenu()">
+    <!-- Mobile menu toggle -->
+    <input type="checkbox" id="lg-menu-toggle" class="lg-menu-toggle" aria-hidden="true">
+
+    <label for="lg-menu-toggle" class="lg-menu-btn" aria-label="Open menu" aria-controls="mobileMenu">
       ☰
-    </button>
-
+    </label>
   </div>
 
 </nav>
 
+<!-- MOBILE OVERLAY -->
+<label for="lg-menu-toggle" class="lg-overlay" aria-hidden="true"></label>
+
 <!-- MOBILE DRAWER -->
-
-<div class="lg-overlay" id="overlay" onclick="closeMenu()"></div>
-
-<div class="lg-mobile" id="mobileMenu">
-
+<aside class="lg-mobile" id="mobileMenu" aria-label="Mobile navigation">
   <div class="lg-mobile-top">
-
-    <span class="lg-mobile-logo">
+    <a href="/legacy/" class="lg-mobile-logo">
       Logrith
-    </span>
+    </a>
 
-    <button onclick="closeMenu()">
+    <label for="lg-menu-toggle" class="lg-close-btn" aria-label="Close menu">
       ✕
-    </button>
-
+    </label>
   </div>
 
   <a href="/legacy/">Home</a>
-
-  <a href="/legacy/categories/all-tools.html">
-    All Tools
-  </a>
-
-  <a href="/legacy/categories/developer-tools.html">
-    Developer Tools
-  </a>
-
-  <a href="/legacy/categories/text-generators.html">
-    Text Tools
-  </a>
-
-  <a href="/legacy/categories/utilities.html">
-    Utilities
-  </a>
+  <a href="/legacy/categories/all-tools.html">All Tools</a>
+  <a href="/legacy/categories/developer-tools.html">Developer Tools</a>
+  <a href="/legacy/categories/text-generators.html">Text Tools</a>
+  <a href="/legacy/categories/utilities.html">Utilities</a>
 
   <hr>
 
-  <a href="/legacy/pages/about.html">
-    About
-  </a>
-
-  <a href="/legacy/pages/contact.html">
-    Contact
-  </a>
-
-  <a href="/legacy/pages/privacy.html">
-    Privacy
-  </a>
-
-  <a href="/legacy/pages/terms.html">
-    Terms
-  </a>
-
-</div>
+  <a href="/legacy/pages/about.html">About</a>
+  <a href="/legacy/pages/contact.html">Contact</a>
+  <a href="/legacy/pages/privacy.html">Privacy</a>
+  <a href="/legacy/pages/terms.html">Terms</a>
+</aside>
 
 <style>
-
-:root{
-  --border:#e5e7eb;
-  --text:#111827;
-  --muted:#6b7280;
-  --bg:#ffffff;
-}
-
-*{
-  box-sizing:border-box;
-}
-
-.lg-navbar{
-  position:sticky;
-  top:0;
-  z-index:999;
-  height:64px;
-  background:#fff;
-  border-bottom:1px solid var(--border);
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  padding:0 18px;
-}
-
-.lg-logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  text-decoration:none;
-  color:var(--text);
-  font-weight:700;
-  font-size:18px;
-}
-
-.lg-logo img{
-  width:34px;
-  height:34px;
-  object-fit:contain;
-}
-
-.lg-nav-links{
-  display:flex;
-  gap:24px;
-}
-
-.lg-nav-links a{
-  text-decoration:none;
-  color:var(--muted);
-  font-size:14px;
-  font-weight:500;
-}
-
-.lg-nav-links a:hover{
-  color:var(--text);
-}
-
-.lg-right{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-#toolSearch{
-  width:230px;
-  height:40px;
-  border:1px solid var(--border);
-  border-radius:10px;
-  padding:0 14px;
-  outline:none;
-}
-
-.lg-menu-btn{
-  display:none;
-  border:none;
-  background:none;
-  font-size:26px;
-  cursor:pointer;
-}
-
-/* MOBILE */
-
-.lg-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.35);
-  opacity:0;
-  visibility:hidden;
-  transition:.25s;
-  z-index:1000;
-}
-
-.lg-overlay.show{
-  opacity:1;
-  visibility:visible;
-}
-
-.lg-mobile{
-  position:fixed;
-  top:0;
-  right:-300px;
-  width:280px;
-  height:100vh;
-  background:#fff;
-  z-index:1001;
-  transition:.3s;
-  overflow-y:auto;
-  padding:20px;
-}
-
-.lg-mobile.show{
-  right:0;
-}
-
-.lg-mobile-top{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:20px;
-}
-
-.lg-mobile-top button{
-  border:none;
-  background:none;
-  font-size:22px;
-  cursor:pointer;
-}
-
-.lg-mobile a{
-  display:block;
-  padding:14px 0;
-  text-decoration:none;
-  color:#111;
-  border-bottom:1px solid #f1f1f1;
-}
-
-.lg-mobile-logo{
-  font-size:18px;
-  font-weight:700;
-}
-
-@media(max-width:900px){
-
-  .lg-nav-links{
-    display:none;
+  :root{
+    --border:#e5e7eb;
+    --text:#111827;
+    --muted:#6b7280;
+    --bg:#ffffff;
+    --shadow:0 10px 30px rgba(0,0,0,.08);
   }
 
-  #toolSearch{
-    display:none;
+  *{
+    box-sizing:border-box;
   }
 
-  .lg-menu-btn{
+  html, body{
+    margin:0;
+  }
+
+  .lg-navbar{
+    position:sticky;
+    top:0;
+    z-index:999;
+    min-height:56px;
+    background:var(--bg);
+    border-bottom:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:8px 14px;
+    gap:14px;
+  }
+
+  .lg-logo{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    text-decoration:none;
+    color:var(--text);
+    font-weight:800;
+    font-size:17px;
+    letter-spacing:-0.02em;
+    white-space:nowrap;
+    flex-shrink:0;
+  }
+
+  .lg-logo img{
+    width:28px;
+    height:28px;
+    object-fit:contain;
     display:block;
   }
 
-}
-
-</style>
-
-<script>
-
-const mobileMenu =
-document.getElementById('mobileMenu');
-
-const overlay =
-document.getElementById('overlay');
-
-function toggleMenu(){
-
-  mobileMenu.classList.add('show');
-  overlay.classList.add('show');
-
-}
-
-function closeMenu(){
-
-  mobileMenu.classList.remove('show');
-  overlay.classList.remove('show');
-
-}
-
-document.addEventListener(
-'keydown',
-function(e){
-
-  if(e.key==='Escape'){
-    closeMenu();
+  .lg-nav-links{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    flex:1;
+    justify-content:center;
   }
 
-});
+  .lg-nav-links a{
+    text-decoration:none;
+    color:var(--muted);
+    font-size:14px;
+    font-weight:600;
+    transition:color .2s ease;
+  }
 
-</script>
+  .lg-nav-links a:hover{
+    color:var(--text);
+  }
+
+  .lg-right{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-shrink:0;
+  }
+
+  #toolSearch{
+    width:210px;
+    height:38px;
+    border:1px solid var(--border);
+    border-radius:11px;
+    padding:0 12px;
+    outline:none;
+    background:#fff;
+    color:var(--text);
+    font-size:14px;
+  }
+
+  #toolSearch:focus{
+    border-color:#cbd5e1;
+    box-shadow:0 0 0 3px rgba(0,0,0,.04);
+  }
+
+  .lg-menu-toggle{
+    position:absolute;
+    opacity:0;
+    pointer-events:none;
+    width:1px;
+    height:1px;
+  }
+
+  .lg-menu-btn{
+    display:none;
+    align-items:center;
+    justify-content:center;
+    width:40px;
+    height:40px;
+    border:1px solid var(--border);
+    border-radius:12px;
+    background:#fff;
+    color:var(--text);
+    font-size:22px;
+    line-height:1;
+    cursor:pointer;
+    user-select:none;
+    flex-shrink:0;
+  }
+
+  /* Overlay */
+  .lg-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.38);
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .25s ease, visibility .25s ease;
+    z-index:1000;
+    cursor:pointer;
+  }
+
+  /* Drawer */
+  .lg-mobile{
+    position:fixed;
+    top:0;
+    right:-320px;
+    width:min(82vw, 300px);
+    height:100vh;
+    background:#fff;
+    z-index:1001;
+    transition:right .28s ease;
+    overflow-y:auto;
+    padding:18px;
+    box-shadow:var(--shadow);
+    border-left:1px solid var(--border);
+  }
+
+  .lg-mobile-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:14px;
+    padding-bottom:10px;
+    border-bottom:1px solid #f3f4f6;
+  }
+
+  .lg-mobile-logo{
+    display:inline-flex;
+    align-items:center;
+    text-decoration:none;
+    color:var(--text);
+    font-size:18px;
+    font-weight:800;
+    letter-spacing:-0.02em;
+  }
+
+  .lg-close-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:38px;
+    height:38px;
+    border:1px solid var(--border);
+    border-radius:12px;
+    color:var(--text);
+    font-size:20px;
+    line-height:1;
+    cursor:pointer;
+    user-select:none;
+    flex-shrink:0;
+    background:#fff;
+  }
+
+  .lg-mobile a{
+    display:block;
+    padding:13px 2px;
+    text-decoration:none;
+    color:var(--text);
+    border-bottom:1px solid #f3f4f6;
+    font-size:15px;
+    font-weight:600;
+  }
+
+  .lg-mobile a:hover{
+    color:#000;
+  }
+
+  .lg-mobile hr{
+    border:none;
+    border-top:1px solid #f3f4f6;
+    margin:12px 0;
+  }
+
+  /* Toggle states */
+  #lg-menu-toggle:checked ~ .lg-overlay{
+    opacity:1;
+    visibility:visible;
+  }
+
+  #lg-menu-toggle:checked ~ .lg-mobile{
+    right:0;
+  }
+
+  @media (max-width: 900px){
+    .lg-navbar{
+      padding:8px 12px;
+      gap:10px;
+    }
+
+    .lg-nav-links{
+      display:none;
+    }
+
+    #toolSearch{
+      display:none;
+    }
+
+    .lg-menu-btn{
+      display:inline-flex;
+    }
+
+    .lg-logo{
+      font-size:16px;
+      gap:7px;
+    }
+
+    .lg-logo img{
+      width:26px;
+      height:26px;
+    }
+
+    .lg-right{
+      gap:8px;
+    }
+  }
+
+  @media (max-width: 420px){
+    .lg-navbar{
+      padding:7px 10px;
+    }
+
+    .lg-logo span{
+      font-size:16px;
+    }
+
+    .lg-mobile{
+      width:min(88vw, 290px);
+      padding:16px;
+    }
+  }
+</style>
